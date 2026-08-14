@@ -1,0 +1,568 @@
+{
+  "$schema": "./layouts.schema.md",
+  "version": "1.0",
+  "source": "Nightlife Culture Style Guide v1.0 + slide-layouts.html",
+  "howToUse": "Every <section> in a deck declares data-layout. The validator reads this file and checks the section against its contract. Do not add slots a layout does not declare \u2014 pick a different layout instead.",
+  "layouts": {
+    "L01": {
+      "name": "Cover",
+      "grounds": [
+        "blue",
+        "ink"
+      ],
+      "anchor": "two",
+      "maxBlocks": 4,
+      "slots": {
+        "logo": {
+          "required": true,
+          "maxWords": 3,
+          "class": "logo big"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 18,
+          "class": "sub"
+        }
+      },
+      "footer": {
+        "slideNumber": false,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "The logo is the first block; the statement and stop rule anchor to the bottom. No slide number on a cover."
+    },
+    "L02": {
+      "name": "Section divider",
+      "grounds": [
+        "blue",
+        "ink"
+      ],
+      "anchor": "centre",
+      "maxBlocks": 3,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 5,
+          "class": "t xl"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": true
+      },
+      "forbid": [
+        "sub",
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "Nothing follows the rule. That is what makes it a stop."
+    },
+    "L03": {
+      "name": "Three points",
+      "grounds": [
+        "blue",
+        "chalk",
+        "white",
+        "ink"
+      ],
+      "anchor": "two",
+      "maxBlocks": 5,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "columns": {
+          "required": true,
+          "count": 3,
+          "class": "tr3",
+          "each": {
+            "numeral": true,
+            "label": {
+              "maxWords": 3
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "g3"
+      ],
+      "note": "THE WORKHORSE. Columns carry a numeral AND a label \u2014 a rule with a label under it and no numeral reads as disconnected."
+    },
+    "L04": {
+      "name": "Two-column contrast",
+      "grounds": [
+        "blue",
+        "ink"
+      ],
+      "anchor": "top",
+      "maxBlocks": 2,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "columns": {
+          "required": true,
+          "count": 2,
+          "class": "col2",
+          "each": {
+            "title": {
+              "maxWords": 5
+            },
+            "breaker": true,
+            "body": {
+              "maxWords": 22
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": false
+      },
+      "forbid": [
+        "title",
+        "sub",
+        "tr3",
+        "g3"
+      ],
+      "note": "The second column title in teal marks the side you want heard. 6% gutter. One breaker per column is correct here \u2014 the global max of 1 does not apply. Anchored top because the two column bodies fill the frame; bottom-anchoring leaves a hole above them.",
+      "maxBreakers": 2
+    },
+    "L05": {
+      "name": "Quote",
+      "grounds": [
+        "blue",
+        "ink"
+      ],
+      "anchor": "centre",
+      "maxBlocks": 3,
+      "slots": {
+        "accentBar": {
+          "required": true,
+          "count": 1,
+          "class": "brk bar"
+        },
+        "quote": {
+          "required": true,
+          "maxWords": 24,
+          "class": "quote"
+        },
+        "attribution": {
+          "required": false,
+          "maxWords": 8,
+          "class": "k"
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": true
+      },
+      "forbid": [
+        "title",
+        "sub",
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "Pink bar ABOVE the quote. Attribution is a source, not a list of adjectives."
+    },
+    "L06": {
+      "name": "Report register",
+      "grounds": [
+        "chalk",
+        "white"
+      ],
+      "anchor": "two",
+      "maxBlocks": 5,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "cells": {
+          "required": true,
+          "count": 3,
+          "class": "g3",
+          "each": {
+            "numeral": true,
+            "label": {
+              "maxWords": 3
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "tr3"
+      ],
+      "note": "Charcoal title, blue sub. Filled accent cells, no borders."
+    },
+    "L07": {
+      "name": "Night register",
+      "grounds": [
+        "ink"
+      ],
+      "anchor": "two",
+      "maxBlocks": 5,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "cells": {
+          "required": true,
+          "count": 3,
+          "class": "g3",
+          "each": {
+            "numeral": true,
+            "label": {
+              "maxWords": 3
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "tr3"
+      ],
+      "note": "Teal kicker. Never butter on ink."
+    },
+    "L08": {
+      "name": "Vertical third",
+      "grounds": [
+        "chalk",
+        "white"
+      ],
+      "anchor": "two",
+      "maxBlocks": 4,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "hairbrk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "third": {
+          "required": true,
+          "count": 1,
+          "class": "third",
+          "each": {
+            "items": {
+              "max": 2,
+              "numeral": true,
+              "label": {
+                "maxWords": 3
+              }
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": false
+      },
+      "forbid": [
+        "body"
+      ],
+      "note": "Accent block occupies the last third. Two items maximum in the block."
+    },
+    "L09": {
+      "name": "Ink strip",
+      "grounds": [
+        "chalk",
+        "white"
+      ],
+      "anchor": "two",
+      "maxBlocks": 4,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "strip": {
+          "required": true,
+          "count": 3,
+          "class": "strip",
+          "each": {
+            "numeral": true,
+            "label": {
+              "maxWords": 3
+            }
+          }
+        }
+      },
+      "footer": {
+        "slideNumber": false,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "Full-bleed ink band replaces three boxes. Numerals in teal. The band is the footer."
+    },
+    "L10": {
+      "name": "Vertical third stat",
+      "grounds": [
+        "chalk",
+        "white"
+      ],
+      "anchor": "two",
+      "maxBlocks": 4,
+      "slots": {
+        "statBlock": {
+          "required": true,
+          "count": 1,
+          "class": "third wide",
+          "each": {
+            "kicker": {
+              "maxWords": 4
+            },
+            "number": true,
+            "label": {
+              "maxWords": 5
+            }
+          }
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t sm"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "hairbrk"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 20,
+          "class": "sub"
+        },
+        "source": {
+          "required": true,
+          "maxWords": 14,
+          "class": "srcline"
+        }
+      },
+      "footer": {
+        "slideNumber": false,
+        "logo": false
+      },
+      "forbid": [
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "ONE number. Source line mandatory \u2014 period, geography, boundary vintage, provenance code."
+    },
+    "L11": {
+      "name": "Chart slide",
+      "grounds": [
+        "chalk",
+        "white"
+      ],
+      "anchor": "two",
+      "maxBlocks": 5,
+      "slots": {
+        "kicker": {
+          "required": true,
+          "maxWords": 4,
+          "class": "k"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 6,
+          "class": "t sm"
+        },
+        "breaker": {
+          "required": true,
+          "count": 1,
+          "class": "brk"
+        },
+        "chart": {
+          "required": true,
+          "count": 1,
+          "class": "chart",
+          "each": {
+            "maxSeries": 4,
+            "labelAtMark": true
+          }
+        },
+        "source": {
+          "required": true,
+          "maxWords": 16,
+          "class": "srcline"
+        }
+      },
+      "footer": {
+        "slideNumber": true,
+        "logo": true
+      },
+      "forbid": [
+        "sub",
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "Chart ramp only. Source line mandatory. Single series = blue."
+    },
+    "L12": {
+      "name": "Closing",
+      "grounds": [
+        "blue",
+        "ink"
+      ],
+      "anchor": "two",
+      "maxBlocks": 3,
+      "slots": {
+        "accentBar": {
+          "required": true,
+          "count": 1,
+          "class": "brk bar"
+        },
+        "title": {
+          "required": true,
+          "maxWords": 10,
+          "class": "t lg"
+        },
+        "sub": {
+          "required": false,
+          "maxWords": 26,
+          "class": "sub"
+        }
+      },
+      "footer": {
+        "slideNumber": false,
+        "logo": true
+      },
+      "forbid": [
+        "kicker",
+        "body",
+        "tr3",
+        "g3"
+      ],
+      "note": "The ask and the contact. No slide number on a closing slide."
+    }
+  }
+}

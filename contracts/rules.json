@@ -1,0 +1,160 @@
+{
+  "$schema": "./rules.schema.md",
+  "version": "1.0",
+  "source": "Nightlife Culture Style Guide v1.0, August 2026",
+  "note": "Global rules that apply to every artefact. A validator enforces these; prose does not.",
+  "colour": {
+    "grounds": {
+      "blue": {
+        "hex": "#0000FF",
+        "text": "white",
+        "kicker": "teal",
+        "title": "white"
+      },
+      "ink": {
+        "hex": "#0D0D0D",
+        "text": "white",
+        "kicker": "teal",
+        "title": "white"
+      },
+      "chalk": {
+        "hex": "#F3F3F3",
+        "text": "ink",
+        "kicker": "blue",
+        "title": "charcoal"
+      },
+      "white": {
+        "hex": "#FFFFFF",
+        "text": "ink",
+        "kicker": "blue",
+        "title": "charcoal"
+      }
+    },
+    "accents": {
+      "pink": {
+        "hex": "#ED77C2",
+        "text": "ink",
+        "role": "hot counter-signal, accent bars, pull-quote rules"
+      },
+      "teal": {
+        "hex": "#53E6E5",
+        "text": "ink",
+        "role": "cool highlight, section headers on dark grounds"
+      },
+      "violet": {
+        "hex": "#B98CFF",
+        "text": "ink",
+        "role": "calm surface, blocks, vertical thirds"
+      },
+      "butter": {
+        "hex": "#FFDE6B",
+        "text": "ink",
+        "role": "opportunity, funding, forward motion"
+      },
+      "coral": {
+        "hex": "#FD7B53",
+        "text": "ink",
+        "role": "urgency, risk, lowest provenance tier"
+      }
+    },
+    "chartRamp": [
+      "#0000FF",
+      "#C7339A",
+      "#00C6C5",
+      "#FFDE6B"
+    ],
+    "retired": [
+      "#920DFF",
+      "#F26B43",
+      "#FFD100",
+      "#F6F6EE"
+    ],
+    "laws": [
+      "Every accent is a black-text surface. Every ground is a white-text surface.",
+      "Accents never encode data. Only the chart ramp encodes data.",
+      "Accents are blocks, never full-bleed slide grounds.",
+      "Teal is the kicker colour on every dark ground. Never butter on ink.",
+      "Titles on light grounds are charcoal, not blue. Blue is for the sub."
+    ]
+  },
+  "slideGrid": {
+    "marginX": "6%",
+    "marginTop": "7.5%",
+    "footerBand": "14%",
+    "bodyMeasureMax": "70%",
+    "titleMaxLines": 3,
+    "coverageMaxPct": 55,
+    "denseTierCoverageMaxPct": 70
+  },
+  "composition": {
+    "anchorRequired": true,
+    "anchorValues": [
+      "two",
+      "centre",
+      "top"
+    ],
+    "anchorNote": "Every .pad declares data-anchor, and the value comes from the layout contract \u2014 never from the author's judgement. 'two' pins the last block to the bottom so the composition spans the frame (the default for content slides). 'centre' optically centres a single block (dividers, quotes). 'top' is permitted ONLY for layouts whose contract declares it \u2014 those whose content block is tall enough to fill the frame on its own, such as the two-column contrast. Implicit top-anchoring is what leaves a dead band at the bottom of a slide; this is why the anchor is a contract field and not a styling decision.",
+    "maxBlocksPerSlide": 4,
+    "maxBreakersPerSlide": 1,
+    "blockNote": "A block is any direct child of .pad. Kicker, title, breaker, sub, column group, chart, stat row each count as one."
+  },
+  "typography": {
+    "capsLevels": [
+      "display",
+      "h1",
+      "h2",
+      "label",
+      "kicker"
+    ],
+    "sentenceCaseLevels": [
+      "h3",
+      "body",
+      "caption",
+      "source"
+    ],
+    "capsMaxWords": 8,
+    "capsMaxLines": 2,
+    "capsMinSizePtScreen": 16,
+    "capsMinSizePtPrint": 14,
+    "neverCaps": [
+      "body",
+      "caption",
+      "source",
+      "alt text",
+      "table cell"
+    ]
+  },
+  "charts": {
+    "maxSeries": 4,
+    "singleSeriesColour": "#0000FF",
+    "labelAtMark": true,
+    "provenanceRequired": true,
+    "suppressedMarker": "[c]",
+    "notCollectedMarker": "n/a",
+    "forbid": [
+      "non-uniform SVG scaling",
+      "brand accents as series colours",
+      "blank cells for missing data"
+    ]
+  },
+  "footer": {
+    "slideNumber": {
+      "on": "content slides only",
+      "position": "bottom-right",
+      "digits": 2
+    },
+    "logo": {
+      "on": [
+        "cover",
+        "section divider",
+        "closing",
+        "slides that travel alone"
+      ],
+      "position": "bottom-left",
+      "mono": true,
+      "forbidColour": {
+        "teal": "1.52:1 on white \u2014 never a logo colour on a light ground"
+      }
+    }
+  }
+}

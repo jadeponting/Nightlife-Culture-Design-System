@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{ print length, NR }' \"/Users/carly/Downloads/Nightlife_Culture_Style_Guide_v1.0.html\")"
+    ]
+  }
+}
