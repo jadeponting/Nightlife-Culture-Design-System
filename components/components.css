@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Nightlife Culture — component library
+   Built entirely on tokens/tokens.css. No colour, size or spacing value in
+   this file should be a raw number if a token already exists for it — if
+   you find one, it's a bug (or the token is missing and belongs upstream).
+   Class prefix: nc- (Nightlife Culture), to avoid clashing with a host
+   project's own CSS when this is dropped in.
+   ========================================================================== */
+
+/* ---- Base ---------------------------------------------------------------- */
+.nc-reset, .nc-reset *{box-sizing:border-box}
+.nc-root{
+  background:var(--nc-chalk);
+  color:var(--nc-ink);
+  font-family:var(--nc-font-body);
+  font-size:var(--nc-fs-body);
+  line-height:var(--nc-lh-body);
+  -webkit-font-smoothing:antialiased;
+}
+.nc-root a{color:var(--nc-blue)}
+.nc-root code{
+  font-family:ui-monospace,Menlo,monospace;font-size:.88em;
+  background:var(--nc-white);padding:1px 5px;outline:1px solid var(--nc-hair);
+}
+
+/* ---- Type scale (guide s.08) ----------------------------------------------
+   .nc-display / .nc-h1 / .nc-h2 stay ALL CAPS with tracking — never use them
+   below 16px on screen or for anything longer than ~8 words (the caps rule).
+   .nc-h3 and below stay sentence case by design. */
+.nc-display{
+  font-family:var(--nc-font-display);text-transform:uppercase;
+  font-size:var(--nc-fs-display);line-height:var(--nc-lh-display);
+  letter-spacing:var(--nc-ls-display);margin:0;
+}
+.nc-h1{
+  font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
+  font-size:var(--nc-fs-h1);line-height:var(--nc-lh-h1);
+  letter-spacing:var(--nc-ls-h1);margin:0;
+}
+.nc-h2{
+  font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
+  font-size:var(--nc-fs-h2);line-height:var(--nc-lh-h2);
+  letter-spacing:var(--nc-ls-h2);margin:0;
+}
+.nc-h3{
+  font-family:var(--nc-font-head);font-weight:700;
+  font-size:var(--nc-fs-h3);line-height:var(--nc-lh-h3);margin:0;
+}
+.nc-body{
+  font-family:var(--nc-font-body);font-weight:400;
+  font-size:var(--nc-fs-body);line-height:var(--nc-lh-body);
+  max-width:var(--nc-measure);margin:0 0 15px;
+}
+.nc-lede{
+  font-family:var(--nc-font-body);font-size:19px;line-height:1.5;
+  max-width:var(--nc-measure-lede);margin:0 0 15px;
+}
+.nc-note{
+  font-family:var(--nc-font-body);font-size:13.5px;color:var(--nc-charcoal);
+  max-width:var(--nc-measure);margin:0;
+}
+.nc-label{
+  font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
+  font-size:var(--nc-fs-label);line-height:var(--nc-lh-label);
+  letter-spacing:var(--nc-ls-label);margin:0;
+}
+
+/* ---- Pull quote — the .q pattern (guide-wide) ----------------------------- */
+.nc-quote{
+  border-left:var(--nc-rule-left) solid var(--nc-pink);
+  padding:6px 0 6px 22px;margin:26px 0;
+  font-family:var(--nc-font-head);font-weight:800;
+  font-size:21px;line-height:1.28;max-width:44ch;
+}
+
+/* ---- Containment (guide s.09) ---------------------------------------------
+   Five approved treatments. No sixth — a hard outline is retired, not an
+   option to reach for. Apply a ground colour via an .nc-bg-* utility below;
+   these classes only define the containment structure. */
+.nc-panel{padding:24px 26px}
+.nc-panel--fill{ /* the colour field itself is the container */ }
+.nc-panel--top-rule{
+  background:var(--nc-white);border-top:var(--nc-rule-top) solid var(--nc-teal);
+}
+.nc-panel--left-rule{
+  background:var(--nc-white);border-left:var(--nc-rule-left) solid var(--nc-pink);
+}
+.nc-panel--band{ /* full-bleed: apply to a full-width wrapper, not an inset panel */
+  padding:20px 34px;
+}
+.nc-panel--hairline{
+  background:var(--nc-white);
+  outline:var(--nc-rule-hair) solid var(--nc-hair);outline-offset:calc(var(--nc-rule-hair) * -1);
+}
+
+/* ---- Breakers (guide s.10) -------------------------------------------------
+   A pause, not an ornament — one per page/section. Widths below are
+   percentages of the breaker's own container (max-width:44ch by default,
+   matching .nc-quote); in a real deck these become % of slide width instead. */
+.nc-breaker{height:3px;width:20%}
+.nc-breaker--separator{background:var(--nc-blue)}       /* default, on light grounds */
+.nc-breaker--separator.nc-on-dark{background:var(--nc-teal)}
+.nc-breaker--hairline{height:1px;width:74%;background:var(--nc-hair)}
+.nc-breaker--stop{background:var(--nc-teal)}             /* under a divider title, nothing follows */
+.nc-breaker--accent-bar{height:4px;width:18%;background:var(--nc-pink)} /* above a pull quote only */
+
+/* ---- Ground / accent colour utilities -------------------------------------
+   Pair a ground utility with .nc-on-ground, an accent utility with
+   .nc-on-accent — see the "one colour rule" in tokens.css. Never mix. */
+.nc-bg-blue{background:var(--nc-blue)}
+.nc-bg-ink{background:var(--nc-ink)}
+.nc-bg-chalk{background:var(--nc-chalk)}
+.nc-bg-white{background:var(--nc-white)}
+.nc-bg-pink{background:var(--nc-pink)}
+.nc-bg-teal{background:var(--nc-teal)}
+.nc-bg-violet{background:var(--nc-violet)}
+.nc-bg-butter{background:var(--nc-butter)}
+.nc-bg-coral{background:var(--nc-coral)}
+.nc-on-ground{color:var(--nc-on-ground)}
+.nc-on-accent{color:var(--nc-on-accent)}
+
+/* ---- Swatch (for rendering the palette itself) ----------------------------- */
+.nc-swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:22px 0}
+.nc-swatch{outline:1px solid var(--nc-hair);outline-offset:-1px;background:var(--nc-white)}
+.nc-swatch .nc-swatch-fill{height:112px;display:flex;align-items:flex-end;padding:12px}
+.nc-swatch .nc-swatch-fill b{font-family:var(--nc-font-head);font-weight:800;font-size:14px;letter-spacing:.04em}
+.nc-swatch .nc-swatch-meta{padding:13px}
+.nc-swatch .nc-swatch-name{
+  font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
+  font-size:13px;letter-spacing:.06em;margin-bottom:5px;
+}
+.nc-swatch .nc-swatch-role{font-size:12.5px;line-height:1.42;color:var(--nc-charcoal)}
+.nc-swatch .nc-swatch-contrast{
+  font-size:10.5px;margin-top:9px;padding-top:8px;border-top:1px solid rgba(13,13,13,.12);
+  font-family:var(--nc-font-head);font-weight:700;letter-spacing:.05em;color:var(--nc-charcoal);
+}
+
+/* ---- Provenance chips (guide s.12, evidence furniture) ---------------------
+   Three tiers. Colour is never the only signal — the code text carries the
+   meaning on its own. */
+.nc-prov{
+  display:inline-block;font-family:var(--nc-font-head);font-weight:800;
+  font-size:9.5px;letter-spacing:.09em;padding:3px 7px;margin:0 6px 6px 0;
+  background:var(--nc-prov-open);color:#fff;
+}
+.nc-prov--partial{background:var(--nc-prov-partial);color:var(--nc-ink)}
+.nc-prov--opaque{background:var(--nc-prov-opaque);color:var(--nc-ink)}
+
+/* ---- Chart bar (guide s.12) -------------------------------------------------
+   Single-series only — one series is always blue. For genuinely different
+   series, colour each .nc-chart-fill from --nc-chart-1..4, never the accents. */
+.nc-chart-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.nc-chart-bar .nc-chart-label{font-size:12.5px;width:110px;flex:none;font-weight:500}
+.nc-chart-bar .nc-chart-track{flex:1;height:24px;position:relative;background:var(--nc-chalk)}
+.nc-chart-bar .nc-chart-fill{position:absolute;left:0;top:0;bottom:0;background:var(--nc-chart-1)}
+.nc-chart-bar .nc-chart-value{font-family:ui-monospace,Menlo,monospace;font-size:12px;width:44px;text-align:right;flex:none}
+.nc-chart-bar .nc-chart-suppressed{
+  position:absolute;inset:0;background-color:var(--nc-chalk);
+  outline:1px solid var(--nc-hair);outline-offset:-1px;
+  background-image:repeating-linear-gradient(45deg,rgba(13,13,13,.30) 0 3px,transparent 3px 7px);
+}
+
+.nc-chart-ramp{display:flex;margin:16px 0 8px;outline:1px solid var(--nc-hair)}
+.nc-chart-ramp div{
+  flex:1;height:64px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;
+  font-family:var(--nc-font-head);font-weight:700;font-size:10.5px;letter-spacing:.03em;
+}
+
+/* ---- Logo lockup (guide s.11) -----------------------------------------------
+   Stacked wordmark, Archivo Black, tight leading. Footer scale ≈1.5% of
+   slide width — on the web, size the wrapper and let clamp()/cqw do that job. */
+.nc-logo{
+  font-family:var(--nc-font-display);text-transform:uppercase;
+  font-size:24px;line-height:.9;text-align:left;
+  /* Left-aligned, both words sharing one edge — confirmed against the
+     printed business card. The OG social-share asset centers each line
+     instead, but that's specific to sitting on a square social canvas,
+     not the general lockup rule. */
+}
+.nc-logo--mono-light{color:var(--nc-blue)}   /* blue on chalk/white — the footer default */
+.nc-logo--mono-blue{color:#fff}              /* on a blue ground */
+.nc-logo--mono-ink{color:#fff}               /* on an ink ground */
+.nc-logo--two-colour{color:var(--nc-charcoal)} /* covers only — pair with an accent span, never in a footer */
+
+/* ---- Table (heavy use in reports) ------------------------------------------- */
+.nc-table{border-collapse:collapse;width:100%;font-size:14px;background:var(--nc-white);outline:1px solid var(--nc-hair);margin:18px 0 22px}
+.nc-table th,.nc-table td{padding:11px 13px;text-align:left;border-bottom:1px solid rgba(13,13,13,.10);vertical-align:top}
+.nc-table th{
+  font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
+  font-size:10.5px;letter-spacing:.08em;background:var(--nc-ink);color:var(--nc-chalk);border-bottom:none;
+}
+.nc-table tbody tr:last-child td{border-bottom:none}
+
+/* ---- Callout box ------------------------------------------------------------- */
+.nc-box{
+  background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;
+  padding:24px 26px;margin:22px 0;border-top:var(--nc-rule-top) solid var(--nc-teal);
+}
+.nc-box h4{
+  font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
+  font-size:14px;letter-spacing:.07em;margin-bottom:11px;
+}

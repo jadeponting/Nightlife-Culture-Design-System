@@ -1,0 +1,60 @@
+/* Nightlife Culture — font files
+   Extracted from Style Guide v1.0. Open Font License (Archivo, Inter).
+   Always embed or self-host — never link a web font service (guide, s.08 "Font delivery"). */
+
+@font-face{
+  font-family:"Archivo Black";
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url("../assets/fonts/ArchivoBlack.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Archivo";
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("../assets/fonts/Archivo-SemiBold.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Archivo";
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url("../assets/fonts/Archivo-Bold.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Archivo";
+  font-style:normal;
+  font-weight:800;
+  font-display:swap;
+  src:url("../assets/fonts/Archivo-ExtraBold.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url("../assets/fonts/Inter-Regular.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  src:url("../assets/fonts/Inter-Medium.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("../assets/fonts/Inter-SemiBold.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url("../assets/fonts/Inter-Bold.woff2") format("woff2");
+}

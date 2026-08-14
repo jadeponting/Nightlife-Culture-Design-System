@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Nightlife Culture — design tokens
+   Source of truth: Style Guide v1.0 (August 2026), sections 07 & 08.
+   Every value here should trace back to a rule in the guide. If a project
+   needs a colour or size the guide doesn't define, that's a guide gap —
+   raise it, don't invent a token here to patch around it.
+   ========================================================================== */
+
+:root{
+
+  /* ---- Grounds (s.07) ---------------------------------------------------
+     White-text surfaces. Never put an accent's black text on these. */
+  --nc-blue:     #0000FF;  /* Signal blue — the one colour that means Nightlife Culture */
+  --nc-ink:      #0D0D0D;  /* Night ground + primary text colour */
+  --nc-chalk:    #F3F3F3;  /* Reading ground — decks, screen */
+  --nc-white:    #FFFFFF;  /* Reading ground — reports, print, anything a partner edits */
+  --nc-charcoal: #2D2D2D;  /* Secondary body copy, captions, source lines */
+  --nc-hair:     rgba(13,13,13,.22); /* Hairline rule colour, 1px, ink at 22% */
+
+  /* ---- Accents (s.07) ----------------------------------------------------
+     Black-text surfaces only. Never used for data — see chart ramp below.
+     Each accent has exactly one job; see components.css for the mapping. */
+  --nc-pink:   #ED77C2;  /* Counter pink — accent bars, pull quotes, small hot marks */
+  --nc-teal:   #53E6E5;  /* Signal teal — section headers on dark grounds, breakers */
+  --nc-violet: #B98CFF;  /* Soft violet — calm surfaces, large blocks, thirds */
+  --nc-butter: #FFDE6B;  /* Butter — opportunity, funding, forward motion */
+  --nc-coral:  #FD7B53;  /* Coral — urgency, risk, lowest provenance tier */
+
+  /* ---- The one colour rule (s.07) ----------------------------------------
+     Every accent above is a BLACK-text surface.
+     Every ground above is a WHITE-text surface. No exceptions. */
+  --nc-on-ground: var(--nc-white);
+  --nc-on-accent: var(--nc-ink);
+
+  /* ---- Chart ramp (s.12) --------------------------------------------------
+     Data only. Never the accents above — this ramp exists because the
+     accents share one lightness register and collapse in greyscale.
+     Four series maximum. Lightness climbs monotonically so order survives
+     greyscale, projectors and colour-vision deficiency. */
+  --nc-chart-1: #0000FF;  /* series 1 · OKLCH L 0.45 · white label */
+  --nc-chart-2: #C7339A;  /* series 2 · OKLCH L 0.58 · white label */
+  --nc-chart-3: #00C6C5;  /* series 3 · OKLCH L 0.75 · ink label */
+  --nc-chart-4: #FFDE6B;  /* series 4 · OKLCH L 0.91 · ink label */
+
+  /* Greyscale equivalents of the ramp above — same four series, desaturated.
+     Use to sanity-check a chart photocopies / prints correctly. */
+  --nc-chart-1-grey: #4A4A4A;
+  --nc-chart-2-grey: #6E6E6E;
+  --nc-chart-3-grey: #A6A6A6;
+  --nc-chart-4-grey: #D8D8D8;
+
+  /* ---- Provenance tiers (s.12, evidence furniture) ------------------------
+     Three tiers only. Coral does not mean "bad" — it means "handle with a
+     stated caveat". The code text carries the meaning, not just the colour. */
+  --nc-prov-open:    var(--nc-ink);
+  --nc-prov-partial: var(--nc-butter);
+  --nc-prov-opaque:  var(--nc-coral);
+
+  /* ---- Type families (s.08) ----------------------------------------------
+     Display = statements. Head = structure. Body = everything you read.
+     See tokens/fonts.css for the embedded font files. */
+  --nc-font-display: "Archivo Black", system-ui, sans-serif;
+  --nc-font-head:    "Archivo", system-ui, sans-serif;
+  --nc-font-body:    "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ---- Type scale (s.08) ---------------------------------------------------
+     Sizes below are the HTML/screen reference scale from the guide itself.
+     Slides and printed documents follow the pt ranges in the guide's
+     "Readable size rules" table instead — that's a format decision, not a
+     token, so it isn't encoded here. */
+  --nc-fs-display: 40px;  --nc-lh-display: .92;  --nc-ls-display: -.01em;
+  --nc-fs-h1:      29px;  --nc-lh-h1:     1.05;  --nc-ls-h1:      .01em;
+  --nc-fs-h2:      21px;  --nc-lh-h2:     1.1;   --nc-ls-h2:      .04em;
+  --nc-fs-h3:      17px;  --nc-lh-h3:     1.3;
+  --nc-fs-body:    16px;  --nc-lh-body:   1.55;
+  --nc-fs-label:   12px;  --nc-lh-label:  1.3;   --nc-ls-label:   .14em;
+
+  /* Reading measure (s.08 typographic rules) */
+  --nc-measure: 76ch;
+  --nc-measure-lede: 70ch;
+
+  /* ---- Containment (s.09) --------------------------------------------------
+     "Contain with colour and space, not with outlines." Hard black outlines
+     are retired. These are the only border widths the system uses. */
+  --nc-rule-top:  9px;   /* top-rule panel */
+  --nc-rule-left: 12px;  /* left-rule panel (pull quotes, callouts) */
+  --nc-rule-hair: 1px;   /* hairline, at --nc-hair */
+
+}

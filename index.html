@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nightlife Culture — Component Sheet</title>
+<link rel="stylesheet" href="tokens/fonts.css">
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="components/components.css">
+<style>
+  body{margin:0}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 34px 120px}
+  .page-header{background:var(--nc-blue);color:#fff;padding:54px 34px 46px}
+  .page-header .inner{max-width:1120px;margin:0 auto}
+  .page-header .kicker{font-family:var(--nc-font-head);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;margin-bottom:18px}
+  .page-header .rule{height:8px;background:var(--nc-teal);width:160px;margin:22px 0 0}
+  .demo-section{padding-top:64px;border-top:1px solid var(--nc-hair)}
+  .demo-section:first-of-type{border-top:none}
+  .demo-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
+  .demo-section-head .n{
+    font-family:var(--nc-font-head);font-weight:800;font-size:13px;letter-spacing:.04em;
+    background:var(--nc-ink);color:var(--nc-chalk);padding:5px 8px;line-height:1;
+  }
+  .source-note{font-size:12.5px;color:var(--nc-charcoal);margin-top:-14px;margin-bottom:24px}
+  .source-note a{color:var(--nc-blue)}
+  .demo-row{margin-bottom:18px}
+  .swatch-hex{font-family:ui-monospace,Menlo,monospace}
+  .ts-demo{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;padding:22px 24px;margin-bottom:14px}
+  .ts-demo .ts-label{font-family:var(--nc-font-head);font-weight:600;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--nc-charcoal);margin-bottom:12px}
+  .cont-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+  .cont-grid figure{margin:0;background:var(--nc-chalk);padding:20px}
+  .cont-grid figcaption{font-size:12px;color:var(--nc-charcoal);margin-top:11px;line-height:1.4}
+  .gaps-box{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;padding:22px 26px;margin:22px 0;border-left:var(--nc-rule-left) solid var(--nc-coral)}
+  .gaps-box li{margin-bottom:6px}
+  footer{margin-top:70px;border-top:3px solid var(--nc-ink);padding:22px 0 0;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body class="nc-root nc-reset">
+
+<div class="page-header">
+  <div class="inner">
+    <div class="kicker">Nightlife Culture — Design System</div>
+    <h1 class="nc-display" style="font-size:clamp(36px,6vw,60px)">Component<br>sheet</h1>
+    <div class="rule"></div>
+    <p class="nc-lede" style="color:#fff;max-width:56ch;margin-top:22px">Every colour, type style and layout
+    pattern from Style Guide v1.0, built as working code instead of description. If it's not on this page,
+    it isn't part of the system yet.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="nc-note" style="margin-top:40px">This page is generated from <code>tokens/tokens.css</code> and
+<code>components/components.css</code> — nothing here is hand-styled to look right once. Change a token,
+and every example below updates with it. That's the point: one file to edit, everywhere it's used stays
+in sync.</p>
+
+<!-- ============================================================ COLOUR -->
+<section class="demo-section" id="colour">
+  <div class="demo-section-head"><span class="n">07</span><h2 class="nc-h2">Colour</h2></div>
+  <p class="source-note">Style Guide v1.0, section 07.</p>
+
+  <h3 class="nc-h3" style="margin-bottom:12px">Grounds</h3>
+  <div class="nc-swatch-grid">
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-blue nc-on-ground"><b class="swatch-hex">#0000FF</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Signal blue</div>
+      <div class="nc-swatch-role">Primary ground. Covers, dividers, statements, rules, links.</div>
+      <div class="nc-swatch-contrast">WHITE TEXT ONLY · 8.59:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-ink nc-on-ground"><b class="swatch-hex">#0D0D0D</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Ink</div>
+      <div class="nc-swatch-role">Night ground and primary text colour.</div>
+      <div class="nc-swatch-contrast">WHITE TEXT ONLY · 19.44:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-chalk" style="color:var(--nc-ink);box-shadow:inset 0 0 0 1px var(--nc-hair)"><b class="swatch-hex">#F3F3F3</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Chalk</div>
+      <div class="nc-swatch-role">Reading ground for decks and screen.</div>
+      <div class="nc-swatch-contrast">INK OR CHARCOAL TEXT · 17.52:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-white" style="color:var(--nc-ink);box-shadow:inset 0 0 0 1px var(--nc-hair)"><b class="swatch-hex">#FFFFFF</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">White</div>
+      <div class="nc-swatch-role">Reading ground for reports, print, anything a partner edits.</div>
+      <div class="nc-swatch-contrast">INK OR CHARCOAL TEXT · 19.44:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill" style="background:var(--nc-charcoal)" ><b class="swatch-hex" style="color:#fff">#2D2D2D</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Charcoal</div>
+      <div class="nc-swatch-role">Secondary body copy, captions, source lines.</div>
+      <div class="nc-swatch-contrast">ON CHALK/WHITE · 12.41:1</div></div></div>
+  </div>
+
+  <h3 class="nc-h3" style="margin-bottom:12px">Accents</h3>
+  <div class="nc-swatch-grid">
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-pink nc-on-accent"><b class="swatch-hex">#ED77C2</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Counter pink</div>
+      <div class="nc-swatch-role">Accent bars, pull-quote rule, small hot marks.</div>
+      <div class="nc-swatch-contrast">BLACK TEXT ONLY · 7.42:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-teal nc-on-accent"><b class="swatch-hex">#53E6E5</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Signal teal</div>
+      <div class="nc-swatch-role">Section headers on dark grounds, breakers.</div>
+      <div class="nc-swatch-contrast">BLACK TEXT ONLY · 12.79:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-violet nc-on-accent"><b class="swatch-hex">#B98CFF</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Soft violet</div>
+      <div class="nc-swatch-role">Calm surface. Large blocks, vertical thirds.</div>
+      <div class="nc-swatch-contrast">BLACK TEXT ONLY · 7.64:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-butter nc-on-accent"><b class="swatch-hex">#FFDE6B</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Butter</div>
+      <div class="nc-swatch-role">Warm highlight. Opportunity, funding, forward motion.</div>
+      <div class="nc-swatch-contrast">BLACK TEXT ONLY · 14.73:1</div></div></div>
+    <div class="nc-swatch"><div class="nc-swatch-fill nc-bg-coral nc-on-accent"><b class="swatch-hex">#FD7B53</b></div>
+      <div class="nc-swatch-meta"><div class="nc-swatch-name">Coral</div>
+      <div class="nc-swatch-role">Warm counter. Urgency, risk, lowest provenance tier.</div>
+      <div class="nc-swatch-contrast">BLACK TEXT ONLY · 7.53:1</div></div></div>
+  </div>
+
+  <div class="nc-box"><h4>The one colour rule</h4>
+  <p class="nc-body" style="margin-bottom:0"><strong>Every accent is a black-text surface. Every ground is
+  a white-text surface.</strong> No exceptions. Use the <code>.nc-on-ground</code> / <code>.nc-on-accent</code>
+  utilities above rather than picking text colour by eye.</p></div>
+</section>
+
+<!-- ============================================================ TYPE -->
+<section class="demo-section" id="type">
+  <div class="demo-section-head"><span class="n">08</span><h2 class="nc-h2">Typography</h2></div>
+  <p class="source-note">Style Guide v1.0, section 08. Archivo Black / Archivo ExtraBold / Inter.</p>
+
+  <div class="ts-demo"><div class="ts-label">Display · Archivo Black · all caps · tracking &minus;1%</div>
+    <div class="nc-display">Artists make great places</div></div>
+  <div class="ts-demo"><div class="ts-label">H1 · Archivo ExtraBold 800 · all caps · tracking +1%</div>
+    <div class="nc-h1">The bridge we build</div></div>
+  <div class="ts-demo"><div class="ts-label">H2 · Archivo ExtraBold 800 · all caps · tracking +4%</div>
+    <div class="nc-h2">Principles for partnership</div></div>
+  <div class="ts-demo"><div class="ts-label">H3 · Archivo Bold 700 · sentence case</div>
+    <div class="nc-h3">How shared evidence should be built</div></div>
+  <div class="ts-demo"><div class="ts-label">Body · Inter Regular 400</div>
+    <p class="nc-body" style="margin:0">Nightlife is cultural, social and economic infrastructure: a place
+    where people find one another, test ideas, build scenes, start enterprises and create belonging.</p></div>
+  <div class="ts-demo"><div class="ts-label">Label / meta · Archivo SemiBold 600 · all caps · tracking +14%</div>
+    <div class="nc-label">Trusted partner deck · August 2026</div></div>
+
+  <p class="nc-note" style="margin-top:18px"><strong>The caps rule:</strong> Display/H1/H2 are always
+  tracked and never used below 16px on screen or for more than ~8 words. H3 and below stay sentence case —
+  that boundary is enforced by which class you reach for, not a judgement call each time.</p>
+</section>
+
+<!-- ============================================================ CONTAINMENT -->
+<section class="demo-section" id="containment">
+  <div class="demo-section-head"><span class="n">09</span><h2 class="nc-h2">Containment</h2></div>
+  <p class="source-note">Style Guide v1.0, section 09. "Contain with colour and space, not with outlines."</p>
+
+  <div class="cont-grid">
+    <figure><div class="nc-panel nc-panel--fill nc-bg-teal nc-on-accent" style="min-height:70px;display:flex;align-items:flex-end"><strong>No border</strong></div>
+      <figcaption><strong>Fill.</strong> The colour field is the container. Default for accent panels.</figcaption></figure>
+    <figure><div class="nc-panel nc-panel--top-rule" style="min-height:70px;display:flex;align-items:flex-end"><strong>Top rule</strong></div>
+      <figcaption><strong>Top rule.</strong> White panel, 9px accent bar. Dense pages, tables, long documents.</figcaption></figure>
+    <figure><div class="nc-panel nc-panel--left-rule" style="min-height:70px;display:flex;align-items:flex-end"><strong>Left rule</strong></div>
+      <figcaption><strong>Left rule.</strong> Reads as an aside. Pull quotes and callouts.</figcaption></figure>
+    <figure><div class="nc-panel nc-panel--band nc-bg-violet nc-on-accent" style="min-height:30px;display:flex;align-items:center"><strong>Full-bleed band</strong></div>
+      <figcaption><strong>Band.</strong> Runs edge to edge. A change of ground, not a panel.</figcaption></figure>
+    <figure><div class="nc-panel nc-panel--hairline" style="min-height:70px;display:flex;align-items:flex-end"><strong>Hairline</strong></div>
+      <figcaption><strong>Hairline.</strong> 1px ink at 22%. White boxes on chalk, tables, dense layouts.</figcaption></figure>
+  </div>
+
+  <h3 class="nc-h3" style="margin:32px 0 12px">Breakers</h3>
+  <p class="nc-note" style="margin-bottom:14px">A pause, not an ornament — one per section.</p>
+  <div class="demo-row"><div class="nc-breaker nc-breaker--separator"></div><div class="nc-note" style="margin-top:6px">Separator — default, between title and body</div></div>
+  <div class="demo-row"><div class="nc-breaker nc-breaker--hairline"></div><div class="nc-note" style="margin-top:6px">Hairline — under a title on dense/document-register content</div></div>
+  <div class="demo-row"><div class="nc-breaker nc-breaker--stop"></div><div class="nc-note" style="margin-top:6px">Stop — under a divider title, nothing follows</div></div>
+  <div class="demo-row"><div class="nc-breaker nc-breaker--accent-bar"></div><div class="nc-note" style="margin-top:6px">Accent bar — above a pull quote only</div></div>
+
+  <h3 class="nc-h3" style="margin:32px 0 12px">Pull quote</h3>
+  <div class="nc-quote">Accessibility does not dilute the brand. It decides where the brand should live.</div>
+</section>
+
+<!-- ============================================================ DATA -->
+<section class="demo-section" id="data">
+  <div class="demo-section-head"><span class="n">12</span><h2 class="nc-h2">Data &amp; charts</h2></div>
+  <p class="source-note">Style Guide v1.0, section 12. The chart ramp — never the brand accents.</p>
+
+  <div class="nc-chart-ramp">
+    <div style="background:var(--nc-chart-1);color:#fff">#0000FF</div>
+    <div style="background:var(--nc-chart-2);color:#fff">#C7339A</div>
+    <div style="background:var(--nc-chart-3);color:var(--nc-ink)">#00C6C5</div>
+    <div style="background:var(--nc-chart-4);color:var(--nc-ink)">#FFDE6B</div>
+  </div>
+  <div class="nc-chart-ramp" style="margin-top:0">
+    <div style="background:var(--nc-chart-1-grey);height:30px"></div>
+    <div style="background:var(--nc-chart-2-grey);height:30px"></div>
+    <div style="background:var(--nc-chart-3-grey);height:30px"></div>
+    <div style="background:var(--nc-chart-4-grey);height:30px"></div>
+  </div>
+  <p class="nc-note" style="margin:10px 0 24px">Greyscale strip — same four series desaturated. Lightness
+  climbs monotonically, so the order survives photocopying and colour-vision deficiency.</p>
+
+  <div class="nc-box"><h4>Worked example — single series, labelled at the mark</h4>
+    <div class="nc-chart-bar"><span class="nc-chart-label">Venues</span>
+      <span class="nc-chart-track"><span class="nc-chart-fill" style="width:82%"></span></span>
+      <span class="nc-chart-value">82</span></div>
+    <div class="nc-chart-bar"><span class="nc-chart-label">Artists</span>
+      <span class="nc-chart-track"><span class="nc-chart-fill" style="width:64%"></span></span>
+      <span class="nc-chart-value">64</span></div>
+    <div class="nc-chart-bar"><span class="nc-chart-label">Promoters</span>
+      <span class="nc-chart-track"><span class="nc-chart-fill" style="width:47%"></span></span>
+      <span class="nc-chart-value">47</span></div>
+    <div class="nc-chart-bar"><span class="nc-chart-label">Crew &amp; tech</span>
+      <span class="nc-chart-track"><span class="nc-chart-suppressed"></span></span>
+      <span class="nc-chart-value">[c]</span></div>
+    <p class="nc-note" style="margin:12px 0 0"><strong>[c]</strong> suppressed for disclosure control. The
+    row stays; the gap is visible. <span class="nc-prov">ADM-OPEN</span> 2025 · illustrative figures.</p>
+  </div>
+
+  <h3 class="nc-h3" style="margin:28px 0 12px">Provenance chips</h3>
+  <div>
+    <span class="nc-prov">OFF-OPEN</span><span class="nc-prov">ADM-OPEN</span><span class="nc-prov">ACADEMIC</span><br>
+    <span class="nc-prov nc-prov--partial">SECTOR</span><span class="nc-prov nc-prov--partial">COM-DOCUMENTED</span><br>
+    <span class="nc-prov nc-prov--opaque">COM-BLACKBOX</span><span class="nc-prov nc-prov--opaque">ANECDOTAL</span><span class="nc-prov nc-prov--opaque">UNTRACEABLE</span>
+  </div>
+  <p class="nc-note" style="margin-top:12px">Three tiers: ink for open/traceable, butter for
+  documented-but-partial, coral for opaque/untraceable. The code text carries the meaning, so it survives
+  greyscale and screen readers.</p>
+</section>
+
+<!-- ============================================================ LOGO -->
+<section class="demo-section" id="logo">
+  <div class="demo-section-head"><span class="n">11</span><h2 class="nc-h2">Logo</h2></div>
+  <p class="source-note">Style Guide v1.0, section 11.</p>
+  <div class="cont-grid">
+    <figure><div style="background:var(--nc-white);box-shadow:inset 0 0 0 1px var(--nc-hair);padding:20px">
+      <div class="nc-logo nc-logo--mono-light">Nightlife<br>Culture</div></div>
+      <figcaption><strong>Mono · light ground.</strong> Blue on chalk or white. The footer default.</figcaption></figure>
+    <figure><div class="nc-bg-blue" style="padding:20px">
+      <div class="nc-logo nc-logo--mono-blue">Nightlife<br>Culture</div></div>
+      <figcaption><strong>Mono · blue ground.</strong> White. Never teal.</figcaption></figure>
+    <figure><div class="nc-bg-ink" style="padding:20px">
+      <div class="nc-logo nc-logo--mono-ink">Nightlife<br>Culture</div></div>
+      <figcaption><strong>Mono · ink ground.</strong> White.</figcaption></figure>
+    <figure><div style="background:var(--nc-white);box-shadow:inset 0 0 0 1px var(--nc-hair);padding:20px">
+      <div class="nc-logo nc-logo--two-colour">Nightlife<br><span style="color:var(--nc-pink)">Culture</span></div></div>
+      <figcaption><strong>Two-colour · covers only.</strong> Charcoal plus one accent. Never in a footer.</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============================================================ TABLE -->
+<section class="demo-section" id="table">
+  <div class="demo-section-head"><h2 class="nc-h2">Table</h2></div>
+  <p class="source-note">Used throughout every report-register document in the guide.</p>
+  <table class="nc-table">
+    <thead><tr><th style="width:26%">Treatment</th><th style="width:34%">Spec</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fill</strong></td><td>Accent background, no border</td><td>Default for accent panels.</td></tr>
+      <tr><td><strong>Top rule</strong></td><td>White panel, 9px accent bar</td><td>Dense pages, tables, long documents.</td></tr>
+      <tr><td><strong>Left rule</strong></td><td>White panel, 12px accent bar</td><td>Pull quotes, callouts, asides.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ GAPS -->
+<section class="demo-section" id="gaps">
+  <div class="demo-section-head"><h2 class="nc-h2">Not built yet</h2></div>
+  <div class="gaps-box">
+    <p class="nc-body"><strong>On purpose, not by oversight.</strong> Style Guide v1.0 section 15 flags
+    these as open — this component sheet doesn't get ahead of them:</p>
+    <ul class="nc-body" style="margin-bottom:0">
+      <li>The dense layout tier for content-heavy slides (six-block cap, until v1.1 formalises it).</li>
+      <li>A diagram kit (nodes, connectors, numbering, stage labels).</li>
+      <li>Deck master and Word template — this sheet only covers HTML.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="nc-logo nc-logo--mono-light">Nightlife<br>Culture</div>
+  <div class="nc-note" style="text-align:right">Component sheet · built from Style Guide v1.0<br>Colours, type and containment only — see gaps above.</div>
+</footer>
+
+</div>
+</body>
+</html>
