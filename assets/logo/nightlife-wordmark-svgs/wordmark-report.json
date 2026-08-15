@@ -1,0 +1,33 @@
+{
+ "lines": [
+  {
+   "text": "NIGHTLIFE",
+   "size": 32.09,
+   "target": 171.92,
+   "natural": 194.305,
+   "tracking_pt": -2.7981,
+   "tracking_em": -0.0872,
+   "rendered": 171.92,
+   "error_pct": 0.0
+  },
+  {
+   "text": "CULTURE",
+   "size": 33.41,
+   "target": 171.19,
+   "natural": 176.472,
+   "tracking_pt": -0.8803,
+   "tracking_em": -0.02635,
+   "rendered": 171.19,
+   "error_pct": 0.0
+  }
+ ],
+ "justification_delta_pct": 0.4246,
+ "viewBox": [
+  0,
+  0,
+  171.92,
+  52.488
+ ],
+ "cap_height_pt": 22.078,
+ "baseline_to_baseline": 30.41
+}
