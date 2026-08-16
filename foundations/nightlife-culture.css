@@ -73,6 +73,42 @@
 .acc-coral{--nc-acc:var(--nc-coral)}
 .acc-blue{--nc-acc:var(--nc-blue)}
 
+/* --- 2b · THE TYPE SCALE — the roles, as classes -------------------
+   This did not exist. Six roles sat in tokens.json with a face, a weight, a
+   case and a tracking value, and NO class carried any of them — so the one
+   specimen that was supposed to prove the type system was drawn by hand, with
+   five sizes nobody had chosen.
+
+   Nothing below is chosen here either. The sizes are read off v1.4's Readable
+   size rules (document body 12pt = 16px) and the Decision Book ch03 worked
+   example (32 → 24 → 18 → 16px, "a deliberately narrow range, because weight
+   and space are carrying the distinction"). Leading is v1.4's scoped
+   line-height table, HTML column. Case, weight and tracking are the roles
+   already in tokens.
+
+   The rhythm is ch03's: a heading carries THREE TIMES the space above it that
+   it carries below, so it attaches to what follows instead of floating.
+
+   Display is the decorative tier by the Book's own rule, and is named as such
+   rather than pretending to be a step on the scale. */
+.nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
+  text-transform:uppercase;letter-spacing:-.01em;margin:0}
+.nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
+  text-transform:uppercase;letter-spacing:.01em;margin:3.000em 0 1.000em}
+.nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
+  text-transform:uppercase;letter-spacing:.04em;margin:2.250em 0 0.750em}
+.nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
+  letter-spacing:0;margin:1.688em 0 0.562em}
+.nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
+  text-align:left;max-width:70ch;margin:0 0 0.750em}
+/* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
+   stops an em cascade dragging it under the floor in a nested context. */
+.nc-fnote{font-size:max(0.875em,13px);line-height:1.4;color:var(--nc-charcoal)}
+.ground-blue .nc-fnote,.ground-ink .nc-fnote{color:var(--nc-teal)}
+/* A first child never carries its top rhythm — the container's padding already
+   opened that space, and doubling it is what makes a panel look mis-set. */
+.nc-h1:first-child,.nc-h2:first-child,.nc-h3:first-child{margin-top:0}
+
 /* --- 3 · SECTION HEADER — documents and web. NOT FOR SLIDES. ------
    Rule BELOW. Numeral in a filled box, vertically centred, Archivo
    ExtraBold at H3 scale — not Archivo Black at display scale, so the
@@ -80,7 +116,7 @@
    an invented number is worse than none. */
 .nc-section-head{display:flex;align-items:center;gap:var(--nc-sp4);
   border-bottom:.19em solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}
-.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:.94em;
+.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:0.750em;
   letter-spacing:.04em;background:var(--nc-ink);color:var(--nc-chalk);
   padding:var(--nc-sp2) var(--nc-sp2);line-height:1;display:flex;align-items:center;flex:none}
 .nc-section-head .ttl{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;

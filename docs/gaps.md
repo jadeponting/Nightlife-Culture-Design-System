@@ -123,6 +123,70 @@ component may be re-declared, and four current cases are deliberate: the CASE se
 **Needs Carly's decision:** may a later section re-declare a component, or is one class one place?
 The CASE section is the test case — it is either a good cross-cut or the same fault, deliberately.
 
+### 11. Gap 9 was wrong — the type scale WAS decided, in two places
+I said the document type scale was undecided and asked Carly to choose it. It is not undecided.
+**v1.4 Readable size rules** sets document body at 12pt minimum AND preferred, and footnotes at
+10pt minimum / 10.5–11pt preferred. **Decision Book ch03**, worked example: *"Sizes across those
+four levels span only 32px → 24px → 18px → 16px, a deliberately narrow range, because weight and
+space are carrying the distinction."* v1.4's scoped line-height table gives the leading per class.
+ch03 gives the rhythm: a heading carries three times the space above it that it carries below.
+
+**What I did instead:** asked her to decide something the sources already answer, after being told
+repeatedly that if there is no answer we have probably already written the logic down.
+
+**Cost:** red, and worse than red — it spends the one thing this project runs on.
+
+**Now built:** `.nc-display .nc-h1 .nc-h2 .nc-h3 .nc-body .nc-fnote`, generated from tokens, every
+number carrying the source it was read from.
+
+**Still genuinely open — ONE number, not six:** the document LABEL size. v1.4's size table gives
+slide labels (14pt min, 16pt+) and no document label at all, and the caps floor is stated as 16pt
+"on screen". At a 12pt document body a 16pt caps label would be larger than the body text.
+
+### 12. The coverage check only ever ran one way
+It checked that every class DEFINED is demonstrated. Nothing checked that every class USED is
+defined — and it only read two of the eleven pages the build produces.
+
+**What that hid:** 29 classes used across the generated sheets and defined nowhere at all.
+`.g4` drew a four-across grid two lines above the sentence saying there is no four-across grid.
+`.gr`, `.h` and `.m` meant the ground swatches rendered as unstyled spans running into each other —
+which is why "Signal blue#0000FF · white · 8.59:1" reads as one word. `.tw` was a table wrapper
+that wrapped nothing. `.nm`, `.sr`, `.wt`, `.cnt`, `.r--ok` and twenty more are a private
+vocabulary the audit and plan sheets invented for themselves.
+
+**Cost:** red. Every one of these was found by Carly reading the page. The build could not see any
+of them.
+
+**Now a check, and it FAILS.** The build is currently red on 29 of them. Closes when the count is
+zero.
+
+### 13. Contrast was never measured on anything that had been rendered
+Every contrast check read the source: is this hex on the allowlist, does this ground declare its
+text colour, is white text on a light ground. None of them could see a colour that lands on a dark
+ground because an ancestor set it three levels up. That is why the same accessibility failure has
+been reported five or six times and passed the build every time.
+
+**Now a check:** `checks/check_contrast.py` opens every page in a real browser at 1280px and at
+390px, opens every disclosure, walks every element that paints text INCLUDING `::before` and
+`::after`, resolves the colour actually painted against the background actually painted onto
+through any translucency, and applies 4.5:1 / 3:1. Proven to fire on a deliberately broken file
+(blue on ink at 2.26:1). **It currently reports zero failures on every page** — so the blue-on-dark
+Carly is seeing is either off these pages, or it is a size complaint rather than a contrast one,
+and I need her to point at it once more.
+
+### 14. Violet for visited links was invented by me
+NC-PAG-04 says "Violet visited on light, pink on dark" and cites gap 7, WCAG 2.4.7 and ch14. Those
+sources say every interactive element must declare its states. **None of them says violet.** I
+picked it and wrote it into the rule register as though it had a source.
+
+**Cost:** amber for the colour, red for the method — a rule in the register that cites sources
+which do not contain it is worse than no rule.
+
+**Also:** the link specimen claims to show a visited link and cannot. Browsers restrict `:visited`
+to a handful of properties and will not report it, so the "visited one" in that specimen renders
+identically to the unvisited one. The page describes hover and focus and demonstrates neither. That
+is a specimen that describes instead of showing, in the library built to prove the opposite.
+
 ## Defects, not gaps
 
 Recorded separately because a defect in the work is a different thing from a gap in the guidance,

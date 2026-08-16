@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What we have, and what is missing — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:6328ec48ed0e5259;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:8fcd9322bf96a255;rules:b49b7662e7737d24;css:b1c74b3f79853f70;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -109,6 +109,42 @@
 .acc-coral{--nc-acc:var(--nc-coral)}
 .acc-blue{--nc-acc:var(--nc-blue)}
 
+/* --- 2b · THE TYPE SCALE — the roles, as classes -------------------
+   This did not exist. Six roles sat in tokens.json with a face, a weight, a
+   case and a tracking value, and NO class carried any of them — so the one
+   specimen that was supposed to prove the type system was drawn by hand, with
+   five sizes nobody had chosen.
+
+   Nothing below is chosen here either. The sizes are read off v1.4's Readable
+   size rules (document body 12pt = 16px) and the Decision Book ch03 worked
+   example (32 → 24 → 18 → 16px, "a deliberately narrow range, because weight
+   and space are carrying the distinction"). Leading is v1.4's scoped
+   line-height table, HTML column. Case, weight and tracking are the roles
+   already in tokens.
+
+   The rhythm is ch03's: a heading carries THREE TIMES the space above it that
+   it carries below, so it attaches to what follows instead of floating.
+
+   Display is the decorative tier by the Book's own rule, and is named as such
+   rather than pretending to be a step on the scale. */
+.nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
+  text-transform:uppercase;letter-spacing:-.01em;margin:0}
+.nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
+  text-transform:uppercase;letter-spacing:.01em;margin:3.000em 0 1.000em}
+.nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
+  text-transform:uppercase;letter-spacing:.04em;margin:2.250em 0 0.750em}
+.nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
+  letter-spacing:0;margin:1.688em 0 0.562em}
+.nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
+  text-align:left;max-width:70ch;margin:0 0 0.750em}
+/* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
+   stops an em cascade dragging it under the floor in a nested context. */
+.nc-fnote{font-size:max(0.875em,13px);line-height:1.4;color:var(--nc-charcoal)}
+.ground-blue .nc-fnote,.ground-ink .nc-fnote{color:var(--nc-teal)}
+/* A first child never carries its top rhythm — the container's padding already
+   opened that space, and doubling it is what makes a panel look mis-set. */
+.nc-h1:first-child,.nc-h2:first-child,.nc-h3:first-child{margin-top:0}
+
 /* --- 3 · SECTION HEADER — documents and web. NOT FOR SLIDES. ------
    Rule BELOW. Numeral in a filled box, vertically centred, Archivo
    ExtraBold at H3 scale — not Archivo Black at display scale, so the
@@ -116,7 +152,7 @@
    an invented number is worse than none. */
 .nc-section-head{display:flex;align-items:center;gap:var(--nc-sp4);
   border-bottom:.19em solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}
-.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:.94em;
+.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:0.750em;
   letter-spacing:.04em;background:var(--nc-ink);color:var(--nc-chalk);
   padding:var(--nc-sp2) var(--nc-sp2);line-height:1;display:flex;align-items:center;flex:none}
 .nc-section-head .ttl{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
@@ -885,9 +921,9 @@
   <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">The other direction</span></h2>
   <p>An audit that only looks one way misses the thing that actually causes drift: stuff in
      the system that nobody asked for. So this checks backwards too.</p>
-  <h3 class="famh">In the codebase, not in any reference file</h3>
-  <p>In the stylesheet, not asked for by any reference file — each one needs a reason recorded or removing:</p><p class="cd">.nc-flag, .nc-flag--amber, .nc-flag--grey, .nc-flag--red, .nc-flags, .nc-origin, .nc-sub--wide, .nc-t--xl</p>
-  <h3 class="famh">Rules with nothing on this page enforcing them</h3>
+  <h3 class="nc-h3">In the codebase, not in any reference file</h3>
+  <p>In the stylesheet, not asked for by any reference file — each one needs a reason recorded or removing:</p><p class="cd">.nc-body, .nc-display, .nc-flag, .nc-flag--amber, .nc-flag--grey, .nc-flag--red, .nc-flags, .nc-fnote, .nc-h1, .nc-h2, .nc-h3, .nc-origin, .nc-sub--wide, .nc-t--xl</p>
+  <h3 class="nc-h3">Rules with nothing on this page enforcing them</h3>
   <p>Rules in the rule set that no component on this page claims. Most govern process rather than appearance, which is fine — but each should be able to name what enforces it:</p><ul class="nc-list"><li><b>NC-DGM-01</b> — Do not build a generic diagram kit of nodes and connectors. Name the job — bound, relate, decompose, sequence, diverge, converge — and use a named for</li><li><b>NC-DOC-02</b> — A4 for UK submissions.</li><li><b>NC-DOC-03</b> — Document title, author and one declared language set in properties.</li><li><b>NC-EVI-03</b> — No published figure rests on fewer than three contributing units. Apply secondary suppression.</li><li><b>NC-EVI-05</b> — Apply the suppression threshold to the planned sample BEFORE fieldwork is scoped, and state at proposal stage what the design will let you say.</li><li><b>NC-LAY-01</b> — Slide side margin 5.25%, kicker line 6.67%. The written 6% / 7.5% is superseded by what the deck does.</li><li><b>NC-PKG-01</b> — One source per number, named, wherever a figure appears in more than one artefact. Reconcile across the pack before submission, as a step.</li><li><b>NC-PKG-02</b> — Where artefacts disagree, date them and name the most recent as the candidate truth. Never report an unresolved contradiction and hand the job back.</li><li><b>NC-PRS-01</b> — Reading order set explicitly, on every slide. Placeholders authored in reading order in the master.</li><li><b>NC-PRS-02</b> — Every slide carries a unique descriptive title. It may be hidden or off-canvas; it may not be absent.</li><li><b>NC-PRS-04</b> — No text box sized to its text.</li><li><b>NC-SYS-01</b> — State where the current version lives, in the system itself. Name the canonical location once; treat every other copy as derived.</li><li><b>NC-SYS-02</b> — Quote the line every finding rests on, or mark the finding as inference. Report an absence as a different class of claim from a quotation.</li><li><b>NC-XLS-01</b> — Spreadsheets are models: real tables, formulas from one assumptions sheet, freeze panes, no merged cells in data.</li></ul>
 </section>
 
@@ -906,7 +942,7 @@
   <div class="nc-panel nc-panel--left acc-butter" style="margin-top:var(--nc-sp4)">
     <p class="lab">The slide layer is the hole</p>
     <p class="txt">Twelve layouts exist as working markup in your reference file and in the
-      repo’s older <span class="cd">layouts/</span> folder, but nothing generates them from
+      repo’s older <span class="nc-code">layouts/</span> folder, but nothing generates them from
       the tokens, so nothing checks them. They are the last place a hand-set value can hide.</p>
   </div>
   <div class="nc-panel nc-panel--left acc-coral" style="margin-top:var(--nc-sp4)">

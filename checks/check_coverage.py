@@ -118,6 +118,50 @@ if clashes:
           "  later section. Until Carly decides one, this reports and does not fail.\n"
           "  Logged in docs/gaps.md.")
 
+# The coverage check only ever ran ONE WAY: every class defined must be
+# demonstrated. Nothing checked the reverse — that every class USED is defined.
+# So .g4, .gr, .h, .m and .tw sat in the library for weeks styling nothing, the
+# ground swatches rendered as unstyled spans running into each other, and the
+# page shipped a four-across grid two lines above the sentence saying there is
+# no four-across grid. Carly found all of it by reading. The build could not.
+# Every class the stylesheet mentions at all, under any prefix — .lab and .txt
+# and .ttl are real components, they are just scoped to a parent.
+ANYWHERE = set(re.findall(r"\.(-?[_a-zA-Z][\w-]*)", css))
+used = set()
+# EVERY page the build produces, not two of them. Scoping this to the component
+# library is how the audit and plan sheets accumulated their own private
+# vocabulary — .nm, .sr, .wt, .cnt, .r--ok — none of it defined, all of it
+# emitted straight from Python where no stylesheet check was ever looking.
+for d in ("components", "docs", "layouts"):
+    for q in sorted((ROOT / d).glob("*.html")):
+        used |= {c for a in re.findall(r'class="([^"]*)"', q.read_text()) for c in a.split()}
+for f in ("components/library.body.html", "docs/audit.body.html",
+          "docs/plan.body.html", "docs/routing.body.html"):
+    q = ROOT / f
+    if q.exists():
+        used |= {c for a in re.findall(r'class="([^"]*)"', q.read_text()) for c in a.split()}
+# The layout catalogue still passes a stylesheet into the page builder via
+# extra_css. That is the same loophole NC-PAG-02 closed for .css FILES, left
+# open for a Python string — so it is separated out and named rather than
+# quietly counted as defined.
+LOCAL = set()
+for f in ROOT.glob("*/build_*.py"):
+    for m in re.finditer(r'SCAFFOLD\s*=\s*(?:"""|\'\'\')(.*?)(?:"""|\'\'\')', f.read_text(), re.S):
+        LOCAL |= set(re.findall(r"\.(-?[_a-zA-Z][\w-]*)", m.group(1)))
+if LOCAL:
+    print(f"\n  REPORTED — {len(LOCAL)} class(es) live in a page's own extra_css, not in the")
+    print("  generated layer: " + ", ".join("." + c for c in sorted(LOCAL)))
+    print("  NC-PAG-02 closed this for stylesheet files. extra_css is the same hole.")
+orphans = sorted(used - ANYWHERE - LOCAL)
+if orphans:
+    print(f"\n  {len(orphans)} class(es) used in the markup and defined nowhere:")
+    for c in orphans:
+        print(f"    .{c}")
+    print("\n  Either it is a component — put it in the generated layer — or it is\n"
+          "  decoration invented at authoring time, which is the thing this system exists\n"
+          "  to make impossible. There is no third option.")
+    sys.exit(1)
+
 missing = sorted(defined - shown)
 print(f"{len(defined)} classes defined · {len(defined) - len(missing)} demonstrated")
 if missing:

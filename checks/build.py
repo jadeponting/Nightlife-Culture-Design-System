@@ -14,6 +14,10 @@ C, TY, SP = T["colour"], T["type"], T["space"]
 G = {k:v["hex"] for k,v in C["grounds"].items()}
 A = {k:v["hex"] for k,v in C["accents"].items() if isinstance(v,dict)}
 RAMP = C["chartRamp"]["series"]
+SC = TY['sizes']['document']['scale']
+RH = TY['sizes']['document']['rhythm']['aboveIsMultipleOfBelow']
+DSP = TY['sizes']['document']['display']
+
 
 css = f"""/* =============================================================
    Nightlife Culture — component layer
@@ -64,6 +68,42 @@ css = f"""/* =============================================================
 {chr(10).join(f'.acc-{k}{{--nc-acc:var(--nc-{k})}}' for k in A)}
 .acc-blue{{--nc-acc:var(--nc-blue)}}
 
+/* --- 2b · THE TYPE SCALE — the roles, as classes -------------------
+   This did not exist. Six roles sat in tokens.json with a face, a weight, a
+   case and a tracking value, and NO class carried any of them — so the one
+   specimen that was supposed to prove the type system was drawn by hand, with
+   five sizes nobody had chosen.
+
+   Nothing below is chosen here either. The sizes are read off v1.4's Readable
+   size rules (document body 12pt = 16px) and the Decision Book ch03 worked
+   example (32 → 24 → 18 → 16px, "a deliberately narrow range, because weight
+   and space are carrying the distinction"). Leading is v1.4's scoped
+   line-height table, HTML column. Case, weight and tracking are the roles
+   already in tokens.
+
+   The rhythm is ch03's: a heading carries THREE TIMES the space above it that
+   it carries below, so it attaches to what follows instead of floating.
+
+   Display is the decorative tier by the Book's own rule, and is named as such
+   rather than pretending to be a step on the scale. */
+.nc-display{{font-family:var(--nc-font-display);font-size:{DSP['em']}em;line-height:{TY['lineHeight']['display']};
+  text-transform:uppercase;letter-spacing:-.01em;margin:0}}
+.nc-h1{{font-family:var(--nc-font-head);font-weight:800;font-size:{SC['h1']['em']}em;line-height:{SC['h1']['lineHeight']};
+  text-transform:uppercase;letter-spacing:.01em;margin:{SC['h1']['em']*RH*0.5:.3f}em 0 {SC['h1']['em']*0.5:.3f}em}}
+.nc-h2{{font-family:var(--nc-font-head);font-weight:800;font-size:{SC['h2']['em']}em;line-height:{SC['h2']['lineHeight']};
+  text-transform:uppercase;letter-spacing:.04em;margin:{SC['h2']['em']*RH*0.5:.3f}em 0 {SC['h2']['em']*0.5:.3f}em}}
+.nc-h3{{font-family:var(--nc-font-head);font-weight:700;font-size:{SC['h3']['em']}em;line-height:{SC['h3']['lineHeight']};
+  letter-spacing:0;margin:{SC['h3']['em']*RH*0.5:.3f}em 0 {SC['h3']['em']*0.5:.3f}em}}
+.nc-body{{font-family:var(--nc-font-body);font-weight:400;font-size:{SC['body']['em']}em;line-height:{SC['body']['lineHeight']};
+  text-align:left;max-width:70ch;margin:0 0 {SC['body']['em']*0.75:.3f}em}}
+/* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
+   stops an em cascade dragging it under the floor in a nested context. */
+.nc-fnote{{font-size:max({SC['note']['em']}em,13px);line-height:{SC['note']['lineHeight']};color:var(--nc-charcoal)}}
+.ground-blue .nc-fnote,.ground-ink .nc-fnote{{color:var(--nc-teal)}}
+/* A first child never carries its top rhythm — the container's padding already
+   opened that space, and doubling it is what makes a panel look mis-set. */
+.nc-h1:first-child,.nc-h2:first-child,.nc-h3:first-child{{margin-top:0}}
+
 /* --- 3 · SECTION HEADER — documents and web. NOT FOR SLIDES. ------
    Rule BELOW. Numeral in a filled box, vertically centred, Archivo
    ExtraBold at H3 scale — not Archivo Black at display scale, so the
@@ -71,7 +111,7 @@ css = f"""/* =============================================================
    an invented number is worse than none. */
 .nc-section-head{{display:flex;align-items:center;gap:var(--nc-sp4);
   border-bottom:.19em solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}}
-.nc-section-head .num{{font-family:var(--nc-font-head);font-weight:800;font-size:.94em;
+.nc-section-head .num{{font-family:var(--nc-font-head);font-weight:800;font-size:{SC['h3']['em']/SC['h2']['em']:.3f}em;
   letter-spacing:.04em;background:var(--nc-ink);color:var(--nc-chalk);
   padding:var(--nc-sp2) var(--nc-sp2);line-height:1;display:flex;align-items:center;flex:none}}
 .nc-section-head .ttl{{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;

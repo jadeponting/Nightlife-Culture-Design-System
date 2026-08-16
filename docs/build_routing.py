@@ -27,7 +27,7 @@ def esc(s): return H.escape(str(s))
 fam = ['<div class="nc-lab">The six families</div>']
 for f in route.FAMILIES:
     fam.append(
-      f'<div class="fam"><div class="nm">{esc(f["name"])}</div><div>'
+      f'<div class="fam"><div class="lab">{esc(f["name"])}</div><div>'
       f'<p class="jb">{esc(f["job"])}</p>'
       f'<p class="mm">{esc(" · ".join(f["members"]))}</p>'
       f'<p class="pl">{esc(f["place"])}</p>'

@@ -251,7 +251,7 @@ for code, name, lead, ground, reg, why, markup in LAYOUTS:
 </section>''')
 
 rows = "".join(f'<tr><td class="nm">{job}</td><td>{pick}</td></tr>' for job, pick in CHOOSE)
-GRID = f'''<div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+GRID = f'''<div><table class="nc-table"><thead><tr>
 <th>Zone</th><th class="num">Measure</th><th>Rule</th></tr></thead><tbody>
 <tr><td>Side margins</td><td class="num">{S["sideMargin"]}</td><td>Nothing crosses them.</td></tr>
 <tr><td>Top margin · a kicker leads</td><td class="num">{S["topMargin"]["kickerLeads"]}</td>
@@ -294,7 +294,7 @@ BODY = f'''<section>
 <section>
   <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></h2>
   <p>Start from the job, not the picture.</p>
-  <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+  <div><table class="nc-table"><thead><tr>
     <th>What you are doing</th><th>Layout</th></tr></thead><tbody>{rows}</tbody></table></div>
 </section>'''
 

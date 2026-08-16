@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Twelve layouts — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:6328ec48ed0e5259;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:8fcd9322bf96a255;rules:b49b7662e7737d24;css:b1c74b3f79853f70;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -109,6 +109,42 @@
 .acc-coral{--nc-acc:var(--nc-coral)}
 .acc-blue{--nc-acc:var(--nc-blue)}
 
+/* --- 2b · THE TYPE SCALE — the roles, as classes -------------------
+   This did not exist. Six roles sat in tokens.json with a face, a weight, a
+   case and a tracking value, and NO class carried any of them — so the one
+   specimen that was supposed to prove the type system was drawn by hand, with
+   five sizes nobody had chosen.
+
+   Nothing below is chosen here either. The sizes are read off v1.4's Readable
+   size rules (document body 12pt = 16px) and the Decision Book ch03 worked
+   example (32 → 24 → 18 → 16px, "a deliberately narrow range, because weight
+   and space are carrying the distinction"). Leading is v1.4's scoped
+   line-height table, HTML column. Case, weight and tracking are the roles
+   already in tokens.
+
+   The rhythm is ch03's: a heading carries THREE TIMES the space above it that
+   it carries below, so it attaches to what follows instead of floating.
+
+   Display is the decorative tier by the Book's own rule, and is named as such
+   rather than pretending to be a step on the scale. */
+.nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
+  text-transform:uppercase;letter-spacing:-.01em;margin:0}
+.nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
+  text-transform:uppercase;letter-spacing:.01em;margin:3.000em 0 1.000em}
+.nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
+  text-transform:uppercase;letter-spacing:.04em;margin:2.250em 0 0.750em}
+.nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
+  letter-spacing:0;margin:1.688em 0 0.562em}
+.nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
+  text-align:left;max-width:70ch;margin:0 0 0.750em}
+/* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
+   stops an em cascade dragging it under the floor in a nested context. */
+.nc-fnote{font-size:max(0.875em,13px);line-height:1.4;color:var(--nc-charcoal)}
+.ground-blue .nc-fnote,.ground-ink .nc-fnote{color:var(--nc-teal)}
+/* A first child never carries its top rhythm — the container's padding already
+   opened that space, and doubling it is what makes a panel look mis-set. */
+.nc-h1:first-child,.nc-h2:first-child,.nc-h3:first-child{margin-top:0}
+
 /* --- 3 · SECTION HEADER — documents and web. NOT FOR SLIDES. ------
    Rule BELOW. Numeral in a filled box, vertically centred, Archivo
    ExtraBold at H3 scale — not Archivo Black at display scale, so the
@@ -116,7 +152,7 @@
    an invented number is worse than none. */
 .nc-section-head{display:flex;align-items:center;gap:var(--nc-sp4);
   border-bottom:.19em solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}
-.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:.94em;
+.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:0.750em;
   letter-spacing:.04em;background:var(--nc-ink);color:var(--nc-chalk);
   padding:var(--nc-sp2) var(--nc-sp2);line-height:1;display:flex;align-items:center;flex:none}
 .nc-section-head .ttl{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
@@ -733,7 +769,7 @@
   <p>The written 6% / 7.5% flat was a real decision flattened to a constant. What the decks actually do is vary the top margin by what leads the slide, and that variation is the mechanism that guides the reader: a kicker is small and quiet so it can sit high, because it is not the message; a statement needs air above it to land. Give the title the kicker's margin and the slide top-loads — the composition loses the breath that makes the rest of the system work. So the three steps stay, snapped to one unit so every value is a multiple (ch02, Fixed).</p>
   <p>Every value is a multiple of one unit — 1.3333% of slide height — so the
      slide grid obeys the same one-base-unit rule as the spacing scale. The footer band and the largest top step are both ten units, so a slide led by a full-bleed element sits in a centred band. That is a consequence of the unit, not a separate rule.</p>
-  <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+  <div><table class="nc-table"><thead><tr>
 <th>Zone</th><th class="num">Measure</th><th>Rule</th></tr></thead><tbody>
 <tr><td>Side margins</td><td class="num">5.25%</td><td>Nothing crosses them.</td></tr>
 <tr><td>Top margin · a kicker leads</td><td class="num">4%</td>
@@ -948,7 +984,7 @@
 <section>
   <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></h2>
   <p>Start from the job, not the picture.</p>
-  <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+  <div><table class="nc-table"><thead><tr>
     <th>What you are doing</th><th>Layout</th></tr></thead><tbody><tr><td class="nm">Opening an argument</td><td>L2 · section divider</td></tr><tr><td class="nm">Three related points</td><td>L3 on blue, or L6 / L7 if you want them filled</td></tr><tr><td class="nm">Two things in tension</td><td>L4 — this is the Nightlife Culture argument shape</td></tr><tr><td class="nm">One line that has to land</td><td>L5 · quote</td></tr><tr><td class="nm">One number that has to land</td><td>L10 · vertical third stat</td></tr><tr><td class="nm">A process or sequence</td><td>L9 · ink strip</td></tr><tr><td class="nm">Data</td><td>L11 — chart ramp only, never the brand accents</td></tr><tr><td class="nm">Detail-heavy content</td><td>L8 · vertical third, which keeps the argument on the left</td></tr></tbody></table></div>
 </section>
 </div>

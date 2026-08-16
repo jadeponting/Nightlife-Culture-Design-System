@@ -76,7 +76,7 @@ def _flag_list(findings):
 
 def _disclose(src):
     out, i, n, red_total, spec_flagged = [], 0, 0, 0, 0
-    for m in _re.finditer(r'<div class="nc-specimen[^"]*">', src):
+    for m in _re.finditer(r'<div class="nc-specimen[^"]*"[^>]*>', src):
         depth, j = 0, m.start()
         while j < len(src):
             t = _re.compile(r"</?div\b").search(src, j)

@@ -2,36 +2,38 @@
 <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">Grounds</span></h2>
 <p class="nc-small">Two dark grounds take white text. Two reading grounds take ink or charcoal. Teal is the
 section-header colour on <em>every</em> dark ground — one rule, not two.</p>
-<div class="g4" style="margin-top:var(--nc-sp4)">
-<div class="gr ground-blue"><span class="h">Signal blue</span><span class="m">#0000FF · white · 8.59:1</span></div>
-<div class="gr ground-ink"><span class="h">Ink</span><span class="m">#0D0D0D · white · 19.44:1</span></div>
-<div class="gr ground-chalk"><span class="h">Chalk</span><span class="m">#F3F3F3 · ink · 17.52:1</span></div>
-<div class="gr ground-white" style="outline:1px solid var(--nc-hair);outline-offset:-1px"><span class="h">White</span><span class="m">#FFFFFF · ink · 19.44:1</span></div>
+<div class="nc-specimen">
+<div class="nc-g2">
+<div class="nc-panel ground-blue"><p class="lab">Signal blue</p><p class="txt">#0000FF · white text · 8.59:1</p></div>
+<div class="nc-panel ground-ink"><p class="lab">Ink</p><p class="txt">#0D0D0D · white text · 19.44:1</p></div>
+<div class="nc-panel ground-chalk"><p class="lab">Chalk</p><p class="txt">#F3F3F3 · ink text · 17.52:1</p></div>
+<div class="nc-panel nc-panel--hair ground-white"><p class="lab">White</p><p class="txt">#FFFFFF · ink text · 19.44:1</p></div>
 </div>
 <p class="nc-lab">Accents — black text only, never a data series</p>
-<div class="g4" style="margin-top:var(--nc-sp2)">
+<div class="nc-g2">
 <div class="nc-panel nc-panel--fill acc-pink"><p class="lab">Counter pink</p><p class="txt">7.42:1</p></div>
 <div class="nc-panel nc-panel--fill acc-teal"><p class="lab">Signal teal</p><p class="txt">12.79:1</p></div>
 <div class="nc-panel nc-panel--fill acc-violet"><p class="lab">Soft violet</p><p class="txt">7.64:1</p></div>
 <div class="nc-panel nc-panel--fill acc-butter"><p class="lab">Butter</p><p class="txt">14.73:1</p></div>
+</div>
 </div>
 </section>
 
 <section>
 <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">Type</span></h2>
 <div class="nc-specimen">
-<p style="font-family:var(--nc-font-display);text-transform:uppercase;letter-spacing:-.01em;line-height:.9;font-size:3.4em;margin:0">Music is how a place<br>knows itself</p>
-<p class="nc-note">Display · Archivo Black · caps applied · tracking −1% · leading .9 · two lines maximum</p>
-<p style="font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:1.04;font-size:2.1em;margin:1.4em 0 0">The bridge we build</p>
-<p class="nc-note">H1 · Archivo ExtraBold 800 · caps · +1% · eight words maximum, break rather than shrink</p>
-<p style="font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;font-size:1.35em;margin:1.4em 0 0">Principles for partnership</p>
-<p class="nc-note">H2 · Archivo ExtraBold 800 · caps · +4% — tracking compensates for optical tightening as caps shrink</p>
-<p style="font-family:var(--nc-font-head);font-weight:700;line-height:1.25;font-size:1.06em;margin:1.4em 0 0">How shared evidence should be built</p>
-<p class="nc-note">H3 · Archivo Bold 700 · sentence case · the floor — caps stop working below 16pt</p>
-<p style="margin:1.4em 0 0;line-height:1.55">Public systems often measure the night, but the metrics miss the stories nightlife tells about itself. Culturally powerful, institutionally under-evidenced.</p>
-<p class="nc-note">Body · Inter 400 · sentence case · 12pt floor · leading 1.5–1.6 running prose · left aligned, never justified · measure ≤80 characters</p>
-<p style="font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.8em;margin:1.4em 0 0;color:var(--nc-charcoal)">Trusted partner deck · August 2026</p>
-<p class="nc-note">Label / meta · Archivo SemiBold 600 · caps · +8–16% · 16pt floor on screen · the qualifier, not the kicker</p>
+<p class="nc-display">Music is how a place<br>knows itself</p>
+<p class="nc-fnote">.nc-display · Archivo Black · caps applied · tracking −1% · leading .9 · two lines maximum. <b>Decorative tier</b> — ch03 puts display and covers there, so this step is free and is not part of the reading scale.</p>
+<p class="nc-h1">The bridge we build</p>
+<p class="nc-fnote">.nc-h1 · 2em = 32px = 24pt · Archivo ExtraBold 800 · caps · +1% · leading 1.05. Size from ch03's worked scale; eight words maximum, break rather than shrink.</p>
+<p class="nc-h2">Principles for partnership</p>
+<p class="nc-fnote">.nc-h2 · 1.5em = 24px = 18pt · caps · +4% — tracking compensates for optical tightening as caps shrink.</p>
+<p class="nc-h3">How shared evidence should be built</p>
+<p class="nc-fnote">.nc-h3 · 1.125em = 18px · sentence case · leading 1.3. The floor — caps stop working below 16pt.</p>
+<p class="nc-body">Public systems often measure the night, but the metrics miss the stories nightlife tells about itself. Culturally powerful, institutionally under-evidenced.</p>
+<p class="nc-fnote">.nc-body · 1em = 16px = 12pt · leading 1.55 · left aligned, never justified · measure capped at 70ch. v1.4 sets 12pt as both the minimum AND the preferred document body.</p>
+<p class="nc-fnote">.nc-fnote · 0.875em = 14px = 10.5pt · v1.4 footnotes and caveats. This paragraph is the specimen.</p>
+<p class="nc-body"><b>The rhythm is not a size.</b> Each heading carries three times the space above it that it carries below, so it attaches to what follows rather than floating between blocks — ch03. That is why the gaps above these headings are uneven and deliberate.</p>
 </div>
 <p class="nc-small"><strong>Leading is scoped, not one number.</strong> Display 1.02–1.1 · H2/H3 1.15–1.25 ·
 running prose 1.5–1.6 · table cells 1.25–1.35 · captions 1.3–1.4 · <strong>statistic blocks 1.0–1.1,
@@ -60,6 +62,7 @@ The numeral is optional; an invented number is worse than none.</p>
 <p class="nc-small">Contain with colour and space, not outlines. Before reaching for any of these, check
 whether you are compensating for a proximity error — you usually are, and the fix is to move things
 rather than draw a line between them.</p>
+<div class="nc-specimen">
 <div class="nc-g3" style="margin-top:var(--nc-sp4)">
 <div class="nc-panel nc-panel--fill acc-violet"><p class="lab">Fill</p><p class="txt">The colour field <em>is</em> the container. The default for accent panels. Needs generous space around it.</p></div>
 <div class="nc-panel nc-panel--top acc-teal"><p class="lab">Top rule · 9px</p><p class="txt">White panel, accent bar. Dense pages, tables, long documents where five filled panels would be too much.</p></div>
@@ -69,6 +72,7 @@ rather than draw a line between them.</p>
 <div class="nc-band acc-violet" style="margin:0"><p class="lab">Full-bleed band</p><p class="txt">Runs edge to edge. Stops being a panel and becomes a change of ground.</p></div>
 <div class="nc-panel nc-panel--hair"><p class="lab">Hairline · 1px ink 22%</p><p class="txt">White panels on chalk, tables, forms. <strong>Never for anything carrying meaning.</strong></p></div>
 <div class="nc-panel nc-panel--flyer acc-butter"><p class="lab">Flyer register · 2px ink</p><p class="txt">Covers, posters, dividers. <strong>Not the default</strong> — so the box means something when it does turn up.</p></div>
+</div>
 </div>
 </section>
 
@@ -127,7 +131,8 @@ screen reader. Coral never means “bad”; it means “handle with a stated cav
 <p class="nc-small"><strong>Demonstration and reference tables are two different objects.</strong> This is a
 demonstration table — small, in the flow, supporting the sentence beside it. A reference table belongs
 in a spreadsheet. Editorial is the default: no fill, no vertical rules, no outer border.</p>
-<div class="tw"><table class="nc-table" style="margin-top:var(--nc-sp4)">
+<div class="nc-specimen">
+<table class="nc-table" style="margin-top:var(--nc-sp4)">
 <caption class="nc-caption" style="text-align:left;margin:0 0 .6em">Table 1 · Where value is held in the night-time economy, by actor</caption>
 <thead><tr><th>Actor</th><th>Share of value</th><th class="num">Index</th><th class="num">Change</th></tr></thead>
 <tbody>
@@ -135,18 +140,20 @@ in a spreadsheet. Editorial is the default: no fill, no vertical rules, no outer
 <tr><td>Artists</td><td>Fees, recording, publishing</td><td class="num">64.0</td><td class="num">−2.3</td></tr>
 <tr><td>Promoters</td><td>Ticketing margin, production</td><td class="num">47.2</td><td class="num">+1.8</td></tr>
 <tr><td>Crew and tech</td><td>Freelance and agency labour</td><td class="num">[c]</td><td class="num">n/a</td></tr>
-</tbody></table></div>
+</tbody></table>
 <p class="nc-caption">Figures and their column headings right-aligned, so digits line up by place
 value. Consistent precision within each column. Rows ordered by the data, largest first — not
 alphabetically. <code>[c]</code> suppressed for disclosure control; <code>n/a</code> not collected.
 Never a blank cell, because a gap in the data is a finding.</p>
 <p class="nc-lab">Accent variant — for a table that opens a section</p>
-<div class="tw"><table class="nc-table nc-table--accent acc-butter">
+<table class="nc-table nc-table--accent acc-butter">
 <thead><tr><th>Rule</th><th>Tier</th></tr></thead><tbody>
 <tr><td>Header cells marked up as real headers, with scope</td><td>Fixed</td></tr>
 <tr><td>Header row repeats across pages</td><td>Fixed</td></tr>
 <tr><td>Zebra striping, rule weight, cell padding</td><td>Decorative</td></tr>
-</tbody></table></div>
+</tbody></table>
+
+</div>
 </section>
 
 <section>
@@ -155,6 +162,7 @@ Never a blank cell, because a gap in the data is a finding.</p>
 unit and population, the chart, then the evidence block. <strong>Label at the mark</strong> — for a
 brand-derived palette, direct labelling is not a polish pass, it is the mechanism by which the chart
 is compliant at all.</p>
+<div class="nc-specimen">
 <div class="nc-g2" style="margin-top:var(--nc-sp4)">
 
 <div class="nc-chart acc-blue">
@@ -220,6 +228,8 @@ Four series maximum — there is no fifth ramp colour, and the cap is enforced b
 inverts.</strong> The ramp survives greyscale, projection, deuteranopia and tritanopia — not
 protanopia. Wherever both appear together, differentiate by more than colour. The label-at-the-mark
 rule already covers most cases, which is why it comes first.</p>
+
+</div>
 </section>
 
 <section>
@@ -404,14 +414,14 @@ photocopied page knows where it came from. Version and date on the face.</p>
     .nc-small · .nc-list--num · .nc-dl · .nc-pre · .nc-details. NC-DOC-08 to 10, NC-TYP-06.</p>
 
   <p class="nc-lab">Banded table — long reference tables where the eye needs a rail</p>
-  <div class="tw"><table class="nc-table nc-table--band">
+  <table class="nc-table nc-table--band">
     <thead><tr><th>Ground</th><th>Text</th><th class="num">Measured</th></tr></thead>
     <tbody>
       <tr><td>Blue</td><td>white</td><td class="num">8.5925</td></tr>
       <tr><td>Ink</td><td>white</td><td class="num">19.4355</td></tr>
       <tr><td>Chalk</td><td>ink</td><td class="num">17.5155</td></tr>
       <tr><td>White</td><td>ink</td><td class="num">19.4355</td></tr>
-    </tbody></table></div>
+    </tbody></table>
   <p class="nc-note">.nc-table--band. Never band and rule at once — two grouping mechanisms doing one
     job means neither reads as deliberate. NC-TBL-01.</p>
 </section>

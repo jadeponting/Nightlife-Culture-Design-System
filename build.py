@@ -43,6 +43,8 @@ if not fail:
     fail |= subprocess.run([sys.executable, "checks/validate.py", *html], cwd=ROOT).returncode
     print("\n=== coverage " + "=" * 51, flush=True)
     fail |= subprocess.run([sys.executable, "checks/check_coverage.py"], cwd=ROOT).returncode
+    print("\n=== contrast " + "=" * 51, flush=True)
+    fail |= subprocess.run([sys.executable, "checks/check_contrast.py"], cwd=ROOT).returncode
     print("\n=== stamps " + "=" * 53, flush=True)
     fail |= subprocess.run([sys.executable, "checks/check_stamps.py"], cwd=ROOT).returncode
 
