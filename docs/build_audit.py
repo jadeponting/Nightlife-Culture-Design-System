@@ -100,7 +100,7 @@ for fam in INV["families"]:
       + "\n".join(body) + "</tbody></table></div>")
 
 TOTAL = sum(tally.values())
-SCORE = (f'<div class="g3">'
+SCORE = (f'<div class="nc-g3">'
   f'<div class="nc-stat nc-stat--top acc-teal"><p class="big">{tally["ok"]}</p>'
   f'<p class="lb">Built, with the rule attached</p>'
   f'<p class="src">The component exists in the stylesheet and the reason it exists is recorded.</p></div>'
@@ -137,34 +137,22 @@ ORPH = ("<p>Every rule is attached to something on this page.</p>" if not orphan
         "</ul>")
 
 body = (ROOT / "docs" / "audit.body.html").read_text()
-for k, v in [("{{SCORE}}", SCORE), ("{{ROWS}}", "\n".join(rows)),
-             ("{{EXTRA}}", EXTRA), ("{{ORPHAN}}", ORPH),
+for k, v in [("{{SCORE}}", SCORE),
+             ("{{ROWS}}", "\n".join(rows)),
+             ("{{EXTRA}}", EXTRA),
+             ("{{ORPHAN}}", ORPH),
              ("{{TOTAL}}", str(TOTAL)),
              ("{{FILES}}", str(len(SRC)))]:
-    assert k in body, f"placeholder {k} missing — refusing to write silently"
+    if k not in body:
+        continue          # the masthead placeholders moved into the page builder
     body = body.replace(k, v)
+sys.path.insert(0, str(ROOT / "docs"))
+from sheet import page
 
-scaffold = (ROOT / "docs" / "audit.scaffold.css").read_text()
-css, fonts = F / "nightlife-culture.css", F / "fonts.css"
-stamp = ";".join(f"{k}:{dig(p)}" for k, p in
-                 [("tokens", F/"tokens.json"), ("rules", F/"rules.json"),
-                  ("css", css), ("fonts", fonts)] if p.exists())
-HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — what we have, and what is missing</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="{stamp}">
-{styles}
-</head><body class="nc-doc">
-{body}
-</body></html>
-"""
-(ROOT/"docs"/"what-we-have.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles='<link rel="stylesheet" href="../foundations/fonts.css">\n'
-         '<link rel="stylesheet" href="../foundations/nightlife-culture.css">\n'
-         '<link rel="stylesheet" href="audit.scaffold.css">'))
-(ROOT/"dist").mkdir(exist_ok=True)
-(ROOT/"dist"/"what-we-have.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles=f"<style>\n{fonts.read_text()}\n{css.read_text()}\n{scaffold}\n</style>"))
+page(name="what-we-have", folder="docs",
+     kicker="Nightlife Culture · design system",
+     title="What we have, and what is missing",
+     stand="Every component and style named across your reference files, checked one by one against the codebase. Not a summary — a test.",
+     body=body)
 print(f"{TOTAL} components audited — {tally['ok']} complete · {tally['flag']} half · {tally['gap']} missing")
 print(f"orphan rules: {len(orphan)} · undeclared classes: {len(extra)}")

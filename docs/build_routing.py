@@ -24,7 +24,7 @@ def dig(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 def esc(s): return H.escape(str(s))
 
 # ---------------------------------------------------------------- families
-fam = ['<div class="lbl">The six families</div>']
+fam = ['<div class="nc-lab">The six families</div>']
 for f in route.FAMILIES:
     fam.append(
       f'<div class="fam"><div class="nm">{esc(f["name"])}</div><div>'
@@ -55,7 +55,7 @@ DEMOS = {
    '<div class="nc-panel nc-panel--hair"><p class="lab">Grouped</p>'
    '<p class="txt">Visually together, carrying nothing. Never load-bearing.</p></div>',
 }
-ct = ['<div class="lbl">The container ladder</div>']
+ct = ['<div class="nc-lab">The container ladder</div>']
 for q, cls, why in route.CONTAINERS:
     ct.append(f'<div class="ct-row"><div><p class="qn">{esc(q)}</p><p class="an">{esc(why)}</p>'
               f'</div><div>{DEMOS[cls]}</div></div>')
@@ -81,15 +81,15 @@ def supplied(lines):
 def block(head, intro, lines, d, outro=None, show=True):
     o = [f'<h3 class="exh">{esc(head)}</h3>', f'<p>{intro}</p>', supplied(lines), ladder(d)]
     if d.blocked:
-        o.append('<div class="lbl">What comes out</div>'
+        o.append('<div class="nc-lab">What comes out</div>'
                  '<div class="nc-panel nc-panel--left acc-coral">'
                  '<p class="lab">Nothing</p><p class="txt">No component is produced. '
                  'The stops above are Fixed rules; they are fixed in the content, not '
                  'designed around.</p></div>')
     elif show:
-        o.append('<div class="lbl">What comes out</div>'
+        o.append('<div class="nc-lab">What comes out</div>'
                  f'<div class="demo">{d.html}</div>')
-    if outro: o.append(f'<p class="sm">{outro}</p>')
+    if outro: o.append(f'<p class="nc-small">{outro}</p>')
     return "\n".join(o)
 
 ex = {t: d for t, _, d in route.run_examples()}
@@ -162,29 +162,11 @@ body = (ROOT/"docs"/"routing.body.html").read_text()
 for k, v in [("{{FAMILIES}}", FAMILIES), ("{{CONTAINERS}}", CONTAINERS), ("{{EXAMPLES}}", EX)]:
     assert k in body, f"placeholder {k} missing — refusing to write silently"
     body = body.replace(k, v)
+sys.path.insert(0, str(ROOT / "docs"))
+from sheet import page
 
-scaffold = (ROOT/"docs"/"routing.scaffold.css").read_text()
-css, fonts = F/"nightlife-culture.css", F/"fonts.css"
-stamp = ";".join(f"{k}:{dig(p)}" for k, p in
-                 [("tokens", F/"tokens.json"), ("rules", F/"rules.json"),
-                  ("css", css), ("fonts", fonts)] if p.exists())
-HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — how the logic works</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="{stamp}">
-{styles}
-</head><body class="nc-doc">
-{body}
-</body></html>
-"""
-(ROOT/"docs"/"how-the-logic-works.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles='<link rel="stylesheet" href="../foundations/fonts.css">\n'
-         '<link rel="stylesheet" href="../foundations/nightlife-culture.css">\n'
-         '<link rel="stylesheet" href="routing.scaffold.css">'))
-(ROOT/"dist").mkdir(exist_ok=True)
-(ROOT/"dist"/"how-the-logic-works.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles=f"<style>\n{fonts.read_text()}\n{css.read_text()}\n{scaffold}\n</style>"))
-print(f"wrote docs/how-the-logic-works.html   linked")
-print(f"wrote dist/how-the-logic-works.html   self-contained")
-print(f"stamp: {stamp}")
+page(name="how-the-logic-works", folder="docs",
+     kicker="Nightlife Culture · design system",
+     title="How the logic works",
+     stand="Content goes in. A component comes out. The questions the system asks, in the order it asks them.",
+     body=body)

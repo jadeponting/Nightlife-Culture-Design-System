@@ -206,6 +206,16 @@ def check(path):
         if "<thead" not in tb:
             W.append(("NC-DOC-04", "a table with no <thead> — the header cannot repeat across pages")); break
 
+    # NC-DOC-05b — a heading that never closes swallows the rest of the page.
+    # .nc-section-head is display:flex, so an unclosed one lays every following
+    # element out as a flex child and the page looks like a bug in the CSS. Cost
+    # two rounds of looking at screenshots before anyone counted the tags.
+    op = len(re.findall(r"<h[1-6]\b", body, re.I))
+    cl = len(re.findall(r"</h[1-6]>", body, re.I))
+    if op != cl:
+        F.append(("NC-DOC-05", f"{op} heading tags opened, {cl} closed — an unclosed heading "
+                               "contains everything after it"))
+
     # NC-DOC-05 — no skipped heading levels
     lv = [int(x) for x in re.findall(r"<h([1-6])\b", body, re.I)]
     for a, b in zip(lv, lv[1:]):

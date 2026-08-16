@@ -18,37 +18,23 @@ F = ROOT / "foundations"
 def d(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 
 body     = (ROOT / "components" / "library.body.html").read_text()
-scaffold = (ROOT / "components" / "library.scaffold.css").read_text()
 css      = (F / "nightlife-culture.css")
 fonts    = (F / "fonts.css")
-stamp = ";".join(f"{k}:{d(p)}" for k, p in
-                 [("tokens", F/"tokens.json"), ("rules", F/"rules.json"),
-                  ("css", css), ("fonts", fonts)] if p.exists())
 
-HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — component library v1.0</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="{stamp}">
-{styles}
-</head><body class="nc-doc">
-{body}
-</div></body></html>
-"""
+import sys
+sys.path.insert(0, str(ROOT / "docs"))
+from sheet import page
 
-# 1 · repo form — links the stylesheets. Cannot carry a stale copy.
-(ROOT / "components" / "index.html").write_text(HEAD.format(
-    stamp=stamp, body=body,
-    styles='<link rel="stylesheet" href="../foundations/fonts.css">\n'
-           '<link rel="stylesheet" href="../foundations/nightlife-culture.css">\n'
-           '<link rel="stylesheet" href="library.scaffold.css">'))
-
-# 2 · dist form — self-contained, for sending
-(ROOT / "dist").mkdir(exist_ok=True)
-(ROOT / "dist" / "component-library.html").write_text(HEAD.format(
-    stamp=stamp, body=body,
-    styles=f"<style>\n{fonts.read_text()}\n{css.read_text()}\n{scaffold}\n</style>"))
-
-print(f"wrote components/index.html          linked, {len(body):,} chars of content")
-print(f"wrote dist/component-library.html    self-contained")
-print(f"stamp: {stamp}")
+page(name="index", folder="components",
+     kicker="Nightlife Culture · design system",
+     title="The component library",
+     stand="Every component in the system, one specimen each, with the rule that governs it "
+           "and where it came from. Nothing here is drawn to look like a component — each is "
+           "the component.",
+     body=body)
+page(name="component-library", folder="dist",
+     kicker="Nightlife Culture · design system",
+     title="The component library",
+     stand="Every component in the system, one specimen each, with the rule that governs it "
+           "and where it came from.",
+     body=body)

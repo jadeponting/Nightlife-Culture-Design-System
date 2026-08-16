@@ -32,6 +32,18 @@ for f in SURFACES:
     if p.exists():
         shown |= {c for a in re.findall(r'class="([^"]*)"', p.read_text()) for c in a.split()}
 
+# NC-PAG-02 — a sheet never carries its own stylesheet. Five of them existed,
+# they disagreed, and the disagreement is what the reviewer kept finding. The
+# page builder at docs/sheet.py is the only place page furniture is decided.
+strays = sorted(p.relative_to(ROOT).as_posix()
+                for d in ("docs", "components", "layouts", "adapters")
+                for p in (ROOT / d).glob("*.css") if (ROOT / d).exists())
+if strays:
+    print("\n  per-sheet stylesheets found — page furniture is a component (NC-PAG-02):")
+    for f in strays:
+        print(f"    {f}")
+    sys.exit(1)
+
 missing = sorted(defined - shown)
 print(f"{len(defined)} classes defined · {len(defined) - len(missing)} demonstrated")
 if missing:

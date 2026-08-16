@@ -1,24 +1,13 @@
-<header class="mast">
-  <div class="wrap">
-    <p class="kick">Nightlife Culture · design system</p>
-    <h1>What we have, and what is missing</h1>
-    <p>Every component and style named across your {{FILES}} reference files, checked one
-       by one against the codebase. Not a summary — a test. Each row asks two questions:
-       does the thing exist, and is the reason it exists written down.</p>
-  </div>
-</header>
-<div class="wrap">
-
 <section>
   <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The count</span></h2>
-  <p class="lede">{{TOTAL}} components and styles, pulled out of the reference sheets one at a time.</p>
+  <p class="nc-stand">{{TOTAL}} components and styles, pulled out of the reference sheets one at a time.</p>
   {{SCORE}}
   <p><b>How to read a row.</b> “In the codebase as” is the actual class in the generated
      stylesheet — if it were not really there, this page would say so, because the script
      looks it up rather than taking my word for it. “Logic” is the rule that says why the
      component exists and when you may deviate. A component with no rule is a habit; a rule
      with no component is an intention.</p>
-  <p class="sm">Two notes under a row name. <i>Produced by the router</i> means you can hand
+  <p class="nc-small">Two notes under a row name. <i>Produced by the router</i> means you can hand
      that component raw content and get the finished thing back, rules applied. <i>Checked
      by</i> names the script that fails the build if the rule is broken — a rule nothing
      checks is a rule that will quietly stop being true.</p>
@@ -67,8 +56,7 @@
       charts v1.4 and the style guide. Until they exist, anyone needing one will reach
       outside the system — which is exactly how a system starts to leak.</p>
   </div>
-  <p class="sm" style="margin-top:var(--nc-sp5)">Everything on this page is checked against
+  <p class="nc-small" style="margin-top:var(--nc-sp5)">Everything on this page is checked against
      the Nightlife Culture Style Guide v1.4 and the Decision Book at build time. If a class
      is renamed or a rule removed, this page changes with it.</p>
 </section>
-</div>

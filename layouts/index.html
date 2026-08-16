@@ -1,25 +1,35 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — twelve slide layouts</title>
+<title>Twelve layouts — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:6cfa4673bf53ae92;css:49bd664586bf9e75;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:92414cab1994f1b9;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <link rel="stylesheet" href="../foundations/fonts.css">
 <link rel="stylesheet" href="../foundations/nightlife-culture.css">
 <link rel="stylesheet" href="../foundations/nightlife-slides.css">
-<link rel="stylesheet" href="layouts.scaffold.css">
+<style>/* Layout-catalogue furniture only — the card around each slide. Everything
+   else on this page is a page component (NC-PAG-02). */
+.lay{margin:0 0 var(--nc-sp7)}
+.layh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;margin:0 0 var(--nc-sp2);
+ display:flex;align-items:baseline;gap:var(--nc-sp3);flex-wrap:wrap;text-transform:none}
+.layh .code{background:var(--nc-ink);color:var(--nc-chalk);padding:var(--nc-sp1) var(--nc-sp2);
+ font-size:.8em;letter-spacing:.06em}
+.layh .meta{font-weight:600;font-size:max(.72em,12px);letter-spacing:.06em;text-transform:uppercase;
+ color:var(--nc-charcoal)}
+.why{font-size:max(.9em,13px);color:var(--nc-charcoal);max-width:74ch;margin-bottom:var(--nc-sp4)}
+.nc-slide{outline:1px solid var(--nc-hair);outline-offset:-1px}
+</style>
 </head><body class="nc-doc">
-<header class="mast">
-  <div class="wrap">
-    <p class="kick">Nightlife Culture · design system</p>
+<header class="nc-mast">
+  <div class="nc-wrap">
+    <p class="nc-kick">Nightlife Culture · design system</p>
     <h1>Twelve layouts</h1>
-    <p>Generated from the tokens, so every margin on this page is the same value the
-       rule set holds. Change the grid once and all twelve move together.</p>
+    <p class="stand">Generated from the tokens, so every margin on this page is the value the rule set holds. Change the grid once and all twelve move together.</p>
   </div>
 </header>
-<div class="wrap">
+<div class="nc-wrap">
 <section>
-  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The grid</span></p>
-  <p class="lede">The top margin is not one number, and that is the point.</p>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The grid</span></h2>
+  <p class="nc-stand">The top margin is not one number, and that is the point.</p>
   <p>The written 6% / 7.5% flat was a real decision flattened to a constant. What the decks actually do is vary the top margin by what leads the slide, and that variation is the mechanism that guides the reader: a kicker is small and quiet so it can sit high, because it is not the message; a statement needs air above it to land. Give the title the kicker's margin and the slide top-loads — the composition loses the breath that makes the rest of the system work. So the three steps stay, snapped to one unit so every value is a multiple (ch02, Fixed).</p>
   <p>Every value is a multiple of one unit — 1.3333% of slide height — so the
      slide grid obeys the same one-base-unit rule as the spacing scale. The footer band and the largest top step are both ten units, so a slide led by a full-bleed element sits in a centred band. That is a consequence of the unit, not a separate rule.</p>
@@ -48,7 +58,7 @@
 </section>
 <hr class="nc-brk acc-teal">
 <section>
-  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The twelve</span></p>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The twelve</span></h2>
   <p>Each one is an arrangement of components that already exist. None of them defines a
      component of its own — if a layout needed one, that would mean the component layer was
      missing something, not that the layout was special.</p>
@@ -126,7 +136,7 @@
   <p class="why">Charcoal title, blue sub — not the other way round. Filled cells, ink text, no outlines. Chalk in decks, white in reports.</p>
   <div class="nc-slide"><div class="cv ground-chalk"><div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-blue)">04 · Principles for partnership</p>
-    <h2 class="nc-t" style="color:var(--nc-charcoal)">How shared evidence<br>should be built</p>
+    <p class="nc-t" style="color:var(--nc-charcoal)"How shared evidence<br>should be built</p>
     <hr class="nc-brk acc-blue">
     <p class="nc-sub" style="color:var(--nc-blue)">Knowledge in the commons. Data as an asset.</p>
     <div class="nc-cells">
@@ -142,7 +152,7 @@
   <p class="why">Used sparingly, and never without a light-ground variant: ambient light lifts a projector's blacks, so an ink deck greys out in a lit room at 11am. Teal is the section-header colour on every dark ground — butter on ink reads as a warning label.</p>
   <div class="nc-slide"><div class="cv ground-ink"><div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-teal)">05 · What the night creates</p>
-    <h2 class="nc-t" style="color:var(--nc-teal)">Nightlife is a<br>talent programme</p>
+    <p class="nc-t" style="color:var(--nc-teal)"Nightlife is a<br>talent programme</p>
     <hr class="nc-brk acc-teal">
     <p class="nc-sub nc-sub--wide">It produces agency and ambition before formal institutions can see them.</p>
     <div class="nc-cells">
@@ -236,7 +246,7 @@
 </section>
 <hr class="nc-brk acc-pink">
 <section>
-  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></p>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></h2>
   <p>Start from the job, not the picture.</p>
   <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
     <th>What you are doing</th><th>Layout</th></tr></thead><tbody><tr><td class="nm">Opening an argument</td><td>L2 · section divider</td></tr><tr><td class="nm">Three related points</td><td>L3 on blue, or L6 / L7 if you want them filled</td></tr><tr><td class="nm">Two things in tension</td><td>L4 — this is the Nightlife Culture argument shape</td></tr><tr><td class="nm">One line that has to land</td><td>L5 · quote</td></tr><tr><td class="nm">One number that has to land</td><td>L10 · vertical third stat</td></tr><tr><td class="nm">A process or sequence</td><td>L9 · ink strip</td></tr><tr><td class="nm">Data</td><td>L11 — chart ramp only, never the brand accents</td></tr><tr><td class="nm">Detail-heavy content</td><td>L8 · vertical third, which keeps the argument on the left</td></tr></tbody></table></div>

@@ -10,7 +10,7 @@
   },
   "sourceRead": "All 18 chapters of The Decision Book read in full, 16 August 2026 — not the CSV registers. 4,596 lines.",
   "correction": "An earlier pass reported that 'provenance chip' and 'callout' have no basis in the Book's prose. That was wrong for the chip: ch04 specifies the self-describing chip and the ordinal strength meter explicitly, as named patterns with rules. Carly's .nc-prov and .nc-meter come straight from it. 'Callout' remains absent.",
-  "rules": 84
+  "rules": 88
  },
  "decisionStack": [
   "legal and ethical requirements",
@@ -696,6 +696,38 @@
    "rule": "Embed the faces, AND declare a metric-corrected fallback. size-adjust to equalise x-height, ascent-override and descent-override against the adjusted em, line-gap-override to zero.",
    "breaks": "Embedding answers 'the font is missing'. It does not answer 'the font has not arrived yet', or the machines that cannot embed at all — email, some PowerPoint installs. Arial at its own metrics is a different size and a different leading, so the page reflows when the real face lands, and every measured layout rule in the system is false for as long as the stand-in is showing.",
    "machine": "fonts.css declares size-adjust, ascent-override and descent-override for every fallback"
+  },
+  {
+   "id": "NC-PAG-01",
+   "tier": "fixed",
+   "source": "Carly, 16 Aug 2026 · v1.4 §07 · closes design-system gap 6",
+   "rule": "A masthead takes the primary brand colour. Blue. There is one masthead and one measure — no variants, because an unused variant is an invitation to pick by eye.",
+   "breaks": "Five sheets were built with five hand-written stylesheets and the masthead ground was picked by eye — three ink, two blue. The failure was not the colour. It was that no rule existed, and an answer was invented five separate times rather than the absence being reported.",
+   "machine": ".nc-mast background is the primary unless .nc-mast--night is declared"
+  },
+  {
+   "id": "NC-PAG-02",
+   "tier": "fixed",
+   "source": "design-system gap 8 · decision-book GAP-30",
+   "rule": "Page furniture is a component. Masthead, measure, kicker, standfirst, note and specimen frame are generated from the tokens like everything else. A sheet never carries its own stylesheet.",
+   "breaks": "A hand-authored page is a fork. The system had ninety components and nothing for the page around them, so every sheet reinvented the frame — and every visual defect found in review lived in that frame rather than in the components.",
+   "machine": "no per-sheet stylesheet exists; every sheet links foundations/ only"
+  },
+  {
+   "id": "NC-PAG-03",
+   "tier": "fixed",
+   "source": "design-decisions references/show-the-decision.md",
+   "rule": "A specimen frame is inert: a hairline and nothing else. Where a specimen carries its own ground, the ground goes on an inner element so the frame cannot override it.",
+   "breaks": "A frame with an opinion is read as part of the specimen. A dark-ground component demonstrated inside a white frame rendered white, because the frame won on source order — the specimen showed the opposite of what it claimed.",
+   "machine": null
+  },
+  {
+   "id": "NC-PAG-04",
+   "tier": "fixed",
+   "source": "design-system gap 7 · WCAG 2.4.7 · ch14",
+   "rule": "Every interactive element declares its states — visited, hover, focus. A visited link is violet on light grounds and pink on dark.",
+   "breaks": "A clicked link that looks unclicked, which is the one job link colour has always had. Focus without a ring is a keyboard user with no idea where they are.",
+   "machine": ".nc-link declares :visited, :hover and :focus-visible"
   }
  ],
  "removalTest": {

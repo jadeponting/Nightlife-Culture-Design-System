@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — how the logic works</title>
+<title>How the logic works — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:6cfa4673bf53ae92;css:49bd664586bf9e75;fonts:ea8fca0d5e87a01a">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:92414cab1994f1b9;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -406,6 +406,85 @@
   letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
   background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
 
+/* --- 23 · THE PAGE LAYER --------------------------------------------
+   The furniture every sheet needs: a masthead, a measure to read in, a
+   kicker, a standfirst, a note under a specimen, and the frame a specimen
+   sits in.
+
+   This did not exist. The system had ninety components and nothing for the
+   page around them, so every sheet was hand-authored — five separate
+   stylesheets, none governed, none checked. Every visual defect found in
+   review lived here rather than in the components, including a masthead
+   ground picked by eye five times.
+
+   Now it is generated from the tokens like everything else, and the coverage
+   check demands a specimen of each. NC-PAG-01 to 04. */
+
+/* The masthead takes the primary brand colour. Blue. Not a preference — the
+   primary is the primary, and a masthead is the most outward-facing surface
+   an artefact has (NC-PAG-01). Ink is the night register and is used where
+   the night register is the subject, never as a default. */
+/* One masthead, one measure. A night variant and two alternative measures were
+   written and nothing used them — and an unused variant is an invitation to pick
+   by eye, which is the thing this layer exists to stop. Deleted rather than
+   demonstrated. If the night register is ever genuinely the subject, it comes
+   back with a reason attached. */
+.nc-mast{background:var(--nc-blue);color:var(--nc-white);
+  padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
+.nc-mast .nc-wrap{padding-bottom:0}
+.nc-mast h1{font-family:var(--nc-font-display);text-transform:uppercase;
+  letter-spacing:-.012em;line-height:.94;font-size:clamp(34px,6.4vw,68px);margin:0}
+.nc-mast .stand{font-size:1.06em;max-width:58ch;margin:var(--nc-sp5) 0 0;line-height:1.5}
+
+/* The measure. One value, so two sheets cannot disagree about how wide a
+   line of text is allowed to be. */
+.nc-wrap{max-width:72rem;margin:0 auto;padding:0 var(--nc-sp5) var(--nc-sp9)}
+
+/* Kicker — where you are, above the title. Teal on a dark ground, blue on a
+   light one, because it is a signal and signals follow the ground. */
+.nc-kick{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
+  letter-spacing:.16em;font-size:max(.75em,12px);margin:0 0 var(--nc-sp4);color:var(--nc-blue)}
+.ground-blue .nc-kick,.ground-ink .nc-kick,.nc-mast .nc-kick{color:var(--nc-teal)}
+
+/* Standfirst — the one paragraph that says what this is. Larger than body,
+   shorter measure, never a second paragraph. */
+.nc-stand{font-size:1.12em;max-width:60ch;line-height:1.5;margin:0 0 var(--nc-sp4)}
+
+/* The note under a specimen: what it is called, what rule governs it, where
+   it came from. Monospace because it names classes, and floored at 13px
+   because it is the layer people actually read when choosing (NC-TYP-06). */
+.nc-note{font-family:ui-monospace,Menlo,monospace;font-size:max(.75em,13px);
+  color:var(--nc-charcoal);letter-spacing:0;margin:var(--nc-sp2) 0 0;line-height:1.55;
+  overflow-wrap:break-word}
+.ground-ink .nc-note,.ground-blue .nc-note{color:var(--nc-teal);font-weight:500}
+
+/* The frame a specimen sits in. Inert by design — a hairline and nothing
+   else, because anything with an opinion would be read as part of the
+   specimen (NC-PAG-03). Where the specimen carries its own ground, the
+   ground goes on an inner element so the frame cannot override it. */
+.nc-specimen{background:var(--nc-white);padding:var(--nc-sp5) var(--nc-sp5);
+  margin:var(--nc-sp3) 0 0;outline:1px solid var(--nc-hair);outline-offset:-1px}
+.nc-specimen--bare{background:none;padding:0;outline:0}
+.nc-specimen--bare>.pad{padding:var(--nc-sp5) var(--nc-sp6)}
+.nc-lab{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;font-size:max(.7em,12px);color:var(--nc-charcoal);
+  margin:var(--nc-sp6) 0 var(--nc-sp2)}
+
+/* Grids for laying specimens beside each other. Two and three only — a
+   fourth column is below the readable measure on any screen worth using. */
+.nc-g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--nc-sp4)}
+.nc-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--nc-sp4)}
+@media (max-width:52rem){.nc-g2,.nc-g3{grid-template-columns:1fr}}
+
+/* Interactive states. A link with one state is a link that looks unclicked
+   after you have clicked it, which is the one job link colour has always
+   had (NC-PAG-04). */
+.nc-link:visited{color:var(--nc-violet)}
+.ground-blue .nc-link:visited,.ground-ink .nc-link:visited{color:var(--nc-pink)}
+.nc-link:hover{text-decoration-thickness:.12em}
+.nc-link:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
+.ground-blue .nc-link:focus-visible,.ground-ink .nc-link:focus-visible{outline-color:var(--nc-teal)}
+
 /* --- 22 · THE REMAINING HTML SURFACES ------------------------------
    The browser renders these whether or not we decide. Unstyled is still a
    look — and it is the one look nobody chose. Each is specified, inherits, or
@@ -451,79 +530,149 @@
   .nc-bar .tk,.nc-dot .tk{flex:1 1 auto;min-width:0}
 }
 
-/* Page scaffolding for the routing explainer ONLY.
-   Layout and demo furniture — no component definitions, no colour values.
-   Every spatial value is a scale step (ch02, Fixed). Every colour is a token. */
-*{box-sizing:border-box}
-body{margin:0;background:var(--nc-chalk)}
-.wrap{max-width:64rem;margin:0 auto;padding:0 var(--nc-sp5) var(--nc-sp9)}
-.mast{background:var(--nc-ink);color:var(--nc-white);padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
-.mast .wrap{padding-bottom:0}
-.mast h1{font-family:var(--nc-font-display);text-transform:uppercase;letter-spacing:-.012em;
- line-height:.94;font-size:clamp(34px,6.4vw,68px);margin:0}
-.mast p{font-size:1.06em;max-width:58ch;margin:var(--nc-sp5) 0 0;line-height:1.5}
-.kick{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;letter-spacing:.16em;
- font-size:max(.75em,12px);margin:0 0 var(--nc-sp4);color:var(--nc-teal)}
-section{margin:0 0 var(--nc-sp8)}
-p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;line-height:1.55}
-/* Example titles. A class, not a bare h3 — a page file must never restyle an
-   element a component also uses, or the component changes shape by accident. */
-.exh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;letter-spacing:.01em;
- margin:var(--nc-sp6) 0 var(--nc-sp3);text-transform:none}
-.lede{font-size:1.12em;max-width:60ch}
-.sm{font-size:max(.84em,13px);color:var(--nc-charcoal);max-width:72ch;margin:var(--nc-sp3) 0 0;line-height:1.5}
-.lbl{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;letter-spacing:.1em;
- font-size:max(.7em,12px);color:var(--nc-charcoal);margin:var(--nc-sp6) 0 var(--nc-sp2)}
-/* The demo frame carries nothing. Components bring their own edges — a frame
-   around a framed component reads as a second, meaningless container. */
-.demo{margin:var(--nc-sp3) 0 0}
+/* GENERATED — do not edit. Source: foundations/tokens.json
+   Built by checks/build_slides.py. Edit the tokens, then run python3 build.py.
 
-/* The ladder. One row per question the router asked, in the order it asked them. */
-.ladder{margin:var(--nc-sp4) 0 0;border-top:1px solid var(--nc-hair)}
-.step{display:grid;grid-template-columns:5.5em 1fr;gap:var(--nc-sp4);align-items:start;
- padding:var(--nc-sp4) 0;border-bottom:1px solid var(--nc-hair)}
-.step .who{font-family:var(--nc-font-head);font-weight:600;font-size:max(.7em,12px);
- letter-spacing:.06em;text-transform:uppercase;color:var(--nc-charcoal);padding-top:var(--nc-sp1)}
-.step .say{font-size:max(.94em,14px);line-height:1.5;max-width:64ch}
-.step .say b{font-family:var(--nc-font-head);font-weight:800}
-.step--stop{background:var(--nc-white);padding-left:var(--nc-sp4);padding-right:var(--nc-sp4);
- border-left:.75em solid var(--nc-coral)}
-.step--flag{background:var(--nc-white);padding-left:var(--nc-sp4);padding-right:var(--nc-sp4);
- border-left:.75em solid var(--nc-butter)}
-.chip{margin-bottom:var(--nc-sp2);display:inline-block}
+   THE GRID, and why it is not one number
+   Side margins 5.25%. Footer band 13.333%, reserved on every slide.
+   Top margin varies by what leads the slide:
+       4%        a kicker leads   — small and quiet, so it can sit high
+       6.667%    a title leads    — the message, so it needs air above it
+       13.333%   a full bleed leads — the element is the composition
+   All four are multiples of one unit (1.3333% of slide height), so the grid
+   obeys the same one-base-unit rule as everything else (ch02, Fixed).
 
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--nc-sp5)}
-.fam{display:grid;grid-template-columns:9.5em 1fr;gap:var(--nc-sp4);padding:var(--nc-sp4) 0;
- border-bottom:1px solid var(--nc-hair);align-items:start}
-.fam .nm{font-family:var(--nc-font-head);font-weight:800;font-size:.95em}
-.fam .jb{font-weight:600;margin:0 0 var(--nc-sp2)}
-.fam .mm{font-size:max(.84em,13px);color:var(--nc-charcoal);margin:0 0 var(--nc-sp2);line-height:1.5}
-.fam .pl{font-size:max(.88em,13px);margin:0;line-height:1.5}
-.ct-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--nc-sp5);align-items:center;
- padding:var(--nc-sp5) 0;border-bottom:1px solid var(--nc-hair)}
-.ct-row .qn{font-family:var(--nc-font-head);font-weight:700;font-size:.98em;margin:0 0 var(--nc-sp2)}
-.ct-row .an{font-size:max(.88em,13px);color:var(--nc-charcoal);margin:0;line-height:1.5}
-@media (max-width:52rem){
-  .grid2,.ct-row{grid-template-columns:1fr}
-  .step,.fam{grid-template-columns:1fr;gap:var(--nc-sp2)}
-}
+   The footer band is reserved on covers and closing slides too. It is not
+   there to hold a number — it is there because the bottom of a screen is the
+   hardest place to read in a room full of people, and that does not change
+   when the number does.
+
+   THE FRAME IS FIXED. .nc-slide sets the aspect ratio and the container; .cv
+   is the canvas. Without both, every cqw size collapses.
+*/
+
+/* ---- context ---------------------------------------------------- */
+.nc-slide{aspect-ratio:16/9;position:relative;overflow:hidden;container-type:inline-size;
+  background:var(--nc-white)}
+.nc-slide .cv{position:absolute;inset:0;font-family:var(--nc-font-body);
+  font-size:1.55cqw;line-height:1.5}
+
+/* ---- the grid --------------------------------------------------- */
+.nc-pad{position:absolute;left:5.25%;right:5.25%;top:6.667%;bottom:13.333%;
+  display:flex;flex-direction:column}
+.nc-pad--kicker{top:4%}
+.nc-pad--bleed{top:13.333%}
+/* The anchor is a contract field, not a styling choice. Implicit top-anchoring
+   leaves a dead band across the bottom third, which was the single largest
+   cause of weak slides in the earlier system. */
+.nc-pad[data-anchor="centre"]{justify-content:center}
+.nc-pad[data-anchor="bottom"]>:last-child{margin-top:auto}
+.nc-pad[data-anchor="split"]>:last-child{margin-top:auto}
+
+/* ---- footer furniture ------------------------------------------- */
+.nc-sfoot{position:absolute;left:5.25%;right:5.25%;bottom:5.333%;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1em}
+.nc-snum{font-family:var(--nc-font-head);font-weight:800;font-size:1.25cqw;
+  letter-spacing:.08em;color:var(--nc-charcoal);font-variant-numeric:tabular-nums}
+.ground-blue .nc-snum,.ground-ink .nc-snum{color:var(--nc-teal)}
+/* The wordmark is an outlined asset (NC-BRK-02). This positions it; it never
+   sets it as type. Roughly 1.5% of slide width, the quietest thing on the slide. */
+.nc-slogo{width:7cqw;height:auto;display:block}
+.nc-slogo--lockup{width:17cqw}
+
+/* ---- slide type ------------------------------------------------- */
+.nc-k{font-family:var(--nc-font-head);font-weight:800;font-size:1.3cqw;letter-spacing:.2em;
+  text-transform:uppercase}
+.nc-t{font-family:var(--nc-font-display);text-transform:uppercase;font-size:5.2cqw;
+  line-height:.92;letter-spacing:-.01em;max-width:none}
+/* Two steps, not three. --lg existed and no layout used it; an unused size
+   is an invitation to pick by eye. Deleted rather than demonstrated. */
+.nc-t--xl{font-size:7cqw} .nc-t--sm{font-size:3.4cqw}
+.nc-sub{font-family:var(--nc-font-head);font-weight:700;font-size:1.8cqw;line-height:1.35;
+  max-width:64%}
+.nc-sub--wide{max-width:100%}
+.nc-sbody{font-size:1.4cqw;line-height:1.6;max-width:70%}
+.nc-srcline{font-family:var(--nc-font-head);font-weight:600;font-size:1.05cqw;
+  letter-spacing:.04em;color:var(--nc-charcoal);margin-top:auto}
+.ground-blue .nc-srcline,.ground-ink .nc-srcline{color:var(--nc-teal)}
+
+/* ---- breakers at slide scale ------------------------------------ */
+.nc-slide .nc-brk{height:.42cqw;width:20%;margin:2cqw 0}
+.nc-slide .nc-brk--bar{height:.55cqw;width:14%}
+.nc-slide .nc-brk--hair{height:1px;width:74%}
+
+/* ---- arrangements ----------------------------------------------- */
+/* Three top-rule columns. Nothing boxed — the rule codes the column without
+   flooding it, which is the containment system's dense-page treatment. */
+.nc-cols{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3.5%}
+/* Two columns in tension are the BODY of the slide, not a footing under it,
+   so they do not take the auto top margin the three-column footing uses. */
+.nc-cols--2{grid-template-columns:1fr 1fr;gap:calc(3.5% * 2);margin-top:2cqw}
+.nc-cols .col{padding-top:1.6cqw;border-top:.55cqw solid var(--nc-acc,var(--nc-teal))}
+.nc-cols .col .n{font-family:var(--nc-font-display);font-size:3.2cqw;line-height:.9}
+.nc-cols .col .l{font-family:var(--nc-font-head);font-weight:800;font-size:1.1cqw;
+  letter-spacing:.1em;text-transform:uppercase;margin-top:.9cqw;line-height:1.3}
+.nc-cols .col--plain{border-top:0;padding-top:0}
+
+/* Filled cells. Every accent takes ink text — no exceptions (v1.4 §07). */
+.nc-cells{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3.5%}
+.nc-cells .cell{padding:1.9cqw 2cqw;background:var(--nc-acc,var(--nc-teal));color:var(--nc-ink)}
+.nc-cells .cell .n{font-family:var(--nc-font-display);font-size:3.2cqw;line-height:.9}
+.nc-cells .cell .l{font-family:var(--nc-font-head);font-weight:800;font-size:1.1cqw;
+  letter-spacing:.1em;text-transform:uppercase;margin-top:1cqw;line-height:1.3}
+
+/* Vertical third. An accent block, never an accent room. */
+.nc-third{position:absolute;inset:0;display:flex}
+.nc-third .main{flex:1;padding:6.667% 0 13.333% 5.25%;display:flex;flex-direction:column}
+/* The colour field bleeds to the edge — that is what makes it a change of ground
+   rather than a box. Its TEXT still stops at the footer line: 7.5cqw is the
+   footer band expressed against slide width on 16:9. The band exists because
+   the bottom of a screen is the hardest place to read in a room, and that is
+   just as true inside an accent block as outside one (NC-LAY-07). */
+.nc-third .side{width:31%;padding:6.667% 5.25% 7.5cqw 5.25%;display:flex;
+  flex-direction:column;justify-content:flex-end;background:var(--nc-acc,var(--nc-pink));
+  color:var(--nc-ink)}
+.nc-third .side--wide{width:38%}
+.nc-third .bignum{font-family:var(--nc-font-display);font-size:4.4cqw;line-height:.9}
+.nc-third .biglab{font-family:var(--nc-font-head);font-weight:800;font-size:1.1cqw;
+  letter-spacing:.1em;text-transform:uppercase;margin-top:1cqw}
+
+/* Ink strip. A full-bleed band across the foot, replacing three boxes. */
+.nc-strip{position:absolute;inset:0;display:flex;flex-direction:column}
+.nc-strip .top{flex:1;padding:6.667% 5.25% 0 5.25%;display:flex;flex-direction:column}
+.nc-strip .band{background:var(--nc-ink);color:#fff;padding:3.2cqw 5.25% 7.5cqw;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:3.5%}
+.nc-strip .band .n{font-family:var(--nc-font-display);font-size:3cqw;line-height:.9;color:var(--nc-teal)}
+.nc-strip .band .l{font-family:var(--nc-font-head);font-weight:800;font-size:1.05cqw;
+  letter-spacing:.1em;text-transform:uppercase;margin-top:.9cqw}
+
+/* A chart row at slide scale. The component is the same; only the base moved. */
+.nc-sbar{display:flex;align-items:center;gap:1.4cqw;margin-bottom:1.1cqw}
+.nc-sbar .lb{font-family:var(--nc-font-head);font-weight:600;font-size:1.4cqw;width:16%;flex:none}
+.nc-sbar .tk{flex:1;height:2.4cqw;position:relative;background:rgba(13,13,13,.07)}
+.nc-sbar .fl{position:absolute;left:0;top:0;bottom:0;background:var(--nc-chart-1)}
+.nc-sbar .vl{font-family:var(--nc-font-head);font-weight:800;font-size:1.4cqw;width:7%;
+  text-align:right;flex:none;font-variant-numeric:tabular-nums}
+.ground-blue .nc-sbar .tk,.ground-ink .nc-sbar .tk{background:rgba(255,255,255,.14)}
+.ground-blue .nc-sbar .fl,.ground-ink .nc-sbar .fl{background:var(--nc-teal)}
+
+/* A quote at slide scale — the same component, one size up (NC-SYS-03). */
+.nc-slide .nc-quote .q{font-size:3cqw;max-width:76%}
+
 
 </style>
 </head><body class="nc-doc">
-<header class="mast">
-  <div class="wrap">
-    <p class="kick">Nightlife Culture · design system</p>
+<header class="nc-mast">
+  <div class="nc-wrap">
+    <p class="nc-kick">Nightlife Culture · design system</p>
     <h1>How the logic works</h1>
-    <p>Content goes in. A component comes out. This page shows the questions the system
-       asks, in the order it asks them — then runs your three examples through it, so you
-       can see what it decided and why.</p>
+    <p class="stand">Content goes in. A component comes out. The questions the system asks, in the order it asks them.</p>
   </div>
 </header>
-<div class="wrap">
-
+<div class="nc-wrap">
 <section>
   <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The one idea</span></h2>
-  <p class="lede">The system never asks <i>what should this look like?</i> It asks
+  <p class="nc-stand">The system never asks <i>what should this look like?</i> It asks
      <i>what is this?</i> — and the look follows from the answer.</p>
   <p>That sounds like a small difference. It isn't. “What should this look like” has no
      correct answer, so everyone who touches the work gives a different one and the deck
@@ -567,7 +716,7 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
     <p class="txt"><b>Free</b> — provided nothing load-bearing lives only there. Covers,
       dividers, section openers, pull quotes. Go as hard as you like.</p>
   </div>
-  <p class="sm">The rule above all the others: preserve the brand most strongly in the
+  <p class="nc-small">The rule above all the others: preserve the brand most strongly in the
      decorative and narrative surfaces; preserve accessibility most strongly in the layer
      that carries meaning. The cover can shout. The chart cannot.</p>
 </section>
@@ -576,13 +725,13 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 
 <section>
   <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">What a component is here</span></h2>
-  <p class="lede">A component is a <i>job</i>, not a shape.</p>
+  <p class="nc-stand">A component is a <i>job</i>, not a shape.</p>
   <p>Two things that look similar but do different jobs are two components. Two things that
      do the same job in different places are one component with a modifier. That is what
      makes this set survive the move from a deck to a website to a dashboard to an
      evaluation report without being redrawn — the job travels, the appearance adapts.</p>
   <p>There are six families. Everything we build is one of these, or a combination.</p>
-  <div class="lbl">The six families</div>
+  <div class="nc-lab">The six families</div>
 <div class="fam"><div class="nm">Structure</div><div><p class="jb">Tells the reader where they are.</p><p class="mm">section header · contents list · running foot · page / slide frame</p><p class="pl">At the boundary it names, never inside an argument. If it appears mid-thought it is not structure, it is interruption.</p><p class="mm"><i>Fixed — a heading is a heading. Marked up as one or it is a lie to a screen reader.</i></p></div></div>
 <div class="fam"><div class="nm">Argument</div><div><p class="jb">Carries the claim.</p><p class="mm">body prose · list · numbered list · breakout stat · pull quote</p><p class="pl">In reading order. The claim comes before its support, never after it. A stat or a quote sits beside the paragraph it belongs to, not floating.</p><p class="mm"><i>Fixed on structure, Adaptable on emphasis — which sentence gets the breakout is a judgement, that it is a real element is not.</i></p></div></div>
 <div class="fam"><div class="nm">Containment</div><div><p class="jb">Groups things, and tells you how to read the group.</p><p class="mm">top-rule panel · left-rule panel · flyer panel · filled panel · full-width band</p><p class="pl">The edge treatment is the instruction — see the container ladder below. Choosing the edge is choosing what you are telling the reader to do.</p><p class="mm"><i>Fixed — v1.4 §09 assigns each edge a meaning. Picking one for looks breaks the code.</i></p></div></div>
@@ -600,14 +749,14 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
      left rule instead of a top rule is choosing to say something different — so the choice
      is made by asking what you are telling the reader to do, not by what looks balanced.</p>
   <p>Read it top to bottom. The first yes wins.</p>
-  <div class="lbl">The container ladder</div>
+  <div class="nc-lab">The container ladder</div>
 <div class="ct-row"><div><p class="qn">Is it a single number that is itself the finding?</p><p class="an">Breakout stat. Nothing else in the box competes with the number.</p></div><div><div class="nc-stat nc-stat--top acc-teal"><p class="lb">Venues lost since 2020</p><p class="big">31%</p><p class="src">Illustrative</p></div></div></div>
 <div class="ct-row"><div><p class="qn">Is it a supporting aside the reader could skip and still follow the argument?</p><p class="an">Left rule, 12px. v1.4 §09: &#x27;reads as an aside rather than a box&#x27;. The reader&#x27;s eye can pass it.</p></div><div><div class="nc-panel nc-panel--left acc-pink"><p class="lab">Worth knowing</p><p class="txt">The reader can skip this and still follow the argument.</p></div></div></div>
 <div class="ct-row"><div><p class="qn">Is it a labelled group that belongs to the section it sits under?</p><p class="an">Top rule, 9px. The rule is a lid — it ties the box to what precedes it.</p></div><div><div class="nc-panel nc-panel--top acc-teal"><p class="lab">Method</p><p class="txt">This belongs to the section it sits under. The rule is a lid.</p></div></div></div>
 <div class="ct-row"><div><p class="qn">Is it a standalone card that has to survive being pulled out on its own?</p><p class="an">Full outline. The only sanctioned hard outline, because the thing genuinely has no context around it.</p></div><div><div class="nc-panel nc-panel--flyer"><p class="lab">Call to action</p><p class="txt">Survives being pulled out on its own, with nothing around it.</p></div></div></div>
 <div class="ct-row"><div><p class="qn">Is it a whole movement — a change of subject, not a change of paragraph?</p><p class="an">Full-width band with a ground change. The most expensive move available; it must buy one of the six purchases.</p></div><div><div class="nc-band ground-ink"><p class="lab">A change of subject</p><p class="txt">Full width, ground change. The most expensive move available.</p></div></div></div>
 <div class="ct-row"><div><p class="qn">None of the above — it just needs to be visually together?</p><p class="an">Hairline. Inert grouping only. Never for anything carrying meaning — a hairline is not findable enough to be load-bearing.</p></div><div><div class="nc-panel nc-panel--hair"><p class="lab">Grouped</p><p class="txt">Visually together, carrying nothing. Never load-bearing.</p></div></div></div>
-  <p class="sm">This is why there is no rounded corner, no drop shadow and no card style in
+  <p class="nc-small">This is why there is no rounded corner, no drop shadow and no card style in
      the system. Every distinguishing move an edge can make has already been assigned a
      meaning. A new one would either duplicate an existing instruction or introduce one
      nobody has agreed.</p>
@@ -628,18 +777,18 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">NC-TYP-03</span></div><div class="say">Quotes are sentence case, and the quote component refuses to inherit capitals from whatever it is dropped inside. Put it on a section opener that shouts and the quote still speaks normally.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">NC-CON-03</span></div><div class="say">Pull quotes take the left rule — a 12px accent bar, white panel. v1.4 §09: &#x27;reads as an aside rather than a box&#x27;.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch03</span></div><div class="say">Measure capped at 40ch. Leading 1.24 — display-adjacent, not running prose.</div></div></div>
-<div class="lbl">What comes out</div><div class="demo"><blockquote class="nc-quote">
+<div class="nc-lab">What comes out</div><div class="demo"><blockquote class="nc-quote">
   <p class="q">if your chest ain't rattling it ain't happening</p>
   <cite class="a">Carly Heath, Junglist Extraordinaire</cite>
 </blockquote></div>
-<p class="sm">The accent is a modifier, never baked in. That same quote in teal, violet or coral is the same component — one word changes, nothing is redrawn.</p>
+<p class="nc-small">The accent is a modifier, never baked in. That same quote in teal, violet or coral is the same component — one word changes, nothing is redrawn.</p>
 <h3 class="exh">A · The same quote, if it carried a figure</h3>
 <p>Worth seeing the failure, because it shows what the tier is actually protecting. Add one number to that sentence and it stops being decoration.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">“if your chest ain’t rattling it ain’t happening — and 60% of them say so”</p><p class="txt">— Carly Heath, Junglist Extraordinaire</p></div>
 <div class="ladder"><div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch18</span></div><div class="say">Tier first. A pull quote is decorative — free, provided nothing load-bearing lives only there.</div></div>
 <div class="step step--stop"><div class="who">Stop<br><span style="letter-spacing:.02em">NC-DIR-01</span></div><div class="say">This quote contains a figure or a measured claim. Meaning may not live in the decorative layer — move the finding into the body as real text with a source, and keep the quote for the voice.</div></div></div>
-<div class="lbl">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
-<p class="sm">The fix is not to style it differently. It is to move the finding into the body as real text with a source, and keep the quote for the voice. The quote gets to be a quote again.</p>
+<div class="nc-lab">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
+<p class="nc-small">The fix is not to style it differently. It is to move the finding into the body as real text with a source, and keep the quote for the voice. The quote gets to be a quote again.</p>
 <h3 class="exh">B · Number of jobs, by place</h3>
 <p>Before any chart form is chosen, the numbers have to survive three questions. These are the only questions asked at this stage — there is deliberately no colour, no layout and no chart type in scope yet.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Manchester, 180000 2026</p><p class="txt">West Midlands 24958437 2026</p><p class="txt">Brighton, 2947463628 2026</p><p class="txt">haywards heath 83627 2926</p></div>
@@ -648,8 +797,8 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 <div class="step step--stop"><div class="who">Stop<br><span style="letter-spacing:.02em">NC-EVI-01</span></div><div class="say">The comparability gate fails. These are not one series: Manchester = local authority · West Midlands = region · Brighton = town (part of Brighton and Hove) · Haywards Heath = town (part of Mid Sussex). ch08: two values do not go in one comparison until concept, unit, period, geography, population and classification all match or are harmonised. A city, a region and a town are three different geographies.</div></div>
 <div class="step step--stop"><div class="who">Stop<br><span style="letter-spacing:.02em">NC-EVI-04</span></div><div class="say">Implausible values — a job count cannot exceed the population. West Midlands: 24,958,437 jobs against roughly 5,950,000 people · Brighton: 2,947,463,628 jobs against roughly 277,000 people · Haywards Heath: 83,627 jobs against roughly 35,000 people. Strong design must never make weak evidence look stronger than it is.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch06</span></div><div class="say">Provenance is part of the chart, not an afterthought: source linked to the dataset, reference period, geography and boundary vintage, method, revision status, disclosure treatment, illustrative flag.</div></div></div>
-<div class="lbl">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
-<p class="sm">Three separate stops, and any one of them alone would be enough. Note what did <i>not</i> happen: the system did not quietly drop the bad row, round the impossible number down or pick 2026 as the likely year. Silent repair is how a wrong figure ends up in a funding application.</p>
+<div class="nc-lab">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
+<p class="nc-small">Three separate stops, and any one of them alone would be enough. Note what did <i>not</i> happen: the system did not quietly drop the bad row, round the impossible number down or pick 2026 as the likely year. Silent repair is how a wrong figure ends up in a funding application.</p>
 <h3 class="exh">B · The same question, with the data repaired</h3>
 <p>Four comparable districts, one measure, one year, plausible values, a stated source. Now the ladder runs to the end — and every visual decision below is <i>derived</i>, not chosen.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Manchester 41,200 · Leeds 33,900 · Bristol 18,450 · Brighton and Hove 12,800</p><p class="txt">Night-time economy jobs, local authority districts, 2024</p></div>
@@ -661,7 +810,7 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">NC-COL-04</span></div><div class="say">Label at the mark. Values sit outside the track, right-aligned, tabular figures.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch06</span></div><div class="say">Ranked descending — alphabetical is almost never the reader&#x27;s question.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">NC-EVI-09</span></div><div class="say">Source says illustrative, so the flag is placed on the chart itself rather than left in the surrounding text.</div></div></div>
-<div class="lbl">What comes out</div><div class="demo"><figure class="nc-chart acc-blue">
+<div class="nc-lab">What comes out</div><div class="demo"><figure class="nc-chart acc-blue">
   <h3 class="ct">Manchester employs more than twice as many night-time workers as Bristol</h3>
   <p class="cs">Night-time economy jobs, local authority districts, 2024.</p>
   <div class="nc-bar"><span class="lb">Manchester</span><span class="tk"><span class="fl" style="width:100%"></span></span><span class="vl">41,200</span></div>
@@ -671,7 +820,7 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
   <figcaption class="ev"><b>Reading.</b> Four comparable districts, one measure, one year. The gap is the point.<br>
     <span class="nc-illus">Illustrative</span> <span class="nc-prov">OFF-OPEN</span> Illustrative figures — replace with BRES, ONS, released 2025, 2024 boundaries, unrevised.</figcaption>
 </figure></div>
-<p class="sm">Bar, not dot plot, because a job count is a quantity from zero. One colour, not four, because there is one series — the four-colour ramp would imply a distinction that is not there. Values at the mark rather than a legend, so nobody has to hold a colour key in their head. Ranked by size, because that is the question. Not one of those is a taste decision.</p>
+<p class="nc-small">Bar, not dot plot, because a job count is a quantity from zero. One colour, not four, because there is one series — the four-colour ramp would imply a distinction that is not there. Values at the mark rather than a legend, so nobody has to hold a colour key in their head. Ranked by size, because that is the question. Not one of those is a taste decision.</p>
 <h3 class="exh">C · The numbered section</h3>
 <p>A heading is the highest-leverage text in any document: it is what the contents list is built from, and it is how a screen-reader user moves through a report. So it gets checked as structure first and as writing second.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Section 18 HOW CITIES MAke great places</p><p class="txt">Cities are the source of talent and innovation for nightlife and the people there are amazing and deserve all the joy</p></div>
@@ -683,9 +832,9 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch11</span></div><div class="say">Level h4. No skipped levels — h2 to h4 breaks outline navigation, which is how screen-reader users move through a long document.</div></div>
 <div class="step step--flag"><div class="who">Check<br><span style="letter-spacing:.02em">ch16</span></div><div class="say">This is a values claim, not evidence. Framing is how evidence gets a hearing; it may not substitute for evidence. Keep it, and put the finding next to it.</div></div>
 <div class="step"><div class="who">Holds<br><span style="letter-spacing:.02em">ch03</span></div><div class="say">Body is running prose: leading 1.5–1.6, measure ≤80ch, left aligned, 12pt floor. The only place the 1.5 rule applies.</div></div></div>
-<div class="lbl">What comes out</div><div class="demo"><h4 class="nc-section-head"><span class="num">18</span><span class="ttl">How cities make great places</span></h4>
+<div class="nc-lab">What comes out</div><div class="demo"><h4 class="nc-section-head"><span class="num">18</span><span class="ttl">How cities make great places</span></h4>
 <p>Cities are the source of talent and innovation for nightlife and the people there are amazing and deserve all the joy</p></div>
-<p class="sm">The heading came out one level down — a fourth-level heading, not a second — because on this page it sits underneath two headings already. The component does not decide its own level; where it lands does. That is the same principle as the type scaling: the context sets the base, the component sizes itself against it. Drop the same section opener at the top of a report and it comes out as a second-level heading, looking bigger, with nothing rewritten.</p><p class="sm">Two <b>checks</b>, not stops — both are yours to decide. On the heading: “How cities make great places” names a topic. “Cities make places worth staying out in” would state a finding, and a contents list built from findings reads as a summary, which is what most people use it as. On the body: “amazing” and “deserve” are a values claim. Keep them — but put the evidence next to them, or the sentence is doing work it cannot support.</p>
+<p class="nc-small">The heading came out one level down — a fourth-level heading, not a second — because on this page it sits underneath two headings already. The component does not decide its own level; where it lands does. That is the same principle as the type scaling: the context sets the base, the component sizes itself against it. Drop the same section opener at the top of a report and it comes out as a second-level heading, looking bigger, with nothing rewritten.</p><p class="sm">Two <b>checks</b>, not stops — both are yours to decide. On the heading: “How cities make great places” names a topic. “Cities make places worth staying out in” would state a finding, and a contents list built from findings reads as a summary, which is what most people use it as. On the body: “amazing” and “deserve” are a values claim. Keep them — but put the evidence next to them, or the sentence is doing work it cannot support.</p>
 </section>
 
 <hr class="nc-brk acc-coral">
@@ -713,11 +862,10 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
         noticed and what is at stake. You decide. The reason is recorded either way.</p>
     </div>
   </div>
-  <p class="sm" style="margin-top:var(--nc-sp5)">Everything on this page traces to the
+  <p class="nc-small" style="margin-top:var(--nc-sp5)">Everything on this page traces to the
      Nightlife Culture Style Guide v1.4 and the Decision Book chapters. Where the two
      disagree, the disagreement is recorded rather than quietly resolved — seven of those
      are still open and waiting on you.</p>
 </section>
 </div>
-
 </body></html>

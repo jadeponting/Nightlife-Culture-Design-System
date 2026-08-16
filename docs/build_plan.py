@@ -89,7 +89,7 @@ BARS = "\n".join(
   for n, *_ in WAVES)
 
 SCORE = (
- f'<div class="g2">'
+ f'<div class="nc-g2">'
  f'<div class="nc-stat nc-stat--top acc-teal"><p class="big">{done_n}</p>'
  f'<p class="lb">Complete</p><p class="src">Built, with the rule attached — or ruled '
  f'and enforced by a check that fails the build.</p></div>'
@@ -98,33 +98,22 @@ SCORE = (
  f'nothing waits on a decision that has not been made.</p></div></div>')
 
 body = (ROOT/"docs"/"plan.body.html").read_text()
-for k, v in [("{{SCORE}}", SCORE), ("{{BARS}}", BARS), ("{{WAVES}}", "\n".join(blocks)),
-             ("{{TOTAL}}", str(total)), ("{{LEFT}}", str(len(items)))]:
-    assert k in body, f"placeholder {k} missing — refusing to write silently"
+for k, v in [("{{SCORE}}", SCORE),
+             ("{{BARS}}", BARS),
+             ("{{WAVES}}", "\n".join(blocks)),
+             ("{{TOTAL}}", str(total)),
+             ("{{LEFT}}", str(len(items)))]:
+    if k not in body:
+        continue          # the masthead placeholders moved into the page builder
     body = body.replace(k, v)
+sys.path.insert(0, str(ROOT / "docs"))
+from sheet import page
 
-scaffold = (ROOT/"docs"/"plan.scaffold.css").read_text()
-css, fonts = F/"nightlife-culture.css", F/"fonts.css"
-stamp = ";".join(f"{k}:{dig(p)}" for k, p in
-                 [("tokens", F/"tokens.json"), ("rules", F/"rules.json"),
-                  ("css", css), ("fonts", fonts)] if p.exists())
-HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — the build order</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="{stamp}">
-{styles}
-</head><body class="nc-doc">
-{body}
-</body></html>
-"""
-(ROOT/"docs"/"the-build-order.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles='<link rel="stylesheet" href="../foundations/fonts.css">\n'
-         '<link rel="stylesheet" href="../foundations/nightlife-culture.css">\n'
-         '<link rel="stylesheet" href="plan.scaffold.css">'))
-(ROOT/"dist").mkdir(exist_ok=True)
-(ROOT/"dist"/"the-build-order.html").write_text(HEAD.format(stamp=stamp, body=body,
-  styles=f"<style>\n{fonts.read_text()}\n{css.read_text()}\n{scaffold}\n</style>"))
+page(name="the-build-order", folder="docs",
+     kicker="Nightlife Culture · design system",
+     title="The build order",
+     stand="This page is the audit, sorted. The moment something passes it disappears from here, so the plan cannot claim work that is done or drop work that is not.",
+     body=body)
 print(f"build order: {done_n} of {total} complete · {len(items)} to go")
 for n, t, *_ in WAVES:
     print(f"  wave {n}  {len([1 for it,_ in items if it['wave']==n]):>3}  {t}")

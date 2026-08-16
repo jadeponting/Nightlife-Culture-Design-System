@@ -16,7 +16,7 @@ NC-SYS-06 — render the decision rather than describing it. This page is
 generated from the system it describes, so it cannot claim behaviour the
 system does not have.
 """
-import hashlib, json, pathlib
+import hashlib, json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 F = ROOT / "foundations"
 T = json.loads((F / "tokens.json").read_text())
@@ -117,7 +117,7 @@ LAYOUTS = [
   "outlines. Chalk in decks, white in reports.",
   f'''<div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-blue)">04 · Principles for partnership</p>
-    <h2 class="nc-t" style="color:var(--nc-charcoal)">How shared evidence<br>should be built</p>
+    <p class="nc-t" style="color:var(--nc-charcoal)"How shared evidence<br>should be built</p>
     <hr class="nc-brk acc-blue">
     <p class="nc-sub" style="color:var(--nc-blue)">Knowledge in the commons. Data as an asset.</p>
     <div class="nc-cells">
@@ -134,7 +134,7 @@ LAYOUTS = [
   "section-header colour on every dark ground — butter on ink reads as a warning label.",
   f'''<div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-teal)">05 · What the night creates</p>
-    <h2 class="nc-t" style="color:var(--nc-teal)">Nightlife is a<br>talent programme</p>
+    <p class="nc-t" style="color:var(--nc-teal)"Nightlife is a<br>talent programme</p>
     <hr class="nc-brk acc-teal">
     <p class="nc-sub nc-sub--wide">It produces agency and ambition before formal institutions can see them.</p>
     <div class="nc-cells">
@@ -270,18 +270,9 @@ GRID = f'''<div class="nc-table-wrap"><table class="nc-table"><thead><tr>
   <td>More than about half covered means it is two slides.</td></tr>
 </tbody></table></div>'''
 
-BODY = f'''<header class="mast">
-  <div class="wrap">
-    <p class="kick">Nightlife Culture · design system</p>
-    <h1>Twelve layouts</h1>
-    <p>Generated from the tokens, so every margin on this page is the same value the
-       rule set holds. Change the grid once and all twelve move together.</p>
-  </div>
-</header>
-<div class="wrap">
-<section>
-  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The grid</span></p>
-  <p class="lede">The top margin is not one number, and that is the point.</p>
+BODY = f'''<section>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The grid</span></h2>
+  <p class="nc-stand">The top margin is not one number, and that is the point.</p>
   <p>{S["why"]}</p>
   <p>Every value is a multiple of one unit — {S["unit"]["vertical"]} of slide height — so the
      slide grid obeys the same one-base-unit rule as the spacing scale. {S["symmetry"]}</p>
@@ -293,7 +284,7 @@ BODY = f'''<header class="mast">
 </section>
 <hr class="nc-brk acc-teal">
 <section>
-  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The twelve</span></p>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The twelve</span></h2>
   <p>Each one is an arrangement of components that already exist. None of them defines a
      component of its own — if a layout needed one, that would mean the component layer was
      missing something, not that the layout was special.</p>
@@ -301,27 +292,14 @@ BODY = f'''<header class="mast">
 </section>
 <hr class="nc-brk acc-pink">
 <section>
-  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></p>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></h2>
   <p>Start from the job, not the picture.</p>
   <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
     <th>What you are doing</th><th>Layout</th></tr></thead><tbody>{rows}</tbody></table></div>
-</section>
-</div>'''
+</section>'''
 
-SCAFFOLD = """*{box-sizing:border-box}
-body{margin:0;background:var(--nc-chalk)}
-.wrap{max-width:72rem;margin:0 auto;padding:0 var(--nc-sp5) var(--nc-sp9)}
-.mast{background:var(--nc-ink);color:var(--nc-white);padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
-.mast .wrap{padding-bottom:0}
-.mast h1{font-family:var(--nc-font-display);text-transform:uppercase;letter-spacing:-.012em;
- line-height:.94;font-size:clamp(34px,6.4vw,68px);margin:0}
-.mast p{font-size:1.06em;max-width:58ch;margin:var(--nc-sp5) 0 0;line-height:1.5}
-.kick{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;letter-spacing:.16em;
- font-size:max(.75em,12px);margin:0 0 var(--nc-sp4);color:var(--nc-teal)}
-section{margin:0 0 var(--nc-sp8)}
-p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;line-height:1.55}
-.lede{font-size:1.12em;max-width:60ch}
-.nc-table-wrap{overflow-x:auto;margin:var(--nc-sp5) 0}
+SCAFFOLD = """/* Layout-catalogue furniture only — the card around each slide. Everything
+   else on this page is a page component (NC-PAG-02). */
 .lay{margin:0 0 var(--nc-sp7)}
 .layh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;margin:0 0 var(--nc-sp2);
  display:flex;align-items:baseline;gap:var(--nc-sp3);flex-wrap:wrap;text-transform:none}
@@ -333,34 +311,27 @@ p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;
 .nc-slide{outline:1px solid var(--nc-hair);outline-offset:-1px}
 """
 
-stamp = ";".join(f"{k}:{dig(p)}" for k, p in
-                 [("tokens", F/"tokens.json"), ("rules", F/"rules.json"),
-                  ("css", F/"nightlife-culture.css"), ("fonts", F/"fonts.css"),
-                  ("slides", F/"nightlife-slides.css")] if p.exists())
-HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — twelve slide layouts</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="{stamp}">
-{styles}
-</head><body class="nc-doc">
-{body}
-</body></html>
-"""
-(ROOT/"layouts"/"index.html").write_text(HEAD.format(stamp=stamp, body=BODY,
-  styles='<link rel="stylesheet" href="../foundations/fonts.css">\n'
-         '<link rel="stylesheet" href="../foundations/nightlife-culture.css">\n'
-         '<link rel="stylesheet" href="../foundations/nightlife-slides.css">\n'
-         '<link rel="stylesheet" href="layouts.scaffold.css">'))
-(ROOT/"layouts"/"layouts.scaffold.css").write_text(SCAFFOLD)
-(ROOT/"dist").mkdir(exist_ok=True)
+import sys
+sys.path.insert(0, str(ROOT / "docs"))
+from sheet import page
+
 logo_inline = BODY
+import base64
 for f in ROOT.glob("assets/logo/nightlife-culture-wordmark-*.svg"):
-    import base64
     b = base64.b64encode(f.read_bytes()).decode()
     logo_inline = logo_inline.replace(f"../assets/logo/{f.name}", f"data:image/svg+xml;base64,{b}")
-(ROOT/"dist"/"slide-layouts.html").write_text(HEAD.format(stamp=stamp, body=logo_inline,
-  styles=f"<style>\n{(F/'fonts.css').read_text()}\n{(F/'nightlife-culture.css').read_text()}\n"
-         f"{(F/'nightlife-slides.css').read_text()}\n{SCAFFOLD}\n</style>"))
+
+page(name="index", folder="layouts",
+     kicker="Nightlife Culture · design system",
+     title="Twelve layouts",
+     stand="Generated from the tokens, so every margin on this page is the value the rule set "
+           "holds. Change the grid once and all twelve move together.",
+     body=BODY, extra_css=SCAFFOLD)
+page(name="slide-layouts", folder="dist",
+     kicker="Nightlife Culture · design system",
+     title="Twelve layouts",
+     stand="Generated from the tokens, so every margin on this page is the value the rule set "
+           "holds. Change the grid once and all twelve move together.",
+     body=logo_inline, extra_css=SCAFFOLD)
 print(f"wrote layouts/index.html         {len(LAYOUTS)} layouts, linked")
 print(f"wrote dist/slide-layouts.html    self-contained")
