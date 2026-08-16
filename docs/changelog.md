@@ -124,3 +124,64 @@ The five waves, closed. 126 of 126 components built, with the rule attached.
 - Slide titles in the layout catalogue were real headings, building an outline of
   twelve h1s inside one document. They are specimens there; in a live deck the slide
   title is a heading (NC-PRS-02).
+
+## v1.3 — 16 August 2026
+
+Answering the read-only audit of 16 August. Every finding was re-executed against the working
+tree before acting on it; the contrast arithmetic was recomputed from sRGB relative luminance
+rather than taken on trust. Every number in the audit reproduced exactly.
+
+**The colour law — corrected everywhere, and made checkable**
+- `AGENTS.md` said *"every accent is a black-text surface; every ground is a white-text surface —
+  if you remember nothing else, remember that."* It is false for two of the four grounds: white
+  on chalk is 1.1096:1, white on white is 1.0000:1. Being memorable made it worse, because that
+  is the line an agent carries into a file.
+- NC-COL-01 rewritten: accents take ink text; each ground declares its own. Both copies in
+  `AGENTS.md` replaced with the measured table.
+- Every ground now carries its own `--nc-on` text token. There is deliberately no single
+  `--nc-on-ground`: one value spanning every ground is what let the false sentence look true.
+- **NC-COL-01 is now a check.** `checks/validate.py` fails the build on white text over a light
+  ground, in CSS or inline. Proven to fire on a test file.
+
+**Colour data — every ratio names its pairing**
+- Charcoal was filed under grounds. It is a text colour, and its published 12.41 is charcoal text
+  on chalk — not white text on charcoal (13.77) and not against ink (1.41). Moved to
+  `colour.textColours`, with all three figures written out.
+- The accents declared `textOn: "black"` while publishing ratios measured against ink. Ink is what
+  the CSS sets; the label was what was wrong. Corrected, and every ratio now carries an `against`
+  field so a number can never again be read against the wrong pairing.
+
+**NC-BRK-01 — the staleness check accepted the stale version**
+- The pattern was `r"v1\.4|Style Guide v"`. The second alternative matches any version string, so a
+  file declaring "Style Guide v1.0" passed a check built to catch exactly that.
+- It now reads the current version from `tokens.json` and fails on a declared version that is not
+  the current one. Tightening it again is a data edit, not a code edit. Proven to fire.
+
+**NC-TYP-15 — fallbacks were named but not corrected**
+- Zero occurrences of `size-adjust`, `ascent-override`, `descent-override` in the repository.
+  Embedding answers "the font is missing"; it does not answer "the font has not arrived yet", or
+  the machines that cannot embed at all.
+- Overrides computed from the actual OS/2 and hhea tables of the eight `.woff2` files against
+  Arial: Archivo 101.44%, Archivo Black 101.82%, Inter 105.27% size-adjust, with matching
+  ascent and descent. The stacks name the corrected face. New rule, and a check.
+
+**Table cells finally got their leading**
+- 59 scoped `line-height` declarations across the stylesheets and none on a table. Cells inherited
+  1.6 from `.nc-doc` against ch03's 1.25–1.35. GAP-01 was raised about exactly this class and the
+  fix had been applied everywhere except it. `.nc-table` 1.3, `.nc-slide .nc-table` 1.25.
+
+**The first generation archived**
+- `tokens/`, `system/`, `contracts/rules.json`, `tools/`, `templates/`, `components/components.css`
+  and the root `index.html` moved to `archive/2026-08-16-pre-foundations/` with a note naming what
+  each one got wrong. That closes, by removal rather than by patch: the second validator, the four
+  resurrected grey tokens, `#6A6A6A` in thirteen files, ten live-type wordmarks, the CVD claim that
+  contradicted its own sibling, and a personal email address in the file everyone was told to copy.
+- **`contracts/layouts.json` was NOT archived.** Moved to `foundations/layouts.json` unchanged —
+  slot contracts, word limits, block budgets, permitted grounds and the anchor per layout. It is
+  the one thing the old generation held that the new one had never replaced. Recorded now,
+  enforced next: wiring it into the layout generator and the validator is an open job.
+
+**The instruction files**
+- `AGENTS.md`, `CLAUDE.md` and `README.md` all declare v1.4 and a date. `AGENTS.md` had no version
+  at all while governing every model, and `README.md` still named v1.0 as source of truth.
+- One validator named: `checks/validate.py`, invoked by `build.py`.

@@ -10,7 +10,7 @@
   },
   "sourceRead": "All 18 chapters of The Decision Book read in full, 16 August 2026 — not the CSV registers. 4,596 lines.",
   "correction": "An earlier pass reported that 'provenance chip' and 'callout' have no basis in the Book's prose. That was wrong for the chip: ch04 specifies the self-describing chip and the ordinal strength meter explicitly, as named patterns with rules. Carly's .nc-prov and .nc-meter come straight from it. 'Callout' remains absent.",
-  "rules": 83
+  "rules": 84
  },
  "decisionStack": [
   "legal and ethical requirements",
@@ -26,9 +26,10 @@
    "id": "NC-COL-01",
    "tier": "fixed",
    "source": "v1.4 §07",
-   "rule": "Every accent is a black-text surface. Every ground is a white-text surface.",
-   "breaks": "White on pink is 2.62:1. Black on blue is 2.44:1.",
-   "machine": "textOn"
+   "rule": "Every accent takes ink text. Every ground takes the text colour its own token declares: white on blue and ink, ink on chalk and white. Read the ground off tokens.json — never off a remembered sentence.",
+   "breaks": "The old wording — 'every ground is a white-text surface' — is false for two of the four grounds. White on chalk is 1.1096:1 and white on white is 1.0000:1. An agent that followed it literally shipped an invisible surface believing it had complied, and the sentence carrying the defect was the one flagged 'if you remember nothing else, remember that'.",
+   "machine": "no light-ground class sets a white or near-white text colour",
+   "supersedes": "v1.4 §07 colour rule, as worded"
   },
   {
    "id": "NC-COL-02",
@@ -687,6 +688,14 @@
    "rule": "A layout arranges components; it never defines one. If a layout needs something new, the component layer is missing it — add it there, not in the layout.",
    "breaks": "Components born inside slides. That is exactly how the system drifted the first time: twelve layouts each carrying a slightly different pull quote, none of which a document could use.",
    "machine": "layout files contain no component definitions"
+  },
+  {
+   "id": "NC-TYP-15",
+   "tier": "fixed",
+   "source": "ch03 · ch13 · v1.4 §08 font delivery",
+   "rule": "Embed the faces, AND declare a metric-corrected fallback. size-adjust to equalise x-height, ascent-override and descent-override against the adjusted em, line-gap-override to zero.",
+   "breaks": "Embedding answers 'the font is missing'. It does not answer 'the font has not arrived yet', or the machines that cannot embed at all — email, some PowerPoint installs. Arial at its own metrics is a different size and a different leading, so the page reflows when the real face lands, and every measured layout rule in the system is false for as long as the stand-in is showing.",
+   "machine": "fonts.css declares size-adjust, ascent-override and descent-override for every fallback"
   }
  ],
  "removalTest": {

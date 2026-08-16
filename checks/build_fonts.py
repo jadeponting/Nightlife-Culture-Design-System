@@ -34,6 +34,43 @@ for fn, fam, wt, st in FACES:
     b64 = base64.b64encode(p.read_bytes()).decode()
     out.append(f"@font-face{{font-family:'{fam}';font-style:{st};font-weight:{wt};"
                f"font-display:swap;src:url(data:font/woff2;base64,{b64}) format('woff2')}}")
+
+# TYP-15, second clause — the fallback needs corrected metrics, not just a name.
+# Embedding solves "the font is missing". It does not solve "the font has not
+# arrived yet", or the machines that cannot embed at all — email, some
+# PowerPoint installs. Arial at its own metrics is a different size and a
+# different leading, so the page reflows when the real face lands and every
+# measured layout rule is briefly false.
+#
+# Computed from the actual OS/2 and hhea tables of the eight .woff2 files
+# against Arial (upm 2048, asc 1854, desc -434, xh 1062). size-adjust equalises
+# x-height so the stand-in reads at the same apparent size; ascent and descent
+# are then expressed against that adjusted em.
+FALLBACKS = [
+    ("Archivo Black", 400, 101.82, 86.23, 20.62),
+    ("Archivo",       800, 101.44, 86.56, 20.70),
+    ("Archivo",       700, 101.44, 86.56, 20.70),
+    ("Archivo",       600, 101.44, 86.56, 20.70),
+    ("Inter",         400, 105.27, 92.02, 22.91),
+    ("Inter",         500, 105.27, 92.02, 22.91),
+    ("Inter",         600, 105.27, 92.02, 22.91),
+    ("Inter",         700, 105.27, 92.02, 22.91),
+]
+out.append("\n/* ---- fallback metrics (TYP-15) ---------------------------------\n"
+           "   Arial standing in, corrected so it occupies the same space.\n"
+           "   Without these the fallback reflows the page and the measured\n"
+           "   layout rules are false for as long as it is showing. */")
+seen = set()
+for fam, wt, sa, asc, desc in FALLBACKS:
+    key = (fam, wt)
+    if key in seen:
+        continue
+    seen.add(key)
+    out.append(f"@font-face{{font-family:'{fam} Fallback';font-style:normal;"
+               f"font-weight:{wt};src:local('Arial'),local('Helvetica'),local('sans-serif');"
+               f"size-adjust:{sa}%;ascent-override:{asc}%;descent-override:{desc}%;"
+               f"line-gap-override:0%}}")
+
 css = "\n".join(out) + "\n"
 dest = ROOT / "foundations" / "fonts.css"
 dest.write_text(css)

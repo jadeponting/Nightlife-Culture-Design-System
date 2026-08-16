@@ -1,5 +1,9 @@
 # Nightlife Culture Design System — instructions for AI agents
 
+**Source of truth: Nightlife Culture Style Guide v1.4.**
+**This file: v1.4 · 16 August 2026.** If a file you are reading declares an older version, it is
+superseded — check `foundations/tokens.json`, which carries the current one, before you trust it.
+
 You are producing work for **Nightlife Culture**, a creative policy, research and design studio
 working across nightlife, music, culture, place and the systems that shape them.
 
@@ -13,32 +17,49 @@ whatever comes next. Follow it exactly. **Do not improvise layout, colour or typ
 **This system is checkable, not describable.** Before you deliver anything, run:
 
 ```bash
-python tools/validate.py <your-file>.html
+python3 build.py
 ```
 
-If it does not print `PASS`, you are not finished. The validator is the arbiter, not your judgement
-and not mine. It exists because taste varies between models and a checker does not.
+It generates everything from the two source files, then validates and stamps. If it does not print
+`BUILD OK`, you are not finished.
+
+**There is one validator: `checks/validate.py`, invoked by `build.py`.** It is the arbiter — not
+your judgement and not mine. It exists because taste varies between models and a checker does not.
 
 ```bash
-python tools/validate.py --list             # every layout and its contract
-python tools/validate.py --check-contracts  # sanity-check the contracts themselves
-python tools/contrast.py "#ED77C2" "#FFF"   # WCAG check any colour pair
+python3 checks/validate.py <file>.html      # one artefact, on its own
+python3 checks/check_stamps.py              # has anything gone stale?
 ```
+
+There used to be a second validator at `tools/validate.py`, and this file named it. It checked
+layout contracts and no colour or type rule at all, so the same file could pass the named arbiter
+and fail the one the build actually ran. It is archived. If you find a reference to it anywhere,
+that reference is stale.
 
 ---
 
 ## Never do these
 
-1. **Never invent a slide layout.** Twelve exist in `contracts/layouts.json`. Pick one. If none fits,
+1. **Never invent a slide layout.** Twelve exist in `foundations/layouts.json`. Pick one. If none fits,
    say so and ask — do not improvise a thirteenth.
 2. **Never add a slot a layout does not declare.** No extra paragraph under the columns. If the content
    does not fit the contract, it is two slides.
-3. **Never put white text on an accent.** Every accent (`pink, teal, violet, butter, coral`) is a
-   **black-text** surface. Every ground (`blue, ink, chalk, white`) is a **white-** or ink-text surface.
+3. **Never set a text colour by hand. Read it off the ground.** Every accent
+   (`pink, teal, violet, butter, coral`) takes **ink** text. Each ground declares its own:
+   **white on blue and ink, ink on chalk and white.**
+
+   > There is no single rule covering all four grounds, and there never was. The old line — *"every
+   > ground is a white-text surface"* — is false for two of them: white on chalk is **1.1096:1** and
+   > white on white is **1.0000:1**. It sat in this file under "if you remember nothing else,
+   > remember that", which is the worst possible place for a wrong sentence. **Read the ground off
+   > `foundations/tokens.json`.** `checks/validate.py` now fails the build on white text over a
+   > light ground, so this is checked rather than remembered.
 4. **Never use brand accents to encode data.** Only the four-series chart ramp does that. The accents
    share one lightness register and collapse in greyscale.
 5. **Never use a full-bleed accent ground.** Accents are blocks, thirds and strips — not rooms.
-6. **Never link a web font service.** Fonts are in `assets/fonts/` and wired in `tokens/fonts.css`.
+6. **Never link a web font service.** Fonts are in `assets/fonts/` and embedded by `checks/build_fonts.py` into
+   `foundations/fonts.css`, with metric-corrected fallbacks so the stand-in occupies the same
+   space (NC-TYP-15).
    A linked font fails silently and falls back to a system sans.
 7. **Never stretch an SVG** (`preserveAspectRatio="none"`). It destroys the type.
 8. **Never use the retired colours:** `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE`.
@@ -47,8 +68,9 @@ python tools/contrast.py "#ED77C2" "#FFF"   # WCAG check any colour pair
 
 ## Building a slide deck
 
-1. Read `contracts/layouts.json`. Pick a layout per slide.
-2. Copy the matching file from `layouts/`, or start from `templates/deck.html`.
+1. Read `foundations/layouts.json`. Pick a layout per slide.
+2. Take the matching arrangement from `layouts/index.html`, which is generated from the tokens.
+   Do not copy from `archive/` — everything in there is superseded.
 3. Every `<section>` carries `data-layout="L03"`.
 4. Every `.cv` carries a `ground-*` class. **The ground brings its own text, kicker and title colours** —
    that is why you must use the class rather than setting colours by hand.
@@ -84,10 +106,26 @@ python tools/contrast.py "#ED77C2" "#FFF"   # WCAG check any colour pair
 - **Kickers are three or four words**, not sentences. A leading `07 ·` index does not count.
 - Content never enters the bottom 14% — that band is the logo and the slide number.
 
-## Colour, in one sentence
+## Colour — and why it is not one sentence
 
-Every accent is a black-text surface; every ground is a white-text surface. If you remember nothing
-else, remember that. Full matrix and reasoning in `docs/tokens.md` and `contracts/rules.json`.
+**Accents take ink text. Grounds declare their own.**
+
+| | Text | Measured |
+|---|---|---|
+| Blue `#0000FF` | white | 8.5925:1 |
+| Ink `#0D0D0D` | white | 19.4355:1 |
+| Chalk `#F3F3F3` | **ink** | 17.5155:1 · white on chalk is 1.1096:1 |
+| White `#FFFFFF` | **ink** | 19.4355:1 · white on white is 1.0000:1 |
+| Any accent | ink | 7.42 to 14.73:1 |
+
+This section used to say *"every ground is a white-text surface — if you remember nothing else,
+remember that."* It was false for half the grounds, and being memorable made it worse: it is the
+line an agent carries into a file. **Read the ground off `foundations/tokens.json`**, where each
+ground names its own text colour and every published ratio names the pairing it was measured
+against. `checks/validate.py` fails the build on white text over a light ground.
+
+Charcoal `#2D2D2D` is a **text colour, not a ground.** It was filed under grounds, which is how it
+came to publish 12.41 — that is charcoal text on chalk, not white text on charcoal.
 
 ## Type
 
@@ -124,7 +162,7 @@ system/       stylesheets that implement the tokens (slides.css, and more to com
 contracts/    layouts.json + rules.json — machine-readable, what the validator enforces
 layouts/      one canonical HTML file per layout
 templates/    working starters (deck.html, and more to come)
-tools/        validate.py, contrast.py
+checks/       build.py, build_fonts.py, build_slides.py, validate.py, check_stamps.py
 golden/       reference renders — compare your output against these
 assets/       fonts, logo
 docs/         the human-readable guide

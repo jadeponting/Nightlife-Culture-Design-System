@@ -38,9 +38,9 @@ css = f"""/* =============================================================
 {chr(10).join(f"  --nc-slide-{k}: {v};" for k,v in SP["slideScale"]["steps"].items())}
   --nc-hair: {C['hairline']};
   --nc-grid: rgba(13,13,13,.10);
-  --nc-font-display: "Archivo Black",Arial Black,sans-serif;
-  --nc-font-head: "Archivo",Arial,sans-serif;
-  --nc-font-body: "Inter",Arial,sans-serif;
+  --nc-font-display: "Archivo Black","Archivo Black Fallback",Arial Black,sans-serif;
+  --nc-font-head: "Archivo","Archivo Fallback",Arial,sans-serif;
+  --nc-font-body: "Inter","Inter Fallback",Arial,sans-serif;
 }}
 
 /* --- 0 · CONTEXT — sets the base, defines nothing ---------------- */
@@ -48,10 +48,15 @@ css = f"""/* =============================================================
 .nc-slide .cv{{font-size:1.55cqw;font-family:var(--nc-font-body);line-height:1.5}}
 
 /* --- 1 · GROUNDS ------------------------------------------------- */
-.ground-blue{{background:var(--nc-blue);color:#fff}}
-.ground-ink{{background:var(--nc-ink);color:#fff}}
-.ground-chalk{{background:var(--nc-chalk);color:var(--nc-ink)}}
-.ground-white{{background:var(--nc-white);color:var(--nc-ink)}}
+/* Each ground declares its own text colour, as a token. There is deliberately
+   no single --nc-on-ground: one value spanning every ground is what let
+   'every ground is a white-text surface' look true. White on chalk is 1.1096:1.
+   Measured: blue/white 8.5925 · ink/white 19.4355 · chalk/ink 17.5155 ·
+   white/ink 19.4355 (NC-COL-01). */
+.ground-blue{{--nc-on:var(--nc-white);background:var(--nc-blue);color:var(--nc-on)}}
+.ground-ink{{--nc-on:var(--nc-white);background:var(--nc-ink);color:var(--nc-on)}}
+.ground-chalk{{--nc-on:var(--nc-ink);background:var(--nc-chalk);color:var(--nc-on)}}
+.ground-white{{--nc-on:var(--nc-ink);background:var(--nc-white);color:var(--nc-on)}}
 /* Teal is the section-header colour on EVERY dark ground — one rule, not two.
    Butter kicker on ink read as a warning label. (slides v1.5, fix 3) */
 
@@ -157,6 +162,12 @@ css = f"""/* =============================================================
 /* --- 9 · TABLE — editorial is the default. No fill, no vertical
    rules, no outer border. 2.25px ink rule under the header. */
 .nc-table{{border-collapse:collapse;width:100%;font-size:.88em;background:transparent}}
+/* Cells are not paragraphs. Tight is MORE readable here — rows have to stay
+   scannable, and a 1.6 inherited from .nc-doc turns a table into a list of
+   loose lines. ch03 scopes leading by class and context; this is the class
+   the original gap was raised about (GAP-01), and the one the fix missed. */
+.nc-table{{line-height:1.3}}
+.nc-slide .nc-table{{line-height:1.25}}
 .nc-table th,.nc-table td{{padding:var(--nc-sp3) var(--nc-sp4) var(--nc-sp3) 0;text-align:left;vertical-align:top;
   border-bottom:1px solid rgba(13,13,13,.13)}}
 .nc-table th{{font-family:var(--nc-font-head);font-weight:700;text-transform:uppercase;

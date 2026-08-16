@@ -70,6 +70,26 @@ def check(path):
         if w and float(w.group(1)) >= 2 and "bottom" not in prop and "none" not in val.lower():
             F.append(("NC-CON-01", f"inline {prop}: {val.strip()[:40]} — hard outline"))
 
+    # NC-COL-01 — the colour law, as a check rather than a sentence. A light
+    # ground may not carry white or near-white text. This is the rule that was
+    # false in prose for two years' worth of files; making it checkable is the
+    # only fix that stays fixed.
+    LIGHT = ("ground-chalk", "ground-white")
+    for sel, block in blocks:
+        if not any(g in sel for g in LIGHT):
+            continue
+        m = re.search(r"(?<!-)\bcolor\s*:\s*([^;]+)", block)
+        if not m:
+            continue
+        val = m.group(1).strip().lower()
+        if val in ("#fff", "#ffffff", "white") or "--nc-white" in val:
+            F.append(("NC-COL-01", f"{sel.strip()[:40]} sets white text on a light ground "
+                                   "— 1.1096:1 on chalk, 1.0000:1 on white"))
+    for m in re.finditer(r'class="([^"]*)"[^>]*style="([^"]*)"', h):
+        if any(g in m.group(1).split() for g in LIGHT) and re.search(
+                r"color\s*:\s*(#fff|#ffffff|white)\b", m.group(2), re.I):
+            F.append(("NC-COL-01", "inline white text on a light ground"))
+
     # NC-CON-02 — hairline scope
     hair = len(re.findall(r"1px\s+solid\s+(?:rgba\(13,\s*13,\s*13|var\(--nc-hairline)", h, re.I))
     tables = len(re.findall(r"<table", body, re.I))
@@ -89,6 +109,14 @@ def check(path):
     for run in re.findall(r"\b[A-Z][A-Z'’&-]{2,}(?:\s+[A-Z][A-Z'’&-]{2,}){1,}\b", text):
         if run.strip() and not re.fullmatch(r"[A-Z\s'’&-]*(?:NC|WCAG|PDF|HTML|CSS|JSON|UKDF|ONS)[A-Z\s'’&-]*", run):
             W.append(("NC-TYP-01", f"possible typed caps: “{run[:44]}” — apply text-transform instead"))
+
+    # NC-TYP-15 — a named fallback is not a corrected one. Without metric
+    # overrides the stand-in occupies different space, so the page reflows when
+    # the real face arrives and every measured layout rule is briefly false.
+    if "@font-face" in css and "src:local" in css and "size-adjust" not in css:
+        W.append(("NC-TYP-15", "fallback faces declared with no metric overrides"))
+    if "@font-face" in css and "src:local" not in css and "data:font" in css:
+        W.append(("NC-TYP-15", "fonts embedded but no corrected fallback declared"))
 
     # NC-TYP-05 — fonts embedded, not linked.
     # Look in the CSS, not the text: a page that *writes about* @font-face is not
@@ -178,9 +206,19 @@ def check(path):
         if b > a + 1:
             F.append(("NC-DOC-05", f"heading level skipped: h{a} → h{b}")); break
 
-    # NC-BRK-01 — derived artefact states its source version
-    if not re.search(r"v1\.4|Style Guide v", h):
+    # NC-BRK-01 — a derived artefact states the CURRENT source version.
+    # The old pattern was r"v1\.4|Style Guide v": the second alternative matches
+    # any version string at all, so a file declaring "Style Guide v1.0" passed a
+    # check built to catch exactly that. The version is read from tokens.json now,
+    # so tightening it again is a data edit, not a code edit.
+    ver = re.search(r"v(\d+\.\d+)", json.loads((ROOT/"foundations"/"tokens.json")
+                    .read_text())["meta"]["source"])
+    cur = ver.group(1) if ver else "1.4"
+    stated = set(re.findall(r"Style Guide v(\d+\.\d+)", h)) | set(re.findall(r"\bv(\d+\.\d+)\b", h))
+    if not stated:
         F.append(("NC-BRK-01", "no source version stated on the artefact"))
+    elif cur not in stated:
+        F.append(("NC-BRK-01", f"declares v{sorted(stated)[0]}; the current guide is v{cur}"))
 
     # NC-BRK-02 — wordmark never live type
     if re.search(r"font-family:[^;}]*Archivo Black[^;}]*[^}]*}[^{]*\.nc-logo|\.nc-logo\b[^}]*Archivo Black", h, re.I):

@@ -290,6 +290,22 @@
      "enforced_by": [
       "checks/validate.py"
      ]
+    },
+    {
+     "n": "Metric-corrected fallback — the stand-in occupies the same space",
+     "src": [
+      "jy",
+      "sg"
+     ],
+     "class": [
+      "@font-face"
+     ],
+     "rules": [
+      "NC-TYP-15"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
