@@ -1,0 +1,74 @@
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">Nightlife Culture · design system</p>
+    <h1>What we have, and what is missing</h1>
+    <p>Every component and style named across your {{FILES}} reference files, checked one
+       by one against the codebase. Not a summary — a test. Each row asks two questions:
+       does the thing exist, and is the reason it exists written down.</p>
+  </div>
+</header>
+<div class="wrap">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The count</span></h2>
+  <p class="lede">{{TOTAL}} components and styles, pulled out of the reference sheets one at a time.</p>
+  {{SCORE}}
+  <p><b>How to read a row.</b> “In the codebase as” is the actual class in the generated
+     stylesheet — if it were not really there, this page would say so, because the script
+     looks it up rather than taking my word for it. “Logic” is the rule that says why the
+     component exists and when you may deviate. A component with no rule is a habit; a rule
+     with no component is an intention.</p>
+  <p class="sm">Two notes under a row name. <i>Produced by the router</i> means you can hand
+     that component raw content and get the finished thing back, rules applied. <i>Checked
+     by</i> names the script that fails the build if the rule is broken — a rule nothing
+     checks is a rule that will quietly stop being true.</p>
+</section>
+
+<hr class="nc-brk acc-teal">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">Every component, checked</span></h2>
+  {{ROWS}}
+</section>
+
+<hr class="nc-brk acc-pink">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">The other direction</span></h2>
+  <p>An audit that only looks one way misses the thing that actually causes drift: stuff in
+     the system that nobody asked for. So this checks backwards too.</p>
+  <h3 class="famh">In the codebase, not in any reference file</h3>
+  {{EXTRA}}
+  <h3 class="famh">Rules with nothing on this page enforcing them</h3>
+  {{ORPHAN}}
+</section>
+
+<hr class="nc-brk acc-butter">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">04</span><span class="ttl">What this tells us</span></h2>
+  <div class="nc-panel nc-panel--left acc-teal">
+    <p class="lab">The document layer is solid</p>
+    <p class="txt">Grounds, type, containment, the section header, pull quotes, breakout
+      stats, tables, evidence furniture and the core charts are all built and all carry
+      their rule. That is the part you use in a report, a web page or an evaluation —
+      and it is the part that was missing when the system was built from the slides
+      outwards.</p>
+  </div>
+  <div class="nc-panel nc-panel--left acc-butter" style="margin-top:var(--nc-sp4)">
+    <p class="lab">The slide layer is the hole</p>
+    <p class="txt">Twelve layouts exist as working markup in your reference file and in the
+      repo’s older <span class="cd">layouts/</span> folder, but nothing generates them from
+      the tokens, so nothing checks them. They are the last place a hand-set value can hide.</p>
+  </div>
+  <div class="nc-panel nc-panel--left acc-coral" style="margin-top:var(--nc-sp4)">
+    <p class="lab">Four chart forms are named and not built</p>
+    <p class="txt">Pie, line, range bar and the not-collected marker are all specified in
+      charts v1.4 and the style guide. Until they exist, anyone needing one will reach
+      outside the system — which is exactly how a system starts to leak.</p>
+  </div>
+  <p class="sm" style="margin-top:var(--nc-sp5)">Everything on this page is checked against
+     the Nightlife Culture Style Guide v1.4 and the Decision Book at build time. If a class
+     is renamed or a rule removed, this page changes with it.</p>
+</section>
+</div>

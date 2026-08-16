@@ -71,8 +71,12 @@ def check(path):
         if run.strip() and not re.fullmatch(r"[A-Z\s'’&-]*(?:NC|WCAG|PDF|HTML|CSS|JSON|UKDF|ONS)[A-Z\s'’&-]*", run):
             W.append(("NC-TYP-01", f"possible typed caps: “{run[:44]}” — apply text-transform instead"))
 
-    # NC-TYP-05 — fonts embedded, not linked
-    if "@font-face" in h and "data:font" not in h and "data:application/font" not in h:
+    # NC-TYP-05 — fonts embedded, not linked.
+    # Look in the CSS, not the text: a page that *writes about* @font-face is not
+    # declaring a font. Checking the raw file made the audit sheet fail for quoting
+    # its own rule — a false positive that would teach people to ignore the validator.
+    style = " ".join(re.findall(r"<style[^>]*>(.*?)</style>", h, flags=re.S))
+    if "@font-face" in style and "data:font" not in style and "data:application/font" not in style:
         F.append(("NC-TYP-05", "@font-face present but no base64 payload — fonts are linked, not embedded"))
     if re.search(r"fonts\.(googleapis|gstatic)\.com", h):
         F.append(("NC-TYP-05", "links Google Fonts — fails silently to a system sans"))

@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nightlife Culture — how the logic works</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:46f19be2ca48e97e;rules:f2a3f1a3c75997ca;css:52d7c307404b47c3;fonts:9d516ebdfe9a129b">
+<meta name="nc-build-stamp" content="tokens:46f19be2ca48e97e;rules:f2a3f1a3c75997ca;css:ad54be84986d7d6a;fonts:9d516ebdfe9a129b">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -224,6 +224,11 @@
   background:linear-gradient(90deg,var(--nc-grid) 1px,transparent 1px) 0 0/25% 100%}
 .nc-bar .fl{position:absolute;left:0;top:0;bottom:0;background:var(--nc-chart-1)}
 .nc-bar .vl{font-size:.75em;min-width:3em;text-align:right;flex:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* On a dark ground the track is invisible: an ink-on-ink 7% wash reads as nothing,
+   so the bar loses the baseline it is measured against. Straight from
+   components_proof.html, which had this and the generated sheet did not. */
+.ground-blue .nc-bar .tk,.ground-ink .nc-bar .tk{background:rgba(255,255,255,.14)}
+.ground-blue .nc-bar .fl,.ground-ink .nc-bar .fl{background:var(--nc-teal)}
 .nc-hatch,.nc-bar .fl.nc-hatch{background-image:repeating-linear-gradient(45deg,rgba(13,13,13,.30) 0 3px,transparent 3px 7px);
   background-color:var(--nc-chalk);outline:1px solid var(--nc-hair);outline-offset:-1px}
 /* Hatched = suppressed [c] or not collected n/a. NEVER a blank row, and never

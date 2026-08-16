@@ -7,6 +7,7 @@
   2  css      foundations/tokens.json -> foundations/nightlife-culture.css
   3  library  components/library.body.html -> components/index.html + dist/
   3b docs     runs the router -> docs/how-the-logic-works.html + dist/
+  3c audit    checks every reference component -> docs/what-we-have.html + dist/
   4  validate every HTML artefact against foundations/rules.json
   5  stamps   every derived artefact against its source digests
 
@@ -20,6 +21,7 @@ STEPS = [
     ("css",      [sys.executable, "checks/build.py"]),
     ("library",  [sys.executable, "components/build_library.py"]),
     ("docs",     [sys.executable, "docs/build_routing.py"]),
+    ("audit",    [sys.executable, "docs/build_audit.py"]),
 ]
 fail = 0
 for name, cmd in STEPS:

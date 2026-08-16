@@ -1,0 +1,35 @@
+/* Page scaffolding for the audit sheet ONLY.
+   Layout furniture — no component definitions, no colour values.
+   Every spatial value is a scale step (ch02, Fixed). Every colour is a token. */
+*{box-sizing:border-box}
+body{margin:0;background:var(--nc-chalk)}
+.wrap{max-width:76rem;margin:0 auto;padding:0 var(--nc-sp5) var(--nc-sp9)}
+.mast{background:var(--nc-ink);color:var(--nc-white);padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
+.mast .wrap{padding-bottom:0}
+.mast h1{font-family:var(--nc-font-display);text-transform:uppercase;letter-spacing:-.012em;
+ line-height:.94;font-size:clamp(32px,6vw,64px);margin:0}
+.mast p{font-size:1.06em;max-width:60ch;margin:var(--nc-sp5) 0 0;line-height:1.5}
+.kick{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+ font-size:max(.75em,12px);margin:0 0 var(--nc-sp4);color:var(--nc-teal)}
+section{margin:0 0 var(--nc-sp8)}
+p{margin:0 0 var(--nc-sp4);max-width:70ch;overflow-wrap:break-word;hyphens:none;line-height:1.55}
+.lede{font-size:1.12em;max-width:60ch}
+.sm{font-size:max(.84em,13px);color:var(--nc-charcoal);max-width:72ch;margin:var(--nc-sp3) 0 0;line-height:1.5}
+/* Family heading. A class, not a bare h3 — a page file must never restyle an
+   element a component also uses. */
+.famh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;letter-spacing:.01em;
+ margin:var(--nc-sp7) 0 var(--nc-sp3);text-transform:none;display:flex;align-items:baseline;
+ gap:var(--nc-sp4);flex-wrap:wrap}
+.famh .cnt{font-weight:600;font-size:max(.72em,12px);letter-spacing:.08em;text-transform:uppercase;
+ color:var(--nc-charcoal)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--nc-sp4);margin:var(--nc-sp5) 0 var(--nc-sp7)}
+.tw{overflow-x:auto;margin-bottom:var(--nc-sp5)}
+.tw table{min-width:52rem}
+.nm{font-weight:500;min-width:17rem}
+.rt{font-family:var(--nc-font-head);font-weight:600;font-size:max(.68em,11px);letter-spacing:.06em;
+ text-transform:uppercase;color:var(--nc-charcoal)}
+.sr{font-size:max(.8em,12px);color:var(--nc-charcoal);min-width:9rem}
+.cd{font-family:ui-monospace,Menlo,monospace;font-size:max(.76em,12px);color:var(--nc-charcoal);
+ overflow-wrap:anywhere}
+.r--gap .nm{font-weight:700}
+@media (max-width:52rem){.g3{grid-template-columns:1fr}}

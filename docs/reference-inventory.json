@@ -1,0 +1,1640 @@
+{
+ "note": "Every component and style named in the 15 reference files. SOURCE — edit this, then run docs/build_audit.py. 'class' is what the codebase must contain; 'rules' is the logic that must be attached. The audit script checks both against foundations/, so a claim here that is not true fails visibly.",
+ "sources": {
+  "sg": "Style Guide v1.4 — the approved steer",
+  "hd": "headers.html — the component layer, v1.4",
+  "cp": "components_proof.html — one component layer",
+  "cn": "containment v1.3",
+  "ch": "charts & data v1.4",
+  "fu": "breakers, grid & furniture v1.6",
+  "sl": "slide system v1.5",
+  "sy": "slide layouts v1.0 — twelve layouts",
+  "gr": "grounds & components v1.2",
+  "jy": "joy.html — where the joy lives",
+  "wd": "working deck — 16 real slides",
+  "ds": "decision sheet — 68 undecided surfaces",
+  "hv": "handover sheet — ten proposals triaged",
+  "rc": "reconciliation sheet",
+  "db": "The Decision Book"
+ },
+ "families": [
+  {
+   "name": "Grounds — what the page sits on",
+   "items": [
+    {
+     "n": "Blue ground — primary",
+     "src": [
+      "sg",
+      "sl",
+      "gr",
+      "sy"
+     ],
+     "class": [
+      ".ground-blue"
+     ],
+     "rules": [
+      "NC-COL-01",
+      "NC-COL-07"
+     ]
+    },
+    {
+     "n": "Ink ground — night register",
+     "src": [
+      "sg",
+      "sl",
+      "gr",
+      "cn"
+     ],
+     "class": [
+      ".ground-ink"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    },
+    {
+     "n": "Chalk ground — working ground, decks",
+     "src": [
+      "sg",
+      "cn",
+      "sl"
+     ],
+     "class": [
+      ".ground-chalk"
+     ],
+     "rules": [
+      "NC-DOC-06"
+     ]
+    },
+    {
+     "n": "White ground — working ground, print and partners",
+     "src": [
+      "sg",
+      "cn",
+      "sl"
+     ],
+     "class": [
+      ".ground-white"
+     ],
+     "rules": [
+      "NC-DOC-06"
+     ]
+    },
+    {
+     "n": "Accent as a block, never a room",
+     "src": [
+      "sg",
+      "sl"
+     ],
+     "class": [
+      ".nc-panel--fill",
+      ".nc-band"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    },
+    {
+     "n": "Retired grounds — cream, porcelain, blush, bone, putty",
+     "src": [
+      "gr",
+      "cn"
+     ],
+     "class": [],
+     "rules": [
+      "NC-COL-05"
+     ],
+     "absence": true,
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Dark-ground inversion — every component flips itself",
+     "src": [
+      "cp",
+      "hd"
+     ],
+     "class": [
+      ".ground-blue .nc-section-head",
+      ".ground-blue .nc-quote .a",
+      ".ground-blue .nc-table th",
+      ".ground-blue .nc-source",
+      ".ground-blue .nc-brk",
+      ".ground-blue .nc-link"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    },
+    {
+     "n": "Charts invert on a dark ground",
+     "src": [
+      "cp"
+     ],
+     "class": [
+      ".ground-blue .nc-bar .tk",
+      ".ground-blue .nc-bar .fl"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Type roles",
+   "items": [
+    {
+     "n": "Display — Archivo Black, caps",
+     "src": [
+      "sg",
+      "jy",
+      "cn"
+     ],
+     "class": [
+      "--nc-font-display"
+     ],
+     "rules": [
+      "NC-TYP-01"
+     ]
+    },
+    {
+     "n": "H1 / H2 — Archivo ExtraBold 800, caps",
+     "src": [
+      "sg",
+      "jy"
+     ],
+     "class": [
+      "--nc-font-head"
+     ],
+     "rules": [
+      "NC-TYP-01"
+     ]
+    },
+    {
+     "n": "H3 — Archivo Bold 700, sentence case",
+     "src": [
+      "sg",
+      "jy"
+     ],
+     "class": [
+      "--nc-font-head"
+     ],
+     "rules": [
+      "NC-TYP-03"
+     ]
+    },
+    {
+     "n": "Body — Inter Regular 400, sentence case, 12pt floor",
+     "src": [
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-doc"
+     ],
+     "rules": [
+      "NC-TYP-02",
+      "NC-TYP-03"
+     ]
+    },
+    {
+     "n": "Labels — Archivo SemiBold 600, caps, tracked",
+     "src": [
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-panel .lab"
+     ],
+     "rules": [
+      "NC-TYP-04"
+     ]
+    },
+    {
+     "n": "Caps applied as a format, never typed",
+     "src": [
+      "sg",
+      "jy",
+      "db"
+     ],
+     "class": [
+      ".nc-section-head .ttl"
+     ],
+     "rules": [
+      "NC-TYP-01"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Case declared per component, never inherited",
+     "src": [
+      "hv",
+      "cp"
+     ],
+     "class": [
+      ".nc-quote .q",
+      ".nc-table td",
+      ".nc-caption"
+     ],
+     "rules": [
+      "NC-TYP-03"
+     ]
+    },
+    {
+     "n": "Line height scoped by context, not one number",
+     "src": [
+      "sg",
+      "rc"
+     ],
+     "class": [
+      ".nc-doc",
+      ".nc-table",
+      ".nc-quote"
+     ],
+     "rules": [
+      "NC-TYP-02"
+     ]
+    },
+    {
+     "n": "Fonts embedded, never linked — Arial fallback",
+     "src": [
+      "sg",
+      "jy",
+      "cn"
+     ],
+     "class": [
+      "@font-face"
+     ],
+     "rules": [
+      "NC-TYP-05"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Caps floor 16pt",
+     "src": [
+      "sg"
+     ],
+     "class": [],
+     "rules": [
+      "NC-TYP-04"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Structure — tells the reader where they are",
+   "items": [
+    {
+     "n": "Numbered section header — filled numeral box, rule below",
+     "src": [
+      "hd",
+      "cp",
+      "sl",
+      "jy"
+     ],
+     "class": [
+      ".nc-section-head",
+      ".nc-section-head .num",
+      ".nc-section-head .ttl"
+     ],
+     "rules": [
+      "NC-CON-04",
+      "NC-DOC-05"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Section header inverts on dark ground (teal)",
+     "src": [
+      "cp",
+      "sl"
+     ],
+     "class": [
+      ".ground-blue .nc-section-head"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    },
+    {
+     "n": "Contents list",
+     "src": [
+      "sg"
+     ],
+     "class": [
+      ".nc-contents"
+     ],
+     "rules": [
+      "NC-DOC-05"
+     ]
+    },
+    {
+     "n": "Running foot — logo left, number right",
+     "src": [
+      "fu",
+      "sy",
+      "sg"
+     ],
+     "class": [
+      ".nc-foot"
+     ],
+     "rules": [
+      "NC-BRK-01"
+     ]
+    },
+    {
+     "n": "Slide number — two-digit, bottom right, content slides only",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Document context — sets the base the components scale from",
+     "src": [
+      "cp",
+      "hd"
+     ],
+     "class": [
+      ".nc-doc"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Slide context — base ties to slide width",
+     "src": [
+      "cp",
+      "hd",
+      "sy"
+     ],
+     "class": [
+      ".nc-slide .cv"
+     ],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Argument — carries the claim",
+   "items": [
+    {
+     "n": "Pull quote — 12px left rule, white panel",
+     "src": [
+      "hd",
+      "cp",
+      "cn",
+      "gr",
+      "jy",
+      "sg"
+     ],
+     "class": [
+      ".nc-quote",
+      ".nc-quote .q",
+      ".nc-quote .a"
+     ],
+     "rules": [
+      "NC-CON-03",
+      "NC-TYP-03"
+     ]
+    },
+    {
+     "n": "Pull quote at slide scale",
+     "src": [
+      "cp",
+      "sl",
+      "sy"
+     ],
+     "class": [
+      ".nc-quote.lg .q"
+     ],
+     "rules": [
+      "NC-CON-03"
+     ]
+    },
+    {
+     "n": "Breakout stat — left rule (default)",
+     "src": [
+      "hd",
+      "cp",
+      "jy",
+      "gr",
+      "hv"
+     ],
+     "class": [
+      ".nc-stat",
+      ".nc-stat .big",
+      ".nc-stat .lb",
+      ".nc-stat .src"
+     ],
+     "rules": [
+      "NC-EVI-01",
+      "NC-EVI-04"
+     ]
+    },
+    {
+     "n": "Breakout stat — top rule",
+     "src": [
+      "jy",
+      "cp"
+     ],
+     "class": [
+      ".nc-stat--top"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Breakout stat — filled",
+     "src": [
+      "jy",
+      "cp",
+      "sy"
+     ],
+     "class": [
+      ".nc-stat--fill"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Breakout stat at slide scale",
+     "src": [
+      "cp",
+      "sy"
+     ],
+     "class": [
+      ".nc-stat.lg .big"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Source line is part of the stat, not an afterthought",
+     "src": [
+      "jy",
+      "ch",
+      "sg"
+     ],
+     "class": [
+      ".nc-stat .src"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ]
+    },
+    {
+     "n": "Lists — bulleted and numbered",
+     "src": [
+      "ds",
+      "sg"
+     ],
+     "class": [
+      ".nc-list",
+      ".nc-list--num"
+     ],
+     "rules": [
+      "NC-DOC-01"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Containment — five ways, one retired",
+   "items": [
+    {
+     "n": "A · Hard outline — retired, flyer register only",
+     "src": [
+      "cn",
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-panel--flyer"
+     ],
+     "rules": [
+      "NC-CON-01"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "B · Fill — the colour field is the container",
+     "src": [
+      "cn",
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-panel--fill"
+     ],
+     "rules": [
+      "NC-CON-01"
+     ]
+    },
+    {
+     "n": "C · Top rule — 9px, dense pages and long documents",
+     "src": [
+      "cn",
+      "sg",
+      "jy",
+      "sl"
+     ],
+     "class": [
+      ".nc-panel--top"
+     ],
+     "rules": [
+      "NC-CON-03"
+     ]
+    },
+    {
+     "n": "D · Left rule — 12px, the aside",
+     "src": [
+      "cn",
+      "sg",
+      "jy",
+      "wd"
+     ],
+     "class": [
+      ".nc-panel--left"
+     ],
+     "rules": [
+      "NC-CON-03"
+     ]
+    },
+    {
+     "n": "E · Full-bleed band — becomes a change of ground",
+     "src": [
+      "cn",
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-band"
+     ],
+     "rules": [
+      "NC-CON-01"
+     ]
+    },
+    {
+     "n": "F · Hairline — never for anything carrying meaning",
+     "src": [
+      "cn",
+      "sg",
+      "jy"
+     ],
+     "class": [
+      ".nc-panel--hair"
+     ],
+     "rules": [
+      "NC-CON-02"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Panel label and panel text",
+     "src": [
+      "cp",
+      "hd"
+     ],
+     "class": [
+      ".nc-panel .lab",
+      ".nc-panel .txt"
+     ],
+     "rules": [
+      "NC-TYP-04"
+     ]
+    },
+    {
+     "n": "Accent as a modifier, never baked in — six accents",
+     "src": [
+      "cp",
+      "hd",
+      "hv"
+     ],
+     "class": [
+      ".acc-pink",
+      ".acc-teal",
+      ".acc-violet",
+      ".acc-butter",
+      ".acc-coral",
+      ".acc-blue"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Evidence furniture — from the research methodology",
+   "items": [
+    {
+     "n": "Provenance chips — 13 codes, three tiers, code carries the meaning",
+     "src": [
+      "ch",
+      "sg",
+      "cp",
+      "hd",
+      "rc"
+     ],
+     "class": [
+      ".nc-prov",
+      ".nc-prov--mid",
+      ".nc-prov--low"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ],
+     "enforced_by": [
+      "components/route.py"
+     ]
+    },
+    {
+     "n": "Recommendation strength — filled ordinal steps, never a colour scale",
+     "src": [
+      "ch",
+      "sg",
+      "cp",
+      "rc"
+     ],
+     "class": [
+      ".nc-meter",
+      ".nc-meter-lab"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ]
+    },
+    {
+     "n": "Source line",
+     "src": [
+      "ch",
+      "sg",
+      "cp"
+     ],
+     "class": [
+      ".nc-source"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ]
+    },
+    {
+     "n": "Evidence row — chip plus source, baseline aligned",
+     "src": [
+      "hd",
+      "cp"
+     ],
+     "class": [
+      ".nc-evidence"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ]
+    },
+    {
+     "n": "Caption",
+     "src": [
+      "ds",
+      "sg"
+     ],
+     "class": [
+      ".nc-caption"
+     ],
+     "rules": [
+      "NC-TYP-03"
+     ]
+    },
+    {
+     "n": "Comparability flag — states which of the eight criteria were harmonised",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Illustrative-figures flag",
+     "src": [
+      "ch",
+      "sg",
+      "gr"
+     ],
+     "class": [],
+     "rules": [
+      "NC-EVI-04"
+     ]
+    },
+    {
+     "n": "Figure wrapper",
+     "src": [
+      "sg"
+     ],
+     "class": [
+      ".nc-figure"
+     ],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Tables",
+   "items": [
+    {
+     "n": "Editorial table — the default. No fill, no vertical rules, ink rule under the header",
+     "src": [
+      "hd",
+      "cp",
+      "sg"
+     ],
+     "class": [
+      ".nc-table",
+      ".nc-table .num"
+     ],
+     "rules": [
+      "NC-DOC-04"
+     ]
+    },
+    {
+     "n": "Accent table — top rule",
+     "src": [
+      "hd",
+      "cp"
+     ],
+     "class": [
+      ".nc-table--accent"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Banded table",
+     "src": [
+      "hd",
+      "cp"
+     ],
+     "class": [
+      ".nc-table--band td"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Numbers right-aligned, tabular figures",
+     "src": [
+      "hv",
+      "sg"
+     ],
+     "class": [
+      ".nc-table .num"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Table on dark grounds",
+     "src": [
+      "cp",
+      "hd"
+     ],
+     "class": [
+      ".ground-blue .nc-table th",
+      ".ground-blue .nc-table td"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ]
+    },
+    {
+     "n": "Header rows repeat across pages",
+     "src": [
+      "hv",
+      "sg"
+     ],
+     "class": [],
+     "rules": [
+      "NC-DOC-04"
+     ]
+    },
+    {
+     "n": "Five named table styles, Editorial as default",
+     "src": [
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Never band and rule at once",
+     "src": [
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "No tables on slides",
+     "src": [
+      "sg"
+     ],
+     "class": [],
+     "rules": [
+      "NC-PRS-03"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Charts — ten data components",
+   "items": [
+    {
+     "n": "Chart card — title, subtitle, marks, evidence footer",
+     "src": [
+      "ch",
+      "sy"
+     ],
+     "class": [
+      ".nc-chart",
+      ".nc-chart .ct",
+      ".nc-chart .cs",
+      ".nc-chart .ev"
+     ],
+     "rules": [
+      "NC-EVI-01"
+     ],
+     "enforced_by": [
+      "components/route.py"
+     ]
+    },
+    {
+     "n": "Ranked horizontal bar — the workhorse",
+     "src": [
+      "ch",
+      "sg",
+      "gr",
+      "sy"
+     ],
+     "class": [
+      ".nc-bar",
+      ".nc-bar .lb",
+      ".nc-bar .tk",
+      ".nc-bar .fl",
+      ".nc-bar .vl"
+     ],
+     "rules": [
+      "NC-COL-03",
+      "NC-COL-04"
+     ],
+     "enforced_by": [
+      "components/route.py"
+     ]
+    },
+    {
+     "n": "Suppressed value — hatched, row kept",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [
+      ".nc-hatch"
+     ],
+     "rules": [
+      "NC-EVI-02"
+     ],
+     "enforced_by": [
+      "components/route.py"
+     ]
+    },
+    {
+     "n": "Not-collected value — n/a, row kept",
+     "src": [
+      "ch"
+     ],
+     "class": [],
+     "rules": [
+      "NC-EVI-02"
+     ]
+    },
+    {
+     "n": "Dot plot with plausible range — for comparing places",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [
+      ".nc-dot .row",
+      ".nc-dot .tk",
+      ".nc-dot .pt",
+      ".nc-dot .rng",
+      ".nc-dot .vl"
+     ],
+     "rules": [
+      "NC-COL-04"
+     ],
+     "enforced_by": [
+      "components/route.py"
+     ]
+    },
+    {
+     "n": "Donut — four segments max, total in the hole",
+     "src": [
+      "ch",
+      "sg",
+      "gr"
+     ],
+     "class": [
+      ".nc-donut",
+      ".nc-donut .ring",
+      ".nc-donut .tot",
+      ".nc-donut .key"
+     ],
+     "rules": [
+      "NC-COL-03"
+     ]
+    },
+    {
+     "n": "Pie — permitted with a stated caveat",
+     "src": [
+      "ch",
+      "sg",
+      "gr"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "100% stacked bar — replaces most pies",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [
+      ".nc-stack"
+     ],
+     "rules": [
+      "NC-COL-03"
+     ]
+    },
+    {
+     "n": "Line chart — series labelled at the line, dashed for a break",
+     "src": [
+      "ch",
+      "sg",
+      "sl"
+     ],
+     "class": [],
+     "rules": [
+      "NC-EVI-02"
+     ]
+    },
+    {
+     "n": "Range bar — wherever uncertainty is material",
+     "src": [
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Chart key — reference, not a decoder",
+     "src": [
+      "ch",
+      "gr"
+     ],
+     "class": [
+      ".nc-key"
+     ],
+     "rules": [
+      "NC-COL-04"
+     ]
+    },
+    {
+     "n": "Gridlines at 10% ink",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [
+      "--nc-grid"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Four-series ramp, never brand accents",
+     "src": [
+      "ch",
+      "sg"
+     ],
+     "class": [
+      "--nc-chart-1"
+     ],
+     "rules": [
+      "NC-COL-02",
+      "NC-COL-03"
+     ]
+    },
+    {
+     "n": "Separator hairline between touching segments",
+     "src": [
+      "sg"
+     ],
+     "class": [
+      ".nc-stack div",
+      ".nc-donut .key i"
+     ],
+     "rules": [
+      "NC-CON-05"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "No non-uniform scaling of an SVG",
+     "src": [
+      "sg",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Alt text describes the finding, plus a data alternative",
+     "src": [
+      "ch",
+      "sg",
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Breakers — the pause",
+   "items": [
+    {
+     "n": "Separator — 20% wide, flush left, between title and body",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [
+      ".nc-brk"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Hairline breaker — full measure, under the title",
+     "src": [
+      "fu",
+      "sg",
+      "sl"
+     ],
+     "class": [
+      ".nc-brk--hair"
+     ],
+     "rules": [
+      "NC-CON-02"
+     ]
+    },
+    {
+     "n": "Stop — under a divider title, nothing after it",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Accent bar — above a pull quote, the only decorative use",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [
+      ".nc-brk--bar"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Retired — the mid-statement break",
+     "src": [
+      "fu"
+     ],
+     "class": [],
+     "rules": [],
+     "absence": true
+    },
+    {
+     "n": "One breaker per surface",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Logo",
+   "items": [
+    {
+     "n": "Outlined asset, never re-set as live type",
+     "src": [
+      "sg",
+      "rc"
+     ],
+     "class": [],
+     "rules": [
+      "NC-BRK-02"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Mono footer logo — blue on light, white on blue and ink",
+     "src": [
+      "fu",
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Full lockup — covers, dividers and closing only",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Two-colour lockup — covers only, never a footer",
+     "src": [
+      "fu",
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Teal is never a logo colour on a light ground",
+     "src": [
+      "fu"
+     ],
+     "class": [],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Slide layouts — twelve",
+   "items": [
+    {
+     "n": "L1 Cover",
+     "src": [
+      "sy",
+      "wd"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L2 Section divider",
+     "src": [
+      "sy",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L3 Three points — the workhorse",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L4 Two-column contrast",
+     "src": [
+      "sy",
+      "wd",
+      "fu"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L5 Quote",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L6 Report register",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L7 Night register",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L8 Vertical third",
+     "src": [
+      "sy",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L9 Ink strip",
+     "src": [
+      "sy",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L10 Vertical third stat",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L11 Chart slide",
+     "src": [
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "L12 Closing",
+     "src": [
+      "sy",
+      "wd"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Three top-rule columns",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Filled cells, three across",
+     "src": [
+      "sy",
+      "wd",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Vertical third split",
+     "src": [
+      "sy",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Full-bleed ink strip",
+     "src": [
+      "sy",
+      "sl"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Slide bar row — chart at slide scale",
+     "src": [
+      "sy",
+      "wd"
+     ],
+     "class": [],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "Grid and space",
+   "items": [
+    {
+     "n": "Side margins, top margin, footer band",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": [
+      "NC-LAY-01"
+     ]
+    },
+    {
+     "n": "Half the canvas empty — over ~55% covered means two slides",
+     "src": [
+      "fu",
+      "sg",
+      "sy"
+     ],
+     "class": [],
+     "rules": [
+      "NC-LAY-02"
+     ]
+    },
+    {
+     "n": "Body measure caps at 60–70%",
+     "src": [
+      "fu",
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Title zone three lines maximum",
+     "src": [
+      "fu",
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Remove copy before reducing type",
+     "src": [
+      "fu",
+      "sg",
+      "rc"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "The anchor rule — bottom, centre or top, declared",
+     "src": [
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Clustered spacing rhythm — one base unit, everything a multiple",
+     "src": [
+      "hv"
+     ],
+     "class": [
+      "--nc-sp1"
+     ],
+     "rules": [
+      "NC-LAY-04"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "One left rail, one right rail",
+     "src": [
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Slide grammar — kicker, statement, provocation, structure, so-what",
+     "src": [
+      "wd"
+     ],
+     "class": [],
+     "rules": [
+      "NC-SEQ-01"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Text and web components",
+   "items": [
+    {
+     "n": "Link",
+     "src": [
+      "ds",
+      "sg"
+     ],
+     "class": [
+      ".nc-link"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Defined term",
+     "src": [
+      "ds"
+     ],
+     "class": [
+      ".nc-term"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Blockquote element",
+     "src": [
+      "ds"
+     ],
+     "class": [
+      ".nc-quote"
+     ],
+     "rules": [
+      "NC-CON-03"
+     ]
+    },
+    {
+     "n": "Figure and figcaption",
+     "src": [
+      "ds"
+     ],
+     "class": [
+      ".nc-figure",
+      ".nc-caption"
+     ],
+     "rules": []
+    },
+    {
+     "n": "The other nine HTML surfaces — code, dl, small, details, abbr, hr, mark, sup/sub",
+     "src": [
+      "ds"
+     ],
+     "class": [],
+     "rules": []
+    }
+   ]
+  },
+  {
+   "name": "The layer above the components",
+   "items": [
+    {
+     "n": "The three-layer principle — brand outward, accessibility inward",
+     "src": [
+      "jy",
+      "hv",
+      "db"
+     ],
+     "class": [],
+     "rules": [
+      "NC-DIR-01"
+     ],
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
+    },
+    {
+     "n": "Fixed, Adaptable, Decorative on every rule",
+     "src": [
+      "jy",
+      "sg",
+      "db"
+     ],
+     "class": [],
+     "rules": [
+      "NC-DIR-01"
+     ],
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
+    },
+    {
+     "n": "One component layer — em-based, context sets the base",
+     "src": [
+      "cp",
+      "hd",
+      "jy",
+      "hv"
+     ],
+     "class": [
+      ".nc-doc",
+      ".nc-slide .cv"
+     ],
+     "rules": []
+    },
+    {
+     "n": "Built from the rule set outwards, not from the slides outwards",
+     "src": [
+      "jy",
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Every derived artefact states its source version",
+     "src": [
+      "db",
+      "rc"
+     ],
+     "class": [],
+     "rules": [
+      "NC-BRK-01"
+     ],
+     "enforced_by": [
+      "checks/validate.py",
+      "checks/check_stamps.py"
+     ]
+    },
+    {
+     "n": "Every value stated once, versioned and tiered",
+     "src": [
+      "db",
+      "rc"
+     ],
+     "class": [],
+     "rules": [
+      "NC-COL-06",
+      "NC-LAY-04"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Render the decision rather than describing it",
+     "src": [
+      "db",
+      "rc"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "No icons, illustration, stickers or decorative imagery",
+     "src": [],
+     "class": [],
+     "rules": [
+      "NC-DIR-01"
+     ],
+     "absence": true,
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
+    }
+   ]
+  }
+ ]
+}
