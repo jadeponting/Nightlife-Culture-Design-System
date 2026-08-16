@@ -34,6 +34,68 @@ No page templates yet for nightlifeculture.co.uk or a published HTML report.
 Decks are built in HTML. A `.pptx` path — either a python-pptx builder driven by the same contracts,
 or a documented manual mapping — is not yet written.
 
+### 6. Masthead ground — RESOLVED 16 Aug 2026, rule still to be written
+No rule said what ground a document masthead takes. Five sheets were built, each with its own
+hand-written stylesheet, and the ground was picked by eye — three ink, two blue.
+
+**What I did instead:** invented an answer five separate times, and did not say there was no rule.
+That is the failure, not the colour. `design-decisions` step 6 says log the gap and say it out
+loud; the procedure was there and went unused.
+
+**Cost of getting it wrong:** red. Every outward-facing sheet carried a different primary ground,
+in a system whose entire purpose is that this cannot happen.
+
+**Carly's decision, 16 Aug:** the masthead ground is the primary brand colour. Blue `#0000FF`.
+Ink is the night register and is not a default.
+
+**Closes when:** a rule exists naming the masthead ground, the page furniture is a component in
+the generated CSS, and a check fails a masthead built on anything else.
+
+### 7. Interactive states — no rules at all
+`.nc-link` sets a colour and an underline. There is nothing for `:visited`, `:hover`, `:active`
+or a disabled control. A clicked link looks unclicked, which is the one thing link colour has
+historically been for.
+
+**What I did instead:** shipped a link component with one state and did not notice the others
+were missing until the user asked what a clicked link looks like.
+
+**Cost of getting it wrong:** amber. Navigation in any long HTML artefact.
+
+**Closes when:** every interactive element has a declared state set, and the validator checks it.
+
+### 8. The page layer does not exist
+The system has 90 components and nothing for the page around them — masthead, wrap, kicker,
+standfirst, specification note, specimen frame. So every sheet is hand-authored, and every
+hand-authored file is a fork.
+
+**What I did instead:** wrote five separate stylesheets — `docs/audit.scaffold.css`,
+`docs/plan.scaffold.css`, `docs/routing.scaffold.css`, `layouts/layouts.scaffold.css`,
+`components/library.scaffold.css`. None governed, none checked, none consistent.
+
+**Cost of getting it wrong:** red. Every visual defect found in review lived here rather than in
+the components.
+
+**Closes when:** the page furniture is generated from `tokens.json` like everything else, the five
+scaffolds are deleted, and one generator produces every sheet.
+
+**Logged upstream as GAP-30** in the decision-book register — the Book has no rule for page
+furniture either, so this is not only ours.
+
+## Defects, not gaps
+
+Recorded separately because a defect in the work is a different thing from a gap in the guidance,
+and mixing them is how the real gaps get lost.
+
+- **The `<summary>` disclosure marker is the browser default.** NC-DOC-08 already says every
+  element the browser renders is decided. The rule exists and was not applied — by the component
+  that demonstrates the rule.
+- **Specimen charts carry no unit, comparator or axis**, and one legend measures a different
+  quantity from its mark. Breaches NC-EVI-01, which this system wrote. **Logged upstream as
+  GAP-29** as well, because the Book requires a demonstration's *mechanism* to be honest and says
+  nothing about its *data*.
+- **The section-header numeral box outgrows its title** at narrow widths — the box is a fixed
+  `.94em` while the title is a clamp that collapses toward `1.15em`.
+
 ## Closed
 
 - ~~Slide layouts undocumented~~ — twelve layouts, contracts and canonical files. v1.0.
