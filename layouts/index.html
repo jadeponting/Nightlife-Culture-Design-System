@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nightlife Culture — twelve slide layouts</title>
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
+<meta name="nc-build-stamp" content="tokens:37dd01807998afa6;rules:f448f8694bbb6fbb;css:b20e8673d084cfcd;fonts:9d516ebdfe9a129b;slides:58bb02077fa0d039">
+<link rel="stylesheet" href="../foundations/fonts.css">
+<link rel="stylesheet" href="../foundations/nightlife-culture.css">
+<link rel="stylesheet" href="../foundations/nightlife-slides.css">
+<link rel="stylesheet" href="layouts.scaffold.css">
+</head><body class="nc-doc">
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">Nightlife Culture · design system</p>
+    <h1>Twelve layouts</h1>
+    <p>Generated from the tokens, so every margin on this page is the same value the
+       rule set holds. Change the grid once and all twelve move together.</p>
+  </div>
+</header>
+<div class="wrap">
+<section>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The grid</span></p>
+  <p class="lede">The top margin is not one number, and that is the point.</p>
+  <p>The written 6% / 7.5% flat was a real decision flattened to a constant. What the decks actually do is vary the top margin by what leads the slide, and that variation is the mechanism that guides the reader: a kicker is small and quiet so it can sit high, because it is not the message; a statement needs air above it to land. Give the title the kicker's margin and the slide top-loads — the composition loses the breath that makes the rest of the system work. So the three steps stay, snapped to one unit so every value is a multiple (ch02, Fixed).</p>
+  <p>Every value is a multiple of one unit — 1.3333% of slide height — so the
+     slide grid obeys the same one-base-unit rule as the spacing scale. The footer band and the largest top step are both ten units, so a slide led by a full-bleed element sits in a centred band. That is a consequence of the unit, not a separate rule.</p>
+  <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+<th>Zone</th><th class="num">Measure</th><th>Rule</th></tr></thead><tbody>
+<tr><td>Side margins</td><td class="num">5.25%</td><td>Nothing crosses them.</td></tr>
+<tr><td>Top margin · a kicker leads</td><td class="num">4%</td>
+  <td>Small and quiet, so it can sit high. It is not the message.</td></tr>
+<tr><td>Top margin · a title leads</td><td class="num">6.667%</td>
+  <td>The statement needs air above it to land.</td></tr>
+<tr><td>Top margin · a full bleed leads</td><td class="num">13.333%</td>
+  <td>The element is the composition.</td></tr>
+<tr><td>Footer band</td><td class="num">13.333%</td>
+  <td>Reserved on every slide, covers and closers included. Content never enters it.</td></tr>
+<tr><td>Body measure</td><td class="num">60-70% of content width</td>
+  <td>The ragged right edge is part of the composition.</td></tr>
+<tr><td>Title zone</td><td class="num">3 lines</td>
+  <td>Four lines means the statement is a paragraph.</td></tr>
+<tr><td>Coverage</td><td class="num">55%</td>
+  <td>More than about half covered means it is two slides.</td></tr>
+</tbody></table></div>
+  <div class="nc-panel nc-panel--left acc-teal">
+    <p class="lab">Why the footer band is on every slide</p>
+    <p class="txt">Reserved on EVERY slide, covers and closers included. The band is not there because a number is printed in it — it is there because in a physical room the bottom of the screen is the hardest place to read: heads sit in the sightline. That reason does not change when the number does, so it is one grid, not two (ch12, readability from the back of the room).</p>
+  </div>
+</section>
+<hr class="nc-brk acc-teal">
+<section>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The twelve</span></p>
+  <p>Each one is an arrangement of components that already exist. None of them defines a
+     component of its own — if a layout needed one, that would mean the component layer was
+     missing something, not that the layout was special.</p>
+  <section class="lay">
+  <h3 class="layh"><span class="code">L1</span> Cover
+    <span class="meta">bleed leads · top margin 13.333%</span></h3>
+  <p class="why">Blue ground. The lockup leads, so the top margin is the largest step and the statement anchors to the foot of the content area. No slide number on a cover — but the footer band is still reserved, because the reason for it is sightlines, not numbering.</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad nc-pad--bleed" data-anchor="bottom">
+    <img class="nc-slogo nc-slogo--lockup" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture">
+    <div><p class="nc-t nc-t--xl">Artists make<br>great places</p>
+      <hr class="nc-brk acc-teal"></div>
+  </div>
+  <div class="nc-sfoot"><span class="nc-k" style="color:var(--nc-teal)">UK Dynamism Fund · Aug 2026</span><span></span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L2</span> Section divider
+    <span class="meta">title leads · top margin 6.667%</span></h3>
+  <p class="why">A kicker, a large title, and the stop. Nothing after the rule — that is what makes it a stop rather than a separator (NC-PSE-05).</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad" data-anchor="centre">
+    <p class="nc-k" style="color:var(--nc-teal)">Section 04</p>
+    <p class="nc-t nc-t--xl">Follow<br>the value</p>
+    <hr class="nc-brk acc-teal">
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span class="nc-snum">08</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L3</span> Three points
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">The workhorse. A kicker leads, so the top margin is the smallest step. Three top-rule columns — nothing boxed, because the rule codes the column without flooding it.</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad nc-pad--kicker">
+    <p class="nc-k" style="color:var(--nc-teal)">03 · The opportunity</p>
+    <p class="nc-t">A shared<br>evidence layer</p>
+    <hr class="nc-brk acc-teal">
+    <p class="nc-sub">Imagine several cities asking better questions about the night.</p>
+    <div class="nc-cols">
+      <div class="col acc-teal"><p class="n">01</p><p class="l">Local truth</p></div>
+      <div class="col acc-pink"><p class="n">02</p><p class="l">Shared method</p></div>
+      <div class="col acc-butter"><p class="n">03</p><p class="l">National learning</p></div>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span class="nc-snum">07</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L4</span> Two-column contrast
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">The Nightlife Culture argument shape: two things in tension. Teal marks the side you want heard. Both columns stop well above the footer band.</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad nc-pad--kicker">
+    <p class="nc-k" style="color:var(--nc-teal)">03 · The bridge we build</p>
+    <div class="nc-cols nc-cols--2">
+      <div class="col col--plain">
+        <p class="nc-t nc-t--sm">What systems<br>often count</p>
+        <hr class="nc-brk" style="background:#fff;width:34%">
+        <p class="nc-sbody">risk · incidents · licensing · nuisance · footfall · spend</p>
+      </div>
+      <div class="col col--plain">
+        <p class="nc-t nc-t--sm" style="color:var(--nc-teal)">What culture<br>also holds</p>
+        <hr class="nc-brk acc-teal" style="width:34%">
+        <p class="nc-sbody">belonging · trust · scene-building · creative risk · care · collective joy</p>
+      </div>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span class="nc-snum">09</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L5</span> Quote
+    <span class="meta">title leads · top margin 6.667%</span></h3>
+  <p class="why">The accent bar sits above the quote and nowhere else — the only decorative use of a breaker (NC-PSE-03). The quote is the same component a report uses, one size up.</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad" data-anchor="centre">
+    <hr class="nc-brk nc-brk--bar acc-pink">
+    <blockquote class="nc-quote" style="border:0;padding:0">
+      <p class="q">Nightlife taught her to act before permission arrived.</p>
+    </blockquote>
+    <p class="nc-k" style="color:var(--nc-teal);margin-top:2cqw">UKDF fellowship proposal · 2026</p>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span class="nc-snum">11</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L6</span> Report register
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">Charcoal title, blue sub — not the other way round. Filled cells, ink text, no outlines. Chalk in decks, white in reports.</p>
+  <div class="nc-slide"><div class="cv ground-chalk"><div class="nc-pad nc-pad--kicker">
+    <p class="nc-k" style="color:var(--nc-blue)">04 · Principles for partnership</p>
+    <h2 class="nc-t" style="color:var(--nc-charcoal)">How shared evidence<br>should be built</p>
+    <hr class="nc-brk acc-blue">
+    <p class="nc-sub" style="color:var(--nc-blue)">Knowledge in the commons. Data as an asset.</p>
+    <div class="nc-cells">
+      <div class="cell acc-teal"><p class="n">01</p><p class="l">Open standards</p></div>
+      <div class="cell acc-butter"><p class="n">02</p><p class="l">Platform neutral</p></div>
+      <div class="cell acc-violet"><p class="n">03</p><p class="l">Local ownership</p></div>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-blue.svg" alt="Nightlife Culture"><span class="nc-snum">12</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L7</span> Night register
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">Used sparingly, and never without a light-ground variant: ambient light lifts a projector's blacks, so an ink deck greys out in a lit room at 11am. Teal is the section-header colour on every dark ground — butter on ink reads as a warning label.</p>
+  <div class="nc-slide"><div class="cv ground-ink"><div class="nc-pad nc-pad--kicker">
+    <p class="nc-k" style="color:var(--nc-teal)">05 · What the night creates</p>
+    <h2 class="nc-t" style="color:var(--nc-teal)">Nightlife is a<br>talent programme</p>
+    <hr class="nc-brk acc-teal">
+    <p class="nc-sub nc-sub--wide">It produces agency and ambition before formal institutions can see them.</p>
+    <div class="nc-cells">
+      <div class="cell acc-teal"><p class="n">01</p><p class="l">People</p></div>
+      <div class="cell acc-butter"><p class="n">02</p><p class="l">Scenes and spaces</p></div>
+      <div class="cell acc-pink"><p class="n">03</p><p class="l">Practice</p></div>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span class="nc-snum">06</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L8</span> Vertical third
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">An accent block for the last third, never an accent room. The hairline breaker sits under the title — the report register of the pause.</p>
+  <div class="nc-slide"><div class="cv ground-chalk"><div class="nc-third">
+    <div class="main">
+      <p class="nc-k" style="color:var(--nc-blue)">06 · The opportunity</p>
+      <p class="nc-t nc-t--sm" style="color:var(--nc-charcoal)">A shared<br>evidence layer</p>
+      <hr class="nc-brk nc-brk--hair">
+      <p class="nc-sub" style="color:var(--nc-blue)">Imagine several cities asking better questions about the night.</p>
+    </div>
+    <div class="side acc-teal">
+      <p class="biglab">Local truth</p><p class="bignum">01</p>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-blue.svg" alt="Nightlife Culture"><span class="nc-snum">14</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L9</span> Ink strip
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">A full-bleed ink band across the foot replaces three boxes. Teal numerals. The band is the change of ground, so nothing else on the slide needs containing.</p>
+  <div class="nc-slide"><div class="cv ground-chalk"><div class="nc-strip">
+    <div class="top">
+      <p class="nc-k" style="color:var(--nc-blue)">07 · From first conversation to delivery</p>
+      <p class="nc-t nc-t--sm" style="color:var(--nc-charcoal)">Our creative<br>policy method</p>
+      <hr class="nc-brk acc-blue">
+      <p class="nc-sub" style="color:var(--nc-blue)">Modular tools that adapt to place while keeping faith with local culture.</p>
+    </div>
+    <div class="band">
+      <div><p class="n">01</p><p class="l">Frame and listen</p></div>
+      <div><p class="n">02</p><p class="l">Test and make</p></div>
+      <div><p class="n">03</p><p class="l">Synthesise and build</p></div>
+    </div>
+  </div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L10</span> Vertical third stat
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">One number that has to land. The accent block carries the number; the light side carries the argument and the source line. The stat keeps its source line even here — a statistic without one is a claim (NC-EVI-07).</p>
+  <div class="nc-slide"><div class="cv ground-white"><div class="nc-third">
+    <div class="main">
+      <p class="nc-k" style="color:var(--nc-blue)">08 · Follow the value</p>
+      <p class="nc-t nc-t--sm" style="color:var(--nc-charcoal)">Who creates it,<br>who captures it</p>
+      <hr class="nc-brk nc-brk--hair">
+      <p class="nc-sub" style="color:var(--nc-blue)">And who reinvests it back into the conditions that made it.</p>
+      <p class="nc-srcline"><span class="nc-illus">Illustrative</span> ADM-OPEN · 2025 · LA boundary 2023</p>
+    </div>
+    <div class="side side--wide acc-pink">
+      <p class="biglab">A definition</p>
+      <div><p class="bignum">£41m</p><p class="biglab">Night-time spend, 2025</p></div>
+    </div>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-blue.svg" alt="Nightlife Culture"><span class="nc-snum">15</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L11</span> Chart slide
+    <span class="meta">kicker leads · top margin 4%</span></h3>
+  <p class="why">The chart occupies the middle band and the source line sits at the foot of the content area, above the footer band. Single series, single colour, labelled at the mark — the same rules the document charts obey.</p>
+  <div class="nc-slide"><div class="cv ground-white"><div class="nc-pad nc-pad--kicker">
+    <p class="nc-k" style="color:var(--nc-blue)">09 · Where value is held</p>
+    <p class="nc-t nc-t--sm" style="color:var(--nc-charcoal)">Manchester holds twice<br>the night-time payroll</p>
+    <hr class="nc-brk acc-blue">
+    <div style="margin-top:2cqw">
+      <div class="nc-sbar"><span class="lb">Manchester</span><span class="tk"><span class="fl" style="width:100%"></span></span><span class="vl">41,200</span></div>
+      <div class="nc-sbar"><span class="lb">Leeds</span><span class="tk"><span class="fl" style="width:82%"></span></span><span class="vl">33,900</span></div>
+      <div class="nc-sbar"><span class="lb">Bristol</span><span class="tk"><span class="fl" style="width:45%"></span></span><span class="vl">18,450</span></div>
+      <div class="nc-sbar"><span class="lb">Brighton</span><span class="tk"><span class="fl" style="width:31%"></span></span><span class="vl">12,800</span></div>
+    </div>
+    <p class="nc-srcline"><span class="nc-illus">Illustrative</span> Single series, single colour ·
+      ADM-OPEN · 2024 boundaries</p>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-blue.svg" alt="Nightlife Culture"><span class="nc-snum">16</span></div></div></div>
+</section><section class="lay">
+  <h3 class="layh"><span class="code">L12</span> Closing
+    <span class="meta">title leads · top margin 6.667%</span></h3>
+  <p class="why">The lockup, the ask, the contact. Pink accent bar. No slide number — and the footer band still reserved, for the same reason it is on the cover.</p>
+  <div class="nc-slide"><div class="cv ground-blue"><div class="nc-pad" data-anchor="centre">
+    <hr class="nc-brk nc-brk--bar acc-pink">
+    <p class="nc-t nc-t--sm">This is an invitation<br>to build better<br>evidence together</p>
+    <p class="nc-sub" style="margin-top:2cqw">For the people who make the night happen, hold
+      knowledge about it, govern it, fund it or care about its future.</p>
+  </div>
+  <div class="nc-sfoot"><img class="nc-slogo" src="../assets/logo/nightlife-culture-wordmark-white.svg" alt="Nightlife Culture"><span></span></div></div></div>
+</section>
+</section>
+<hr class="nc-brk acc-pink">
+<section>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Choosing one</span></p>
+  <p>Start from the job, not the picture.</p>
+  <div class="nc-table-wrap"><table class="nc-table"><thead><tr>
+    <th>What you are doing</th><th>Layout</th></tr></thead><tbody><tr><td class="nm">Opening an argument</td><td>L2 · section divider</td></tr><tr><td class="nm">Three related points</td><td>L3 on blue, or L6 / L7 if you want them filled</td></tr><tr><td class="nm">Two things in tension</td><td>L4 — this is the Nightlife Culture argument shape</td></tr><tr><td class="nm">One line that has to land</td><td>L5 · quote</td></tr><tr><td class="nm">One number that has to land</td><td>L10 · vertical third stat</td></tr><tr><td class="nm">A process or sequence</td><td>L9 · ink strip</td></tr><tr><td class="nm">Data</td><td>L11 — chart ramp only, never the brand accents</td></tr><tr><td class="nm">Detail-heavy content</td><td>L8 · vertical third, which keeps the argument on the left</td></tr></tbody></table></div>
+</section>
+</div>
+</body></html>

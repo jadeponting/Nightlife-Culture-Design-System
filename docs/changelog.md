@@ -60,3 +60,67 @@ The system stops being a set of styles and becomes a set of decisions.
   squeezed track still looks like a chart while no longer being readable as one.
 - Every string replacement in a build script asserts that it matched, after one silently wrote a
   file and reported success.
+
+## v1.2 — 16 August 2026
+
+The five waves, closed. 126 of 126 components built, with the rule attached.
+
+**The slide grid — decided**
+- Side margins 5.25%. Top margin varies by what leads the slide: 4% for a kicker,
+  6.667% for a title, 13.333% for a full bleed. All four are multiples of one unit
+  (1.3333% of slide height), so the slide grid obeys the same one-base-unit rule as
+  the spacing scale.
+- The flat 6% / 7.5% in v1.4 was a real decision flattened to a constant. The variation
+  is the mechanism that guides the reader: a kicker is small and quiet so it can sit
+  high; a statement needs air above it to land. Give the title the kicker's margin and
+  the slide top-loads.
+- The footer band is 13.333%, reserved on **every** slide, covers and closers included.
+  Not because a number is printed there — because in a room the bottom of the screen is
+  the hardest place to read, heads sit in the sightline. That reason does not change
+  when the number does, so it is one grid, not two.
+- A consequence, not a separate rule: the band and the largest top step are both ten
+  units, so a slide led by a full-bleed element sits in a centred band.
+
+**Added**
+- `checks/build_slides.py` → `foundations/nightlife-slides.css`. The slide layer is a
+  CONTEXT, not a component set: it sets the base the components scale against, plus the
+  arrangements that only exist on a slide.
+- `layouts/build_layouts.py` → `layouts/index.html`. Twelve layouts generated from the
+  tokens. Change the grid once and all twelve move.
+- Pie, line, range bar, the not-collected marker, the comparability flag and the
+  illustrative flag — all specified in charts v1.4 and previously unbuilt.
+- The remaining HTML surfaces: code, pre, dl, small, details, abbr, mark, sup/sub, kbd.
+- `docs/status.py` — one definition of "complete", shared by the audit and the plan, so
+  the plan cannot list work the audit counts as done.
+- Eight new checks in the validator: non-uniform scaling, chart packaging, illustrative
+  flags, one breaker per surface, tables on slides, the caps floor, repeating table
+  headers, band-and-rule.
+
+**Decisions**
+- **A layout arranges components; it never defines one.** If a layout needs something
+  new, the component layer is missing it. Components born inside slides is exactly how
+  the system drifted the first time.
+- **Colour is a modifier, never baked into a component** — otherwise a seventh accent
+  means a seventh component.
+- **Focus rings are exempt from the hard-outline rule** and required, not optional.
+  Containment v1.3 names focus states as one of the four places the 3:1 threshold
+  genuinely applies.
+- **Full-bleed grounds bleed; their text does not.** An accent block or ink strip runs
+  to the edge, but the words inside it stop at the footer line for the same reason
+  everything else does.
+
+**Fixed while building**
+- The audit's selector check matched prefixes: `.ground-blue .nc-quote` passed on the
+  strength of `.ground-blue .nc-quote .a`. Seventeen components read as complete when
+  only a child was defined.
+- A brace-free 200KB page made the CSS-block scan backtrack for sixteen seconds and
+  find nothing. The stylesheet is now resolved once, from `<style>` blocks or the
+  linked files.
+- Two checks counted class names in running text as markup, so the audit page failed
+  its own rules for describing them. They count real class attributes now.
+- Off-scale padding (0.1em, 0.15em, 0.3em, 0.35em) in the new HTML surfaces, snapped
+  to the scale.
+- Charts did not invert on a dark ground — an ink-on-ink track at 7% is invisible.
+- Slide titles in the layout catalogue were real headings, building an outline of
+  twelve h1s inside one document. They are specimens there; in a live deck the slide
+  title is a heading (NC-PRS-02).

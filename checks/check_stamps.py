@@ -23,11 +23,13 @@ SOURCES = {
     "rules":   ROOT / "foundations" / "rules.json",
     "css":     ROOT / "foundations" / "nightlife-culture.css",
     "fonts":   ROOT / "foundations" / "fonts.css",
+    "slides":  ROOT / "foundations" / "nightlife-slides.css",
 }
 live = {k: digest(p) for k, p in SOURCES.items() if p.exists()}
 
 # *.body.html and *.part.html are SOURCE fragments, not derived artefacts.
 derived = sorted(p for p in (list(ROOT.glob("components/*.html")) + list(ROOT.glob("docs/*.html"))
+                 + list(ROOT.glob("layouts/*.html"))
                  + list(ROOT.glob("dist/*.html"))
                  + list(ROOT.glob("adapters/**/*.html")))
                  if not p.name.endswith((".body.html", ".part.html")))

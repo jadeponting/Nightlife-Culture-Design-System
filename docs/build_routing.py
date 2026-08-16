@@ -10,6 +10,10 @@ components/route.py, so this page cannot claim behaviour the router does
 not have. If the router changes, this page changes with it.
 
     python3 docs/build_routing.py
+
+NC-SYS-06 — render the decision rather than describing it. This page is
+generated from the system it describes, so it cannot claim behaviour the
+system does not have.
 """
 import hashlib, html as H, pathlib, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent

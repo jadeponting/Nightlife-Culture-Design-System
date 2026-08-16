@@ -10,7 +10,7 @@
   },
   "sourceRead": "All 18 chapters of The Decision Book read in full, 16 August 2026 — not the CSV registers. 4,596 lines.",
   "correction": "An earlier pass reported that 'provenance chip' and 'callout' have no basis in the Book's prose. That was wrong for the chip: ch04 specifies the self-describing chip and the ordinal strength meter explicitly, as named patterns with rules. Carly's .nc-prov and .nc-meter come straight from it. 'Callout' remains absent.",
-  "rules": 47
+  "rules": 83
  },
  "decisionStack": [
   "legal and ethical requirements",
@@ -399,6 +399,294 @@
    "breaks": "Furniture v1.6 barred teal on a light ground on a 1.52:1 reading. That applied a body-text threshold to a logotype, which the standard exempts and which the display weight makes moot in practice. The reading was wrong, not the logo. Recorded so it cannot be re-raised: this has now been raised and withdrawn twice.",
    "machine": null,
    "supersedes": "furniture v1.6 §03 — 'teal is never a logo colour on a light ground'"
+  },
+  {
+   "id": "NC-SYS-03",
+   "tier": "fixed",
+   "source": "components_proof.html · headers.html · joy.html · handover §05",
+   "rule": "One component layer, sized in em. The context sets the base and the component scales itself against it — .nc-doc for documents, .nc-slide .cv for slides. Never hard-code px inside a component; never redefine a component inside a context file.",
+   "breaks": "Two component sets that look alike and drift apart. A pull quote in a report and a pull quote on a slide stop being the same thing, and every fix has to be made twice. This is what the handover diagnosed: the system drifted because it was built from the slides outwards rather than from the rule set outwards.",
+   "machine": "no px length inside a component block; context files set font-size and nothing else"
+  },
+  {
+   "id": "NC-SYS-04",
+   "tier": "fixed",
+   "source": "handover §05 · ch18",
+   "rule": "Colour is a modifier, never baked into a component. A component declares var(--nc-acc) with a default; an accent class supplies the value.",
+   "breaks": "A component per colour. Six pull quotes instead of one with six modifiers, and the seventh accent means a seventh component.",
+   "machine": "component blocks reference --nc-acc, not a named colour token"
+  },
+  {
+   "id": "NC-EVI-06",
+   "tier": "adaptable",
+   "source": "joy.html §03 · components_proof.html §4 · ch06 step seven",
+   "rule": "The breakout stat has three variants and they are chosen by context, not taste. Left rule is the default, in running text. Top rule where stats sit in a row or on a table-heavy page, so five filled panels do not shout at once. Filled where one number is the whole point — slides and covers. The source line is part of the component in all three.",
+   "breaks": "Filled stats used as the default, which turns a page of evidence into a paint chart and leaves the reader no way to tell which number is the finding.",
+   "machine": null
+  },
+  {
+   "id": "NC-EVI-07",
+   "tier": "fixed",
+   "source": "ch06 step seven · joy.html §03 · charts v1.4 §06",
+   "rule": "A statistic without its reference period, geography and provenance is a claim, not a finding. The source line is not optional and is not a caption — it belongs to the stat.",
+   "breaks": "A number that cannot be checked, reused or challenged. The evidence standard separates a finding from a claim; a stat with no source line collapses the distinction.",
+   "machine": ".nc-stat contains a .src child"
+  },
+  {
+   "id": "NC-PSE-01",
+   "tier": "fixed",
+   "source": "furniture v1.6 §02 · v1.4 §10",
+   "rule": "A breaker is a pause, not an ornament. One per surface. Two rules stop meaning 'pause' and start meaning 'pattern'.",
+   "breaks": "Rules read as decoration, so the reader stops using them to find the shape of the argument.",
+   "machine": "at most one .nc-brk per slide or section"
+  },
+  {
+   "id": "NC-PSE-02",
+   "tier": "fixed",
+   "source": "furniture v1.6 §02 · v1.4 §10",
+   "rule": "The separator sits between the title zone and the body zone, flush to the left margin, 20% wide. Blue on light grounds, teal on dark. It is a paragraph break for a surface — never inside a statement.",
+   "breaks": "A rule in the middle of a sentence interrupts it rather than pacing it. Retired for exactly that reason.",
+   "machine": null
+  },
+  {
+   "id": "NC-PSE-03",
+   "tier": "decorative",
+   "source": "furniture v1.6 §02 · slide layouts v1.0 L5 · v1.4 §10",
+   "rule": "The accent bar sits ABOVE a pull quote and nowhere else. It is the only decorative use of a breaker, and it is always at the top.",
+   "breaks": "Decoration that migrates. Once the bar can appear anywhere it stops signalling a quote and becomes a texture.",
+   "machine": null
+  },
+  {
+   "id": "NC-PSE-04",
+   "tier": "adaptable",
+   "source": "furniture v1.6 §02 · slide system v1.5 §04",
+   "rule": "The hairline breaker is the quieter alternative — full measure, under a title, on dense or document-register surfaces. The short accent separator is the deck register; the hairline is the report register. They may coexist across formats, not on one surface.",
+   "breaks": "Two pacing systems on one page, so neither reads as deliberate.",
+   "machine": null
+  },
+  {
+   "id": "NC-EVI-08",
+   "tier": "fixed",
+   "source": "charts v1.4 §03 · v1.4 §12 · Comparative Place-Based Research Methodology v1.0",
+   "rule": "Any chart comparing two or more places carries a comparability note stating whether the indicator gate has been cleared, and which of concept, unit, reference period, geography basis, boundary vintage, population, classification and method required harmonising. A comparison without it is not publishable.",
+   "breaks": "Two numbers presented as one series when they measure different things. The design does the overstating, silently, because a shared axis asserts comparability whether or not it holds.",
+   "machine": "a chart with two or more place categories contains .nc-comp"
+  },
+  {
+   "id": "NC-EVI-09",
+   "tier": "fixed",
+   "source": "charts v1.4 §07 · v1.4 §12",
+   "rule": "Illustrative or placeholder figures carry the flag inside the chart, on the marks, every time. Not in a footnote, not in the covering note.",
+   "breaks": "Charts travel. The moment one is screenshotted into a board paper the footnote is gone and the placeholder reads as a measurement.",
+   "machine": "illustrative charts contain .nc-illus"
+  },
+  {
+   "id": "NC-EVI-10",
+   "tier": "fixed",
+   "source": "charts v1.4 §02 · v1.4 §12 · ch06",
+   "rule": "Show the gaps as gaps. Hatched fill for a value suppressed for disclosure control [c]; the marker n/a where the value was not collected for this population; a dashed segment for a break in collection. The row always stays.",
+   "breaks": "A dropped row hides a finding. A silent blank asserts nothing was there. Both are stronger claims than the data supports, and both are invisible to the reader.",
+   "machine": "no blank value cells in a chart component"
+  },
+  {
+   "id": "NC-COL-08",
+   "tier": "fixed",
+   "source": "charts v1.4 §07 · v1.4 §12",
+   "rule": "Gridlines sit at 10% ink. Present enough to read against, quiet enough to disappear, and never heavier than the data.",
+   "breaks": "Grid competing with marks. The reader's eye is pulled to the scaffolding rather than the shape of the finding.",
+   "machine": "--nc-grid is the only stroke used for gridlines"
+  },
+  {
+   "id": "NC-DAT-01",
+   "tier": "fixed",
+   "source": "charts v1.4 §05 · v1.4 §12 · ch06",
+   "rule": "Change over time is a line, with series labelled at the line and never in a legend. A break in collection is drawn as a dashed segment and never interpolated across.",
+   "breaks": "Interpolating a break is a design decision masquerading as data — it draws a trend nobody measured. A legend makes the reader hold a colour key while reading the shape.",
+   "machine": ".nc-line uses .ln--break for collection breaks; no legend element"
+  },
+  {
+   "id": "NC-DAT-02",
+   "tier": "fixed",
+   "source": "v1.4 §12 chart types · charts v1.4 §03",
+   "rule": "Modelled or surveyed values are drawn with their interval. A range bar where uncertainty is material; a dot plot with its range where places are compared on an indicator.",
+   "breaks": "A bare point estimate reads as a count. A bar with no visible range makes a model look like a measurement — the single most common way a chart overstates its evidence.",
+   "machine": null
+  },
+  {
+   "id": "NC-DAT-03",
+   "tier": "adaptable",
+   "source": "charts v1.4 §04 · v1.4 §12 chart types · grounds v1.2",
+   "rule": "Parts of a whole: the donut is the default, the 100% stacked bar wherever two or more wholes are compared, and the pie is permitted when one dominant share must be instantly recognisable. Four segments maximum in all three, percentages always in the key, and a keyline between touching segments.",
+   "breaks": "Two pies side by side, which is the hardest comparison in the whole vocabulary. Past four slices none of the three is readable by anyone.",
+   "machine": null
+  },
+  {
+   "id": "NC-DAT-04",
+   "tier": "fixed",
+   "source": "v1.4 §12 · slide system v1.5 §01",
+   "rule": "No non-uniform scaling. A chart or image is never stretched to fit — the container flexes, the coordinate space does not.",
+   "breaks": "Stretching survives in the lines and destroys the type. It looks like a rendering fault to everyone except the person who made it.",
+   "machine": "no preserveAspectRatio=\"none\" in any SVG"
+  },
+  {
+   "id": "NC-DAT-05",
+   "tier": "fixed",
+   "source": "ch06 · v1.4 §12 · handover §09",
+   "rule": "Alt text states the finding, not the chart type. Anything load-bearing also ships a data alternative — a real table or a downloadable file — and the chart travels as a vector, never a bare image.",
+   "breaks": "“Line chart of venue counts” tells a screen-reader user the shape of the file and nothing about the argument. A chart that is only an image cannot be checked, reused or read aloud.",
+   "machine": "every <figure class=nc-chart> has a title in live text and a figcaption"
+  },
+  {
+   "id": "NC-DOC-07",
+   "tier": "adaptable",
+   "source": "decision sheet · v1.4 §14",
+   "rule": "A figure is a package: the mark, a caption that is not the title, and the source. The caption qualifies; it never carries the finding.",
+   "breaks": "A caption doing the title's job, which puts the message where the contents list and the screen reader cannot reach it.",
+   "machine": null
+  },
+  {
+   "id": "NC-TBL-01",
+   "tier": "fixed",
+   "source": "handover §04 · ch09",
+   "rule": "Never band and rule at once. A table groups its rows with zoning bands or with rules, not both.",
+   "breaks": "Two grouping mechanisms doing one job, so neither reads as deliberate and the eye has to decide which to trust.",
+   "machine": "a .nc-table--band row carries no bottom border"
+  },
+  {
+   "id": "NC-TBL-02",
+   "tier": "adaptable",
+   "source": "handover §04 · v1.4 §09 · ch09",
+   "rule": "Editorial is the default table and the only one that needs no class. The accent table marks a table that belongs to the section above it; the banded table is for long reference tables where the eye needs a rail. Numbers are right-aligned with tabular figures in all three.",
+   "breaks": "A table style chosen by eye, so two tables in one document group their rows differently and the reader infers a distinction that is not there.",
+   "machine": "numeric cells carry .num"
+  },
+  {
+   "id": "NC-PSE-05",
+   "tier": "fixed",
+   "source": "furniture v1.6 §02 · slide layouts v1.0 L2 · v1.4 §10",
+   "rule": "The stop sits under a divider title with nothing after it. Teal on dark grounds. Nothing following the rule is the whole point of it.",
+   "breaks": "A divider that carries content stops being a divider. The rule then reads as a separator promising more, and the pause is lost.",
+   "machine": null
+  },
+  {
+   "id": "NC-LAY-05",
+   "tier": "fixed",
+   "source": "v1.4 §08 · furniture v1.6 §05 · ch12 · reconciliation",
+   "rule": "Remove copy before reducing type. Type size is a floor, not a variable — when content does not fit, the content is too long.",
+   "breaks": "Reducing type to fit is how the floor gets broken, and it breaks it invisibly: the slide looks finished and is unreadable from four rows back. This is the rule that protects all the other typographic rules.",
+   "machine": null
+  },
+  {
+   "id": "NC-SYS-05",
+   "tier": "fixed",
+   "source": "joy.html §05 · handover §05 · ch18 step eight",
+   "rule": "Build from the rule set outwards, never from the slides outwards. Slides are one application of the component layer, alongside documents, charts, web pages and marcoms. A new need adds a rule and a component, not a one-off slide.",
+   "breaks": "The diagnosis from the last rebuild: a system built from the slides outwards has no document layer, so every report is authored by hand and every hand-authored value is a fork.",
+   "machine": null
+  },
+  {
+   "id": "NC-SYS-06",
+   "tier": "fixed",
+   "source": "ch18 step ten · reconciliation",
+   "rule": "Render the decision rather than describing it. A design decision arrives as something to look at, or it waits. Sheets that explain the system are generated from the system, so they cannot describe behaviour it does not have.",
+   "breaks": "Described decisions cannot be judged. They get agreed in prose and disagreed in artwork, and the disagreement surfaces at the deadline.",
+   "machine": "every explanatory page is produced by a generator in the build"
+  },
+  {
+   "id": "NC-DOC-08",
+   "tier": "fixed",
+   "source": "decision sheet · ch03 step eight · v1.4 §14",
+   "rule": "Every element the browser will render is decided: specified, inherits, or barred. Unstyled is still a look, and it is the one nobody chose.",
+   "breaks": "Default user-agent styling appearing inside a branded page — a Times serif blockquote, a 1.5rem h4, a blue underlined link — which reads as an error rather than a choice.",
+   "machine": null
+  },
+  {
+   "id": "NC-DOC-09",
+   "tier": "fixed",
+   "source": "ch04 · joy.html §01 · WCAG 1.4.1",
+   "rule": "Highlight, emphasis and status never rest on colour alone. A mark carries weight as well as fill; an abbreviation is written out in full on first use; a defined term keeps its definition in the prose, not only in a tooltip.",
+   "breaks": "Meaning that disappears in greyscale, on a projector, or for a screen-reader user — the meaning layer is exactly where accessibility takes the veto.",
+   "machine": null
+  },
+  {
+   "id": "NC-DOC-10",
+   "tier": "fixed",
+   "source": "ch14 · decision sheet · joy.html §01",
+   "rule": "Progressive disclosure never hides anything load-bearing. A details block holds detail; the finding stays in the open.",
+   "breaks": "A finding behind a twisty is a finding most readers never meet, and one no printed copy contains at all.",
+   "machine": null
+  },
+  {
+   "id": "NC-TYP-06",
+   "tier": "fixed",
+   "source": "v1.4 §08 · decision sheet",
+   "rule": "Small text is secondary, never a way to get under the floor. The 12pt body floor and the 13px note floor apply to it as they apply to everything else.",
+   "breaks": "Source lines, captions and footnotes shrinking until the evidence layer is the least readable thing on the page.",
+   "machine": "no font-size below the floor on .nc-small, .nc-caption, .nc-source"
+  },
+  {
+   "id": "NC-CON-06",
+   "tier": "fixed",
+   "source": "containment v1.3 §02 · WCAG 2.4.7 / 1.4.11 · ch04",
+   "rule": "Every interactive element has a visible focus state, and the focus ring is exempt from the hard-outline rule. Containment v1.3 names focus states as one of the four places the 3:1 non-text threshold genuinely applies — the ring IS that mechanism.",
+   "breaks": "A keyboard user with no idea where they are. Quietening the ring to match the house containment style trades a required signal for a stylistic preference, which is the wrong way round the decision stack.",
+   "machine": "a :focus-visible outline of at least 2px on every interactive element"
+  },
+  {
+   "id": "NC-LAY-06",
+   "tier": "fixed",
+   "source": "tokens.json space.slide · furniture v1.6 §05 · v1.4 §10 · measured in the working deck",
+   "rule": "The slide top margin is set by what leads the slide: 4% where a kicker leads, 6.667% where a title leads, 13.333% where a full-bleed element leads. Side margins 5.25%. All are multiples of one unit, 1.3333% of slide height.",
+   "breaks": "One flat top margin gives a statement the kicker's margin, so the slide top-loads and loses the air the statement needs to land. The variation is the mechanism that tells the reader what is leading.",
+   "machine": "slide top margin is one of the three declared steps"
+  },
+  {
+   "id": "NC-LAY-07",
+   "tier": "fixed",
+   "source": "tokens.json space.slide · ch12 · v1.4 §10",
+   "rule": "The bottom 13.333% is reserved on every slide — covers and closing slides included. Content never enters it.",
+   "breaks": "In a room the bottom of the screen is the hardest place to read: heads sit in the sightline. The reserve is about legibility, not about whether a number is printed there, so it does not vary by slide type. Two grids would mean the cover is the one slide whose foot is unreadable.",
+   "machine": "no content below 86.667% of slide height"
+  },
+  {
+   "id": "NC-LAY-08",
+   "tier": "fixed",
+   "source": "handover §01 · contracts/layouts.json",
+   "rule": "Every content area declares where it pins — bottom, centre, split or top. Implicit top-anchoring is barred.",
+   "breaks": "A dead band across the bottom third. This was the single largest cause of weak slides in the earlier system, and it is invisible until the slide is beside another one.",
+   "machine": "every .nc-pad carries data-anchor or takes the declared default"
+  },
+  {
+   "id": "NC-PRS-05",
+   "tier": "fixed",
+   "source": "furniture v1.6 §04 · v1.4 §10",
+   "rule": "Slide numbers are two-digit, bottom right, on content slides only — never a cover or a closing slide. Numbered by position in the deck, not by section.",
+   "breaks": "People cite slides. Without a number they describe the slide instead, and the description is usually wrong. Position in a sequence is orientation, and it should not exist only in the scrollbar.",
+   "machine": null
+  },
+  {
+   "id": "NC-BRK-04",
+   "tier": "fixed",
+   "source": "furniture v1.6 §03 · v1.4 §11",
+   "rule": "The footer wordmark is mono, one colour taken from the ground, roughly 1.5% of slide width — the quietest thing on the slide. The full lockup appears on covers, section dividers and the closing slide only, and the two-colour lockup only there.",
+   "breaks": "A logo set at heading weight reads as content rather than as a mark. Policy decks get screenshotted and forwarded, so a slide travelling alone should still say who made it — quietly.",
+   "machine": null
+  },
+  {
+   "id": "NC-SEQ-02",
+   "tier": "adaptable",
+   "source": "slide layouts v1.0 · working deck",
+   "rule": "Choose the layout from the job: an argument opening takes the divider, three related points the columns, two things in tension the two-column contrast, one line the quote, one number the vertical-third stat, a sequence the ink strip, data the chart slide, detail the vertical third.",
+   "breaks": "A layout chosen by picture rather than by job, which is how a deck ends up with five arrangements doing the same thing and none of them saying anything.",
+   "machine": null
+  },
+  {
+   "id": "NC-SYS-07",
+   "tier": "fixed",
+   "source": "joy.html §05 · handover §05 · components_proof.html",
+   "rule": "A layout arranges components; it never defines one. If a layout needs something new, the component layer is missing it — add it there, not in the layout.",
+   "breaks": "Components born inside slides. That is exactly how the system drifted the first time: twelve layouts each carrying a slightly different pull quote, none of which a document could use.",
+   "machine": "layout files contain no component definitions"
   }
  ],
  "removalTest": {

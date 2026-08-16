@@ -10,6 +10,10 @@ the audit it disappears from this page. So the plan cannot claim work that
 is done, and cannot quietly drop work that is not.
 
     python3 docs/build_plan.py
+
+NC-SYS-06 — render the decision rather than describing it. This page is
+generated from the system it describes, so it cannot claim behaviour the
+system does not have.
 """
 import hashlib, html as H, json, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -17,8 +21,10 @@ F = ROOT / "foundations"
 def dig(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 def esc(s): return H.escape(str(s))
 
+sys.path.insert(0, str(ROOT/"docs"))
+import status as ST
 INV   = json.loads((ROOT/"docs"/"reference-inventory.json").read_text())
-RULES = {r["id"]: r for r in json.loads((F/"rules.json").read_text())["rules"]}
+RULES = ST.RULES
 SRC   = INV["sources"]
 
 WAVES = [
@@ -47,9 +53,16 @@ WAVES = [
   "variants. Low glamour, high frequency — and unstyled is still a look.", "acc-pink"),
 ]
 
-items = [(it, fam["name"]) for fam in INV["families"] for it in fam["items"] if "wave" in it]
-done_n = sum(1 for fam in INV["families"] for it in fam["items"] if "wave" not in it)
-total  = done_n + len(items)
+# Completeness is asked fresh, not read off a stored flag. An item tagged into
+# a wave that has since been finished drops out here on its own — the plan
+# cannot go on listing work the audit already counts as done.
+allit  = [(it, fam["name"]) for fam in INV["families"] for it in fam["items"]]
+items  = [(it, f) for it, f in allit if not ST.done(it)]
+done_n = len(allit) - len(items)
+total  = len(allit)
+for it, _ in items:
+    it.setdefault("wave", 3)
+    it["done"] = ST.todo_note(it)
 
 blocks = []
 for num, title, why, acc in WAVES:

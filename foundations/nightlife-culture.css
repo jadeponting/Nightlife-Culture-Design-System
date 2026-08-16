@@ -284,6 +284,114 @@
 .nc-quote .q,.nc-quote .a,.nc-panel .txt,.nc-band .txt,.nc-stat .src,.nc-source,
 .nc-table td,.nc-bar .lb,.nc-caption{text-transform:none}
 
+/* --- 16 · PIE — permitted, with the caveat stated ------------------
+   People read angles less accurately than lengths, so a pie is the weakest
+   way to compare segments. It stays in the system because it is the most
+   recognisable, and for one dominant share in a committee paper that is
+   worth something. Same limits as the donut: four segments, percentages in
+   the key, and the white keyline because adjacent ramp contrast in greyscale
+   is 1.79, 2.27 and 1.61 — all under the 3:1 threshold for touching marks. */
+.nc-pie{display:flex;gap:var(--nc-sp5);align-items:center;flex-wrap:wrap}
+.nc-pie .disc{width:9.5em;height:9.5em;border-radius:50%;flex:none;position:relative}
+.nc-pie .key{flex:1;min-width:11em}
+.nc-pie .key div{display:flex;align-items:center;gap:var(--nc-sp2);font-size:.78em;margin-bottom:var(--nc-sp2)}
+.nc-pie .key i{width:.95em;height:.95em;flex:none;display:block;outline:1px solid var(--nc-hair)}
+.nc-pie .key b{font-weight:400;margin-left:auto;font-variant-numeric:tabular-nums}
+
+/* --- 17 · LINE — change over time ----------------------------------
+   Series labelled at the line, never in a legend, so nobody holds a colour
+   key in their head. A dashed segment is a break in collection: not an
+   estimate and not a smooth trend. Interpolating across one would be a
+   design decision masquerading as data. */
+.nc-line{position:relative;width:100%;height:14em}
+.nc-line svg{width:100%;height:100%;display:block;overflow:visible}
+.nc-line .gl{stroke:var(--nc-grid);stroke-width:1;fill:none}
+.nc-line .ln{fill:none;stroke-width:.22em;stroke-linecap:round;stroke-linejoin:round}
+.nc-line .ln--break{stroke-dasharray:.5em .4em}
+.nc-line .sl{font-family:var(--nc-font-head);font-weight:800;font-size:.72em;
+  letter-spacing:.04em;dominant-baseline:middle}
+.nc-line .ax{font-family:var(--nc-font-head);font-weight:600;font-size:.68em;
+  letter-spacing:.06em;fill:var(--nc-charcoal);text-transform:uppercase}
+
+/* --- 18 · RANGE BAR — wherever uncertainty is material -------------
+   A bare point estimate reads as a count. Where a value is modelled or
+   surveyed the interval is drawn, and the point sits on it with a keyline
+   so it survives against its own range (NC-CON-05). */
+.nc-range{display:flex;align-items:center;gap:var(--nc-sp3);margin-bottom:var(--nc-sp3)}
+.nc-range .lb{font-size:.78em;width:7.5em;flex:none;font-weight:500}
+.nc-range .tk{flex:1;height:1.5em;position:relative;min-width:0}
+.nc-range .rng{position:absolute;top:.6em;height:.3em;background:rgba(0,0,255,.20)}
+.nc-range .pt{position:absolute;top:.32em;width:.85em;height:.85em;transform:translateX(-50%);
+  background:var(--nc-chart-1);border:2px solid var(--nc-white)}
+.nc-range .vl{font-size:.75em;min-width:4.6em;text-align:right;flex:none;white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+.ground-blue .nc-range .rng,.ground-ink .nc-range .rng{background:rgba(255,255,255,.22)}
+.ground-blue .nc-range .pt,.ground-ink .nc-range .pt{background:var(--nc-teal);border-color:var(--nc-ink)}
+
+/* --- 19 · MISSING AND SUPPRESSED MARKERS ---------------------------
+   A gap in the data is a finding. The row stays and says which kind of gap
+   it is: [c] suppressed for disclosure control, n/a not collected for this
+   population. Never a blank, and never a dropped row. */
+.nc-na{font-family:var(--nc-font-head);font-weight:600;font-size:.72em;letter-spacing:.06em;
+  color:var(--nc-charcoal);font-style:normal}
+.nc-bar .vl .nc-na,.nc-range .vl .nc-na{display:inline-block}
+.ground-blue .nc-na,.ground-ink .nc-na{color:var(--nc-teal)}
+
+/* --- 20 · COMPARABILITY FLAG ---------------------------------------
+   Any chart comparing two or more places states whether the indicator
+   comparability gate has been cleared, and which of the eight criteria
+   required harmonising. A comparison without this note is not publishable
+   (v1.4 §12, from the research methodology). Ordinal, like the provenance
+   chip: the word carries the meaning, the colour only ranks it. */
+.nc-comp{display:block;font-size:.72em;line-height:1.45;margin-top:var(--nc-sp2);
+  padding-left:var(--nc-sp4);border-left:.25em solid var(--nc-teal);color:var(--nc-charcoal)}
+.nc-comp b{font-family:var(--nc-font-head);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;font-size:.92em;color:var(--nc-ink)}
+.nc-comp--part{border-left-color:var(--nc-butter)}
+.nc-comp--fail{border-left-color:var(--nc-coral)}
+.ground-blue .nc-comp,.ground-ink .nc-comp{color:#fff}
+.ground-blue .nc-comp b,.ground-ink .nc-comp b{color:var(--nc-teal)}
+
+/* --- 21 · ILLUSTRATIVE FLAG ----------------------------------------
+   Any placeholder or worked example says so, in the chart, every time — not
+   in a footnote and not in the covering email. Charts travel; the flag has
+   to travel with the marks. */
+.nc-illus{display:inline-block;font-family:var(--nc-font-head);font-weight:800;font-size:.66em;
+  letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
+  background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
+
+/* --- 22 · THE REMAINING HTML SURFACES ------------------------------
+   The browser renders these whether or not we decide. Unstyled is still a
+   look — and it is the one look nobody chose. Each is specified, inherits, or
+   is barred; nothing is left to the user agent. */
+.nc-code{font-family:ui-monospace,Menlo,monospace;font-size:.86em;
+  background:rgba(13,13,13,.05);padding:0 var(--nc-sp1);overflow-wrap:anywhere}
+.nc-pre{font-family:ui-monospace,Menlo,monospace;font-size:.82em;line-height:1.5;
+  background:var(--nc-white);padding:var(--nc-sp4);overflow-x:auto;
+  border-left:.25em solid var(--nc-acc,var(--nc-teal))}
+.nc-dl{margin:var(--nc-sp4) 0}
+.nc-dl dt{font-family:var(--nc-font-head);font-weight:800;font-size:.8em;letter-spacing:.06em;
+  text-transform:uppercase;margin-top:var(--nc-sp4)}
+.nc-dl dd{margin:var(--nc-sp1) 0 0;font-size:.94em;line-height:1.5}
+/* Small is secondary, never a way to smuggle text under the floor. */
+.nc-small{font-size:max(.84em,13px);color:var(--nc-charcoal);line-height:1.45}
+.ground-blue .nc-small,.ground-ink .nc-small{color:var(--nc-teal)}
+/* Progressive disclosure. Never for anything load-bearing — a finding behind a
+   twisty is a finding most readers will not meet. */
+.nc-details{border-left:.25em solid var(--nc-hair);padding-left:var(--nc-sp4);margin:var(--nc-sp4) 0}
+.nc-details>summary{font-family:var(--nc-font-head);font-weight:700;font-size:.92em;
+  cursor:pointer;padding:var(--nc-sp1) 0}
+.nc-details>summary:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
+/* Abbreviation: the expansion is written out on first use in the prose. The
+   dotted rule is a reminder, never the only route to the meaning. */
+.nc-abbr{border-bottom:1px dotted var(--nc-charcoal);text-decoration:none;cursor:help}
+/* Highlight. Colour is never the only signal, so the mark also carries weight. */
+.nc-mark{background:var(--nc-butter);color:var(--nc-ink);font-weight:600;padding:0 var(--nc-sp1)}
+.nc-sup,.nc-sub{font-size:.7em;line-height:0;position:relative;vertical-align:baseline}
+.nc-sup{top:-.45em} .nc-sub{bottom:-.2em}
+.nc-kbd{font-family:ui-monospace,Menlo,monospace;font-size:.8em;padding:0 var(--nc-sp1);
+  background:var(--nc-ink);color:var(--nc-chalk)}
+
 /* ---- 16 · narrow widths -------------------------------------------------
    A bar earns its place by encoding length from zero. Squeeze the track to a
    stub on a phone and the encoding is gone — the chart still looks like a

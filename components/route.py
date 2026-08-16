@@ -163,11 +163,19 @@ def route_data(measure, rows, unit="count", title=None, source=None,
                "board paper it must still say where the number came from.")
         return d
     yr = sorted(years)[0]
+    # NC-EVI-09 — if the source says the figures are illustrative, the flag goes
+    # ON THE MARKS, not in the prose. Charts travel; the moment one is
+    # screenshotted into a board paper the prose is gone.
+    illus = ""
+    if re.search(r"illustrat|placeholder|worked example", source, re.I):
+        illus = '<span class="nc-illus">Illustrative</span> '
+        d.rule("NC-EVI-09", "Source says illustrative, so the flag is placed on the chart itself "
+               "rather than left in the surrounding text.")
     d.html = ('<figure class="nc-chart acc-blue">\n'
               f'  <h3 class="ct">{title or "[Title states the finding, not the topic]"}</h3>\n'
               f'  <p class="cs">{measure}, local authority districts, {yr}.</p>\n{bars}\n'
               f'  <figcaption class="ev"><b>Reading.</b> {reading or "[What the reader should take from it]"}<br>\n'
-              f'    <span class="nc-prov">{prov[0]}</span> {source}</figcaption>\n'
+              f'    {illus}<span class="nc-prov">{prov[0]}</span> {source}</figcaption>\n'
               '</figure>')
     return d
 

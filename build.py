@@ -20,9 +20,11 @@ ROOT = pathlib.Path(__file__).resolve().parent
 STEPS = [
     ("fonts",    [sys.executable, "checks/build_fonts.py"]),
     ("css",      [sys.executable, "checks/build.py"]),
+    ("slides",   [sys.executable, "checks/build_slides.py"]),
     ("library",  [sys.executable, "components/build_library.py"]),
     ("docs",     [sys.executable, "docs/build_routing.py"]),
     ("audit",    [sys.executable, "docs/build_audit.py"]),
+    ("layouts",  [sys.executable, "layouts/build_layouts.py"]),
     ("plan",     [sys.executable, "docs/build_plan.py"]),
 ]
 fail = 0
@@ -34,6 +36,7 @@ for name, cmd in STEPS:
 if not fail:
     html = sorted(str(p.relative_to(ROOT)) for p in
                   list(ROOT.glob("components/*.html")) + list(ROOT.glob("docs/*.html"))
+                  + list(ROOT.glob("layouts/*.html"))
                   + list(ROOT.glob("dist/*.html"))
                   if not p.name.endswith((".body.html", ".part.html")))
     print("\n=== validate " + "=" * 51, flush=True)

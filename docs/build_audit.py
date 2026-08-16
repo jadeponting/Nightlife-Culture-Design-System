@@ -10,6 +10,10 @@ each class is looked up in the generated CSS, each rule id in rules.json, and ea
 component is tested against the router. A claim that is not true fails here.
 
     python3 docs/build_audit.py
+
+NC-SYS-06 — render the decision rather than describing it. This page is
+generated from the system it describes, so it cannot claim behaviour the
+system does not have.
 """
 import hashlib, html as H, json, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -19,37 +23,12 @@ F = ROOT / "foundations"
 def dig(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 def esc(s): return H.escape(str(s))
 
-CSS   = (F / "nightlife-culture.css").read_text()
-RULES = {r["id"]: r for r in json.loads((F / "rules.json").read_text())["rules"]}
-TOK   = (F / "tokens.json").read_text()
-INV   = json.loads((ROOT / "docs" / "reference-inventory.json").read_text())
-SRC   = INV["sources"]
-
-# Parse the stylesheet into the exact set of selectors it defines. A substring
-# search is not good enough: ".ground-blue .nc-quote" appears inside
-# ".ground-blue .nc-quote .a", and matching that would let this page claim a
-# component is inverted on dark grounds when only its attribution line is.
-# Comments first — the stylesheet is heavily commented, and a comment sitting
-# above a rule gets swallowed into the selector if you do not strip it. That bug
-# made 17 components read as missing when they were there all along, which is a
-# good reminder that a checker needs checking too.
-_CSS = re.sub(r"/\*.*?\*/", " ", CSS, flags=re.S)
-_CSS = re.sub(r"@media[^{]*\{", " ", _CSS)          # unwrap media queries
-SELECTORS = set()
-for _blk in re.findall(r"([^{}]+)\{[^{}]*\}", _CSS):
-    for _part in _blk.split(","):
-        _p = re.sub(r"\s+", " ", _part.strip())
-        if _p and not _p.startswith("@") and "}" not in _p:
-            SELECTORS.add(_p)
-            SELECTORS.add(re.split(r"[:\[]", _p)[0].strip())   # drop :hover, [attr]
-
-def has_class(c):
-    """Is this selector actually DEFINED — not merely mentioned — in the stylesheet?"""
-    if c.startswith("--"):
-        return bool(re.search(re.escape(c) + r"\s*:", CSS))
-    if c == "@font-face":
-        return "@font-face" in (F / "fonts.css").read_text()
-    return c in SELECTORS
+sys.path.insert(0, str(ROOT / "docs"))
+import status as ST
+CSS, RULES, SELECTORS = ST.CSS_RAW, ST.RULES, ST.SELECTORS
+has_class, enforced = ST.has_class, ST.enforced
+INV = json.loads((ROOT / "docs" / "reference-inventory.json").read_text())
+SRC = INV["sources"]
 
 # What the router can actually produce, end to end. NOT a list I typed — the router
 # is run, and the classes in the markup it hands back are read off the output. If a
@@ -86,18 +65,7 @@ def enforced(it):
             out.append(chk.split("/")[-1])
     return out
 
-def status(it):
-    cls, rls = it.get("class", []), it.get("rules", [])
-    built  = bool(cls) and all(has_class(c) for c in cls)
-    ruled  = bool(rls) and all(r in RULES for r in rls)
-    checks = enforced(it)
-    if it.get("absence"):
-        return ("Enforced by absence", "ok") if (ruled or checks) else ("Not recorded", "gap")
-    if built and ruled:            return ("Built, with the rule", "ok")
-    if checks and ruled:           return ("Ruled and enforced", "ok")
-    if built:                      return ("Built — no rule attached", "flag")
-    if ruled:                      return ("Ruled — nothing enforces it", "flag")
-    return ("Not in the codebase", "gap")
+status = ST.state
 
 rows, tally = [], {"ok": 0, "flag": 0, "gap": 0}
 for fam in INV["families"]:

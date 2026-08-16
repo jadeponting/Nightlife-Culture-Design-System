@@ -286,7 +286,10 @@
       "NC-TYP-04"
      ],
      "wave": 3,
-     "done": "Build it. The rule already says what it must do."
+     "done": "Build it. The rule already says what it must do.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
@@ -360,8 +363,12 @@
       "sg",
       "sy"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-snum"
+     ],
+     "rules": [
+      "NC-PRS-05"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -374,7 +381,9 @@
      "class": [
       ".nc-doc"
      ],
-     "rules": [],
+     "rules": [
+      "NC-SYS-03"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -386,9 +395,12 @@
       "sy"
      ],
      "class": [
+      ".nc-slide",
       ".nc-slide .cv"
      ],
-     "rules": [],
+     "rules": [
+      "NC-SYS-03"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     }
@@ -460,7 +472,9 @@
      "class": [
       ".nc-stat--top"
      ],
-     "rules": [],
+     "rules": [
+      "NC-EVI-06"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -474,7 +488,9 @@
      "class": [
       ".nc-stat--fill"
      ],
-     "rules": [],
+     "rules": [
+      "NC-EVI-06"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -487,7 +503,9 @@
      "class": [
       ".nc-stat.lg .big"
      ],
-     "rules": [],
+     "rules": [
+      "NC-EVI-06"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -502,7 +520,8 @@
       ".nc-stat .src"
      ],
      "rules": [
-      "NC-EVI-01"
+      "NC-EVI-01",
+      "NC-EVI-07"
      ]
     },
     {
@@ -646,7 +665,8 @@
       ".acc-blue"
      ],
      "rules": [
-      "NC-COL-01"
+      "NC-COL-01",
+      "NC-SYS-04"
      ]
     }
    ]
@@ -737,8 +757,14 @@
       "ch",
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-comp",
+      ".nc-comp--part",
+      ".nc-comp--fail"
+     ],
+     "rules": [
+      "NC-EVI-08"
+     ],
      "wave": 2,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -749,12 +775,18 @@
       "sg",
       "gr"
      ],
-     "class": [],
+     "class": [
+      ".nc-illus"
+     ],
      "rules": [
-      "NC-EVI-04"
+      "NC-EVI-04",
+      "NC-EVI-09"
      ],
      "wave": 2,
-     "done": "Build it. The rule already says what it must do."
+     "done": "Build it. The rule already says what it must do.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     },
     {
      "n": "Figure wrapper",
@@ -764,7 +796,9 @@
      "class": [
       ".nc-figure"
      ],
-     "rules": [],
+     "rules": [
+      "NC-DOC-07"
+     ],
      "wave": 2,
      "done": "Write the rule — what job it does, and when you may depart from it."
     }
@@ -797,7 +831,9 @@
      "class": [
       ".nc-table--accent"
      ],
-     "rules": [],
+     "rules": [
+      "NC-TBL-02"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -810,7 +846,10 @@
      "class": [
       ".nc-table--band td"
      ],
-     "rules": [],
+     "rules": [
+      "NC-TBL-01",
+      "NC-TBL-02"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -823,7 +862,9 @@
      "class": [
       ".nc-table .num"
      ],
-     "rules": [],
+     "rules": [
+      "NC-TBL-02"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -852,15 +893,24 @@
       "NC-DOC-04"
      ],
      "wave": 3,
-     "done": "Build it. The rule already says what it must do."
+     "done": "Build it. The rule already says what it must do.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     },
     {
-     "n": "Five named table styles, Editorial as default",
+     "n": "Three named table styles, Editorial as default",
      "src": [
       "hv"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-table",
+      ".nc-table--accent",
+      ".nc-table--band td"
+     ],
+     "rules": [
+      "NC-TBL-02"
+     ],
      "wave": 5,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -870,9 +920,14 @@
       "hv"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-TBL-01"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     },
     {
      "n": "No tables on slides",
@@ -884,7 +939,10 @@
       "NC-PRS-03"
      ],
      "wave": 3,
-     "done": "Build it. The rule already says what it must do."
+     "done": "Build it. The rule already says what it must do.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
@@ -943,7 +1001,8 @@
       ".nc-hatch"
      ],
      "rules": [
-      "NC-EVI-02"
+      "NC-EVI-02",
+      "NC-EVI-10"
      ],
      "enforced_by": [
       "components/route.py"
@@ -954,9 +1013,11 @@
      "src": [
       "ch"
      ],
-     "class": [],
+     "class": [
+      ".nc-na"
+     ],
      "rules": [
-      "NC-EVI-02"
+      "NC-EVI-10"
      ],
      "wave": 2,
      "done": "Build it. The rule already says what it must do."
@@ -975,7 +1036,8 @@
       ".nc-dot .vl"
      ],
      "rules": [
-      "NC-COL-04"
+      "NC-COL-04",
+      "NC-DAT-02"
      ],
      "enforced_by": [
       "components/route.py"
@@ -995,7 +1057,8 @@
       ".nc-donut .key"
      ],
      "rules": [
-      "NC-COL-03"
+      "NC-COL-03",
+      "NC-DAT-03"
      ]
     },
     {
@@ -1005,8 +1068,14 @@
       "sg",
       "gr"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pie",
+      ".nc-pie .disc",
+      ".nc-pie .key"
+     ],
+     "rules": [
+      "NC-DAT-03"
+     ],
      "wave": 2,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1020,7 +1089,8 @@
       ".nc-stack"
      ],
      "rules": [
-      "NC-COL-03"
+      "NC-COL-03",
+      "NC-DAT-03"
      ]
     },
     {
@@ -1030,9 +1100,14 @@
       "sg",
       "sl"
      ],
-     "class": [],
+     "class": [
+      ".nc-line",
+      ".nc-line .ln",
+      ".nc-line .ln--break",
+      ".nc-line .sl"
+     ],
      "rules": [
-      "NC-EVI-02"
+      "NC-DAT-01"
      ],
      "wave": 2,
      "done": "Build it. The rule already says what it must do."
@@ -1042,8 +1117,15 @@
      "src": [
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-range",
+      ".nc-range .rng",
+      ".nc-range .pt",
+      ".nc-range .vl"
+     ],
+     "rules": [
+      "NC-DAT-02"
+     ],
      "wave": 2,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1069,7 +1151,9 @@
      "class": [
       "--nc-grid"
      ],
-     "rules": [],
+     "rules": [
+      "NC-COL-08"
+     ],
      "wave": 2,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1110,9 +1194,14 @@
       "sl"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-DAT-04"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     },
     {
      "n": "Alt text describes the finding, plus a data alternative",
@@ -1122,9 +1211,14 @@
       "hv"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-DAT-05"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
@@ -1141,7 +1235,9 @@
      "class": [
       ".nc-brk"
      ],
-     "rules": [],
+     "rules": [
+      "NC-PSE-02"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1156,7 +1252,8 @@
       ".nc-brk--hair"
      ],
      "rules": [
-      "NC-CON-02"
+      "NC-CON-02",
+      "NC-PSE-04"
      ]
     },
     {
@@ -1166,8 +1263,12 @@
       "sg",
       "sy"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-brk"
+     ],
+     "rules": [
+      "NC-PSE-05"
+     ],
      "wave": 3,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1181,7 +1282,9 @@
      "class": [
       ".nc-brk--bar"
      ],
-     "rules": [],
+     "rules": [
+      "NC-PSE-03"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1191,10 +1294,15 @@
       "fu"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-PSE-02"
+     ],
      "absence": true,
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
     },
     {
      "n": "One breaker per surface",
@@ -1204,9 +1312,14 @@
       "sy"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-PSE-01"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
@@ -1219,7 +1332,9 @@
       "sg",
       "rc"
      ],
-     "class": [],
+     "class": [
+      ".nc-slogo"
+     ],
      "rules": [
       "NC-BRK-02"
      ],
@@ -1233,8 +1348,12 @@
       "fu",
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-slogo"
+     ],
+     "rules": [
+      "NC-BRK-04"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1245,8 +1364,12 @@
       "sg",
       "sy"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-slogo--lockup"
+     ],
+     "rules": [
+      "NC-BRK-04"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1256,8 +1379,13 @@
       "fu",
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-slogo--lockup"
+     ],
+     "rules": [
+      "NC-BRK-04",
+      "NC-BRK-03"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1286,8 +1414,16 @@
       "sy",
       "wd"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-slide",
+      ".nc-pad--bleed",
+      ".nc-sfoot"
+     ],
+     "rules": [
+      "NC-LAY-06",
+      "NC-LAY-07",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1297,8 +1433,14 @@
       "sy",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pad",
+      ".nc-brk"
+     ],
+     "rules": [
+      "NC-PSE-05",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1309,8 +1451,15 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pad--kicker",
+      ".nc-cols",
+      ".nc-cols .col"
+     ],
+     "rules": [
+      "NC-LAY-06",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1321,8 +1470,12 @@
       "wd",
       "fu"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-cols--2"
+     ],
+     "rules": [
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1333,8 +1486,14 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-slide .nc-quote .q",
+      ".nc-brk--bar"
+     ],
+     "rules": [
+      "NC-PSE-03",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1345,8 +1504,14 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-cells",
+      ".nc-cells .cell"
+     ],
+     "rules": [
+      "NC-COL-01",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1357,8 +1522,14 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".ground-ink",
+      ".nc-cells .cell"
+     ],
+     "rules": [
+      "NC-COL-01",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1368,8 +1539,14 @@
       "sy",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-third",
+      ".nc-third .side"
+     ],
+     "rules": [
+      "NC-COL-01",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1379,8 +1556,13 @@
       "sy",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-strip",
+      ".nc-strip .band"
+     ],
+     "rules": [
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1391,8 +1573,14 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-third .side--wide",
+      ".nc-third .bignum"
+     ],
+     "rules": [
+      "NC-EVI-07",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1401,8 +1589,15 @@
      "src": [
       "sy"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-sbar",
+      ".nc-sbar .fl",
+      ".nc-srcline"
+     ],
+     "rules": [
+      "NC-COL-02",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1412,8 +1607,14 @@
       "sy",
       "wd"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pad",
+      ".nc-brk--bar"
+     ],
+     "rules": [
+      "NC-PSE-03",
+      "NC-SEQ-02"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1424,8 +1625,13 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-cols",
+      ".nc-cols .col"
+     ],
+     "rules": [
+      "NC-CON-03"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1436,8 +1642,14 @@
       "wd",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-cells",
+      ".nc-cells .cell"
+     ],
+     "rules": [
+      "NC-CON-01",
+      "NC-COL-01"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1447,8 +1659,14 @@
       "sy",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-third",
+      ".nc-third .main",
+      ".nc-third .side"
+     ],
+     "rules": [
+      "NC-COL-01"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1458,8 +1676,13 @@
       "sy",
       "sl"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-strip",
+      ".nc-strip .band"
+     ],
+     "rules": [
+      "NC-CON-01"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1469,10 +1692,32 @@
       "sy",
       "wd"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-sbar",
+      ".nc-sbar .tk",
+      ".nc-sbar .fl"
+     ],
+     "rules": [
+      "NC-COL-02",
+      "NC-SYS-03"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
+    },
+    {
+     "n": "A layout arranges components, it never defines one",
+     "src": [
+      "jy",
+      "hv",
+      "cp"
+     ],
+     "class": [],
+     "rules": [
+      "NC-SYS-07"
+     ],
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
     }
    ]
   },
@@ -1486,9 +1731,15 @@
       "sg",
       "sy"
      ],
-     "class": [],
+     "class": [
+      ".nc-pad",
+      ".nc-pad--kicker",
+      ".nc-pad--bleed",
+      ".nc-sfoot"
+     ],
      "rules": [
-      "NC-LAY-01"
+      "NC-LAY-06",
+      "NC-LAY-07"
      ],
      "wave": 4,
      "done": "Build it. The rule already says what it must do."
@@ -1505,7 +1756,10 @@
       "NC-LAY-02"
      ],
      "wave": 4,
-     "done": "Build it. The rule already says what it must do."
+     "done": "Build it. The rule already says what it must do.",
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
     },
     {
      "n": "Body measure caps at 60–70%",
@@ -1513,8 +1767,13 @@
       "fu",
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-sub",
+      ".nc-sbody"
+     ],
+     "rules": [
+      "NC-LAY-03"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1524,8 +1783,13 @@
       "fu",
       "sg"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-t"
+     ],
+     "rules": [
+      "NC-LAY-02",
+      "NC-LAY-05"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1537,17 +1801,26 @@
       "rc"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-LAY-05"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
     },
     {
      "n": "The anchor rule — bottom, centre or top, declared",
      "src": [
       "hv"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pad[data-anchor=\"centre\"]"
+     ],
+     "rules": [
+      "NC-LAY-08"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1571,8 +1844,13 @@
      "src": [
       "hv"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-pad",
+      ".nc-sfoot"
+     ],
+     "rules": [
+      "NC-LAY-06"
+     ],
      "wave": 4,
      "done": "Take the rule from the Book, write it down, then build it."
     },
@@ -1581,9 +1859,15 @@
      "src": [
       "wd"
      ],
-     "class": [],
+     "class": [
+      ".nc-k",
+      ".nc-t",
+      ".nc-sub",
+      ".nc-sbody"
+     ],
      "rules": [
-      "NC-SEQ-01"
+      "NC-SEQ-01",
+      "NC-SEQ-02"
      ],
      "wave": 4,
      "done": "Build it. The rule already says what it must do."
@@ -1602,7 +1886,9 @@
      "class": [
       ".nc-link"
      ],
-     "rules": [],
+     "rules": [
+      "NC-DOC-08"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1614,7 +1900,10 @@
      "class": [
       ".nc-term"
      ],
-     "rules": [],
+     "rules": [
+      "NC-DOC-08",
+      "NC-DOC-09"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1639,19 +1928,54 @@
       ".nc-figure",
       ".nc-caption"
      ],
-     "rules": [],
+     "rules": [
+      "NC-DOC-07",
+      "NC-DOC-08"
+     ],
      "wave": 5,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
-     "n": "The other nine HTML surfaces — code, dl, small, details, abbr, hr, mark, sup/sub",
+     "n": "The other nine HTML surfaces — code, dl, small, details, abbr, mark, sup/sub, kbd",
      "src": [
       "ds"
      ],
-     "class": [],
-     "rules": [],
+     "class": [
+      ".nc-code",
+      ".nc-pre",
+      ".nc-dl",
+      ".nc-small",
+      ".nc-details",
+      ".nc-abbr",
+      ".nc-mark",
+      ".nc-sup",
+      ".nc-sub",
+      ".nc-kbd"
+     ],
+     "rules": [
+      "NC-DOC-08",
+      "NC-DOC-09",
+      "NC-DOC-10",
+      "NC-TYP-06"
+     ],
      "wave": 5,
      "done": "Take the rule from the Book, write it down, then build it."
+    },
+    {
+     "n": "Focus state — required visibility, exempt from the outline rule",
+     "src": [
+      "cn",
+      "ds"
+     ],
+     "class": [
+      ".nc-details>summary:focus-visible"
+     ],
+     "rules": [
+      "NC-CON-06"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
     }
    ]
   },
@@ -1700,7 +2024,9 @@
       ".nc-doc",
       ".nc-slide .cv"
      ],
-     "rules": [],
+     "rules": [
+      "NC-SYS-03"
+     ],
      "wave": 1,
      "done": "Write the rule — what job it does, and when you may depart from it."
     },
@@ -1711,9 +2037,14 @@
       "hv"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-SYS-05"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "foundations/rules.json"
+     ]
     },
     {
      "n": "Every derived artefact states its source version",
@@ -1752,9 +2083,17 @@
       "rc"
      ],
      "class": [],
-     "rules": [],
+     "rules": [
+      "NC-SYS-06"
+     ],
      "wave": 3,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "docs/build_routing.py",
+      "docs/build_audit.py",
+      "docs/build_plan.py",
+      "layouts/build_layouts.py"
+     ]
     },
     {
      "n": "No icons, illustration, stickers or decorative imagery",
