@@ -48,6 +48,76 @@ if strays:
         print(f"    {f}")
     sys.exit(1)
 
+# A class defined twice, where the second definition re-sets a property the
+# first one already set. The later one wins silently. `.nc-prov` was the
+# evidence-provenance chip and was taken a second time for a provenance table:
+# every cell in that table rendered as white text on white and NOTHING failed —
+# not the validator, not coverage, not the stamps.
+#
+# A class named in a shared cross-cutting rule (the case section sets
+# text-transform on nine components at once) is not a redefinition, because it
+# sets nothing the component set. Overlap is the test, not repetition.
+import collections
+
+
+def _solo_blocks(raw):
+    """(class, {properties}, section) for every rule whose selector is one bare class."""
+    txt = re.sub(r"/\*.*?\*/", lambda m: re.sub(r"[^\n]", " ", m.group(0)), raw, flags=re.S)
+    # Blank out @media bodies. Re-setting a property at a breakpoint is what a
+    # breakpoint is for; it is not a second component wearing the same name.
+    out, i = [], 0
+    while True:
+        j = txt.find("@media", i)
+        if j < 0:
+            out.append(txt[i:]); break
+        out.append(txt[i:j])
+        k = txt.find("{", j); d, e = 1, k + 1
+        while e < len(txt) and d:
+            d += 1 if txt[e] == "{" else -1 if txt[e] == "}" else 0
+            e += 1
+        out.append(re.sub(r"[^\n]", " ", txt[j:e])); i = e
+    txt = "".join(out)
+    secs = [(n, m.group(1).rstrip(" -*/").strip())
+            for n, l in enumerate(raw.split("\n"), 1)
+            for m in [re.match(r"\s*/\* --- (.+)$", l)] if m]
+    for m in re.finditer(r"([^{}]+)\{([^{}]*)\}", txt):
+        line = txt[:m.start()].count("\n") + 1
+        section = ""
+        for n, name in secs:
+            if n <= line:
+                section = name
+        props = {d.split(":")[0].strip().lower()
+                 for d in m.group(2).split(";") if ":" in d}
+        props = {x for x in props if x and not x.startswith("--")}
+        for part in m.group(1).split(","):
+            c = re.fullmatch(r"\s*\.(nc-[a-z0-9-]+)\s*", part)
+            if c:
+                yield c.group(1), props, f"{section[:44]} (line {line})"
+
+
+seen, clashes = collections.defaultdict(list), {}
+for name in ("nightlife-culture.css", "nightlife-slides.css"):
+    if (F / name).exists():
+        for cls, props, where in _solo_blocks((F / name).read_text()):
+            for prev_props, prev_where in seen[cls]:
+                shared = props & prev_props
+                if shared:
+                    clashes.setdefault(cls, []).append(
+                        (sorted(shared), prev_where, f"{name} · {where}"))
+            seen[cls].append((props, f"{name} · {where}"))
+
+if clashes:
+    print("\n  REPORTED, NOT FAILED — one class name declared twice, later wins:")
+    for cls, hits in sorted(clashes.items()):
+        print(f"    .{cls}")
+        for shared, first, second in hits:
+            print(f"        {', '.join(shared)}")
+            print(f"          set at  {first}")
+            print(f"          re-set  {second}")
+    print("\n  There is no rule saying whether a component may be re-declared in a\n"
+          "  later section. Until Carly decides one, this reports and does not fail.\n"
+          "  Logged in docs/gaps.md.")
+
 missing = sorted(defined - shown)
 print(f"{len(defined)} classes defined · {len(defined) - len(missing)} demonstrated")
 if missing:

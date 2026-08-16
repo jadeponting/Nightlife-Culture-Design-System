@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How the logic works — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:18d83774f22b5c02;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:6328ec48ed0e5259;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -412,6 +412,45 @@
 .nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}
 .nc-disclose>summary{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}
 .nc-disclose pre{max-height:26em;overflow:auto}
+/* The disclosure marker was the browser default, in the one component whose
+   job is to show that nothing is left to a default (NC-DOC-08). It is a word,
+   not a glyph: no icon, and it says what it does rather than pointing. */
+.nc-details>summary{list-style:none;display:flex;gap:var(--nc-sp3);
+  justify-content:space-between;align-items:baseline}
+.nc-details>summary::-webkit-details-marker{display:none}
+.nc-details>summary::after{content:"Show";flex:none;font-weight:600;
+  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--nc-blue);text-decoration:underline;text-underline-offset:.2em}
+.nc-details[open]>summary::after{content:"Hide"}
+.ground-blue .nc-details>summary::after,
+.ground-ink .nc-details>summary::after{color:var(--nc-teal)}
+/* Where each class in a specimen is defined. A table, because the question is
+   per-class and comparison down a column is the whole point. NOT .nc-prov —
+   that name is already the evidence-provenance chip, and taking it turned
+   every cell here into white text on white. A duplicate class definition is
+   now a check. */
+.nc-origin{font-size:max(.76em,12px);margin:var(--nc-sp3) 0}
+.nc-origin code{font-family:ui-monospace,Menlo,monospace;font-size:.94em}
+.nc-origin .at{font-variant-numeric:tabular-nums;color:var(--nc-charcoal)}
+/* Self-reference flags. Severity never rests on colour alone (NC-DOC-09) —
+   every flag carries a word, and the count sits on the summary where it is
+   read without opening anything (NC-DOC-10). */
+.nc-flags{list-style:none;margin:var(--nc-sp3) 0 0;padding:0;
+  font-size:max(.8em,12px);line-height:1.45}
+.nc-flag{display:flex;gap:var(--nc-sp3);align-items:baseline;
+  padding:var(--nc-sp2) 0;border-top:1px solid var(--nc-hair)}
+.nc-flag .tag{flex:none;width:6.5em;font-family:var(--nc-font-head);font-weight:600;
+  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase}
+.nc-flag--red .tag{color:var(--nc-ink)}
+.nc-flag--amber .tag{color:var(--nc-charcoal)}
+.nc-flag--grey .tag{color:var(--nc-charcoal)}
+/* The tag is NOT pink. Pink on white is 2.58:1 and this is 11px caps. The pink
+   rule down the left edge is the colour signal and the word is the one that
+   has to be read — which is the same division NC-DOC-09 asks for. */
+.nc-flag .n{flex:none;color:var(--nc-charcoal);font-variant-numeric:tabular-nums}
+.nc-flag--red{border-left:.25em solid var(--nc-pink);padding-left:var(--nc-sp3);
+  margin-left:calc(-1 * var(--nc-sp3) - .25em)}
+.nc-flag code{font-family:ui-monospace,Menlo,monospace}
 
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a

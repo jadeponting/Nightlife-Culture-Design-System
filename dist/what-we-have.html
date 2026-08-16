@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What we have, and what is missing — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:18d83774f22b5c02;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:6328ec48ed0e5259;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -412,6 +412,45 @@
 .nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}
 .nc-disclose>summary{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}
 .nc-disclose pre{max-height:26em;overflow:auto}
+/* The disclosure marker was the browser default, in the one component whose
+   job is to show that nothing is left to a default (NC-DOC-08). It is a word,
+   not a glyph: no icon, and it says what it does rather than pointing. */
+.nc-details>summary{list-style:none;display:flex;gap:var(--nc-sp3);
+  justify-content:space-between;align-items:baseline}
+.nc-details>summary::-webkit-details-marker{display:none}
+.nc-details>summary::after{content:"Show";flex:none;font-weight:600;
+  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--nc-blue);text-decoration:underline;text-underline-offset:.2em}
+.nc-details[open]>summary::after{content:"Hide"}
+.ground-blue .nc-details>summary::after,
+.ground-ink .nc-details>summary::after{color:var(--nc-teal)}
+/* Where each class in a specimen is defined. A table, because the question is
+   per-class and comparison down a column is the whole point. NOT .nc-prov —
+   that name is already the evidence-provenance chip, and taking it turned
+   every cell here into white text on white. A duplicate class definition is
+   now a check. */
+.nc-origin{font-size:max(.76em,12px);margin:var(--nc-sp3) 0}
+.nc-origin code{font-family:ui-monospace,Menlo,monospace;font-size:.94em}
+.nc-origin .at{font-variant-numeric:tabular-nums;color:var(--nc-charcoal)}
+/* Self-reference flags. Severity never rests on colour alone (NC-DOC-09) —
+   every flag carries a word, and the count sits on the summary where it is
+   read without opening anything (NC-DOC-10). */
+.nc-flags{list-style:none;margin:var(--nc-sp3) 0 0;padding:0;
+  font-size:max(.8em,12px);line-height:1.45}
+.nc-flag{display:flex;gap:var(--nc-sp3);align-items:baseline;
+  padding:var(--nc-sp2) 0;border-top:1px solid var(--nc-hair)}
+.nc-flag .tag{flex:none;width:6.5em;font-family:var(--nc-font-head);font-weight:600;
+  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase}
+.nc-flag--red .tag{color:var(--nc-ink)}
+.nc-flag--amber .tag{color:var(--nc-charcoal)}
+.nc-flag--grey .tag{color:var(--nc-charcoal)}
+/* The tag is NOT pink. Pink on white is 2.58:1 and this is 11px caps. The pink
+   rule down the left edge is the colour signal and the word is the one that
+   has to be read — which is the same division NC-DOC-09 asks for. */
+.nc-flag .n{flex:none;color:var(--nc-charcoal);font-variant-numeric:tabular-nums}
+.nc-flag--red{border-left:.25em solid var(--nc-pink);padding-left:var(--nc-sp3);
+  margin-left:calc(-1 * var(--nc-sp3) - .25em)}
+.nc-flag code{font-family:ui-monospace,Menlo,monospace}
 
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a
@@ -847,7 +886,7 @@
   <p>An audit that only looks one way misses the thing that actually causes drift: stuff in
      the system that nobody asked for. So this checks backwards too.</p>
   <h3 class="famh">In the codebase, not in any reference file</h3>
-  <p>In the stylesheet, not asked for by any reference file — each one needs a reason recorded or removing:</p><p class="cd">.nc-sub--wide, .nc-t--xl</p>
+  <p>In the stylesheet, not asked for by any reference file — each one needs a reason recorded or removing:</p><p class="cd">.nc-flag, .nc-flag--amber, .nc-flag--grey, .nc-flag--red, .nc-flags, .nc-origin, .nc-sub--wide, .nc-t--xl</p>
   <h3 class="famh">Rules with nothing on this page enforcing them</h3>
   <p>Rules in the rule set that no component on this page claims. Most govern process rather than appearance, which is fine — but each should be able to name what enforces it:</p><ul class="nc-list"><li><b>NC-DGM-01</b> — Do not build a generic diagram kit of nodes and connectors. Name the job — bound, relate, decompose, sequence, diverge, converge — and use a named for</li><li><b>NC-DOC-02</b> — A4 for UK submissions.</li><li><b>NC-DOC-03</b> — Document title, author and one declared language set in properties.</li><li><b>NC-EVI-03</b> — No published figure rests on fewer than three contributing units. Apply secondary suppression.</li><li><b>NC-EVI-05</b> — Apply the suppression threshold to the planned sample BEFORE fieldwork is scoped, and state at proposal stage what the design will let you say.</li><li><b>NC-LAY-01</b> — Slide side margin 5.25%, kicker line 6.67%. The written 6% / 7.5% is superseded by what the deck does.</li><li><b>NC-PKG-01</b> — One source per number, named, wherever a figure appears in more than one artefact. Reconcile across the pack before submission, as a step.</li><li><b>NC-PKG-02</b> — Where artefacts disagree, date them and name the most recent as the candidate truth. Never report an unresolved contradiction and hand the job back.</li><li><b>NC-PRS-01</b> — Reading order set explicitly, on every slide. Placeholders authored in reading order in the master.</li><li><b>NC-PRS-02</b> — Every slide carries a unique descriptive title. It may be hidden or off-canvas; it may not be absent.</li><li><b>NC-PRS-04</b> — No text box sized to its text.</li><li><b>NC-SYS-01</b> — State where the current version lives, in the system itself. Name the canonical location once; treat every other copy as derived.</li><li><b>NC-SYS-02</b> — Quote the line every finding rests on, or mark the finding as inference. Report an absence as a different class of claim from a quotation.</li><li><b>NC-XLS-01</b> — Spreadsheets are models: real tables, formulas from one assumptions sheet, freeze panes, no merged cells in data.</li></ul>
 </section>

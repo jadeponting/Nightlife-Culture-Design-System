@@ -185,3 +185,42 @@ rather than taken on trust. Every number in the audit reproduced exactly.
 - `AGENTS.md`, `CLAUDE.md` and `README.md` all declare v1.4 and a date. `AGENTS.md` had no version
   at all while governing every model, and `README.md` still named v1.0 as source of truth.
 - One validator named: `checks/validate.py`, invoked by `build.py`.
+
+
+## 16 August 2026 — the disclosure learns where things came from
+
+**The dropdown under each specimen now answers the question it was asked**
+- It showed the markup. It did not show where the styling CAME from, so a specimen drawn by hand
+  and a specimen built from the codebase read identically — which is the one thing the disclosure
+  exists to tell apart.
+- `components/provenance.py` resolves every class in a specimen to the file, the line and the
+  section that defines it, and names the generator that wrote that file. Nothing is typed. The
+  markup is read off the render; the definition site is read off the stylesheet.
+- Anything the specimen styles from inside its own markup is flagged, with a word as well as a
+  colour, and the count sits on the summary where it is read without opening anything.
+- Three severities: type or raw colour or a hand-set measurement in the markup is FLAGGED; a
+  token used in the markup with no class behind it is NOTED; a percentage width carrying a datum
+  is DATA, because a bar's length IS the number and belongs in the markup.
+
+**What it found on its first run: 34 flags across 3 of 19 specimens — and 32 of them are one thing**
+- The type scale is not a component. Six roles in `tokens.json`, no class for any of them, no
+  document sizes at all — `type.sizes.document.scale` says UNDECIDED — and five invented em sizes
+  drawn into the library markup, looking settled. Logged as gap 9. Not fixed: not mine to choose.
+
+**`.nc-prov` was defined twice and nothing could see it**
+- The evidence-provenance chip, and then a provenance table four sections later. The later one won.
+  Every cell rendered white on white. Validator passed, coverage passed, stamps matched.
+- Renamed to `.nc-origin`, and `check_coverage.py` now reports a class defined twice where the
+  second definition re-sets a property the first one set. `@media` overrides excluded. It reports
+  rather than fails: there is no rule, and four current cases look deliberate. Logged as gap 10.
+
+**Two defects fixed in the disclosure while building it**
+- The `<summary>` marker was the browser default, in the one component whose job is to show that
+  nothing is left to a default (NC-DOC-08). It is now a word — SHOW / HIDE.
+- The flag tag was pink on white: 2.58:1 at 11px caps. Now ink, with the pink rule on the left edge
+  carrying the colour signal.
+
+**A selector defines its subject, not every dot in it**
+- `.nc-slide .cv` defines `.cv`. Reading every class in a selector is how seventeen components once
+  read as built when only a child of each was defined. The resolver reads the last compound of each
+  comma-separated part and nothing else.
