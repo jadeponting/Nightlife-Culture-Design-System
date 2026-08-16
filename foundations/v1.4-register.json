@@ -1,0 +1,3855 @@
+{
+ "meta": {
+  "purpose": "Every statement in Style Guide v1.4 that is a rule or a value, extracted verbatim and machine-readable. This is the approved steer, committed. Joined to The Decision Book for tier and reasoning.",
+  "source": "Nightlife Culture Style Guide v1.4",
+  "bookDigest": "6034d466ccbf4071",
+  "generated": "2026-08-16",
+  "counts": {
+   "v14Statements": 458,
+   "bookRules": 347,
+   "machineCheckable": 228
+  },
+  "quoting": "The `statement` field is verbatim from v1.4. Table rows are reassembled as 'row label · <Column>: <cell>' using the guide's own column headers. Every row was string-matched back to the source: zero unverified.",
+  "blocked": "15 statements cannot be encoded as written because v1.4 contradicts itself. See contradictions[] — 3 resolved on accessibility grounds, 7 awaiting Carly, 5 bookkeeping."
+ },
+ "contradictions": [
+  {
+   "id": "X-01",
+   "tier": "fixed",
+   "status": "resolved-accessibility",
+   "sections": [
+    "11",
+    "07"
+   ],
+   "a": "Teal is never a logo colour on a light ground — 1.52:1 on white. Pink (7.42:1) and violet (7.64:1) are the accents that clear it.",
+   "b": "Matrix: Pink · White: 2.62 · Violet · White: 2.54",
+   "finding": "7.42 and 7.64 are the ink-ground ratios, read from the wrong column. On white, pink and violet both fail 3:1.",
+   "resolution": "On a light ground the wordmark is blue (8.59:1) or ink. The repo's asset set already reflects this."
+  },
+  {
+   "id": "X-02",
+   "tier": "fixed",
+   "status": "resolved-accessibility",
+   "sections": [
+    "07"
+   ],
+   "a": "Every accent is a black-text surface. Every ground is a white-text surface. There are no exceptions and no judgement calls.",
+   "b": "Chalk #F3F3F3 · INK OR CHARCOAL TEXT · 17.52:1 — White #FFFFFF · INK OR CHARCOAL TEXT · 19.44:1",
+   "finding": "White on chalk is 1.11:1. The headline rule is false for 2 of the 5 grounds.",
+   "resolution": "The rule holds for the dark grounds — blue and ink. Chalk and white are reading grounds taking ink or charcoal. Also wrong in the nightlife-culture-design skill, non-negotiable 1."
+  },
+  {
+   "id": "X-03",
+   "tier": "fixed",
+   "status": "resolved-accessibility",
+   "sections": [
+    "08"
+   ],
+   "a": "Never below 16pt on screen or 14pt in print.",
+   "b": "Slide labels · Minimum: 14pt",
+   "finding": "A slide label is on screen, all caps, and 14pt.",
+   "resolution": "16pt on screen. 14pt is the print floor applied to the wrong medium."
+  },
+  {
+   "id": "X-04",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "12"
+   ],
+   "a": "Never brand accents · Pink, teal, violet, butter and coral are surfaces. Only the ramp encodes data.",
+   "b": "Series 4 · Hex: #FFDE6B",
+   "finding": "#FFDE6B is byte-identical to the butter accent."
+  },
+  {
+   "id": "X-05",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "08",
+    "10"
+   ],
+   "a": "Two lines maximum.",
+   "b": "Title zone · Three lines maximum"
+  },
+  {
+   "id": "X-06",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "10",
+    "15",
+    "17"
+   ],
+   "a": "More than about 55% covered means it is two slides.",
+   "b": "allow coverage up to 70%"
+  },
+  {
+   "id": "X-07",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "09",
+    "10"
+   ],
+   "a": "Full-bleed band · Accent or ink, edge to edge · Slides and covers.",
+   "b": "Never a full-bleed accent ground."
+  },
+  {
+   "id": "X-08",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "11"
+   ],
+   "a": "Minimum size: 90px wide on screen",
+   "b": "Approximately 1.5% of slide width",
+   "finding": "1.5% of a 1280px slide is 19px — 3-5x below the stated minimum."
+  },
+  {
+   "id": "X-09",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "11"
+   ],
+   "a": "Cover and back page only. Never in a running header.",
+   "b": "The guide places the wordmark in its own masthead and footer."
+  },
+  {
+   "id": "X-10",
+   "tier": "adaptable",
+   "status": "awaiting-carly",
+   "sections": [
+    "07",
+    "18"
+   ],
+   "a": "Eight tokens.",
+   "b": "Ten are named; the contrast matrix carries nine."
+  },
+  {
+   "id": "X-11",
+   "tier": "adaptable",
+   "status": "bookkeeping",
+   "sections": [
+    "07"
+   ],
+   "a": "black on blue is 2.44:1",
+   "b": "Blue · Ink: 2.26",
+   "resolution": "2.44 is pure #000000, not a token. Use ink, 2.26:1."
+  },
+  {
+   "id": "X-12",
+   "tier": "adaptable",
+   "status": "bookkeeping",
+   "sections": [
+    "18"
+   ],
+   "a": "Line height resolved to a single 1.5-1.6 floor (v1.1)",
+   "b": "Line height scoped by style class (v1.2)",
+   "resolution": "Mark v1.1 superseded. Scoped values are current."
+  },
+  {
+   "id": "X-13",
+   "tier": "adaptable",
+   "status": "bookkeeping",
+   "sections": [
+    "08",
+    "13"
+   ],
+   "a": "WCAG SC 1.4.8 sets 1.5 as the floor",
+   "b": "Meet WCAG 2.2 AA as the minimum standard",
+   "resolution": "1.4.8 is AAA. Cite 1.4.12 or drop the citation and keep the value."
+  },
+  {
+   "id": "X-14",
+   "tier": "adaptable",
+   "status": "bookkeeping",
+   "sections": [
+    "06",
+    "12"
+   ],
+   "a": "State publication date, data period, geography and population.",
+   "b": "Code, reference period, geography and boundary vintage.",
+   "resolution": "Take the superset of all six fields."
+  },
+  {
+   "id": "X-15",
+   "tier": "adaptable",
+   "status": "bookkeeping",
+   "sections": [
+    "08",
+    "14"
+   ],
+   "a": "Table cells · Slide: 1.2-1.3",
+   "b": "No tables on slides.",
+   "resolution": "Keep the ban. Drop the slide column — it specifies an object that cannot exist."
+  }
+ ],
+ "statements": [
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "This guide has three layers. Use the first to understand what Nightlife Culture stands for, the second to express it consistently, and the third to produce accessible, evidence-led outputs.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Brand foundation · Purpose: Defines our territory, beliefs, offer, audiences and method. · How stable is it?: Relatively stable. Review when the business proposition changes.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Expression system · Purpose: Defines voice, tone, language, visual identity and imagery. · How stable is it?: Evolves through use, feedback and commissions.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Production system · Purpose: Defines accessibility, evidence, documents, decks, spreadsheets, charts and AI controls. · How stable is it?: Operational and testable. Update when standards or tools change.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "When instructions compete, use this order:",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Legal and ethical requirements",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Accessibility and user need",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Factual and methodological integrity",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Clarity and usability",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Format conventions",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Brand consistency",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Stylistic preference",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "00",
+   "sectionName": "How to use this guide",
+   "statement": "Accessibility does not dilute the brand. It decides where the brand should live.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Nightlife Culture is a creative policy, research and design studio working across nightlife, music, culture, place and the systems that shape them.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "We combine cultural literacy, lived experience, policy knowledge, evidence and human-centred design to help places and cultural ecosystems understand value, align people, make stronger decisions and build practical routes forward.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "A creative policy studio for nightlife, music, culture and cities.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "We help places and cultural ecosystems understand what creates value, what conventional systems miss, and what conditions people need to thrive. We turn lived experience, sector knowledge, data and creative practice into evidence, shared asks, practical frameworks and delivery routes.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Nightlife is culture. It is made by artists, promoters, DJs, producers, crews, venue and festival teams, bar and door teams, technicians, audiences, organisers, freelancers, communities and informal networks.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Nightlife spaces are not passive backdrops. They are talent incubators, knowledge banks, gathering places, workplaces, testing grounds, civic assets and cultural value generators.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Nightlife Culture is not defined by a conventional category alone. It can perform functions associated with consultancy, research, advocacy, convening, service design and policy development. The distinctive proposition is the combination: a studio practice that gathers people, builds evidence, makes value visible and designs practical routes forward.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Nightlife, music and culture · Typical questions: What creates value, identity, belonging, opportunity and collective joy?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Economic development and place · Typical questions: How do culture and the night contribute to local growth, high streets, employment and investment?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Policy, planning and governance · Typical questions: Where are rules, institutions, incentives and responsibilities misaligned with lived reality?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Public health, safety and access · Typical questions: What conditions help people participate, work and travel safely and with dignity?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Evidence, evaluation and data · Typical questions: What is counted, what is missing, and what can be known responsibly?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "Human-centred and systems design · Typical questions: How can people shape decisions, tools and infrastructure that affect them?",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "clearer evidence",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "stronger shared language",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "better decisions",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "usable tools and frameworks",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "more capable relationships and networks",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "transparent assumptions and methods",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "01",
+   "sectionName": "Brand foundation",
+   "statement": "a practical route to implementation",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "The method is flexible enough for research, strategy, policy, feasibility, economic development, service design and sector-building work. Not every commission uses every stage, but the logic should remain visible.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "1. Start with people and place · What it means: Understand lived experience, local context, cultural history, relationships and existing knowledge.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "2. Frame the real question · What it means: Separate the stated brief from the underlying decision, need or tension.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "3. Map the system · What it means: Identify people, institutions, assets, incentives, gaps, power, dependencies and constraints.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "4. Build the evidence · What it means: Combine qualitative insight, public and commercial data, policy evidence, primary research and appropriate economic analysis.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "5. Make value visible · What it means: Show economic, cultural, social, civic, spatial and public-health value without reducing culture to one metric.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "6. Create shared meaning · What it means: Help different groups understand the evidence, the issue and each other.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "7. Design practical routes forward · What it means: Turn findings into choices, recommendations, asks, prototypes, governance, tools, investment cases and delivery plans.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "8. Leave useful infrastructure behind · What it means: Create evidence, skills, relationships, templates and systems that remain useful after the commission.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Do not treat participation as decoration.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Do not confuse data volume with evidence quality.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Do not claim neutrality where choices and values are involved.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Do not reduce cultural value to economic value, but do not ignore economic reality.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Make limitations, assumptions and disagreements visible.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "02",
+   "sectionName": "The Nightlife Culture method",
+   "statement": "Design recommendations around who can act, with what authority, resource and timeframe.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Nightlife Culture should sound able to move between the dancefloor, the committee room, the funder meeting and the evidence base without losing the truth of the culture.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Joy → value → evidence → action.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Start with what people and places create. Explain what systems miss or obstruct. Build the evidence. End with a meaningful next step. Risk papers and funding cases may need to open with a problem, but they should restore people, value and agency quickly.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Human writing understands who is reading, gives enough context, acknowledges uncertainty, uses real examples and makes clear why something matters. It does not require forced slang, chatty filler, fake intimacy, constant rhetorical questions or emotional overstatement.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Culturally literate · Use it like this: Understand that scenes are built through trust, taste, memory, risk, work and timing. · Avoid: Explaining the sector to itself or performing authenticity.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Plainspoken · Use it like this: Make complex ideas understandable without flattening them. Use active verbs and clear asks. · Avoid: Consultancy sludge, inflated abstractions or unnecessary opacity.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Warm · Use it like this: Write to people, not at them. Respect time, knowledge and lived experience. · Avoid: Institutional distance, rescue language or fake intimacy.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Precise · Use it like this: Name evidence, uncertainty, exclusion and structural problems accurately. · Avoid: Vague critique, unsupported certainty or softened truth.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Generous · Use it like this: Recognise capability, value and knowledge before proposing something new. · Avoid: Defining people or places only through failure or need.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Constructive · Use it like this: Show what can happen next and who can act. · Avoid: Confusing critique with hopelessness or empty optimism.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "The voice should remain recognisably Nightlife Culture. Tone changes according to audience, purpose, risk and format.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Public and sector communications · Tone: Direct, warm, culturally literate · What to emphasise: People, place, lived reality, concrete meaning and action.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Policy and technical reports · Tone: Precise, structured, evidence-led · What to emphasise: Definitions, methods, assumptions, classifications and feasibility.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Decision briefings · Tone: Concise, calm, decision-ready · What to emphasise: The question, evidence, options, risks, recommendation and owner.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Funding and investment · Tone: Ambitious but grounded · What to emphasise: Need, value, method, outcomes, governance and delivery confidence.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Research and academic work · Tone: Transparent, rigorous, appropriately technical · What to emphasise: Sources, methods, limitations, reproducibility and interpretation.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "03",
+   "sectionName": "Voice and tone",
+   "statement": "Workshops and learning · Tone: Invitational, clear, paced · What to emphasise: Purpose, steps, examples, participation and usable takeaways.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Use these ideas where they are accurate, not as automatic slogans: collective joy; scenes; gathering places; cultural infrastructure; informal knowledge; trust, care and graft; conditions to thrive; people who make the night happen; shared asks; practical frameworks; sector knowledge; talent incubation; cultural value; evidence with soul.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Nightlife Culture does not avoid specialist, academic or policy language where it is the most accurate language for the job.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Terms such as regeneration, placemaking, resilience, creative industries, meanwhile use, stakeholder and ecosystem may have specific meanings within economic development, planning, research, funding and public policy. Use them where that meaning is relevant, particularly in technical reports, policy recommendations, planning documents, funding cases and work written for professional audiences.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "The aim is not to simplify complex ideas until they lose their meaning. We can write with intellectual and methodological rigour while remaining clear, human and rooted in the people and places that make nightlife happen.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Plain English is not anti-intellectual. It makes meaning available without removing complexity.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Technical and professional documents · Rule: Use the recognised term when precision, comparability or alignment with policy requires it.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Public communications · Rule: Translate specialist language into clear, concrete language without losing the meaning.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Vague or contested terms · Rule: Specify who or what the term refers to, what action is proposed and who benefits.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Precision versus informality · Rule: Do not replace a precise term simply to sound informal. Do not use a technical term to sound authoritative.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Vibrancy · Use it when: It is defined through specific activity, time, place or indicator. · Check for: Whether it is vague, exclusionary or visually coded.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Resilience · Use it when: It describes a system capacity, tested condition or defined risk. · Check for: Whether responsibility is being shifted onto under-resourced people.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Innovation · Use it when: Something is genuinely new or newly applied. · Check for: Whether practical improvement would be more accurate.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Inclusion · Use it when: The group, barrier, mechanism and outcome are named. · Check for: Whether the term hides unequal power or access.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Regeneration · Use it when: It has a planning, funding or policy meaning relevant to the work. · Check for: Who benefits, what may be displaced and whose place is being remade.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Activation · Use it when: It describes a specific intervention, use or programme. · Check for: Whether it implies a place was empty before institutional action.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Stakeholder · Use it when: It is useful in technical governance or project documentation. · Check for: Whether people, partners, residents, workers or sector voices would be more accurate.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Community · Use it when: A defined group, place or relationship is meant. · Check for: Whether differences in interest and power are being hidden.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Placemaking · Use it when: It is a recognised planning or practice term needed for the audience. · Check for: Whether it erases people already making and caring for the place.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Ecosystem · Use it when: Relationships and interdependencies are genuinely being analysed. · Check for: Whether it is replacing a more precise description.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "World-class · Use it when: There is a stated comparison and credible evidence. · Check for: Unsupported boosterism.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Meanwhile use · Use it when: It describes a specific temporary planning or property arrangement. · Check for: Whether cultural users are expected to absorb insecurity for others' benefit.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Creative industries · Use it when: The official sector definition or policy category is relevant. · Check for: Which subsectors and classifications are included or excluded.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Frontload the point.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Mix sentence lengths naturally.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Break long sentences where ideas compete.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Prefer concrete verbs to abstract nouns.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Use headings and short sections to guide the reader.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Use examples that are real and relevant.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Cut filler, repetition and AI-style platitudes.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Do not invent specificity, statistics or quotes.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Keep nuance where it changes meaning.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "04",
+   "sectionName": "Language and editorial rules",
+   "statement": "Avoid formulaic phrases such as “this matters”, “here is the bit everyone misses”, “in today’s rapidly changing landscape”, “unlock the potential”, “at the heart of”, “more important than ever” and repetitive three-part slogans unless the wording is genuinely earned by the content.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Nightlife and music communities · What they need: Recognition, respect, relevance and practical value. · Evidence emphasis: Lived experience, operating reality, rights, resources and exclusion.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Local and combined authorities · What they need: Clarity, legitimacy, feasibility and implementable choices. · Evidence emphasis: Policy, public data, statutory context, finance and delivery.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Funders and foundations · What they need: A credible need, method, outcomes and governance. · Evidence emphasis: Equity, impact, learning, evaluation and sustainability.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Cultural organisations and venues · What they need: Useful tools, shared leverage and realistic routes to action. · Evidence emphasis: Sector evidence, costs, capacity and precedents.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Researchers and universities · What they need: Methodological transparency and intellectual contribution. · Evidence emphasis: Sources, classifications, limitations, ethics and reproducibility.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "Developers and place investors · What they need: Long-term value, stewardship, risk and opportunity. · Evidence emphasis: Place value, cultural infrastructure, footfall, displacement.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "05",
+   "sectionName": "Audience framework",
+   "statement": "National government and representative bodies · What they need: Scalable learning, policy relevance and clear asks. · Evidence emphasis: Comparative evidence, policy fit, implementation and accountability.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Nightlife Culture’s credibility depends on how evidence is gathered, classified, interpreted and communicated. Strong design must never make weak evidence look stronger than it is.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Distinguish fact, estimate, interpretation, assumption and recommendation.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Cite the original source wherever possible.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "State publication date, data period, geography and population.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Explain sector definitions and classifications, including SIC codes where relevant.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Identify proprietary, commercial and restricted data.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Describe primary research methods, recruitment, sample size and limitations.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Do not imply causation from correlation.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Avoid unsupported economic-impact multipliers and false precision.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Separate commissioned evidence from independent evidence.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Record uncertainty, missing data, disagreement and methodological judgement.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Link recommendations to evidence and identify who can act.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Every data visual, table or significant factual claim should enable the reader to trace the evidence. Link to the specific dataset, publication or page rather than an organisation homepage where possible.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "What is being recommended? · Required answer: A specific action, choice or principle.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Why? · Required answer: The evidence and reasoning.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "Who can act? · Required answer: Named institution, role, partnership or sector.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "What is required? · Required answer: Authority, funding, capacity, data, policy change or collaboration.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "When? · Required answer: Timeframe or decision point.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "How will we know? · Required answer: Outcome, indicator, review or learning mechanism.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "What could go wrong? · Required answer: Risk, trade-off, unintended effect or dependency.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "06",
+   "sectionName": "Evidence standard",
+   "statement": "This section is the communications-facing summary. The full standard — provenance codes, minimum source metadata, the indicator comparability gate, classification versioning, ethics and the recommendation strength scale — lives in Comparative Place-Based Research Methodology v1.0. Where the two documents touch, the methodology governs. Section 12 of this guide translates its requirements into chart and layout components.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Eight tokens. Tuned in OKLCH so the five accents share one lightness and chroma register — that shared register is what makes the palette harmonious, and it has consequences the rest of this section deals with.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#0000FF · Signal blue · Primary ground. Covers, section dividers, statements, rules, links and controlled emphasis. The one colour that means Nightlife Culture.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Signal blue · WHITE TEXT ONLY · 8.59:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#0D0D0D · Ink · Night ground and primary text colour. Full-bleed surfaces and strips where accents need to glow.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · WHITE TEXT ONLY · 19.44:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#F3F3F3 · Chalk · Reading ground for decks and screen. Lets a white panel separate without any border.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · INK OR CHARCOAL TEXT · 17.52:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#FFFFFF · White · Reading ground for reports, print and anything a partner will edit. Also the panel surface on chalk.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · INK OR CHARCOAL TEXT · 19.44:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#2D2D2D · Charcoal · Secondary body copy, captions, source lines, slide numbers on light grounds, and slide titles on light grounds.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Charcoal · ON CHALK/WHITE · 12.41:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#ED77C2 · Counter pink · The hot counter-signal. Accent bars above pull quotes, the left rule, small deliberate marks.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Counter pink · BLACK TEXT ONLY · 7.42:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#53E6E5 · Signal teal · Cool highlight. Section headers on dark grounds, breakers on blue and ink, panel grounds.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Signal teal · BLACK TEXT ONLY · 12.79:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#B98CFF · Soft violet · Calm surface. Large blocks, vertical thirds, diagram fields.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Soft violet · BLACK TEXT ONLY · 7.64:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#FFDE6B · Butter · Warm highlight. Opportunity, funding, forward motion.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Butter · BLACK TEXT ONLY · 14.73:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#FD7B53 · Coral · Warm counter. Urgency, risk, what is at stake, and the lowest provenance tier.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Coral · BLACK TEXT ONLY · 7.53:1",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Every accent is a black-text surface. Every ground is a white-text surface. There are no exceptions and no judgement calls. White on pink is 2.62:1 and fails; white on violet is 2.54:1 and fails; black on blue is 2.44:1 and fails. If you remember one thing from this section, remember this sentence.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Because the five accents share a lightness register, every pair sits between 1.01 and 1.98:1. They are distinguished by hue alone. In greyscale, on a projector, or for a reader with a colour vision deficiency they collapse into one another.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "This is a deliberate trade — it is what makes the palette harmonious. It means:",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "The accents are a surface palette, not a data palette. Charts use the ramp in section 12, never these.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Roles, not adjacency, keep them apart. Pink is the small hot mark, teal the cool highlight, violet the calm surface, butter the warm one, coral the urgent one. Give each a job and they never need to be told apart at a glance.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Two accents never sit edge to edge carrying different meanings without a separator or a label.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Ink: 2.26",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Chalk: 7.74",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · White: 8.59",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Pink: 3.28",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Teal: 5.65",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Violet: 3.38",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Butter: 6.51",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Blue · Coral: 3.33",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Chalk: 17.52",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · White: 19.44",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Pink: 7.42",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Teal: 12.79",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Violet: 7.64",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Butter: 14.73",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Ink · Coral: 7.53",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · White: 1.09",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · Pink: 2.36",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · Teal: 1.37",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · Violet: 2.29",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · Butter: 1.19",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Chalk · Coral: 2.33",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · Pink: 2.62",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · Teal: 1.52",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · Violet: 2.54",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · Butter: 1.32",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "White · Coral: 2.58",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Pink · Teal: 1.72",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Pink · Violet: 1.03",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Pink · Butter: 1.98",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Pink · Coral: 1.01",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Teal · Violet: 1.67",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Teal · Butter: 1.15",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Teal · Coral: 1.70",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Violet · Butter: 1.93",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Violet · Coral: 1.02",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Butter · Coral: 1.96",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Colour is never the only carrier of meaning. Test every foreground and background combination. Use WCAG thresholds: at least 4.5:1 for normal text, 3:1 for large text, and 3:1 for meaningful graphics and interface components.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Do not reduce opacity on essential text.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Do not place essential text directly over photography without a tested solid surface.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Make links identifiable by more than colour alone.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Pair status colours with words, symbols or patterns.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Use the chart ramp rather than assuming the brand accents can do every job.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Protect functional interface colours and visible focus states from decorative brand overrides.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "Note on the 3:1 graphics threshold. It applies to graphics required to understand content and to interface components. A coloured panel that is simply a surface holding high-contrast text is neither — the text carries the contrast. Panel outlines are a style choice, not an accessibility requirement. The threshold does apply to chart series, meaningful icons and strokes, focus states, and any edge that itself carries meaning.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#920DFF purple · Replaced by: #B98CFF soft violet · Why: 1.52:1 against signal blue — effectively invisible beside the primary.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#F26B43 orange · Replaced by: #FD7B53 coral · Why: Retuned to the shared accent register.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#FFD100 yellow · Replaced by: #FFDE6B butter · Why: Retuned to the shared accent register.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "07",
+   "sectionName": "Colour",
+   "statement": "#F6F6EE cream · Replaced by: #F3F3F3 / #FFFFFF · Why: Hue 107° — a yellow-green cast that read manila and sided with the warmest accent rather than the primary.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "colour"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Archivo Black for display, Archivo ExtraBold for headings, Inter for everything you actually read.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Display · Archivo Black · all caps · tracking −1%",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H1 · Archivo ExtraBold 800 · all caps · tracking +1%",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H2 · Archivo ExtraBold 800 · all caps · tracking +4%",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H3 · Archivo Bold 700 · sentence case",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Body · Inter Regular 400",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Labels and meta · Archivo SemiBold 600 · all caps · tracking +8–16%",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Display · Face: Archivo Black · Case: ALL CAPS · Rule: Covers, section dividers, the big statement. Tracking −1%. Two lines maximum.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H1 · Face: Archivo ExtraBold 800 · Case: ALL CAPS · Rule: Tracking +1%. Eight words maximum — break to two lines rather than shrinking.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H2 · Face: Archivo ExtraBold 800 · Case: ALL CAPS · Rule: Tracking +4%. Caps tighten optically as they shrink; the tracking compensates.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H3 · Face: Archivo Bold 700 · Case: Sentence case · Rule: The floor. Caps stop working below roughly 16pt on screen and in long reports.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Body · Face: Inter Regular 400 · Case: Sentence case · Rule: Never caps. Line height 1.5–1.6 for running prose — see the scoped table below. Left-aligned, never justified.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Labels / meta · Face: Archivo SemiBold 600 · Case: ALL CAPS · Rule: Tracking +8–16%. Short strings only — three or four words.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "All-caps headings are core to how Nightlife Culture looks. They also carry a readability cost, which falls hardest on dyslexic and low-vision readers. The rule is caps with guardrails, not caps with an exception:",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Always tracked. Every caps level above carries a letter-spacing value. That is the mitigation, not a styling preference — untracked caps are measurably harder to read.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Never below 16pt on screen or 14pt in print. Below that, caps lose the word-shape cues that make scanning possible.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Eight words maximum, two lines maximum. Caps are for statements, not sentences.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H3 and below stay sentence case. In a long report, all-caps sub-headings are tiring and the brand gains least at that level.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Never caps in body copy, captions, source lines, alt text or table cells.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Screen readers handle capitalised words correctly when the caps are applied as formatting. Caps are never typed: use text-transform: uppercase in HTML and the All Caps character format in Word and PowerPoint. Typed capitals destroy the underlying string for search, copy-paste, translation and some assistive-technology configurations — and the damage is invisible in the rendered result, so it survives every visual review. Tracked, short and above 16pt, caps are defensible. Untracked and long, they are not.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Left-align body text. Do not justify.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Use bold more often than italics for emphasis.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Reserve underlining primarily for links.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Use 12pt body text in documents where practical, with 1.5 to 1.6 line spacing in running prose. Other style classes set their own — see below.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Remove copy before reducing type.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Slide titles · Minimum: 32pt · Preferred: 38–52pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Slide body · Minimum: 18pt · Preferred: 20–26pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Slide labels · Minimum: 14pt · Preferred: 16pt+",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Document body · Minimum: 12pt · Preferred: 12pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Footnotes and caveats · Minimum: 10pt · Preferred: 10.5–11pt. A caveat that matters belongs in the title, column heading or row label, not a footnote. A caveat that does not matter should be deleted.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "WCAG SC 1.4.8 sets 1.5 as the floor for line spacing within paragraphs. It was never a rule about table cells, slide bullets, captions or headings. Applied as a blanket it produces two specific failures: display type at 1.5 reads limp, and a table at 1.5 stops scanning across, because rows are read horizontally and generous leading pulls them apart.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Display, H1 · Document: 1.02–1.1 · HTML: 1.02–1.1 · Slide: 1.02–1.1 · Why: Tight leading is what makes display type read as a unit.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "H2, H3 · Document: 1.15–1.25 · HTML: 1.2–1.3 · Slide: 1.15–1.25 · Why: Short lines; leading is spacing, not readability.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Running prose · Document: 1.5–1.6 · HTML: 1.5–1.6 · Slide: 1.25–1.4 · Why: The only place SC 1.4.8 applies. Slides rarely carry paragraphs.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Slide body, bullets · Document: — · HTML: — · Slide: 1.2–1.35 · Why: Few lines, short measure, read at distance.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Table cells · Document: 1.25–1.35 · HTML: 1.25–1.35 · Slide: 1.2–1.3 · Why: Not paragraphs. Tight is more readable — rows must stay scannable.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Captions, source lines · Document: 1.3–1.4 · HTML: 1.3–1.4 · Slide: 1.25–1.35 · Why: Short, secondary, one or two lines.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Statistic blocks · Document: 1.0–1.1 · HTML: 1.0–1.1 · Slide: 1.0–1.1 · Why: A number is not text.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Lists · Document: 1.4–1.5 · HTML: 1.4–1.5 · Slide: 1.25–1.35 · Why: Space between items does the work.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Only the running-prose row is Fixed. Everything else is Adaptable — the rule is that the value is scoped, not that these particular numbers are correct. The same scoping applies to measure, minimum size and alignment.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "type"
+  },
+  {
+   "section": "08",
+   "sectionName": "Typography",
+   "statement": "Archivo Black, Archivo and Inter are open-licence (SIL Open Font License). Embed them in every digital deliverable — never link them from a web font service. A linked font fails silently and falls back to a system sans, which is how a deck can look wrong on someone else's machine without anyone noticing. Where a font cannot be embedded, the approved fallback stack is Arial, then the system sans.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Contain with colour and space, not with outlines.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Panels are held by fill, rule or space. Hard black outlines are retired — they were doing the work that space should do, and they made every panel shout at the same volume.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Fill. The colour field is the container. The default for accent panels. Needs space around it.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Top rule. White panel, 9px accent bar. Dense pages, tables and long documents.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Left rule. Reads as an aside rather than a box. Pull quotes and callouts.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Band. Runs edge to edge. Stops being a panel and becomes a change of ground.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Hairline. 1px ink at 22%. White boxes on chalk, tables, dense reference layouts.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Fill · Spec: Accent background, no border · Use: Default for accent panels. Requires generous surrounding space.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Top rule · Spec: White panel, 9px accent bar · Use: Dense pages, tables, long documents where five filled panels would be too much.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Left rule · Spec: White panel, 12px accent bar · Use: Pull quotes, callouts, asides.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Full-bleed band · Spec: Accent or ink, edge to edge · Use: Slides and covers. How an accent leads without looking like a box.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Hairline · Spec: 1px ink at 22% · Use: White panels on a chalk ground, tables, forms. Never for anything carrying meaning.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Hard outline · Spec: — · Use: Retired.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "One main idea per slide or section where possible.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Use space as part of the voice.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Use blue as a structural signal rather than scattered decoration.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Avoid dense boxes, tiny labels and decorative clutter.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Keep core information in a simple reading order.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Use single-column layouts for long-form accessible documents where practical.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "09",
+   "sectionName": "Layout and containment",
+   "statement": "Chalk ground, white panels. Or white ground, panels held by a rule.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "layout"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Side margins · Measure: 6% of slide width · Rule: Nothing crosses them.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Top margin · Measure: 7.5% of slide height · Rule: Kicker sits on this line.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Footer band · Measure: Bottom 14% · Rule: Content never enters it. Logo and slide number only.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Body measure · Measure: Max 60–70% of content width · Rule: The ragged right edge is part of the composition.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Title zone · Measure: Three lines maximum · Rule: Four lines means the statement is a paragraph.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Coverage · Measure: Roughly half the canvas empty · Rule: More than about 55% covered means it is two slides.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "“Remove copy before reducing type” is the rule that protects all the others.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Blue — primary · Section header: Teal · Use: Section dividers, statements, two-column contrast, quotes. Top rules, nothing boxed. The workhorse.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Chalk / white · Section header: Blue · Use: Working ground. Charcoal title, blue sub. Colour blocks or a vertical third. Chalk in decks, white in reports.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Ink · Section header: Teal · Use: Night register, used sparingly. Accent blocks, or a full-bleed strip under a light slide.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Accents · Section header: — · Use: Blocks, thirds, strips and cells. Never a full-bleed accent ground.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Which ground, for which room. Light ground is the default whenever the venue is unconfirmed. Ambient light lifts a projector's blacks asymmetrically, so an ink deck greys out in a lit room at 11am — and blue on ink is 2.26:1 by our own matrix. Ink requires a darkened room, confirmed in advance, and every ink deck ships with a light-ground variant.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Blue — primary. Teal kicker, teal separator, no logo on a content slide.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Chalk — working ground. Charcoal title, blue sub, blue separator.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "A breaker is a pause, not an ornament. One per slide. Two rules and it stops meaning “pause” and starts meaning “pattern”.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Separator · Weight and width: 0.42% of slide width · 20% wide · Colour: Blue on light, teal on dark · Where: Between the title zone and the body zone, flush to the left margin. The default.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Hairline · Weight and width: 1px · 74% wide · Colour: Ink at 22% · Where: Under the title on dense or document-register slides.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Stop · Weight and width: 0.42% · 20% wide · Colour: Teal · Where: Under a divider title, with nothing following it.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Accent bar · Weight and width: 0.55% · 14–22% wide · Colour: Pink · Where: Above a pull quote. The only decorative use, and always at the top.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Retired: a rule breaking the middle of a statement. It interrupts the sentence rather than pacing it.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "Two-digit, bottom-right, Archivo ExtraBold at 1.25% of slide width. Charcoal on light grounds, teal on dark. Content slides only — not the cover, not the closing slide. Numbered by position in the deck, not by section.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "10",
+   "sectionName": "Slides",
+   "statement": "They matter because people cite slides in meetings, funders and officers reference them in writing, decks get printed and reordered, and position in a sequence is orientation that should not exist only in a scrollbar.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "The wordmark is an outlined asset. It is never re-set as live type.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "That sentence is the whole rule. Everything below explains why, so nobody is tempted to fudge it.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "nightlife-culture-wordmark.svg · Use: Inline in HTML. Inherits currentColor — set color on the parent.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "nightlife-culture-wordmark-white.svg · Use: On blue, ink, or any dark ground. For <img>.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "nightlife-culture-wordmark-blue.svg · Use: On chalk or white. For <img>.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "nightlife-culture-wordmark-ink.svg · Use: On an accent ground. For <img>.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "All four are outlined vector paths. They render identically whether or not Archivo Black is installed. currentColor does not work through <img> — use a coloured variant there.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "The wordmark comes from the printed business card. Measured from that artwork:",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "NIGHTLIFE · Value: 32.09pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "CULTURE · Value: 33.41pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Rendered width, NIGHTLIFE · Value: 171.92pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Rendered width, CULTURE · Value: 171.19pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Baseline to baseline · Value: 30.41pt",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Effective line-height · Value: 0.9476",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "The two lines are set at different sizes so they justify to the same width — 171.92 against 171.19, a difference of 0.4%. That is what makes the lockup read as a solid rectangle rather than a ragged stack.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Set both lines at one size and you lose it. Every regenerated version has made exactly that mistake, including the nightlife-culture-lockup.svg in the design-system development folder, which is live <text> at a single size with letter-spacing:-3 — a rendering of type, not the mark.",
+   "kind": "retirement",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never re-set as live type. Not in HTML, not in PowerPoint, not in Figma, not in a prompt. Place the SVG.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never restack, re-space or re-track it. The relationship between the two lines is the mark.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never stretch it. Scale proportionally. No preserveAspectRatio=\"none\", no dragging a corner without a modifier key.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "One colour only. White on blue and ink. Blue on chalk and white. Ink on an accent. The two-colour treatment (charcoal + one accent) is permitted on covers only.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Teal is never a logo colour on a light ground — 1.52:1 on white. Pink (7.42:1) and violet (7.64:1) are the accents that clear it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Clear space: at least the cap height of NIGHTLIFE on all four sides. Nothing enters it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Minimum size: 90px wide on screen, 22mm in print. Below that, use the wordmark on one line or omit it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never place it on photography without a tested solid surface behind it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never add anything to it — no strapline locked up, no box, no rule, no shadow, no outline.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Never two logos on one surface.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Each swatch below is a ground, not a specimen. No wordmark is drawn on this page, because drawing one here would mean re-setting it as type — the exact thing rule 1 forbids. The slot shows where the placed SVG goes and which file to use.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Chalk or white ground. Blue wordmark. The footer default.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Blue ground. White wordmark. Never teal — teal is the section header.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Ink ground. White wordmark.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Accent ground. Ink wordmark. Two-colour (charcoal + one accent) is permitted on covers only, never in a footer.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Slides — cover, dividers, closing · Rule: Full lockup.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Slides — content · Rule: No logo by default. The exception is any slide likely to travel alone — a headline finding, a data slide, a quote. If you would screenshot it, mark it.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Slide footer version · Rule: Approximately 1.5% of slide width. It should be the quietest thing there.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Documents · Rule: Cover and back page only. Never in a running header.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "Everything else · Rule: Once. Quietly.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "If you need something this section does not cover: say so and stop. Do not improvise a variant. A logo that gets improvised is not a logo.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "The masthead and footer now carry the placed outlined wordmark, inline, inheriting currentColor. Earlier versions set them as live Archivo Black at a single size — the exact failure described above, in the guide's own furniture.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "The four SVGs were regenerated from the measurements in this section and verified against them: NIGHTLIFE renders at 171.92pt, CULTURE at 171.19pt, the two lines justifying to within 0.42%. Tracking differs per line by design (−0.0872em and −0.0264em) — that is what makes two different sizes finish at the same width.",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "11",
+   "sectionName": "Logo",
+   "statement": "If a regenerated mark does not reproduce those two widths, it is not the mark. Do not ship it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "logo"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "The brand accents cannot carry data. This ramp can — the same hues, stepped in lightness so the series stay distinct in greyscale, on a projector and for a colourblind reader.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "The grey strip is the same four series desaturated. Lightness climbs monotonically (0.45 → 0.58 → 0.75 → 0.91), so the order survives photocopying, greyscale printing, projection, deuteranopia and tritanopia. Under protanopia the order inverts: series 1 and 2 converge to 1.10:1, effectively one colour. Wherever both appear in the same chart, differentiate them by more than colour — a dashed stroke, a marker, or a direct label. The label-at-the-mark rule already covers most cases. The brand accents do not have this property and cannot, if they are to stay harmonious.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Series 1 · Hex: #0000FF · OKLCH L: 0.45 · Labels: White",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Series 2 · Hex: #C7339A · OKLCH L: 0.58 · Labels: White",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Series 3 · Hex: #00C6C5 · OKLCH L: 0.75 · Labels: Ink",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Series 4 · Hex: #FFDE6B · OKLCH L: 0.91 · Labels: Ink",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Four series maximum · Why: Beyond four the ramp stops being distinguishable. Five categories means a bar chart with direct labels, not more colours.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "One series = blue · Why: The ramp is for genuinely different series. A single-series chart in four colours implies a distinction that is not there.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Label at the mark · Why: Values on bars, series names at the end of lines, percentages in the key. Legends are a last resort.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Never brand accents · Why: Pink, teal, violet, butter and coral are surfaces. Only the ramp encodes data.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Show the gaps · Why: Hatched fill for suppressed, dashed line for a break in collection. Never a silent omission — a gap in the data is a finding.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Show the range · Why: Modelled or surveyed values get a visible interval. A bare point estimate reads as a count.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Provenance on every chart · Why: Code, reference period, geography and boundary vintage.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Flag illustrative figures · Why: Any placeholder or worked example says so, in the chart, every time.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Gridlines at 10% ink · Why: Present enough to read against, quiet enough to disappear. Never heavier than the data.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Alt text describes the finding · Why: Not “line chart of venue counts” but what the chart shows. Plus a data table alternative for anything load-bearing.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "No non-uniform scaling · Why: An SVG or image never gets stretched to fit. The container flexes; the coordinate space does not. Stretching destroys the type.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Separator on segmented forms · Why: Donuts and 100% stacked bars have segments that touch. Adjacent ramp contrast in greyscale is 1.79, 2.27 and 1.61 — all below the 3:1 threshold for meaningful graphics. A 1–2px white or ink hairline between adjacent segments closes it. The ramp is rated for separated, labelled marks; not for shared edges.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Ranked horizontal bar · When: The workhorse. Categories with a magnitude. Ranked descending unless the categories have a natural order.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Dot plot · When: Comparing places. Bars imply a quantity from zero; dots imply a position on a scale, which is what an indicator is — and leave room for the plausible range.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "100% stacked bar · When: Comparing two or more wholes. Replaces most pies.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Donut · When: One whole, four segments maximum, percentages always in the key. The hole carries the total.",
+   "kind": "guidance",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Pie · When: Permitted, with the caveat that angles are read less accurately than lengths. Justified when one dominant share needs to be instantly recognisable. Same four-segment limit.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Line · When: Change over time. Series labelled at the line, never in a legend. Dashed segments for breaks in collection — never interpolate across one.",
+   "kind": "guidance",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Range bar · When: Anywhere uncertainty is material.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "[c] suppressed for disclosure control. The row stays; the gap is visible. ADM-OPEN 2025 · LA boundary 2023 · illustrative figures.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "These components come from Comparative Place-Based Research Methodology v1.0. They are not decorative.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Three tiers: ink for open and traceable, butter for documented-but-partial, coral for opaque or untraceable. The code text carries the meaning on its own, so the tier survives greyscale and screen readers. Coral does not mean “bad” — it means “handle with a stated caveat”.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "OFF-OPEN · ADM-OPEN · ADM-RESTRICTED · ACADEMIC · PRI-OPEN",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "SECTOR · COM-DOCUMENTED · PRI-DOCUMENTED",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "COM-PARTIAL · COM-BLACKBOX · PRI-OPAQUE · ANECDOTAL · UNTRACEABLE",
+   "kind": "value",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Any chart comparing two or more places states whether the indicator comparability gate has been cleared, and which of the eight criteria required harmonisation. A comparison without this note is not publishable.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "The 1–5 scale shown as filled ordinal steps in ink, never as a colour scale — strength is ordinal, so it is shown by how much is filled. Readable in greyscale, and it cannot be mistaken for a red/amber/green judgement. The level is always written out alongside.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "12",
+   "sectionName": "Data and charts",
+   "statement": "Every big number carries a source line by default: reference period, geography, boundary vintage and provenance code. A statistic without them is a claim, not a finding, and the evidence standard separates the two.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Accessibility is a design standard, not finishing polish.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "When brand and accessibility conflict, accessibility wins. Move the brand to layout, rhythm, typography, covers, pattern, photography or non-essential decoration rather than weakening the meaning layer.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Fixed · Examples: Semantic headings, readable size, contrast, links, reading order, focus states, alt text · Rule: Do not override for brand preference.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Adaptable · Examples: Logo scale, exact colour tint, spacing, page composition, chart styling · Rule: Adjust to user, format and accessibility needs.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Decorative · Examples: Patterns, textures, overlays, flourishes, non-informational imagery · Rule: May be removed without losing meaning.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Meet WCAG 2.2 AA as the minimum standard; aim higher where practical.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Choose the format from the user need, not production habit.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Publish HTML first for public information where practical.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Use real headings, lists and table structures.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Use descriptive links, never “click here”.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Add useful alt text to meaningful images and mark decorative images appropriately.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Do not use images of text when live text will work.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Provide text or data alternatives for charts and diagrams.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Check reading order before PDF publication.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Set document title and language metadata.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Test with automated checks and manual review.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "[c] already marks a suppressed value. This is the rule that decides when to use it.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "No published figure rests on fewer than three contributing units.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Where a cell falls below the threshold, suppress it and apply secondary suppression, so the value cannot be recovered by subtraction from row or column totals.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Keep category structures fixed across editions. Two differently-cut tables of the same population can be differenced against each other to recover what neither shows.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "If more than half a table is suppressed, change the geography or the categories rather than publishing holes.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Statistic blocks carry a minimum base. A big number is the most-screenshotted thing we produce; one derived from four people travels further than the caveat does.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "State the disclosure treatment in the provenance chip.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "evidence"
+  },
+  {
+   "section": "13",
+   "sectionName": "Accessibility standard",
+   "statement": "Decide disclosure-safe granularity before designing to a granularity, not after.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use Heading 1, Heading 2 and Heading 3 styles in a logical hierarchy.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Set the document title, author or organisation, and language in properties.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use built-in list styles.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use table headers and repeat header rows across pages.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Do not use spaces, tabs or blank paragraphs for layout.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use page breaks rather than repeated returns.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Avoid essential information in headers or footers only.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Run the Microsoft Accessibility Checker and manually check complex layouts.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "White ground, not chalk — Word and print handle white more predictably, and partners will edit it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Every slide carries a unique, descriptive title. It may be positioned off-canvas or hidden. It may not be absent — it is how screen-reader users navigate a deck, and the title list doubles as the deck's outline.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Set reading order explicitly in the Selection Pane, on every slide. Reading order follows shape-creation order and bears no relation to visual position. Decorative shapes marked decorative, and last.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Build on restyled master layouts, never manually placed text boxes. Built-in layouts keep reading order aligned with visual order.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "No text box sized to its text. A substituted face widens the same string by roughly a third. Font embedding prevents most substitution; this is the second line of defence.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "No tables on slides. A table on a slide is a reference table in the wrong artefact — put it in the leave-behind.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Run the Accessibility Checker before export. Decks leave as tagged PDF; the .pptx goes only to people who must edit it.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Export from a structured source; do not print to PDF.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Verify tags, headings, reading order, links, alt text, title and language.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use bookmarks in longer reports.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Ensure text is selectable and searchable.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Check zoom, reflow and page order.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Provide another accessible format where a fixed-layout PDF is not enough.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "The conclusion sits in the first screen, in every format.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Headings state findings, not topics. “Referrals fell 34%” not “Referral trends”. A contents list built from finding-headings is a readable summary, which is what most readers use it as.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "No skipped heading levels. H2 to H4 breaks outline navigation.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Real bookmarks in every PDF, generated from heading styles — not a typeset contents page.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Before designing, establish whether the structure is mandated, expected or free. Where a funder or commissioner names a model — a Five Case business case, an evaluation framework, their own form or response schedule — follow it exactly. Brand expression lives inside the required structure, never in place of it. A bid can be on-brand, accessible and beautifully set, and still be marked down for answering in the wrong shape.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Make HTML the primary public format where practical.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Use semantic headings, lists, tables, landmarks and descriptive links.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Preserve keyboard focus, zoom and reflow.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "documents"
+  },
+  {
+   "section": "14",
+   "sectionName": "Documents, PDFs and HTML",
+   "statement": "Embed fonts as base64 in any self-contained deliverable. Never link a web font service — it fails silently and falls back without warning.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "documents"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "1 · The dense layout tier. Everything specified in section 10 is the generous register — one idea, half the canvas empty. Content-heavy slides need a second tier with its own margins, type sizes and coverage ceiling. Without it the system will be broken the first time a slide carries five or six blocks, and then there is no rule at all. Until v1.1: hold the 6% margins and the 14% footer band, allow coverage up to 70%, drop slide body to the 18pt minimum, and cap at six blocks.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "slides"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "Until v1.1: hold the 6% margins and the 14% footer band, allow coverage up to 70%, drop slide body to the 18pt minimum, and cap at six blocks.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "2 · Diagram components. No diagram system exists yet. PowerPoint SmartArt will fight every rule in this guide — it picks its own colours, type, spacing and outlines. v1.1 will provide a diagram kit (nodes, connectors, numbering, stage labels, axis) rather than fixed templates, so new patterns can be built without leaving the system. Until then: build diagrams from the containment treatments in section 09 and the chart ramp in section 12, and do not use SmartArt defaults.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "Until then: build diagrams from the containment treatments in section 09 and the chart ramp in section 12, and do not use SmartArt defaults.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "3 · Templates. Deck master, Word template and an HTML component sheet follow this guide rather than accompanying it — otherwise the templates become the spec and the guide becomes decoration.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "4 · Dashboards. No dashboard system exists yet, and one should not be built casually. Until it does: a dashboard is only justified where research shows users need to explore, where the data updates automatically, where users genuinely need different cuts, and where there is funding to maintain it beyond launch. All four. Otherwise the answer is a release, a report, or an accessible spreadsheet. If one is built, the default view must answer the main question before any filter is touched, the whole thing must work from the keyboard including the charts, and disclosure thresholds must be enforced at query time on every filter combination — not just the default view.",
+   "kind": "guidance",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "a dashboard is only justified where research shows users need to explore, where the data updates automatically, where users genuinely need different cuts, and where there is funding to maintain it beyond launch. All four.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "15",
+   "sectionName": "Known gaps",
+   "statement": "If one is built, the default view must answer the main question before any filter is touched, the whole thing must work from the keyboard including the charts, and disclosure thresholds must be enforced at query time on every filter combination — not just the default view.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "data"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Committee-room test · Question: Is it credible, decision-ready and defensible?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Dancefloor test · Question: Does it retain cultural truth and avoid institutionalising the culture?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Phone test · Question: Can someone understand it quickly on a small screen?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Screen-reader test · Question: Does the meaning survive without the visual treatment?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Hostile-reader test · Question: Are the claims, sources and assumptions defensible under scrutiny?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Partner test · Question: Does the language make room for collaboration and recognise others' contribution?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "16",
+   "sectionName": "The seven tests",
+   "statement": "Paid-work test · Question: Can the reader understand what Nightlife Culture can do and what to ask for?",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Lead with value, people and possibility.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Use abundance framing to hide structural problems.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Use precise policy and academic terms when the context requires them.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Dumb down complex ideas or inflate simple ones.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Translate technical language for broader audiences.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Assume specialist language communicates itself.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Use evidence in service of culture and decisions.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Let research language replace sector knowledge.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Treat accessibility as part of the brand system.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Treat accessibility as a final compliance check.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Use brand strongly in rhythm, layout, typography and decoration.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "layout"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Make essential meaning depend on colour, image or layout.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "accessibility"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Name sources, limitations and assumptions.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Let polished design overstate confidence.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "evidence"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Make the next step clear.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: End with vague “support” or “engagement” language.",
+   "kind": "rule",
+   "machineCheckable": false,
+   "subject": "voice"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Contain with colour and space.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Outline every panel in black.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "containment"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Use the chart ramp for data.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Encode data in the brand accents.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "data"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Embed fonts in every deliverable.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Link a web font service and assume it loaded.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "type"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do: Leave half the canvas empty.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "17",
+   "sectionName": "Do and do not",
+   "statement": "Do not: Reduce type to fit more copy on a slide.",
+   "kind": "rule",
+   "machineCheckable": true,
+   "subject": "slides"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "0.1 · Date: July 2026 · Main changes: Initial working guide for brand, voice, visual identity, accessibility and production.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "0.2 · Date: July 2026 · Main changes: Expanded voice and human-writing guidance; added accessible production standards.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "0.3 · Date: July 2026 · Main changes: Broadened positioning and territory; defined the Nightlife Culture method.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "1.0 · Date: August 2026 · Main changes: Full replacement of the visual and production system. New eight-token palette tuned in OKLCH, replacing the four-colour palette. Chalk and white grounds replacing cream. Archivo Black / Archivo ExtraBold / Inter replacing Aptos and Arial. All-caps heading rule with tracking guardrails, replacing sentence-case headings. Containment system replacing hard outlines. Breaker system, slide grid, logo rules and slide numbering added. Four-series chart ramp and evidence furniture added, aligned to the research methodology. Brand foundation, method, voice, language, audience and evidence sections carried forward from v0.3 with light editing. Known gaps recorded in section 15.",
+   "kind": "retirement",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "1.4 · Date: August 2026 · Main changes: The wordmark is now placed, not typeset. Masthead and footer carry the outlined SVG inline. The four variants were regenerated from the section 11 measurements and verified against them — NIGHTLIFE 171.92pt, CULTURE 171.19pt, justifying to 0.42%. Tracking differs per line (−0.0872em / −0.0264em), which is what lets two sizes finish at one width.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "1.3 · Date: August 2026 · Main changes: Logo section replaced in full. The wordmark is an outlined asset and is never re-set as live type — the previous section described it as “Archivo Black, tight leading” and rendered four live-type specimens, which is the failure the rule exists to prevent. Adds the four SVG variants, the measurements from the printed card (NIGHTLIFE 32.09pt, CULTURE 33.41pt, set at different sizes so both lines justify to the same width), ten rules, minimum size, clear space, and the instruction to stop rather than improvise a variant. Ground swatches now show which file to place, and deliberately draw no wordmark.",
+   "kind": "retirement",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "1.2 · Date: August 2026 · Main changes: Line height scoped by style class and context. 1.5–1.6 was resolved in v1.1 as a single value; that is the running-prose value and was never a rule for table cells, captions, display or statistics. A scoped table now sets each. Table cells 1.25–1.35 — tight is more readable, because rows are read across. Only running prose is Fixed.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  },
+  {
+   "section": "18",
+   "sectionName": "Version history",
+   "statement": "1.1 · Date: August 2026 · Main changes: Eleven amendments following a full review against The Decision Book. Protanopia exception added to the chart ramp (measured: series 1 and 2 converge to 1.10:1). Line height resolved to a single 1.5–1.6 floor, stated once. Document body minimum raised to 12pt. Caps mechanism specified as formatting, never typed. Separator required on segmented charts. Disclosure control added. PowerPoint, long-form and mandated-structure sections added. Room rule added for slide grounds. Dashboard gate added to Known gaps.",
+   "kind": "value",
+   "machineCheckable": false,
+   "subject": "process"
+  }
+ ]
+}

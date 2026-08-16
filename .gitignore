@@ -1,3 +1,5 @@
 _to_delete/
 .DS_Store
 .git-rewrite/
+__pycache__/
+*.pyc

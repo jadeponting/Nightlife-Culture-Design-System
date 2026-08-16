@@ -1,0 +1,132 @@
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">Nightlife Culture · design system</p>
+    <h1>How the logic works</h1>
+    <p>Content goes in. A component comes out. This page shows the questions the system
+       asks, in the order it asks them — then runs your three examples through it, so you
+       can see what it decided and why.</p>
+  </div>
+</header>
+<div class="wrap">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The one idea</span></h2>
+  <p class="lede">The system never asks <i>what should this look like?</i> It asks
+     <i>what is this?</i> — and the look follows from the answer.</p>
+  <p>That sounds like a small difference. It isn't. “What should this look like” has no
+     correct answer, so everyone who touches the work gives a different one and the deck
+     drifts. “What is this?” has one answer, and the answer picks the component.</p>
+  <p>So everything goes down the same ladder. Six rungs, always in this order.</p>
+
+  <ol class="nc-list nc-list--num">
+    <li><b>What does the reader need?</b> The question they arrived with.</li>
+    <li><b>Where is it going?</b> A deck, a web page, a report, a spreadsheet, a poster.</li>
+    <li><b>What is it, structurally?</b> A heading, a claim, a piece of evidence, an aside.</li>
+    <li><b>Can it be read?</b> Contrast, size, measure, order, labelling.</li>
+    <li><b>Does it sound like us?</b> Colour, type, the accent, the ground.</li>
+    <li><b>Anything left over?</b> Flourish.</li>
+  </ol>
+
+  <p>Higher wins. When brand expression and reading clarity want different things, clarity
+     wins — every time, without a conversation. That is what the order is <i>for</i>: it
+     settles arguments before they start, so nobody has to win them on taste or seniority.</p>
+  <p>And the ladder can stop. If something fails at rung three it never reaches rung five.
+     A chart that cannot be made honest does not get a colour scheme. You will see that
+     happen to your own numbers further down.</p>
+
+  <h3>How much freedom you have: three tiers</h3>
+  <div class="grid2">
+    <div class="nc-panel nc-panel--top acc-teal">
+      <p class="lab">Fixed</p>
+      <p class="txt"><b>Uncertainty.</b> There is a right answer. Find it and apply it.
+        Contrast ratios, heading structure, the spacing scale, what an edge treatment means.
+        The system enforces these and fails the build if they break.</p>
+    </div>
+    <div class="nc-panel nc-panel--top acc-butter">
+      <p class="lab">Adaptable</p>
+      <p class="txt"><b>Ambiguity.</b> No single correct answer. Which sentence gets the
+        breakout, how often you change ground, whether this section earns a full band. A
+        judgement, made with reasons — the system tells you what is at stake and leaves the
+        call to you.</p>
+    </div>
+  </div>
+  <div class="nc-panel nc-panel--top acc-pink" style="margin-top:var(--nc-sp4)">
+    <p class="lab">Decorative</p>
+    <p class="txt"><b>Free</b> — provided nothing load-bearing lives only there. Covers,
+      dividers, section openers, pull quotes. Go as hard as you like.</p>
+  </div>
+  <p class="sm">The rule above all the others: preserve the brand most strongly in the
+     decorative and narrative surfaces; preserve accessibility most strongly in the layer
+     that carries meaning. The cover can shout. The chart cannot.</p>
+</section>
+
+<hr class="nc-brk acc-pink">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">What a component is here</span></h2>
+  <p class="lede">A component is a <i>job</i>, not a shape.</p>
+  <p>Two things that look similar but do different jobs are two components. Two things that
+     do the same job in different places are one component with a modifier. That is what
+     makes this set survive the move from a deck to a website to a dashboard to an
+     evaluation report without being redrawn — the job travels, the appearance adapts.</p>
+  <p>There are six families. Everything we build is one of these, or a combination.</p>
+  {{FAMILIES}}
+</section>
+
+<hr class="nc-brk acc-teal">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Which container, and why</span></h2>
+  <p>Containment is where most systems come apart, because a box is a box and people pick
+     one by eye. Here the edge treatment <i>is</i> the instruction to the reader. Choosing a
+     left rule instead of a top rule is choosing to say something different — so the choice
+     is made by asking what you are telling the reader to do, not by what looks balanced.</p>
+  <p>Read it top to bottom. The first yes wins.</p>
+  {{CONTAINERS}}
+  <p class="sm">This is why there is no rounded corner, no drop shadow and no card style in
+     the system. Every distinguishing move an edge can make has already been assigned a
+     meaning. A new one would either duplicate an existing instruction or introduce one
+     nobody has agreed.</p>
+</section>
+
+<hr class="nc-brk acc-butter">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">04</span><span class="ttl">Your three examples</span></h2>
+  <p>Here is the same machinery running on the three things you gave me. Nothing below was
+     written by hand: the ladder, the verdicts and the finished components are all produced
+     by the router, so this page cannot describe behaviour the system does not have.</p>
+  {{EXAMPLES}}
+</section>
+
+<hr class="nc-brk acc-coral">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">05</span><span class="ttl">What a refusal is for</span></h2>
+  <p>A refusal is not the system being difficult. It is the system declining to make weak
+     evidence look strong.</p>
+  <p>Every visual decision after rung three is a decision about <i>emphasis</i> — this is
+     the important number, this is the comparison worth making, look here. If the underlying
+     figures cannot support that emphasis, then applying the brand to them is not a neutral
+     act. A confident chart is a claim, and the design is what makes the claim confident.
+     So the honest order is: check the evidence, then dress it. Never the reverse.</p>
+  <p>There are two strengths of intervention, and they are deliberately different:</p>
+  <div class="grid2">
+    <div class="nc-panel nc-panel--left acc-coral">
+      <p class="lab">Stop</p>
+      <p class="txt">A Fixed rule is broken. No component is produced. This is not a
+        judgement call and there is no override — the fix is to the content, not to the
+        design.</p>
+    </div>
+    <div class="nc-panel nc-panel--left acc-butter">
+      <p class="lab">Check</p>
+      <p class="txt">Adaptable. The component is produced, and the system tells you what it
+        noticed and what is at stake. You decide. The reason is recorded either way.</p>
+    </div>
+  </div>
+  <p class="sm" style="margin-top:var(--nc-sp5)">Everything on this page traces to the
+     Nightlife Culture Style Guide v1.4 and the Decision Book chapters. Where the two
+     disagree, the disagreement is recorded rather than quietly resolved — seven of those
+     are still open and waiting on you.</p>
+</section>
+</div>

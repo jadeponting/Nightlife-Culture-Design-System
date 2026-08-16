@@ -1,0 +1,25 @@
+{
+  "source": "Nightlife Culture Style Guide v1.4",
+  "allowed": [
+    "#000000",
+    "#0000FF",
+    "#00C6C5",
+    "#0D0D0D",
+    "#2D2D2D",
+    "#53E6E5",
+    "#B98CFF",
+    "#C7339A",
+    "#ED77C2",
+    "#F3F3F3",
+    "#FD7B53",
+    "#FFDE6B",
+    "#FFFFFF"
+  ],
+  "retired": [
+    "#920DFF",
+    "#F26B43",
+    "#FFD100",
+    "#F6F6EE"
+  ],
+  "note": "Generated. Any hex outside this list is NC-COL-06, Fixed."
+}
