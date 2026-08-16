@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""Every class the stylesheets define must be shown somewhere you can look at it.
+
+    python3 checks/check_coverage.py
+
+The component library used to be the one hand-authored thing in a generated
+chain, and it drifted: 91 classes defined, 48 demonstrated. The stamp check
+could not see it, because the stamp compares digests of SOURCES and the library
+body IS a source. So a component could exist, be correct, be validated — and be
+invisible to the person who has to choose it.
+
+A component nobody can see is a component nobody will use, and the system was
+built on 'show, do not describe'. This makes that a check.
+
+Two surfaces demonstrate: components/library.body.html for the document layer,
+layouts/index.html for the slide layer. A class shown in either passes.
+"""
+import pathlib, re, sys
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+F = ROOT / "foundations"
+
+css = "\n".join((F / f).read_text() for f in
+                ("nightlife-culture.css", "nightlife-slides.css") if (F / f).exists())
+css = re.sub(r"/\*.*?\*/", " ", css, flags=re.S)
+defined = {m for m in re.findall(r"\.(nc-[a-z0-9-]+)", css)} | \
+          {m for m in re.findall(r"\.(ground-[a-z]+|acc-[a-z]+)", css)}
+
+SURFACES = ["components/library.body.html", "layouts/index.html"]
+shown = set()
+for f in SURFACES:
+    p = ROOT / f
+    if p.exists():
+        shown |= {c for a in re.findall(r'class="([^"]*)"', p.read_text()) for c in a.split()}
+
+missing = sorted(defined - shown)
+print(f"{len(defined)} classes defined · {len(defined) - len(missing)} demonstrated")
+if missing:
+    print(f"\n  {len(missing)} defined and shown nowhere:")
+    for c in missing:
+        print(f"    .{c}")
+    print("\n  Add a specimen to components/library.body.html, or delete the class.")
+    sys.exit(1)
+print("  every component has somewhere you can look at it")

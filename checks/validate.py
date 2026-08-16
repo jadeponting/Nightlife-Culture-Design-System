@@ -129,8 +129,14 @@ def check(path):
 
     # NC-DAT-04 — no non-uniform scaling. Stretching survives in the lines and
     # destroys the type, which reads as a rendering fault to everyone but the author.
-    if re.search(r'preserveAspectRatio\s*=\s*.?\s*none', h, re.I):
-        F.append(("NC-DAT-04", 'preserveAspectRatio="none" — the coordinate space is being stretched'))
+    # Look at the ATTRIBUTE, not the string. A page that documents the rule
+    # writes the words out; that is not a stretched SVG. Third time this class
+    # of false positive has appeared — a checker that fires on prose teaches
+    # people to ignore it, which is worse than not checking.
+    for tag in re.findall(r"<svg\b[^>]{0,600}>|<img\b[^>]{0,600}>", h, re.I):
+        if re.search(r'preserveAspectRatio\s*=\s*["\']?\s*none', tag, re.I):
+            F.append(("NC-DAT-04", 'preserveAspectRatio="none" — the coordinate space is being stretched'))
+            break
 
     # Split rather than match across tags. A nested-quantifier pattern over a
     # 260KB artefact backtracks for minutes; splitting is linear and does the

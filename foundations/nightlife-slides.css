@@ -53,7 +53,9 @@
   text-transform:uppercase}
 .nc-t{font-family:var(--nc-font-display);text-transform:uppercase;font-size:5.2cqw;
   line-height:.92;letter-spacing:-.01em;max-width:none}
-.nc-t--xl{font-size:7cqw} .nc-t--lg{font-size:6cqw} .nc-t--sm{font-size:3.4cqw}
+/* Two steps, not three. --lg existed and no layout used it; an unused size
+   is an invitation to pick by eye. Deleted rather than demonstrated. */
+.nc-t--xl{font-size:7cqw} .nc-t--sm{font-size:3.4cqw}
 .nc-sub{font-family:var(--nc-font-head);font-weight:700;font-size:1.8cqw;line-height:1.35;
   max-width:64%}
 .nc-sub--wide{max-width:100%}

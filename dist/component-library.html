@@ -765,6 +765,161 @@ tab; the number and title carry the meaning without it.</p>
 <p class="spec">Running foot carries the <em>section</em>, not just the document title — so a
 photocopied page knows where it came from. Version and date on the face.</p>
 </div>
+
+</div>
+
+<hr class="nc-brk acc-coral">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">16</span><span class="ttl">The rest of the chart set</span></h2>
+  <p>Specified in charts v1.4 and built in the last pass. Every one carries the same rules as
+     the bar: four series maximum, labelled at the mark, provenance on the chart.</p>
+
+  <p class="lbl">Pie — permitted, with the caveat stated</p>
+  <figure class="nc-chart">
+    <h3 class="ct">Venues hold two fifths of night-time spend</h3>
+    <p class="cs">Share of turnover by actor type, illustrative.</p>
+    <div class="nc-pie">
+      <div class="disc" style="background:conic-gradient(var(--nc-chart-1) 0 41%,var(--nc-chart-2) 41% 68%,var(--nc-chart-3) 68% 87%,var(--nc-chart-4) 87% 100%)"></div>
+      <div class="key">
+        <div><i style="background:var(--nc-chart-1)"></i>Venues <b>41%</b></div>
+        <div><i style="background:var(--nc-chart-2)"></i>Artists and crew <b>27%</b></div>
+        <div><i style="background:var(--nc-chart-3)"></i>Transport <b>19%</b></div>
+        <div><i style="background:var(--nc-chart-4)"></i>Other <b>13%</b></div>
+      </div>
+    </div>
+    <figcaption class="ev"><b>Reading.</b> Angles are read less accurately than lengths, so this is
+      the weakest way to compare segments. It earns its place when one dominant share has to be
+      instantly recognisable — and nowhere else.<br>
+      <span class="nc-illus">Illustrative</span><span class="nc-prov">OFF-OPEN</span> Figures not real.</figcaption>
+  </figure>
+  <p class="spec">.nc-pie · four segments maximum · percentages always in the key · keyline between
+    touching segments, because adjacent ramp contrast in greyscale is 1.79, 2.27 and 1.61 — all
+    under 3:1. NC-DAT-03.</p>
+
+  <p class="lbl">Line — change over time, with a break in collection</p>
+  <figure class="nc-chart">
+    <h3 class="ct">Both cities lost a third of their venues in a decade</h3>
+    <p class="cs">Grassroots venue count, two places, 2015 to 2025.</p>
+    <div class="nc-line">
+      <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" role="img"
+           aria-label="Two declining lines, Manchester from 62 to 44 and Bristol from 48 to 31, with a dashed segment across 2020 to 2021 where collection broke.">
+        <line class="gl" x1="0" y1="30" x2="400" y2="30"></line>
+        <line class="gl" x1="0" y1="80" x2="400" y2="80"></line>
+        <line class="gl" x1="0" y1="130" x2="400" y2="130"></line>
+        <polyline class="ln" points="10,38 110,52" style="stroke:var(--nc-chart-1)"></polyline>
+        <polyline class="ln ln--break" points="110,52 210,66" style="stroke:var(--nc-chart-1)"></polyline>
+        <polyline class="ln" points="210,66 330,78" style="stroke:var(--nc-chart-1)"></polyline>
+        <polyline class="ln" points="10,74 110,90" style="stroke:var(--nc-chart-2)"></polyline>
+        <polyline class="ln ln--break" points="110,90 210,104" style="stroke:var(--nc-chart-2)"></polyline>
+        <polyline class="ln" points="210,104 330,118" style="stroke:var(--nc-chart-2)"></polyline>
+        <text class="sl" x="338" y="78" style="fill:var(--nc-chart-1)">Manchester 44</text>
+        <text class="sl" x="338" y="118" style="fill:var(--nc-chart-2)">Bristol 31</text>
+        <text class="ax" x="10" y="152">2015</text>
+        <text class="ax" x="150" y="152">2020</text>
+        <text class="ax" x="300" y="152">2025</text>
+      </svg>
+    </div>
+    <figcaption class="ev"><b>Reading.</b> Series labelled at the line, never in a legend. The dashed
+      segment is a break in collection, 2020 to 2021 — not an estimate, and not a smooth trend.
+      Interpolating across it would be a design decision dressed as data.<br>
+      <span class="nc-illus">Illustrative</span><span class="nc-prov">OFF-OPEN</span>
+      <span class="nc-prov nc-prov--mid">COM-PARTIAL</span> Two sources, differently classified.</figcaption>
+  </figure>
+  <p class="spec">.nc-line · .ln--break for a collection break · .sl labels at the line · NC-DAT-01.
+    Never preserveAspectRatio="none" — stretching survives in the lines and destroys the type.</p>
+
+  <p class="lbl">Range bar — wherever uncertainty is material</p>
+  <div class="demo">
+    <div class="nc-range"><span class="lb">Bristol</span>
+      <span class="tk"><span class="rng" style="left:34%;width:20%"></span><span class="pt" style="left:44%"></span></span>
+      <span class="vl">4.9 ±1.4</span></div>
+    <div class="nc-range"><span class="lb">Manchester</span>
+      <span class="tk"><span class="rng" style="left:48%;width:18%"></span><span class="pt" style="left:57%"></span></span>
+      <span class="vl">6.1 ±1.1</span></div>
+    <div class="nc-range"><span class="lb">Sheffield</span>
+      <span class="tk"><span class="rng" style="left:18%;width:22%"></span><span class="pt" style="left:29%"></span></span>
+      <span class="vl">3.3 ±1.6</span></div>
+  </div>
+  <p class="spec">.nc-range · a bare point estimate reads as a count. A modelled value gets its
+    interval drawn, and the point carries a keyline so it survives against its own range. NC-DAT-02.</p>
+
+  <p class="lbl">The gap markers — a gap in the data is a finding</p>
+  <div class="demo">
+    <div class="nc-bar"><span class="lb">Venues</span><span class="tk"><span class="fl" style="width:82%"></span></span><span class="vl">82</span></div>
+    <div class="nc-bar"><span class="lb">Artists</span><span class="tk"><span class="fl nc-hatch" style="width:100%"></span></span><span class="vl">[c]</span></div>
+    <div class="nc-bar"><span class="lb">Promoters</span><span class="tk"><span class="fl" style="width:47%"></span></span><span class="vl">47</span></div>
+    <div class="nc-bar"><span class="lb">Crew</span><span class="tk"></span><span class="vl"><i class="nc-na">n/a</i></span></div>
+  </div>
+  <p class="spec">.nc-hatch suppressed for disclosure control · .nc-na not collected for this
+    population. The row always stays. A dropped row hides a finding; a silent blank asserts nothing
+    was there. NC-EVI-10.<br>The hatch spans the whole track on purpose. A hatch drawn to a
+    partial width would assert a magnitude nobody measured — which is the same defect as the
+    solid bar it replaced, in a politer colour. Spanning the track says "we are not telling you
+    where this sits", which is what suppression means.</p>
+
+  <p class="lbl">Comparability flag — three states</p>
+  <div class="demo">
+    <p class="nc-comp"><b>Gate cleared</b> — concept, unit, reference period, geography basis,
+      boundary vintage, population, classification and method all matched.</p>
+    <p class="nc-comp nc-comp--part"><b>Cleared with harmonisation</b> — venue definition harmonised
+      across two classification sets; crosswalk in the workbook.</p>
+    <p class="nc-comp nc-comp--fail"><b>Gate not cleared</b> — a local authority, a region and a town
+      are three geographies. These values do not go in one comparison.</p>
+  </div>
+  <p class="spec">.nc-comp · .nc-comp--part · .nc-comp--fail. Any chart comparing two or more places
+    carries one. A comparison without it is not publishable. NC-EVI-08.</p>
+</section>
+
+<hr class="nc-brk acc-violet">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">17</span><span class="ttl">Every remaining text surface</span></h2>
+  <p>The browser renders these whether or not we decide. Unstyled is still a look — and it is the
+     one nobody chose. Each is specified, inherits, or is barred; nothing is left to the user agent.</p>
+
+  <div class="demo">
+    <p>A defined term like <span class="nc-term">night-time economy</span> keeps its definition in the
+      prose. An abbreviation such as <abbr class="nc-abbr" title="Night-Time Economy">NTE</abbr> is
+      written out in full on first use — the dotted rule is a reminder, never the only route to the
+      meaning. Inline code reads <code class="nc-code">--nc-sp4</code>, a key is
+      <kbd class="nc-kbd">esc</kbd>, and a highlight like <mark class="nc-mark">this one</mark> carries
+      weight as well as fill, so it survives greyscale. Footnote markers sit
+      up<sup class="nc-sup">1</sup> or down<sub class="nc-sub">2</sub>.</p>
+    <p class="nc-small">Small is secondary — never a way to get under the 12pt floor. This line is
+      at the 13px note floor.</p>
+    <ol class="nc-list nc-list--num">
+      <li>A numbered list, where the order is part of the meaning.</li>
+      <li>Space between items does the work, not the leading inside them.</li>
+    </ol>
+    <dl class="nc-dl">
+      <dt>Provenance code</dt><dd>The self-describing chip on every figure — OFF-OPEN through to ANECDOTAL.</dd>
+      <dt>Comparability gate</dt><dd>Eight criteria that must match or be harmonised before two values share an axis.</dd>
+    </dl>
+    <pre class="nc-pre acc-teal">python3 build.py
+  → 127 components audited — 127 complete
+  → BUILD OK</pre>
+    <details class="nc-details">
+      <summary>Progressive disclosure holds detail, never a finding</summary>
+      <p class="nc-small">A finding behind a twisty is a finding most readers never meet, and one no
+        printed copy contains at all. NC-DOC-10.</p>
+    </details>
+  </div>
+  <p class="spec">.nc-term · .nc-abbr · .nc-code · .nc-kbd · .nc-mark · .nc-sup · .nc-sub ·
+    .nc-small · .nc-list--num · .nc-dl · .nc-pre · .nc-details. NC-DOC-08 to 10, NC-TYP-06.</p>
+
+  <p class="lbl">Banded table — long reference tables where the eye needs a rail</p>
+  <div class="tw"><table class="nc-table nc-table--band">
+    <thead><tr><th>Ground</th><th>Text</th><th class="num">Measured</th></tr></thead>
+    <tbody>
+      <tr><td>Blue</td><td>white</td><td class="num">8.5925</td></tr>
+      <tr><td>Ink</td><td>white</td><td class="num">19.4355</td></tr>
+      <tr><td>Chalk</td><td>ink</td><td class="num">17.5155</td></tr>
+      <tr><td>White</td><td>ink</td><td class="num">19.4355</td></tr>
+    </tbody></table></div>
+  <p class="spec">.nc-table--band. Never band and rule at once — two grouping mechanisms doing one
+    job means neither reads as deliberate. NC-TBL-01.</p>
+</section>
 </div>
 </section>
 
