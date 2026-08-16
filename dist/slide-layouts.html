@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Twelve layouts — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:92414cab1994f1b9;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:18d83774f22b5c02;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -405,6 +405,13 @@
 .nc-illus{display:inline-block;font-family:var(--nc-font-head);font-weight:800;font-size:.66em;
   letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
   background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
+
+/* The markup disclosure sits under a specimen and carries its own markup. It
+   is a details block, so nothing load-bearing lives inside it (NC-DOC-10) —
+   the specimen is above it, in the open. */
+.nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}
+.nc-disclose>summary{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}
+.nc-disclose pre{max-height:26em;overflow:auto}
 
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a

@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The build order — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:92414cab1994f1b9;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:bb0a14a21c2b9613;rules:b49b7662e7737d24;css:18d83774f22b5c02;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -406,6 +406,13 @@
   letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
   background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
 
+/* The markup disclosure sits under a specimen and carries its own markup. It
+   is a details block, so nothing load-bearing lives inside it (NC-DOC-10) —
+   the specimen is above it, in the open. */
+.nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}
+.nc-disclose>summary{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}
+.nc-disclose pre{max-height:26em;overflow:auto}
+
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a
    kicker, a standfirst, a note under a specimen, and the frame a specimen
@@ -672,7 +679,7 @@
 <div class="nc-wrap">
 <section>
   <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">Where we are</span></h2>
-  <div class="nc-g2"><div class="nc-stat nc-stat--top acc-teal"><p class="big">127</p><p class="lb">Complete</p><p class="src">Built, with the rule attached — or ruled and enforced by a check that fails the build.</p></div><div class="nc-stat nc-stat--top acc-coral"><p class="big">0</p><p class="lb">Left to build</p><p class="src">Everything below. Ordered so that nothing waits on a decision that has not been made.</p></div></div>
+  <div class="nc-g2"><div class="nc-stat nc-stat--top acc-teal"><p class="big">136</p><p class="lb">Complete</p><p class="src">Built, with the rule attached — or ruled and enforced by a check that fails the build.</p></div><div class="nc-stat nc-stat--top acc-coral"><p class="big">6</p><p class="lb">Left to build</p><p class="src">Everything below. Ordered so that nothing waits on a decision that has not been made.</p></div></div>
   <p class="nc-stand">No new asset types until this list is empty.</p>
   <p>Word, PowerPoint and Excel templates all consume the component layer. Building them
      while the layer has holes in it means the holes get filled ad hoc, in three formats,
@@ -685,7 +692,7 @@
     <p class="cs">Items per wave. Single series, so a single colour.</p>
     <div class="nc-bar"><span class="lb">Wave 1</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
 <div class="nc-bar"><span class="lb">Wave 2</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
-<div class="nc-bar"><span class="lb">Wave 3</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
+<div class="nc-bar"><span class="lb">Wave 3</span><span class="tk"><span class="fl" style="width:100%"></span></span><span class="vl">6</span></div>
 <div class="nc-bar"><span class="lb">Wave 4</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
 <div class="nc-bar"><span class="lb">Wave 5</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
     <figcaption class="ev"><b>Reading.</b> The slide layer is more than half of what is
@@ -702,7 +709,12 @@
      the Book — not to invent one.</p>
   <div class="nc-panel nc-panel--top acc-teal wv"><p class="lab">Wave 1 · 0 items</p><p class="wt-t">Finish what is already standing</p><p class="txt">Eight components that exist and work, with no rule saying why. Nothing here needs a design decision — the shape is settled, the reason just was never written down. A component with no rule is a habit: it survives as long as someone remembers it, and no longer.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
 <div class="nc-panel nc-panel--top acc-blue wv"><p class="lab">Wave 2 · 0 items</p><p class="wt-t">Complete the chart and evidence set</p><p class="txt">Four chart forms and four pieces of evidence furniture that charts v1.4 and the style guide specify and the codebase does not have. Nothing to decide — the specification already exists in your own files. Until they are built, anyone needing one reaches outside the system, and that is how a system starts to leak.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
-<div class="nc-panel nc-panel--top acc-violet wv"><p class="lab">Wave 3 · 0 items</p><p class="wt-t">Give every authoring rule a home</p><p class="txt">Rules that exist and nothing enforces, plus rules the reference files state and the rule set never captured. Each one gets either a check that fails the build, or an honest note that it is a human step. A rule with neither is a rule that will quietly stop being true.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
+<div class="nc-panel nc-panel--top acc-violet wv"><p class="lab">Wave 3 · 6 items</p><p class="wt-t">Give every authoring rule a home</p><p class="txt">Rules that exist and nothing enforces, plus rules the reference files state and the rule set never captured. Each one gets either a check that fails the build, or an honest note that it is a human step. A rule with neither is a rule that will quietly stop being true.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody><tr><td class="nm">Skip link — bypass blocks</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">decision sheet · handover sheet · reconciliation sheet</td></tr>
+<tr><td class="nm">Document metadata block — source, date, version on the face</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">decision sheet · handover sheet · reconciliation sheet</td></tr>
+<tr><td class="nm">Page footer — provenance at the foot of a document</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">breakers, grid &amp; furniture v1.6 · Style Guide v1.4 · working deck</td></tr>
+<tr><td class="nm">Section rhythm — the space between sections</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">charts &amp; data v1.4 · containment v1.3 · breakers, grid &amp; furniture v1.6 · grounds &amp; components v1.2 · joy.html · slide system v1.5 · slide layouts v1.0</td></tr>
+<tr><td class="nm">Contents list at the head of a long document</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">Style Guide v1.4</td></tr>
+<tr><td class="nm">Status tag — a state, in a word</td><td class="sr">Page furniture — the frame around the components</td><td class="cd">—</td><td class="wt">Take the rule from the Book, write it down, then build it.</td><td class="sr">handover sheet</td></tr></tbody></table></div>
 <div class="nc-panel nc-panel--top acc-butter wv"><p class="lab">Wave 4 · 0 items</p><p class="wt-t">The slide layer</p><p class="txt">The hole. Twelve layouts exist as working markup in slide layouts v1.0 and in the repo&#x27;s older folder, but nothing generates them from the tokens, so nothing checks them — the last place a hand-set value can hide. This wave is blocked on one decision of yours: the grid geometry.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
 <div class="nc-panel nc-panel--top acc-pink wv"><p class="lab">Wave 5 · 0 items</p><p class="wt-t">The remaining surfaces</p><p class="txt">The nine HTML elements the browser will style whether or not we decide, and the table variants. Low glamour, high frequency — and unstyled is still a look.</p></div><div class="tw"><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
 </section>

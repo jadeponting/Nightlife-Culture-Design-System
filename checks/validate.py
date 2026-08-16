@@ -96,6 +96,17 @@ def check(path):
     if hair > max(tables, 1):
         W.append(("NC-CON-02", f"{hair} hairline borders but only {tables} tables — hairline is not for anything carrying meaning"))
 
+    # NC-LAY-04b — inline spatial values. The block-level check below reads
+    # stylesheets; a hand-set value in a style attribute slipped straight past
+    # it, and eighteen were sitting in the component library — the one page
+    # whose job is to prove the opposite. Hairlines and explicit widths are
+    # not spacing and are exempt.
+    for attr in re.findall(r'style="([^"]*)"', h):
+        for prop, val in re.findall(r"((?:padding|margin|gap)[a-z-]*)\s*:\s*([^;]+)", attr):
+            for num in re.findall(r"(-?\d+(?:\.\d+)?)px", val):
+                if abs(float(num)) > 1:
+                    W.append(("NC-LAY-04", f"inline {prop}: {num}px — off the spacing scale"))
+
     # NC-LAY-04 — every spatial value from the scale. Rule weights exempt.
     SCALE={0.25,0.5,0.75,1.0,1.5,2.0,3.0,4.0,6.0}
     for sel, block in blocks:

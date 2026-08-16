@@ -361,6 +361,13 @@ css = f"""/* =============================================================
   letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
   background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}}
 
+/* The markup disclosure sits under a specimen and carries its own markup. It
+   is a details block, so nothing load-bearing lives inside it (NC-DOC-10) —
+   the specimen is above it, in the open. */
+.nc-disclose{{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}}
+.nc-disclose>summary{{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}}
+.nc-disclose pre{{max-height:26em;overflow:auto}}
+
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a
    kicker, a standfirst, a note under a specimen, and the frame a specimen

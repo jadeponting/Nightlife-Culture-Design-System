@@ -25,7 +25,11 @@ css = re.sub(r"/\*.*?\*/", " ", css, flags=re.S)
 defined = {m for m in re.findall(r"\.(nc-[a-z0-9-]+)", css)} | \
           {m for m in re.findall(r"\.(ground-[a-z]+|acc-[a-z]+)", css)}
 
-SURFACES = ["components/library.body.html", "layouts/index.html"]
+# Read the BUILT pages, not the source bodies. Some classes are added by the
+# build itself — the markup disclosure under each specimen is generated, not
+# typed — and a check that reads the source cannot see them. What matters is
+# what renders, so that is what is counted.
+SURFACES = ["components/index.html", "layouts/index.html"]
 shown = set()
 for f in SURFACES:
     p = ROOT / f

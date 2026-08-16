@@ -2124,6 +2124,224 @@
      ]
     }
    ]
+  },
+  {
+   "name": "Page furniture — the frame around the components",
+   "items": [
+    {
+     "n": "Masthead — kicker, title, standfirst",
+     "src": [
+      "hd",
+      "ch",
+      "cn",
+      "fu",
+      "gr",
+      "jy",
+      "ds",
+      "hv",
+      "rc",
+      "sg"
+     ],
+     "class": [
+      ".nc-mast",
+      ".nc-kick",
+      ".nc-stand"
+     ],
+     "rules": [
+      "NC-PAG-01"
+     ],
+     "enforced_by": [
+      "checks/validate.py"
+     ]
+    },
+    {
+     "n": "Content measure",
+     "src": [
+      "ch",
+      "cp",
+      "cn",
+      "ds",
+      "fu",
+      "gr",
+      "hv",
+      "jy",
+      "rc",
+      "sl",
+      "sg"
+     ],
+     "class": [
+      ".nc-wrap"
+     ],
+     "rules": [
+      "NC-PAG-02"
+     ]
+    },
+    {
+     "n": "Note under a specimen",
+     "src": [
+      "ch",
+      "cn",
+      "ds",
+      "fu",
+      "gr",
+      "jy",
+      "sl"
+     ],
+     "class": [
+      ".nc-note"
+     ],
+     "rules": [
+      "NC-TYP-06"
+     ]
+    },
+    {
+     "n": "Specimen frame",
+     "src": [
+      "ds",
+      "hd",
+      "cp"
+     ],
+     "class": [
+      ".nc-specimen",
+      ".nc-specimen--bare"
+     ],
+     "rules": [
+      "NC-PAG-03"
+     ]
+    },
+    {
+     "n": "Specimen label",
+     "src": [
+      "hd",
+      "cp"
+     ],
+     "class": [
+      ".nc-lab"
+     ],
+     "rules": [
+      "NC-TYP-04"
+     ]
+    },
+    {
+     "n": "Specimen grids — two and three across",
+     "src": [
+      "hd",
+      "sy",
+      "sl",
+      "wd"
+     ],
+     "class": [
+      ".nc-g2",
+      ".nc-g3"
+     ],
+     "rules": [
+      "NC-PAG-02"
+     ]
+    },
+    {
+     "n": "Markup disclosure under every specimen",
+     "src": [
+      "ds"
+     ],
+     "class": [
+      ".nc-disclose"
+     ],
+     "rules": [
+      "NC-DOC-10",
+      "NC-SYS-06"
+     ],
+     "enforced_by": [
+      "components/build_library.py"
+     ]
+    },
+    {
+     "n": "Link states — unvisited, visited, hover, focus",
+     "src": [
+      "ds",
+      "sg"
+     ],
+     "class": [
+      ".nc-link",
+      ".nc-link:visited"
+     ],
+     "rules": [
+      "NC-PAG-04"
+     ]
+    },
+    {
+     "n": "Skip link — bypass blocks",
+     "src": [
+      "ds",
+      "hv",
+      "rc"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Document metadata block — source, date, version on the face",
+     "src": [
+      "ds",
+      "hv",
+      "rc"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Page footer — provenance at the foot of a document",
+     "src": [
+      "fu",
+      "sg",
+      "wd"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Section rhythm — the space between sections",
+     "src": [
+      "ch",
+      "cn",
+      "fu",
+      "gr",
+      "jy",
+      "sl",
+      "sy"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Contents list at the head of a long document",
+     "src": [
+      "sg"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Status tag — a state, in a word",
+     "src": [
+      "hv"
+     ],
+     "class": [],
+     "rules": []
+    },
+    {
+     "n": "Figure caption under a specimen",
+     "src": [
+      "fu",
+      "sl"
+     ],
+     "class": [
+      ".nc-caption"
+     ],
+     "rules": [
+      "NC-DOC-07"
+     ]
+    }
+   ]
   }
  ]
 }
