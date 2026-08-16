@@ -1,517 +1,527 @@
 {
-  "meta": {
-    "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.4 or a Decision Book rule ID.",
-    "source": "Nightlife Culture Style Guide v1.4 + The Decision Book (digest 6034d466ccbf4071)",
-    "generated": "2026-08-16",
-    "tiers": {
-      "fixed": "There is a right answer. Pass or fail, measurable. Breaking it is negligence.",
-      "adaptable": "No single correct answer. Defensible or not. Choosing is the job.",
-      "decorative": "Free — provided nothing carrying meaning lives there."
-    },
-    "sourceRead": "All 18 chapters of The Decision Book read in full, 16 August 2026 — not the CSV registers. 4,596 lines.",
-    "correction": "An earlier pass reported that 'provenance chip' and 'callout' have no basis in the Book's prose. That was wrong for the chip: ch04 specifies the self-describing chip and the ordinal strength meter explicitly, as named patterns with rules. Carly's .nc-prov and .nc-meter come straight from it. 'Callout' remains absent."
+ "meta": {
+  "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.4 or a Decision Book rule ID.",
+  "source": "Nightlife Culture Style Guide v1.4 + The Decision Book (digest 6034d466ccbf4071)",
+  "generated": "2026-08-16",
+  "tiers": {
+   "fixed": "There is a right answer. Pass or fail, measurable. Breaking it is negligence.",
+   "adaptable": "No single correct answer. Defensible or not. Choosing is the job.",
+   "decorative": "Free — provided nothing carrying meaning lives there."
   },
-  "decisionStack": [
-    "legal and ethical requirements",
-    "accessibility and user need",
-    "factual and methodological integrity",
-    "clarity and usability",
-    "format conventions",
-    "brand consistency",
-    "stylistic preference"
-  ],
-  "rules": [
-    {
-      "id": "NC-COL-01",
-      "tier": "fixed",
-      "source": "v1.4 §07",
-      "rule": "Every accent is a black-text surface. Every ground is a white-text surface.",
-      "breaks": "White on pink is 2.62:1. Black on blue is 2.44:1.",
-      "machine": "textOn"
-    },
-    {
-      "id": "NC-COL-02",
-      "tier": "fixed",
-      "source": "v1.4 §12 · COL-06",
-      "rule": "Only the four-series ramp encodes data. Brand accents are surfaces.",
-      "breaks": "Accents separate by hue alone and collapse in greyscale.",
-      "machine": "noAccentInChart"
-    },
-    {
-      "id": "NC-COL-03",
-      "tier": "fixed",
-      "source": "v1.4 §12 · DAT-04",
-      "rule": "Four series maximum. One series = blue.",
-      "breaks": "Beyond four the ramp stops being distinguishable.",
-      "machine": "maxSeries4"
-    },
-    {
-      "id": "NC-COL-04",
-      "tier": "fixed",
-      "source": "v1.4 §12 · COL-11 COL-12",
-      "rule": "Label at the mark. Decide labelling before series colour.",
-      "breaks": "For brand-derived palettes, direct labelling is the mechanism by which the chart is compliant at all.",
-      "machine": null
-    },
-    {
-      "id": "NC-COL-05",
-      "tier": "fixed",
-      "source": "v1.4 §07",
-      "rule": "Retired colours are never reintroduced: #920DFF #F26B43 #FFD100 #F6F6EE. Aptos is a retired typeface.",
-      "breaks": "Reintroduction is silent drift.",
-      "machine": "retiredValues"
-    },
-    {
-      "id": "NC-COL-06",
-      "tier": "fixed",
-      "source": "v1.4 §07 · tokens.json",
-      "rule": "No colour value may appear in an artefact that is not in tokens.json.",
-      "breaks": "A hand-picked hex is a decision made outside the system, and it will be made differently next time.",
-      "machine": "hexAllowlist"
-    },
-    {
-      "id": "NC-COL-07",
-      "tier": "adaptable",
-      "source": "v1.4 §09",
-      "rule": "Blue is a structural signal, not scattered decoration.",
-      "breaks": "Scattered accent reads as decoration and stops signalling.",
-      "machine": null
-    },
-    {
-      "id": "NC-TYP-01",
-      "tier": "fixed",
-      "source": "v1.4 §08 · TYP-14 DOC-14",
-      "rule": "Caps are applied as a character format (text-transform / All Caps), never typed.",
-      "breaks": "Typed caps are read letter-by-letter by screen readers and cannot be undone.",
-      "machine": "noTypedCaps"
-    },
-    {
-      "id": "NC-TYP-02",
-      "tier": "fixed",
-      "source": "v1.4 §08 · TYP-05 TYP-06 TYP-18",
-      "rule": "Body 12pt floor. Line height 1.5–1.6 running prose, 1.25–1.35 table cells.",
-      "breaks": "Below the floor the document stops being readable at distance or in print.",
-      "machine": "typeFloors"
-    },
-    {
-      "id": "NC-TYP-03",
-      "tier": "fixed",
-      "source": "v1.4 §08",
-      "rule": "Body and H3 are sentence case. Never caps in body, captions, source lines or table cells.",
-      "breaks": "Caps below ~16pt stop working.",
-      "machine": null
-    },
-    {
-      "id": "NC-TYP-04",
-      "tier": "adaptable",
-      "source": "v1.4 §08",
-      "rule": "Caps floor is 16pt. Resolves the §08 conflict between the 14pt label minimum and the H3 note.",
-      "breaks": "Unresolved, the next person picks a different number.",
-      "machine": "capsFloor"
-    },
-    {
-      "id": "NC-TYP-05",
-      "tier": "fixed",
-      "source": "FID-12–14",
-      "rule": "Fonts embedded in every deliverable. Never linked.",
-      "breaks": "Substitution widens the same string by roughly a third, silently.",
-      "machine": "fontsEmbedded"
-    },
-    {
-      "id": "NC-CON-01",
-      "tier": "fixed",
-      "source": "v1.4 §09 · containment v1.3 (which retracts grounds v1.2's 'structural hairline')",
-      "rule": "Contain with colour and space, not outlines. The 2px ink outline is reserved for the flyer register — covers, posters, section dividers — never the default.",
-      "breaks": "Used full-time it does the work space should do and makes every panel shout at the same volume. Reserved, the box means something when it turns up.",
-      "machine": "noHardOutline"
-    },
-    {
-      "id": "NC-CON-02",
-      "tier": "fixed",
-      "source": "v1.4 §09",
-      "rule": "Hairline is never used for anything carrying meaning. White panels on chalk, tables and forms only.",
-      "breaks": "A meaning-carrying container held by a hairline is invisible in print and to a screen reader.",
-      "machine": "hairlineScope"
-    },
-    {
-      "id": "NC-CON-03",
-      "tier": "adaptable",
-      "source": "v1.4 §09",
-      "rule": "Pull quotes, callouts and asides use the left rule (12px). Dense pages and tables use the top rule (9px). Accent panels use fill.",
-      "breaks": "Treatment carries the register; swapping them flattens the hierarchy.",
-      "machine": "containmentAssignment"
-    },
-    {
-      "id": "NC-LAY-01",
-      "tier": "adaptable",
-      "source": "v1.4 §10 · measured in the working deck",
-      "rule": "Slide side margin 5.25%, kicker line 6.67%. The written 6% / 7.5% is superseded by what the deck does.",
-      "breaks": "Two grids in one system.",
-      "machine": "slideGrid"
-    },
-    {
-      "id": "NC-LAY-02",
-      "tier": "adaptable",
-      "source": "v1.4 §10",
-      "rule": "One idea per slide. Roughly half the canvas empty; over ~55% covered means two slides. Remove copy before reducing type.",
-      "breaks": "Reducing type to fit is how the floor gets broken.",
-      "machine": "coverage"
-    },
-    {
-      "id": "NC-LAY-03",
-      "tier": "fixed",
-      "source": "v1.4 §09 · §14",
-      "rule": "Keep core information in a simple reading order. Single-column for long-form where practical.",
-      "breaks": "Reading order is invisible on screen and decisive for everyone not looking at it.",
-      "machine": null
-    },
-    {
-      "id": "NC-SEQ-01",
-      "tier": "adaptable",
-      "source": "measured, Trusted Partner Deck slides 08 13 14 15",
-      "rule": "Slide grammar: kicker → statement → provocation → structure → so-what. Structure elements are always marker + qualifier, never a marker alone.",
-      "breaks": "A caps marker without its qualifier is a slogan.",
-      "machine": "slideGrammar",
-      "status": "PROVISIONAL — pattern read from four slides, awaiting confirmation"
-    },
-    {
-      "id": "NC-PRS-01",
-      "tier": "fixed",
-      "source": "v1.4 §14 · PRS-03 FID-01",
-      "rule": "Reading order set explicitly, on every slide. Placeholders authored in reading order in the master.",
-      "breaks": "Reading order follows shape-creation order and bears no relation to visual position.",
-      "machine": "readingOrder"
-    },
-    {
-      "id": "NC-PRS-02",
-      "tier": "fixed",
-      "source": "v1.4 §14",
-      "rule": "Every slide carries a unique descriptive title. It may be hidden or off-canvas; it may not be absent.",
-      "breaks": "It is how a screen-reader user navigates a deck, and the title list is the deck outline.",
-      "machine": "slideTitles"
-    },
-    {
-      "id": "NC-PRS-03",
-      "tier": "fixed",
-      "source": "v1.4 §14",
-      "rule": "No tables on slides. A table on a slide is a reference table in the wrong artefact.",
-      "breaks": "Puts reference density into a presented artefact.",
-      "machine": "noSlideTables"
-    },
-    {
-      "id": "NC-PRS-04",
-      "tier": "fixed",
-      "source": "v1.4 §14",
-      "rule": "No text box sized to its text.",
-      "breaks": "A substituted face widens the same string by roughly a third.",
-      "machine": null
-    },
-    {
-      "id": "NC-DOC-01",
-      "tier": "fixed",
-      "source": "v1.4 §14 · FID-02",
-      "rule": "Real named styles, applied. Never direct character formatting.",
-      "breaks": "100% direct formatting makes the style system inert — measured in both UKDF documents.",
-      "machine": "directFormatRatio"
-    },
-    {
-      "id": "NC-DOC-02",
-      "tier": "fixed",
-      "source": "v1.4 §14 · DOC-17",
-      "rule": "A4 for UK submissions.",
-      "breaks": "Both UKDF documents are US Letter.",
-      "machine": "pageSize"
-    },
-    {
-      "id": "NC-DOC-03",
-      "tier": "fixed",
-      "source": "v1.4 §14 · DOC-05 VOI-03",
-      "rule": "Document title, author and one declared language set in properties.",
-      "breaks": "Neither UKDF document sets a title.",
-      "machine": "metadata"
-    },
-    {
-      "id": "NC-DOC-04",
-      "tier": "fixed",
-      "source": "v1.4 §14 · TBL-09 FID-08",
-      "rule": "Table header rows repeat across pages.",
-      "breaks": "Measured: 9 of 57 tables in the funding deck copy.",
-      "machine": "tableHeaders"
-    },
-    {
-      "id": "NC-DOC-05",
-      "tier": "fixed",
-      "source": "v1.4 §14",
-      "rule": "Headings state findings, not topics. No skipped heading levels. Conclusion in the first screen.",
-      "breaks": "A contents list of finding-headings is a readable summary, which is what most readers use it as.",
-      "machine": "headingLevels"
-    },
-    {
-      "id": "NC-DOC-06",
-      "tier": "fixed",
-      "source": "v1.4 §14",
-      "rule": "White ground for Word and print, not chalk.",
-      "breaks": "Word and print handle white more predictably, and partners will edit it.",
-      "machine": null
-    },
-    {
-      "id": "NC-XLS-01",
-      "tier": "fixed",
-      "source": "TBL-07 TBL-14 PLY-16",
-      "rule": "Spreadsheets are models: real tables, formulas from one assumptions sheet, freeze panes, no merged cells in data.",
-      "breaks": "Measured: 53 formulas in 1,135 cells, 0 tables, 0 freeze panes, 56 merged ranges.",
-      "machine": "workbookModel"
-    },
-    {
-      "id": "NC-EVI-01",
-      "tier": "fixed",
-      "source": "v1.4 §06 §12",
-      "rule": "Every chart carries provenance: code, reference period, geography, boundary vintage. Every big number carries a source line.",
-      "breaks": "A statistic without a source line is a claim, not a finding.",
-      "machine": null
-    },
-    {
-      "id": "NC-EVI-02",
-      "tier": "fixed",
-      "source": "v1.4 §12",
-      "rule": "Show the gaps. Hatched for suppressed [c], dashed for a break in collection, n/a for not collected. Never a silent blank.",
-      "breaks": "A gap in the data is a finding.",
-      "machine": null
-    },
-    {
-      "id": "NC-EVI-03",
-      "tier": "fixed",
-      "source": "v1.4 §13",
-      "rule": "No published figure rests on fewer than three contributing units. Apply secondary suppression.",
-      "breaks": "A value recoverable by subtraction is not suppressed.",
-      "machine": null
-    },
-    {
-      "id": "NC-EVI-04",
-      "tier": "fixed",
-      "source": "v1.4 §12",
-      "rule": "Illustrative or placeholder figures say so, in the chart, every time.",
-      "breaks": "A placeholder that travels becomes a claim.",
-      "machine": null
-    },
-    {
-      "id": "NC-BRK-01",
-      "tier": "fixed",
-      "source": "BRK-16",
-      "rule": "Every derived artefact states the source version it was built from.",
-      "breaks": "A wrong stamp is worse than none — an absent stamp prompts a check, a wrong one prevents it.",
-      "machine": "versionStamp"
-    },
-    {
-      "id": "NC-BRK-02",
-      "tier": "fixed",
-      "source": "v1.4 §11 · LOGO.md",
-      "rule": "The wordmark is an outlined asset. Never re-set as live type.",
-      "breaks": "The two lines are set at different sizes (32.09pt / 33.41pt) so they justify to one width. One size loses the lockup.",
-      "machine": "noLiveWordmark"
-    },
-    {
-      "id": "NC-DIR-01",
-      "tier": "decorative",
-      "source": "Carly Heath, 16 August 2026",
-      "rule": "Minimalist. Bright colour, breathing space, message carries. No icons, illustration, stickers or decorative imagery.",
-      "breaks": "Nothing — this is the decorative tier. The joy comes from what the work is doing, not from ornament.",
-      "machine": null
-    },
-    {
-      "id": "NC-CON-04",
-      "tier": "fixed",
-      "source": "ch13 · SC 1.3.1",
-      "rule": "A section header must BE a heading, not look like one. The numeral box sits inside the heading element.",
-      "breaks": "Found in headers.html: .nc-section-head is a div of spans. It renders as the document's H2 level and contains no heading — the exact 'appearance and structure are independent' failure, inside the component that structures every document.",
-      "machine": "headingLevels"
-    },
-    {
-      "id": "NC-EVI-05",
-      "tier": "fixed",
-      "source": "ch08 · live testing",
-      "rule": "Apply the suppression threshold to the planned sample BEFORE fieldwork is scoped, and state at proposal stage what the design will let you say.",
-      "breaks": "Measured in the Book against a budget model of this exact shape: two places, 18-24 conversations, gives 9-12 per place. A threshold of three survives a single frequency count and nothing else — every place x role, place x age cross-tabulation falls below it. The comparative claim the research exists to make is the claim disclosure will not let you publish. It looks like a budget line, taken months before anyone opens a chart library.",
-      "machine": null
-    },
-    {
-      "id": "NC-PKG-01",
-      "tier": "fixed",
-      "source": "ch17 · live testing",
-      "rule": "One source per number, named, wherever a figure appears in more than one artefact. Reconcile across the pack before submission, as a step.",
-      "breaks": "Measured in a four-artefact funding pack: workbook said £50,000, application draft and deck both said £49,800, no mapping. One assumptions cell labelled 'UKDF request' with a basis column reading 'Application ceiling'. A fund manager finds it in thirty seconds and it reads as not knowing what you are asking for.",
-      "machine": "packReconcile"
-    },
-    {
-      "id": "NC-PKG-02",
-      "tier": "fixed",
-      "source": "ch17 · the user's correction",
-      "rule": "Where artefacts disagree, date them and name the most recent as the candidate truth. Never report an unresolved contradiction and hand the job back.",
-      "breaks": "A contradiction reported without a candidate answer transfers the whole job to the author at 11pm.",
-      "machine": null
-    },
-    {
-      "id": "NC-SYS-01",
-      "tier": "fixed",
-      "source": "ch18 step eight",
-      "rule": "State where the current version lives, in the system itself. Name the canonical location once; treat every other copy as derived.",
-      "breaks": "Versioning without a location leaves a reviewer several candidates — a repo folder, a project, a chat, a skill — and no way to choose.",
-      "machine": null
-    },
-    {
-      "id": "NC-SYS-02",
-      "tier": "fixed",
-      "source": "ch18 step nine",
-      "rule": "Quote the line every finding rests on, or mark the finding as inference. Report an absence as a different class of claim from a quotation.",
-      "breaks": "Findings drift from 'the document says' to 'you said' in three cheap steps. Measured during the Book's own review — and committed again in this project when an absence was reported for the provenance chip, which ch04 specifies explicitly.",
-      "machine": null
-    },
-    {
-      "id": "NC-DGM-01",
-      "tier": "fixed",
-      "source": "ch10",
-      "rule": "Do not build a generic diagram kit of nodes and connectors. Name the job — bound, relate, decompose, sequence, diverge, converge — and use a named form from the vocabulary, stating which it is.",
-      "breaks": "A generic kit produces the default flowchart, which asserts sequence when the job is boundary or influence. Every arrow is a claim about order or causation. Closes v1.4 §15 gap 2 differently than the guide anticipated.",
-      "machine": null
-    },
-    {
-      "id": "NC-CON-05",
-      "tier": "adaptable",
-      "source": "ch04 · charts v1.4",
-      "rule": "A keyline on a chart mark is exempt from the hard-outline rule. Where marks touch or overlap, ch04 requires 3:1 adjacency OR a separator, border or pattern — the keyline IS that mechanism.",
-      "breaks": "Without it the dot-plot point disappears into its own range bar. This is a graphic doing separation work, not a container drawn around content. Named so the exemption is visible rather than silent.",
-      "machine": "chartMarkKeyline"
-    },
-    {
-      "id": "NC-LAY-04",
-      "tier": "fixed",
-      "source": "ch02 · IBM Carbon 2x Grid · joy.css",
-      "rule": "Every spatial value — padding, margin, gap — comes from the spacing scale. One base unit (.25em), nine steps, non-linear. Rule weights are not spacing and are exempt.",
-      "breaks": "Measured in this repo: the page scaffold used twenty distinct ad-hoc pixel values and the component layer had 51 spacing declarations off any scale. One unit produces relationships a reader can learn; none produces noise that reads as carelessness. joy.css already carried a measured scale, defined and never used.",
-      "machine": "spacingScale"
-    }
-  ],
-  "removalTest": {
-    "purpose": "Ch18 step five — the assembled test. You do not read this table. You use ONE ROW of it, ONCE, at the moment you are about to do something unconventional. Run it BEFORE you commit, not after.",
-    "principle": "Almost every test is a form of removal. Take away the colour, the fonts, the mouse, the sight, the context, the goodwill — and see what is left. Work that survives removal was built on structure.",
-    "rows": [
-      {
-        "ch": 1,
-        "break": "An unusual mode, or an unconventional format",
-        "test": "It works for the EXPOSED reader in your stakeholder map, not just the influential one"
-      },
-      {
-        "ch": 2,
-        "break": "Leaving the grid",
-        "test": "The system is still visible enough that the break reads as intent; and it survives 320px and forced text spacing"
-      },
-      {
-        "ch": 3,
-        "break": "Expressive typography",
-        "test": "Turn the fonts off — does the hierarchy hold? Force 1.5 line height and 200% — does anything clip?"
-      },
-      {
-        "ch": 4,
-        "break": "An unconventional palette",
-        "test": "Run all five conditions. State whether you need ORDER or SEPARATION, and show it holds for that one"
-      },
-      {
-        "ch": 5,
-        "break": "An unusual voice",
-        "test": "Someone outside the sector reads the first screen and can state what you concluded"
-      },
-      {
-        "ch": 6,
-        "break": "A non-standard chart form",
-        "test": "Name the perceptual task; confirm the encoding's rank supports the precision of the claim"
-      },
-      {
-        "ch": 7,
-        "break": "An expressive graphic",
-        "test": "Name the purchase; ship the precise version; pass Chartability's shortlist; the alt text still delivers the finding"
-      },
-      {
-        "ch": 8,
-        "break": "NONE — there is no legitimate break in the data-structure and disclosure layer",
-        "test": "Can an informed adversary, with the whole publication, recover an individual?"
-      },
-      {
-        "ch": 9,
-        "break": "An unconventional table",
-        "test": "A screen reader announces row and column headers for any data cell; a user can filter the reference table without retyping anything"
-      },
-      {
-        "ch": 10,
-        "break": "An invented diagram",
-        "test": "Write the long description first. If it is clear and short, the diagram may be unnecessary — and you have gained a paragraph"
-      },
-      {
-        "ch": 11,
-        "break": "Unusual length or structure",
-        "test": "Read only the headings. Is that a coherent summary? Can a reader entering mid-document tell where they are?"
-      },
-      {
-        "ch": 12,
-        "break": "An unconventional deck",
-        "test": "Stand at the back of the room. Then read the slide titles alone — are they the argument, or labels?"
-      },
-      {
-        "ch": 13,
-        "break": "A distinctive typeface or layout in Office",
-        "test": "Open it on a machine without your fonts. Then tab through it and listen"
-      },
-      {
-        "ch": 14,
-        "break": "A designed document",
-        "test": "Open the PDF's tag tree and bookmarks. Then print one page in mono"
-      },
-      {
-        "ch": 15,
-        "break": "An unconventional dashboard",
-        "test": "Unplug the mouse. Zoom to 400%. Then try to filter your way to an individual and to a misleading claim"
-      },
-      {
-        "ch": 16,
-        "break": "An unconventional structure",
-        "test": "Give page one to someone holding the opposing narrative — can they state your claim accurately and without hostility?"
-      },
-      {
-        "ch": 17,
-        "break": "A departure from the document type",
-        "test": "Give it to someone who reads that type professionally and ask where they would stop"
-      }
-    ]
+  "sourceRead": "All 18 chapters of The Decision Book read in full, 16 August 2026 — not the CSV registers. 4,596 lines.",
+  "correction": "An earlier pass reported that 'provenance chip' and 'callout' have no basis in the Book's prose. That was wrong for the chip: ch04 specifies the self-describing chip and the ordinal strength meter explicitly, as named patterns with rules. Carly's .nc-prov and .nc-meter come straight from it. 'Callout' remains absent.",
+  "rules": 47
+ },
+ "decisionStack": [
+  "legal and ethical requirements",
+  "accessibility and user need",
+  "factual and methodological integrity",
+  "clarity and usability",
+  "format conventions",
+  "brand consistency",
+  "stylistic preference"
+ ],
+ "rules": [
+  {
+   "id": "NC-COL-01",
+   "tier": "fixed",
+   "source": "v1.4 §07",
+   "rule": "Every accent is a black-text surface. Every ground is a white-text surface.",
+   "breaks": "White on pink is 2.62:1. Black on blue is 2.44:1.",
+   "machine": "textOn"
   },
-  "whatABreakMustBuy": {
-    "note": "Ch18 step three. If you cannot name one, you have not made a break — you have made a mistake with confidence.",
-    "purchases": [
-      "attention — without it the work is not looked at",
-      "retention — the finding sticks",
-      "comprehension — complexity a standard form would flatten out of existence",
-      "context — showing the work was made by someone, imperfectly, for a reason",
-      "register — the subject does not deserve a neutral treatment",
-      "fit — a mandated structure, container or process leaves no alternative"
-    ]
+  {
+   "id": "NC-COL-02",
+   "tier": "fixed",
+   "source": "v1.4 §12 · COL-06",
+   "rule": "Only the four-series ramp encodes data. Brand accents are surfaces.",
+   "breaks": "Accents separate by hue alone and collapse in greyscale.",
+   "machine": "noAccentInChart"
   },
-  "fourKindsOfDeviation": {
-    "note": "Only one is design. The difference between expedient and earned is not the outcome. It is the record.",
-    "kinds": [
-      {
-        "k": "ignorant",
-        "d": "You did not know the rule. Not a style."
-      },
-      {
-        "k": "lazy",
-        "d": "You knew and did not do it, because it was late. Where most real failure lives, and never visible in the artefact."
-      },
-      {
-        "k": "expedient",
-        "d": "You knew, decided the cost was acceptable, and did not write it down. Indistinguishable from lazy six months later."
-      },
-      {
-        "k": "earned",
-        "d": "You knew the rule, know what breaking it buys, tested it, and can say what you gave up."
-      }
-    ]
+  {
+   "id": "NC-COL-03",
+   "tier": "fixed",
+   "source": "v1.4 §12 · DAT-04",
+   "rule": "Four series maximum. One series = blue.",
+   "breaks": "Beyond four the ramp stops being distinguishable.",
+   "machine": "maxSeries4"
+  },
+  {
+   "id": "NC-COL-04",
+   "tier": "fixed",
+   "source": "v1.4 §12 · COL-11 COL-12",
+   "rule": "Label at the mark. Decide labelling before series colour.",
+   "breaks": "For brand-derived palettes, direct labelling is the mechanism by which the chart is compliant at all.",
+   "machine": null
+  },
+  {
+   "id": "NC-COL-05",
+   "tier": "fixed",
+   "source": "v1.4 §07",
+   "rule": "Retired colours are never reintroduced: #920DFF #F26B43 #FFD100 #F6F6EE. Aptos is a retired typeface.",
+   "breaks": "Reintroduction is silent drift.",
+   "machine": "retiredValues"
+  },
+  {
+   "id": "NC-COL-06",
+   "tier": "fixed",
+   "source": "v1.4 §07 · tokens.json",
+   "rule": "No colour value may appear in an artefact that is not in tokens.json.",
+   "breaks": "A hand-picked hex is a decision made outside the system, and it will be made differently next time.",
+   "machine": "hexAllowlist"
+  },
+  {
+   "id": "NC-COL-07",
+   "tier": "adaptable",
+   "source": "v1.4 §09",
+   "rule": "Blue is a structural signal, not scattered decoration.",
+   "breaks": "Scattered accent reads as decoration and stops signalling.",
+   "machine": null
+  },
+  {
+   "id": "NC-TYP-01",
+   "tier": "fixed",
+   "source": "v1.4 §08 · TYP-14 DOC-14",
+   "rule": "Caps are applied as a character format (text-transform / All Caps), never typed.",
+   "breaks": "Typed caps are read letter-by-letter by screen readers and cannot be undone.",
+   "machine": "noTypedCaps"
+  },
+  {
+   "id": "NC-TYP-02",
+   "tier": "fixed",
+   "source": "v1.4 §08 · TYP-05 TYP-06 TYP-18",
+   "rule": "Body 12pt floor. Line height 1.5–1.6 running prose, 1.25–1.35 table cells.",
+   "breaks": "Below the floor the document stops being readable at distance or in print.",
+   "machine": "typeFloors"
+  },
+  {
+   "id": "NC-TYP-03",
+   "tier": "fixed",
+   "source": "v1.4 §08",
+   "rule": "Body and H3 are sentence case. Never caps in body, captions, source lines or table cells.",
+   "breaks": "Caps below ~16pt stop working.",
+   "machine": null
+  },
+  {
+   "id": "NC-TYP-04",
+   "tier": "adaptable",
+   "source": "v1.4 §08",
+   "rule": "Caps floor is 16pt. Resolves the §08 conflict between the 14pt label minimum and the H3 note.",
+   "breaks": "Unresolved, the next person picks a different number.",
+   "machine": "capsFloor"
+  },
+  {
+   "id": "NC-TYP-05",
+   "tier": "fixed",
+   "source": "FID-12–14",
+   "rule": "Fonts embedded in every deliverable. Never linked.",
+   "breaks": "Substitution widens the same string by roughly a third, silently.",
+   "machine": "fontsEmbedded"
+  },
+  {
+   "id": "NC-CON-01",
+   "tier": "fixed",
+   "source": "v1.4 §09 · containment v1.3 (which retracts grounds v1.2's 'structural hairline')",
+   "rule": "Contain with colour and space, not outlines. The 2px ink outline is reserved for the flyer register — covers, posters, section dividers — never the default.",
+   "breaks": "Used full-time it does the work space should do and makes every panel shout at the same volume. Reserved, the box means something when it turns up.",
+   "machine": "noHardOutline"
+  },
+  {
+   "id": "NC-CON-02",
+   "tier": "fixed",
+   "source": "v1.4 §09",
+   "rule": "Hairline is never used for anything carrying meaning. White panels on chalk, tables and forms only.",
+   "breaks": "A meaning-carrying container held by a hairline is invisible in print and to a screen reader.",
+   "machine": "hairlineScope"
+  },
+  {
+   "id": "NC-CON-03",
+   "tier": "adaptable",
+   "source": "v1.4 §09",
+   "rule": "Pull quotes, callouts and asides use the left rule (12px). Dense pages and tables use the top rule (9px). Accent panels use fill.",
+   "breaks": "Treatment carries the register; swapping them flattens the hierarchy.",
+   "machine": "containmentAssignment"
+  },
+  {
+   "id": "NC-LAY-01",
+   "tier": "adaptable",
+   "source": "v1.4 §10 · measured in the working deck",
+   "rule": "Slide side margin 5.25%, kicker line 6.67%. The written 6% / 7.5% is superseded by what the deck does.",
+   "breaks": "Two grids in one system.",
+   "machine": "slideGrid"
+  },
+  {
+   "id": "NC-LAY-02",
+   "tier": "adaptable",
+   "source": "v1.4 §10",
+   "rule": "One idea per slide. Roughly half the canvas empty; over ~55% covered means two slides. Remove copy before reducing type.",
+   "breaks": "Reducing type to fit is how the floor gets broken.",
+   "machine": "coverage"
+  },
+  {
+   "id": "NC-LAY-03",
+   "tier": "fixed",
+   "source": "v1.4 §09 · §14",
+   "rule": "Keep core information in a simple reading order. Single-column for long-form where practical.",
+   "breaks": "Reading order is invisible on screen and decisive for everyone not looking at it.",
+   "machine": null
+  },
+  {
+   "id": "NC-SEQ-01",
+   "tier": "adaptable",
+   "source": "measured, Trusted Partner Deck slides 08 13 14 15",
+   "rule": "Slide grammar: kicker → statement → provocation → structure → so-what. Structure elements are always marker + qualifier, never a marker alone.",
+   "breaks": "A caps marker without its qualifier is a slogan.",
+   "machine": "slideGrammar",
+   "status": "PROVISIONAL — pattern read from four slides, awaiting confirmation"
+  },
+  {
+   "id": "NC-PRS-01",
+   "tier": "fixed",
+   "source": "v1.4 §14 · PRS-03 FID-01",
+   "rule": "Reading order set explicitly, on every slide. Placeholders authored in reading order in the master.",
+   "breaks": "Reading order follows shape-creation order and bears no relation to visual position.",
+   "machine": "readingOrder"
+  },
+  {
+   "id": "NC-PRS-02",
+   "tier": "fixed",
+   "source": "v1.4 §14",
+   "rule": "Every slide carries a unique descriptive title. It may be hidden or off-canvas; it may not be absent.",
+   "breaks": "It is how a screen-reader user navigates a deck, and the title list is the deck outline.",
+   "machine": "slideTitles"
+  },
+  {
+   "id": "NC-PRS-03",
+   "tier": "fixed",
+   "source": "v1.4 §14",
+   "rule": "No tables on slides. A table on a slide is a reference table in the wrong artefact.",
+   "breaks": "Puts reference density into a presented artefact.",
+   "machine": "noSlideTables"
+  },
+  {
+   "id": "NC-PRS-04",
+   "tier": "fixed",
+   "source": "v1.4 §14",
+   "rule": "No text box sized to its text.",
+   "breaks": "A substituted face widens the same string by roughly a third.",
+   "machine": null
+  },
+  {
+   "id": "NC-DOC-01",
+   "tier": "fixed",
+   "source": "v1.4 §14 · FID-02",
+   "rule": "Real named styles, applied. Never direct character formatting.",
+   "breaks": "100% direct formatting makes the style system inert — measured in both UKDF documents.",
+   "machine": "directFormatRatio"
+  },
+  {
+   "id": "NC-DOC-02",
+   "tier": "fixed",
+   "source": "v1.4 §14 · DOC-17",
+   "rule": "A4 for UK submissions.",
+   "breaks": "Both UKDF documents are US Letter.",
+   "machine": "pageSize"
+  },
+  {
+   "id": "NC-DOC-03",
+   "tier": "fixed",
+   "source": "v1.4 §14 · DOC-05 VOI-03",
+   "rule": "Document title, author and one declared language set in properties.",
+   "breaks": "Neither UKDF document sets a title.",
+   "machine": "metadata"
+  },
+  {
+   "id": "NC-DOC-04",
+   "tier": "fixed",
+   "source": "v1.4 §14 · TBL-09 FID-08",
+   "rule": "Table header rows repeat across pages.",
+   "breaks": "Measured: 9 of 57 tables in the funding deck copy.",
+   "machine": "tableHeaders"
+  },
+  {
+   "id": "NC-DOC-05",
+   "tier": "fixed",
+   "source": "v1.4 §14",
+   "rule": "Headings state findings, not topics. No skipped heading levels. Conclusion in the first screen.",
+   "breaks": "A contents list of finding-headings is a readable summary, which is what most readers use it as.",
+   "machine": "headingLevels"
+  },
+  {
+   "id": "NC-DOC-06",
+   "tier": "fixed",
+   "source": "v1.4 §14",
+   "rule": "White ground for Word and print, not chalk.",
+   "breaks": "Word and print handle white more predictably, and partners will edit it.",
+   "machine": null
+  },
+  {
+   "id": "NC-XLS-01",
+   "tier": "fixed",
+   "source": "TBL-07 TBL-14 PLY-16",
+   "rule": "Spreadsheets are models: real tables, formulas from one assumptions sheet, freeze panes, no merged cells in data.",
+   "breaks": "Measured: 53 formulas in 1,135 cells, 0 tables, 0 freeze panes, 56 merged ranges.",
+   "machine": "workbookModel"
+  },
+  {
+   "id": "NC-EVI-01",
+   "tier": "fixed",
+   "source": "v1.4 §06 §12",
+   "rule": "Every chart carries provenance: code, reference period, geography, boundary vintage. Every big number carries a source line.",
+   "breaks": "A statistic without a source line is a claim, not a finding.",
+   "machine": null
+  },
+  {
+   "id": "NC-EVI-02",
+   "tier": "fixed",
+   "source": "v1.4 §12",
+   "rule": "Show the gaps. Hatched for suppressed [c], dashed for a break in collection, n/a for not collected. Never a silent blank.",
+   "breaks": "A gap in the data is a finding.",
+   "machine": null
+  },
+  {
+   "id": "NC-EVI-03",
+   "tier": "fixed",
+   "source": "v1.4 §13",
+   "rule": "No published figure rests on fewer than three contributing units. Apply secondary suppression.",
+   "breaks": "A value recoverable by subtraction is not suppressed.",
+   "machine": null
+  },
+  {
+   "id": "NC-EVI-04",
+   "tier": "fixed",
+   "source": "v1.4 §12",
+   "rule": "Illustrative or placeholder figures say so, in the chart, every time.",
+   "breaks": "A placeholder that travels becomes a claim.",
+   "machine": null
+  },
+  {
+   "id": "NC-BRK-01",
+   "tier": "fixed",
+   "source": "BRK-16",
+   "rule": "Every derived artefact states the source version it was built from.",
+   "breaks": "A wrong stamp is worse than none — an absent stamp prompts a check, a wrong one prevents it.",
+   "machine": "versionStamp"
+  },
+  {
+   "id": "NC-BRK-02",
+   "tier": "fixed",
+   "source": "v1.4 §11 · LOGO.md",
+   "rule": "The wordmark is an outlined asset. Never re-set as live type.",
+   "breaks": "The two lines are set at different sizes (32.09pt / 33.41pt) so they justify to one width. One size loses the lockup.",
+   "machine": "noLiveWordmark"
+  },
+  {
+   "id": "NC-DIR-01",
+   "tier": "decorative",
+   "source": "Carly Heath, 16 August 2026",
+   "rule": "Minimalist. Bright colour, breathing space, message carries. No icons, illustration, stickers or decorative imagery.",
+   "breaks": "Nothing — this is the decorative tier. The joy comes from what the work is doing, not from ornament.",
+   "machine": null
+  },
+  {
+   "id": "NC-CON-04",
+   "tier": "fixed",
+   "source": "ch13 · SC 1.3.1",
+   "rule": "A section header must BE a heading, not look like one. The numeral box sits inside the heading element.",
+   "breaks": "Found in headers.html: .nc-section-head is a div of spans. It renders as the document's H2 level and contains no heading — the exact 'appearance and structure are independent' failure, inside the component that structures every document.",
+   "machine": "headingLevels"
+  },
+  {
+   "id": "NC-EVI-05",
+   "tier": "fixed",
+   "source": "ch08 · live testing",
+   "rule": "Apply the suppression threshold to the planned sample BEFORE fieldwork is scoped, and state at proposal stage what the design will let you say.",
+   "breaks": "Measured in the Book against a budget model of this exact shape: two places, 18-24 conversations, gives 9-12 per place. A threshold of three survives a single frequency count and nothing else — every place x role, place x age cross-tabulation falls below it. The comparative claim the research exists to make is the claim disclosure will not let you publish. It looks like a budget line, taken months before anyone opens a chart library.",
+   "machine": null
+  },
+  {
+   "id": "NC-PKG-01",
+   "tier": "fixed",
+   "source": "ch17 · live testing",
+   "rule": "One source per number, named, wherever a figure appears in more than one artefact. Reconcile across the pack before submission, as a step.",
+   "breaks": "Measured in a four-artefact funding pack: workbook said £50,000, application draft and deck both said £49,800, no mapping. One assumptions cell labelled 'UKDF request' with a basis column reading 'Application ceiling'. A fund manager finds it in thirty seconds and it reads as not knowing what you are asking for.",
+   "machine": "packReconcile"
+  },
+  {
+   "id": "NC-PKG-02",
+   "tier": "fixed",
+   "source": "ch17 · the user's correction",
+   "rule": "Where artefacts disagree, date them and name the most recent as the candidate truth. Never report an unresolved contradiction and hand the job back.",
+   "breaks": "A contradiction reported without a candidate answer transfers the whole job to the author at 11pm.",
+   "machine": null
+  },
+  {
+   "id": "NC-SYS-01",
+   "tier": "fixed",
+   "source": "ch18 step eight",
+   "rule": "State where the current version lives, in the system itself. Name the canonical location once; treat every other copy as derived.",
+   "breaks": "Versioning without a location leaves a reviewer several candidates — a repo folder, a project, a chat, a skill — and no way to choose.",
+   "machine": null
+  },
+  {
+   "id": "NC-SYS-02",
+   "tier": "fixed",
+   "source": "ch18 step nine",
+   "rule": "Quote the line every finding rests on, or mark the finding as inference. Report an absence as a different class of claim from a quotation.",
+   "breaks": "Findings drift from 'the document says' to 'you said' in three cheap steps. Measured during the Book's own review — and committed again in this project when an absence was reported for the provenance chip, which ch04 specifies explicitly.",
+   "machine": null
+  },
+  {
+   "id": "NC-DGM-01",
+   "tier": "fixed",
+   "source": "ch10",
+   "rule": "Do not build a generic diagram kit of nodes and connectors. Name the job — bound, relate, decompose, sequence, diverge, converge — and use a named form from the vocabulary, stating which it is.",
+   "breaks": "A generic kit produces the default flowchart, which asserts sequence when the job is boundary or influence. Every arrow is a claim about order or causation. Closes v1.4 §15 gap 2 differently than the guide anticipated.",
+   "machine": null
+  },
+  {
+   "id": "NC-CON-05",
+   "tier": "adaptable",
+   "source": "ch04 · charts v1.4",
+   "rule": "A keyline on a chart mark is exempt from the hard-outline rule. Where marks touch or overlap, ch04 requires 3:1 adjacency OR a separator, border or pattern — the keyline IS that mechanism.",
+   "breaks": "Without it the dot-plot point disappears into its own range bar. This is a graphic doing separation work, not a container drawn around content. Named so the exemption is visible rather than silent.",
+   "machine": "chartMarkKeyline"
+  },
+  {
+   "id": "NC-LAY-04",
+   "tier": "fixed",
+   "source": "ch02 · IBM Carbon 2x Grid · joy.css",
+   "rule": "Every spatial value — padding, margin, gap — comes from the spacing scale. One base unit (.25em), nine steps, non-linear. Rule weights are not spacing and are exempt.",
+   "breaks": "Measured in this repo: the page scaffold used twenty distinct ad-hoc pixel values and the component layer had 51 spacing declarations off any scale. One unit produces relationships a reader can learn; none produces noise that reads as carelessness. joy.css already carried a measured scale, defined and never used.",
+   "machine": "spacingScale"
+  },
+  {
+   "id": "NC-BRK-03",
+   "tier": "fixed",
+   "source": "ch04 · WCAG 1.4.3 · supersedes furniture v1.6",
+   "rule": "Logo colour is not governed by text contrast. WCAG 1.4.3 exempts text that is part of a logo or brand name, and ch04 carries that Essential exception naming logos. Any accent may be used for the wordmark on any ground, chosen for the register — the wordmark's weight, not a contrast ratio, is what carries it.",
+   "breaks": "Furniture v1.6 barred teal on a light ground on a 1.52:1 reading. That applied a body-text threshold to a logotype, which the standard exempts and which the display weight makes moot in practice. The reading was wrong, not the logo. Recorded so it cannot be re-raised: this has now been raised and withdrawn twice.",
+   "machine": null,
+   "supersedes": "furniture v1.6 §03 — 'teal is never a logo colour on a light ground'"
   }
+ ],
+ "removalTest": {
+  "purpose": "Ch18 step five — the assembled test. You do not read this table. You use ONE ROW of it, ONCE, at the moment you are about to do something unconventional. Run it BEFORE you commit, not after.",
+  "principle": "Almost every test is a form of removal. Take away the colour, the fonts, the mouse, the sight, the context, the goodwill — and see what is left. Work that survives removal was built on structure.",
+  "rows": [
+   {
+    "ch": 1,
+    "break": "An unusual mode, or an unconventional format",
+    "test": "It works for the EXPOSED reader in your stakeholder map, not just the influential one"
+   },
+   {
+    "ch": 2,
+    "break": "Leaving the grid",
+    "test": "The system is still visible enough that the break reads as intent; and it survives 320px and forced text spacing"
+   },
+   {
+    "ch": 3,
+    "break": "Expressive typography",
+    "test": "Turn the fonts off — does the hierarchy hold? Force 1.5 line height and 200% — does anything clip?"
+   },
+   {
+    "ch": 4,
+    "break": "An unconventional palette",
+    "test": "Run all five conditions. State whether you need ORDER or SEPARATION, and show it holds for that one"
+   },
+   {
+    "ch": 5,
+    "break": "An unusual voice",
+    "test": "Someone outside the sector reads the first screen and can state what you concluded"
+   },
+   {
+    "ch": 6,
+    "break": "A non-standard chart form",
+    "test": "Name the perceptual task; confirm the encoding's rank supports the precision of the claim"
+   },
+   {
+    "ch": 7,
+    "break": "An expressive graphic",
+    "test": "Name the purchase; ship the precise version; pass Chartability's shortlist; the alt text still delivers the finding"
+   },
+   {
+    "ch": 8,
+    "break": "NONE — there is no legitimate break in the data-structure and disclosure layer",
+    "test": "Can an informed adversary, with the whole publication, recover an individual?"
+   },
+   {
+    "ch": 9,
+    "break": "An unconventional table",
+    "test": "A screen reader announces row and column headers for any data cell; a user can filter the reference table without retyping anything"
+   },
+   {
+    "ch": 10,
+    "break": "An invented diagram",
+    "test": "Write the long description first. If it is clear and short, the diagram may be unnecessary — and you have gained a paragraph"
+   },
+   {
+    "ch": 11,
+    "break": "Unusual length or structure",
+    "test": "Read only the headings. Is that a coherent summary? Can a reader entering mid-document tell where they are?"
+   },
+   {
+    "ch": 12,
+    "break": "An unconventional deck",
+    "test": "Stand at the back of the room. Then read the slide titles alone — are they the argument, or labels?"
+   },
+   {
+    "ch": 13,
+    "break": "A distinctive typeface or layout in Office",
+    "test": "Open it on a machine without your fonts. Then tab through it and listen"
+   },
+   {
+    "ch": 14,
+    "break": "A designed document",
+    "test": "Open the PDF's tag tree and bookmarks. Then print one page in mono"
+   },
+   {
+    "ch": 15,
+    "break": "An unconventional dashboard",
+    "test": "Unplug the mouse. Zoom to 400%. Then try to filter your way to an individual and to a misleading claim"
+   },
+   {
+    "ch": 16,
+    "break": "An unconventional structure",
+    "test": "Give page one to someone holding the opposing narrative — can they state your claim accurately and without hostility?"
+   },
+   {
+    "ch": 17,
+    "break": "A departure from the document type",
+    "test": "Give it to someone who reads that type professionally and ask where they would stop"
+   }
+  ]
+ },
+ "whatABreakMustBuy": {
+  "note": "Ch18 step three. If you cannot name one, you have not made a break — you have made a mistake with confidence.",
+  "purchases": [
+   "attention — without it the work is not looked at",
+   "retention — the finding sticks",
+   "comprehension — complexity a standard form would flatten out of existence",
+   "context — showing the work was made by someone, imperfectly, for a reason",
+   "register — the subject does not deserve a neutral treatment",
+   "fit — a mandated structure, container or process leaves no alternative"
+  ]
+ },
+ "fourKindsOfDeviation": {
+  "note": "Only one is design. The difference between expedient and earned is not the outcome. It is the record.",
+  "kinds": [
+   {
+    "k": "ignorant",
+    "d": "You did not know the rule. Not a style."
+   },
+   {
+    "k": "lazy",
+    "d": "You knew and did not do it, because it was late. Where most real failure lives, and never visible in the artefact."
+   },
+   {
+    "k": "expedient",
+    "d": "You knew, decided the cost was acceptable, and did not write it down. Indistinguishable from lazy six months later."
+   },
+   {
+    "k": "earned",
+    "d": "You knew the rule, know what breaking it buys, tested it, and can say what you gave up."
+   }
+  ]
+ }
 }

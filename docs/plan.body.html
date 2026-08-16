@@ -1,0 +1,62 @@
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">Nightlife Culture · design system</p>
+    <h1>The build order</h1>
+    <p>{{LEFT}} things left, out of {{TOTAL}}. Not a wishlist — this page is the audit,
+       sorted. The moment something passes the audit it disappears from here, so the plan
+       cannot claim work that is done or quietly drop work that is not.</p>
+  </div>
+</header>
+<div class="wrap">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">Where we are</span></h2>
+  {{SCORE}}
+  <p class="lede">No new asset types until this list is empty.</p>
+  <p>Word, PowerPoint and Excel templates all consume the component layer. Building them
+     while the layer has holes in it means the holes get filled ad hoc, in three formats,
+     by whoever is closest to the deadline — which is exactly how the first version drifted.
+     Every one of these is a place a hand-set value can enter the system.</p>
+  <p>The order is not preference. It runs from work that needs no decision, through work
+     that needs a check written, to the one wave that waits on you.</p>
+  <div class="nc-chart acc-blue">
+    <h3 class="ct">Where the remaining work sits</h3>
+    <p class="cs">Items per wave. Single series, so a single colour.</p>
+    {{BARS}}
+    <figcaption class="ev"><b>Reading.</b> The slide layer is more than half of what is
+      left, and it is the only wave blocked on a decision.</figcaption>
+  </div>
+</section>
+
+<hr class="nc-brk acc-teal">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">The waves</span></h2>
+  <p>Each row names the rule that governs it where one exists, and what finishing it
+     actually means. Where the rule column is empty, the first job is to find the rule in
+     the Book — not to invent one.</p>
+  {{WAVES}}
+</section>
+
+<hr class="nc-brk acc-coral">
+
+<section>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">What blocks wave four</span></h2>
+  <div class="nc-panel nc-panel--left acc-butter">
+    <p class="lab">One decision, yours</p>
+    <p class="txt"><b>The grid geometry.</b> Your decks measure roughly 5.5% side margins
+      and a three-step top margin — 3.9, 6.7 or 9.6% depending on what leads the slide.
+      The style guide states 6% flat and 7.5% flat. The 14% footer band removes 8% of
+      canvas your original decks use.</p>
+    <p class="txt">The Book can tell you the three-step top margin is a real decision that
+      got flattened to a constant. It cannot tell you which you want. Everything in wave
+      four is measured against whichever you pick, so it is worth answering before we
+      generate twelve layouts against the wrong one.</p>
+  </div>
+  <p class="sm" style="margin-top:var(--nc-sp5)">Seven contradictions inside Style Guide
+     v1.4 are also still open — butter as Series 4, title lines two or three, coverage 55
+     or 70 per cent, full-bleed accent grounds, logo minimum 90px or 1.5%, logo in running
+     headers, eight tokens or ten. None of them block a wave; all of them are recorded
+     rather than quietly resolved.</p>
+</section>
+</div>

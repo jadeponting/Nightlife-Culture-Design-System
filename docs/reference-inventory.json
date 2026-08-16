@@ -284,7 +284,9 @@
      "class": [],
      "rules": [
       "NC-TYP-04"
-     ]
+     ],
+     "wave": 3,
+     "done": "Build it. The rule already says what it must do."
     }
    ]
   },
@@ -359,7 +361,9 @@
       "sy"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Document context — sets the base the components scale from",
@@ -370,7 +374,9 @@
      "class": [
       ".nc-doc"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Slide context — base ties to slide width",
@@ -382,7 +388,9 @@
      "class": [
       ".nc-slide .cv"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     }
    ]
   },
@@ -452,7 +460,9 @@
      "class": [
       ".nc-stat--top"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Breakout stat — filled",
@@ -464,7 +474,9 @@
      "class": [
       ".nc-stat--fill"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Breakout stat at slide scale",
@@ -475,7 +487,9 @@
      "class": [
       ".nc-stat.lg .big"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Source line is part of the stat, not an afterthought",
@@ -724,7 +738,9 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 2,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Illustrative-figures flag",
@@ -736,7 +752,9 @@
      "class": [],
      "rules": [
       "NC-EVI-04"
-     ]
+     ],
+     "wave": 2,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Figure wrapper",
@@ -746,7 +764,9 @@
      "class": [
       ".nc-figure"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 2,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     }
    ]
   },
@@ -777,7 +797,9 @@
      "class": [
       ".nc-table--accent"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Banded table",
@@ -788,7 +810,9 @@
      "class": [
       ".nc-table--band td"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Numbers right-aligned, tabular figures",
@@ -799,7 +823,9 @@
      "class": [
       ".nc-table .num"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Table on dark grounds",
@@ -824,7 +850,9 @@
      "class": [],
      "rules": [
       "NC-DOC-04"
-     ]
+     ],
+     "wave": 3,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Five named table styles, Editorial as default",
@@ -832,7 +860,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Never band and rule at once",
@@ -840,7 +870,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "No tables on slides",
@@ -850,7 +882,9 @@
      "class": [],
      "rules": [
       "NC-PRS-03"
-     ]
+     ],
+     "wave": 3,
+     "done": "Build it. The rule already says what it must do."
     }
    ]
   },
@@ -923,7 +957,9 @@
      "class": [],
      "rules": [
       "NC-EVI-02"
-     ]
+     ],
+     "wave": 2,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Dot plot with plausible range — for comparing places",
@@ -970,7 +1006,9 @@
       "gr"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 2,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "100% stacked bar — replaces most pies",
@@ -995,7 +1033,9 @@
      "class": [],
      "rules": [
       "NC-EVI-02"
-     ]
+     ],
+     "wave": 2,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Range bar — wherever uncertainty is material",
@@ -1003,7 +1043,9 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 2,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Chart key — reference, not a decoder",
@@ -1027,7 +1069,9 @@
      "class": [
       "--nc-grid"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 2,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Four-series ramp, never brand accents",
@@ -1066,7 +1110,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Alt text describes the finding, plus a data alternative",
@@ -1076,7 +1122,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     }
    ]
   },
@@ -1093,7 +1141,9 @@
      "class": [
       ".nc-brk"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Hairline breaker — full measure, under the title",
@@ -1117,7 +1167,9 @@
       "sy"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Accent bar — above a pull quote, the only decorative use",
@@ -1129,7 +1181,9 @@
      "class": [
       ".nc-brk--bar"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Retired — the mid-statement break",
@@ -1138,7 +1192,9 @@
      ],
      "class": [],
      "rules": [],
-     "absence": true
+     "absence": true,
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "One breaker per surface",
@@ -1148,7 +1204,9 @@
       "sy"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     }
    ]
   },
@@ -1176,7 +1234,9 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Full lockup — covers, dividers and closing only",
@@ -1186,7 +1246,9 @@
       "sy"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Two-colour lockup — covers only, never a footer",
@@ -1195,15 +1257,23 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
-     "n": "Teal is never a logo colour on a light ground",
+     "n": "Logo colour is exempt from text contrast — superseded reading in furniture v1.6",
      "src": [
       "fu"
      ],
      "class": [],
-     "rules": []
+     "rules": [
+      "NC-BRK-03"
+     ],
+     "enforced_by": [
+      "foundations/rules.json"
+     ],
+     "absence": true
     }
    ]
   },
@@ -1217,7 +1287,9 @@
       "wd"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L2 Section divider",
@@ -1226,7 +1298,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L3 Three points — the workhorse",
@@ -1236,7 +1310,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L4 Two-column contrast",
@@ -1246,7 +1322,9 @@
       "fu"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L5 Quote",
@@ -1256,7 +1334,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L6 Report register",
@@ -1266,7 +1346,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L7 Night register",
@@ -1276,7 +1358,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L8 Vertical third",
@@ -1285,7 +1369,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L9 Ink strip",
@@ -1294,7 +1380,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L10 Vertical third stat",
@@ -1304,7 +1392,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L11 Chart slide",
@@ -1312,7 +1402,9 @@
       "sy"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "L12 Closing",
@@ -1321,7 +1413,9 @@
       "wd"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Three top-rule columns",
@@ -1331,7 +1425,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Filled cells, three across",
@@ -1341,7 +1437,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Vertical third split",
@@ -1350,7 +1448,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Full-bleed ink strip",
@@ -1359,7 +1459,9 @@
       "sl"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Slide bar row — chart at slide scale",
@@ -1368,7 +1470,9 @@
       "wd"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     }
    ]
   },
@@ -1385,7 +1489,9 @@
      "class": [],
      "rules": [
       "NC-LAY-01"
-     ]
+     ],
+     "wave": 4,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Half the canvas empty — over ~55% covered means two slides",
@@ -1397,7 +1503,9 @@
      "class": [],
      "rules": [
       "NC-LAY-02"
-     ]
+     ],
+     "wave": 4,
+     "done": "Build it. The rule already says what it must do."
     },
     {
      "n": "Body measure caps at 60–70%",
@@ -1406,7 +1514,9 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Title zone three lines maximum",
@@ -1415,7 +1525,9 @@
       "sg"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Remove copy before reducing type",
@@ -1425,7 +1537,9 @@
       "rc"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "The anchor rule — bottom, centre or top, declared",
@@ -1433,7 +1547,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Clustered spacing rhythm — one base unit, everything a multiple",
@@ -1456,7 +1572,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 4,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Slide grammar — kicker, statement, provocation, structure, so-what",
@@ -1466,7 +1584,9 @@
      "class": [],
      "rules": [
       "NC-SEQ-01"
-     ]
+     ],
+     "wave": 4,
+     "done": "Build it. The rule already says what it must do."
     }
    ]
   },
@@ -1482,7 +1602,9 @@
      "class": [
       ".nc-link"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Defined term",
@@ -1492,7 +1614,9 @@
      "class": [
       ".nc-term"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Blockquote element",
@@ -1515,7 +1639,9 @@
       ".nc-figure",
       ".nc-caption"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "The other nine HTML surfaces — code, dl, small, details, abbr, hr, mark, sup/sub",
@@ -1523,7 +1649,9 @@
       "ds"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 5,
+     "done": "Take the rule from the Book, write it down, then build it."
     }
    ]
   },
@@ -1572,7 +1700,9 @@
       ".nc-doc",
       ".nc-slide .cv"
      ],
-     "rules": []
+     "rules": [],
+     "wave": 1,
+     "done": "Write the rule — what job it does, and when you may depart from it."
     },
     {
      "n": "Built from the rule set outwards, not from the slides outwards",
@@ -1581,7 +1711,9 @@
       "hv"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "Every derived artefact states its source version",
@@ -1620,7 +1752,9 @@
       "rc"
      ],
      "class": [],
-     "rules": []
+     "rules": [],
+     "wave": 3,
+     "done": "Take the rule from the Book, write it down, then build it."
     },
     {
      "n": "No icons, illustration, stickers or decorative imagery",
