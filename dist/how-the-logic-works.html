@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How the logic works — Nightlife Culture</title>
 <meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:8fcd9322bf96a255;rules:b49b7662e7737d24;css:0008afed329ebd2e;fonts:ea8fca0d5e87a01a;slides:dd9fa25e9f046b09">
+<meta name="nc-build-stamp" content="tokens:8fcd9322bf96a255;rules:b49b7662e7737d24;css:51e2cd8b11c86244;fonts:ea8fca0d5e87a01a;slides:682e5dc895c7b096">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -123,18 +123,21 @@
    already in tokens.
 
    The rhythm is ch03's: a heading carries THREE TIMES the space above it that
-   it carries below, so it attaches to what follows instead of floating.
+   it carries below, so it attaches to what follows instead of floating. The
+   margins are set in the heading's OWN em — 1.5em above (sp5), .5em below
+   (sp2) — so the values sit on the spacing scale AND the rhythm scales with
+   the heading size, instead of one rule breaking the other.
 
    Display is the decorative tier by the Book's own rule, and is named as such
    rather than pretending to be a step on the scale. */
 .nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
   text-transform:uppercase;letter-spacing:-.01em;margin:0}
 .nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
-  text-transform:uppercase;letter-spacing:.01em;margin:3.000em 0 1.000em}
+  text-transform:uppercase;letter-spacing:.01em;margin:1.5em 0 .5em}
 .nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
-  text-transform:uppercase;letter-spacing:.04em;margin:2.250em 0 0.750em}
+  text-transform:uppercase;letter-spacing:.04em;margin:1.5em 0 .5em}
 .nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
-  letter-spacing:0;margin:1.688em 0 0.562em}
+  letter-spacing:0;margin:1.5em 0 .5em}
 .nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
   text-align:left;max-width:70ch;margin:0 0 0.750em}
 /* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
@@ -712,13 +715,26 @@
 /* Filled cells. Every accent takes ink text — no exceptions (v1.4 §07). */
 .nc-cells{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3.5%}
 .nc-cells .cell{padding:1.9cqw 2cqw;background:var(--nc-acc,var(--nc-teal));color:var(--nc-ink)}
+/* Four or five cells: the gutter tightens so the cells stay readable. Five is
+   the ceiling — six cells is two slides. */
+.nc-cells--4{grid-template-columns:repeat(4,1fr);gap:2%}
+.nc-cells--5{grid-template-columns:repeat(5,1fr);gap:1.6%}
+.nc-cells--4 .cell,.nc-cells--5 .cell{padding:1.5cqw 1.6cqw}
 .nc-cells .cell .n{font-family:var(--nc-font-display);font-size:3.2cqw;line-height:.9}
 .nc-cells .cell .l{font-family:var(--nc-font-head);font-weight:800;font-size:1.1cqw;
   letter-spacing:.1em;text-transform:uppercase;margin-top:1cqw;line-height:1.3}
+/* Detail line — NEW 17 Aug, awaiting Carly's sign-off. The catalogue's cells
+   and columns carried a numeral and a label only, and a real deck needs one
+   sentence under the label (the Why-Carly cards, the three outcomes). Inter
+   400 at 1.25cqw — between the label (1.1) and slide body (1.55), sentence
+   case, never caps. If this is wrong, it is one line to change. */
+.nc-cells .cell .d,.nc-cols .col .d{font-family:var(--nc-font-body);font-weight:400;
+  font-size:1.25cqw;line-height:1.35;margin-top:.7cqw;text-transform:none;letter-spacing:0}
 
 /* Vertical third. An accent block, never an accent room. */
 .nc-third{position:absolute;inset:0;display:flex}
-.nc-third .main{flex:1;padding:6.667% 0 13.333% 5.25%;display:flex;flex-direction:column}
+.nc-third .main{flex:1;padding:6.667% 3.5% 13.333% 5.25%;display:flex;flex-direction:column}
+/* Right padding is the column gutter: text never touches the colour block. */
 /* The colour field bleeds to the edge — that is what makes it a change of ground
    rather than a box. Its TEXT still stops at the footer line: 7.5cqw is the
    footer band expressed against slide width on 16:9. The band exists because

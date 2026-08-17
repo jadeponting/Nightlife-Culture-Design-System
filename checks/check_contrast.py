@@ -19,7 +19,8 @@ import asyncio, json, pathlib, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES = ["components/index.html", "layouts/index.html", "docs/what-we-have.html",
          "docs/the-build-order.html", "docs/how-the-logic-works.html",
-         "dist/component-library.html", "dist/slide-layouts.html", "dist/index.html"]
+         "dist/component-library.html", "dist/slide-layouts.html", "dist/index.html",
+         "decks/ukdf-pitch.html", "dist/ukdf-pitch.html"]
 
 # Two widths. A phone is where the reviewer actually reads these, and it is where
 # a clamp collapses, a grid stacks and a colour lands on a different ground.

@@ -87,18 +87,21 @@
    already in tokens.
 
    The rhythm is ch03's: a heading carries THREE TIMES the space above it that
-   it carries below, so it attaches to what follows instead of floating.
+   it carries below, so it attaches to what follows instead of floating. The
+   margins are set in the heading's OWN em — 1.5em above (sp5), .5em below
+   (sp2) — so the values sit on the spacing scale AND the rhythm scales with
+   the heading size, instead of one rule breaking the other.
 
    Display is the decorative tier by the Book's own rule, and is named as such
    rather than pretending to be a step on the scale. */
 .nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
   text-transform:uppercase;letter-spacing:-.01em;margin:0}
 .nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
-  text-transform:uppercase;letter-spacing:.01em;margin:3.000em 0 1.000em}
+  text-transform:uppercase;letter-spacing:.01em;margin:1.5em 0 .5em}
 .nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
-  text-transform:uppercase;letter-spacing:.04em;margin:2.250em 0 0.750em}
+  text-transform:uppercase;letter-spacing:.04em;margin:1.5em 0 .5em}
 .nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
-  letter-spacing:0;margin:1.688em 0 0.562em}
+  letter-spacing:0;margin:1.5em 0 .5em}
 .nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
   text-align:left;max-width:70ch;margin:0 0 0.750em}
 /* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor

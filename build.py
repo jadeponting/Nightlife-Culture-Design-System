@@ -26,6 +26,7 @@ STEPS = [
     ("audit",    [sys.executable, "docs/build_audit.py"]),
     ("layouts",  [sys.executable, "layouts/build_layouts.py"]),
     ("plan",     [sys.executable, "docs/build_plan.py"]),
+    ("decks",    [sys.executable, "decks/build_ukdf.py"]),
 ]
 fail = 0
 for name, cmd in STEPS:
@@ -36,7 +37,7 @@ for name, cmd in STEPS:
 if not fail:
     html = sorted(str(p.relative_to(ROOT)) for p in
                   list(ROOT.glob("components/*.html")) + list(ROOT.glob("docs/*.html"))
-                  + list(ROOT.glob("layouts/*.html"))
+                  + list(ROOT.glob("layouts/*.html")) + list(ROOT.glob("decks/*.html"))
                   + list(ROOT.glob("dist/*.html"))
                   if not p.name.endswith((".body.html", ".part.html")))
     print("\n=== validate " + "=" * 51, flush=True)

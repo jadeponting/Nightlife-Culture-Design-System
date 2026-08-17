@@ -82,18 +82,21 @@ css = f"""/* =============================================================
    already in tokens.
 
    The rhythm is ch03's: a heading carries THREE TIMES the space above it that
-   it carries below, so it attaches to what follows instead of floating.
+   it carries below, so it attaches to what follows instead of floating. The
+   margins are set in the heading's OWN em — 1.5em above (sp5), .5em below
+   (sp2) — so the values sit on the spacing scale AND the rhythm scales with
+   the heading size, instead of one rule breaking the other.
 
    Display is the decorative tier by the Book's own rule, and is named as such
    rather than pretending to be a step on the scale. */
 .nc-display{{font-family:var(--nc-font-display);font-size:{DSP['em']}em;line-height:{TY['lineHeight']['display']};
   text-transform:uppercase;letter-spacing:-.01em;margin:0}}
 .nc-h1{{font-family:var(--nc-font-head);font-weight:800;font-size:{SC['h1']['em']}em;line-height:{SC['h1']['lineHeight']};
-  text-transform:uppercase;letter-spacing:.01em;margin:{SC['h1']['em']*RH*0.5:.3f}em 0 {SC['h1']['em']*0.5:.3f}em}}
+  text-transform:uppercase;letter-spacing:.01em;margin:{0.5*RH}em 0 .5em}}
 .nc-h2{{font-family:var(--nc-font-head);font-weight:800;font-size:{SC['h2']['em']}em;line-height:{SC['h2']['lineHeight']};
-  text-transform:uppercase;letter-spacing:.04em;margin:{SC['h2']['em']*RH*0.5:.3f}em 0 {SC['h2']['em']*0.5:.3f}em}}
+  text-transform:uppercase;letter-spacing:.04em;margin:{0.5*RH}em 0 .5em}}
 .nc-h3{{font-family:var(--nc-font-head);font-weight:700;font-size:{SC['h3']['em']}em;line-height:{SC['h3']['lineHeight']};
-  letter-spacing:0;margin:{SC['h3']['em']*RH*0.5:.3f}em 0 {SC['h3']['em']*0.5:.3f}em}}
+  letter-spacing:0;margin:{0.5*RH}em 0 .5em}}
 .nc-body{{font-family:var(--nc-font-body);font-weight:400;font-size:{SC['body']['em']}em;line-height:{SC['body']['lineHeight']};
   text-align:left;max-width:70ch;margin:0 0 {SC['body']['em']*0.75:.3f}em}}
 /* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor

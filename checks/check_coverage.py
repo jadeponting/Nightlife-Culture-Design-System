@@ -29,7 +29,7 @@ defined = {m for m in re.findall(r"\.(nc-[a-z0-9-]+)", css)} | \
 # build itself — the markup disclosure under each specimen is generated, not
 # typed — and a check that reads the source cannot see them. What matters is
 # what renders, so that is what is counted.
-SURFACES = ["components/index.html", "layouts/index.html"]
+SURFACES = ["components/index.html", "layouts/index.html", "decks/ukdf-pitch.html"]
 shown = set()
 for f in SURFACES:
     p = ROOT / f
@@ -132,7 +132,7 @@ used = set()
 # library is how the audit and plan sheets accumulated their own private
 # vocabulary — .nm, .sr, .wt, .cnt, .r--ok — none of it defined, all of it
 # emitted straight from Python where no stylesheet check was ever looking.
-for d in ("components", "docs", "layouts"):
+for d in ("components", "docs", "layouts", "decks"):
     for q in sorted((ROOT / d).glob("*.html")):
         used |= {c for a in re.findall(r'class="([^"]*)"', q.read_text()) for c in a.split()}
 for f in ("components/library.body.html", "docs/audit.body.html",

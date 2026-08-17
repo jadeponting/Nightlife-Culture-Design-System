@@ -112,13 +112,26 @@ CSS = f"""/* GENERATED — do not edit. Source: foundations/tokens.json
 /* Filled cells. Every accent takes ink text — no exceptions (v1.4 §07). */
 .nc-cells{{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:{gutter}}}
 .nc-cells .cell{{padding:1.9cqw 2cqw;background:var(--nc-acc,var(--nc-teal));color:var(--nc-ink)}}
+/* Four or five cells: the gutter tightens so the cells stay readable. Five is
+   the ceiling — six cells is two slides. */
+.nc-cells--4{{grid-template-columns:repeat(4,1fr);gap:2%}}
+.nc-cells--5{{grid-template-columns:repeat(5,1fr);gap:1.6%}}
+.nc-cells--4 .cell,.nc-cells--5 .cell{{padding:1.5cqw 1.6cqw}}
 .nc-cells .cell .n{{font-family:var(--nc-font-display);font-size:3.2cqw;line-height:.9}}
 .nc-cells .cell .l{{font-family:var(--nc-font-head);font-weight:800;font-size:1.1cqw;
   letter-spacing:.1em;text-transform:uppercase;margin-top:1cqw;line-height:1.3}}
+/* Detail line — NEW 17 Aug, awaiting Carly's sign-off. The catalogue's cells
+   and columns carried a numeral and a label only, and a real deck needs one
+   sentence under the label (the Why-Carly cards, the three outcomes). Inter
+   400 at 1.25cqw — between the label (1.1) and slide body (1.55), sentence
+   case, never caps. If this is wrong, it is one line to change. */
+.nc-cells .cell .d,.nc-cols .col .d{{font-family:var(--nc-font-body);font-weight:400;
+  font-size:1.25cqw;line-height:1.35;margin-top:.7cqw;text-transform:none;letter-spacing:0}}
 
 /* Vertical third. An accent block, never an accent room. */
 .nc-third{{position:absolute;inset:0;display:flex}}
-.nc-third .main{{flex:1;padding:{tops['titleLeads']} 0 {band} {side};display:flex;flex-direction:column}}
+.nc-third .main{{flex:1;padding:{tops['titleLeads']} {gutter} {band} {side};display:flex;flex-direction:column}}
+/* Right padding is the column gutter: text never touches the colour block. */
 /* The colour field bleeds to the edge — that is what makes it a change of ground
    rather than a box. Its TEXT still stops at the footer line: 7.5cqw is the
    footer band expressed against slide width on 16:9. The band exists because
