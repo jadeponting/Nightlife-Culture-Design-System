@@ -571,6 +571,26 @@ css = f"""/* =============================================================
   .nc-bar .tk,.nc-dot .tk{{flex:1 1 auto;min-width:0}}
 }}
 """
+
+# --- the layout-catalogue furniture, moved out of extra_css ------------------
+# It lived in a Python string passed to page(extra_css=...) — the same loophole
+# NC-PAG-02 closed for stylesheet files, left open for a string. Same styling,
+# governed home. Nothing here changed visually in the move.
+css += """
+/* --- 24 · LAYOUT-CATALOGUE FURNITURE -------------------------------
+   The card around each slide in layouts/index.html — and only there.
+   Moved from that page's extra_css so no page styles itself (NC-PAG-02). */
+.lay{margin:0 0 var(--nc-sp7)}
+.layh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;margin:0 0 var(--nc-sp2);
+ display:flex;align-items:baseline;gap:var(--nc-sp3);flex-wrap:wrap;text-transform:none}
+.layh .code{background:var(--nc-ink);color:var(--nc-chalk);padding:var(--nc-sp1) var(--nc-sp2);
+ font-size:.8em;letter-spacing:.06em}
+.layh .meta{font-weight:600;font-size:max(.72em,12px);letter-spacing:.06em;text-transform:uppercase;
+ color:var(--nc-charcoal)}
+.why{font-size:max(.9em,13px);color:var(--nc-charcoal);max-width:74ch;margin-bottom:var(--nc-sp4)}
+.lay .nc-slide{outline:1px solid var(--nc-hair);outline-offset:-1px}
+"""
+
 out = ROOT/"foundations"/"nightlife-culture.css"; out.write_text(css)
 allow = sorted({v.upper() for v in list(G.values())+list(A.values())+RAMP+["#FFFFFF","#000000"]})
 (ROOT/"checks"/"allowed-hex.json").write_text(json.dumps({

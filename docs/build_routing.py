@@ -27,11 +27,11 @@ def esc(s): return H.escape(str(s))
 fam = ['<div class="nc-lab">The six families</div>']
 for f in route.FAMILIES:
     fam.append(
-      f'<div class="fam"><div class="lab">{esc(f["name"])}</div><div>'
-      f'<p class="jb">{esc(f["job"])}</p>'
-      f'<p class="mm">{esc(" · ".join(f["members"]))}</p>'
-      f'<p class="pl">{esc(f["place"])}</p>'
-      f'<p class="mm"><i>{esc(f["tier"])}</i></p></div></div>')
+      f'<div><div class="lab">{esc(f["name"])}</div><div>'
+      f'<p>{esc(f["job"])}</p>'
+      f'<p>{esc(" · ".join(f["members"]))}</p>'
+      f'<p>{esc(f["place"])}</p>'
+      f'<p><i>{esc(f["tier"])}</i></p></div></div>')
 FAMILIES = "\n".join(fam)
 
 # ---------------------------------------------------------------- containers
@@ -57,7 +57,7 @@ DEMOS = {
 }
 ct = ['<div class="nc-lab">The container ladder</div>']
 for q, cls, why in route.CONTAINERS:
-    ct.append(f'<div class="ct-row"><div><p class="qn">{esc(q)}</p><p class="an">{esc(why)}</p>'
+    ct.append(f'<div><div><p>{esc(q)}</p><p>{esc(why)}</p>'
               f'</div><div>{DEMOS[cls]}</div></div>')
 CONTAINERS = "\n".join(ct)
 
@@ -65,13 +65,13 @@ CONTAINERS = "\n".join(ct)
 def ladder(d):
     rows = []
     for rid, what in d.fired:
-        if (rid, what) in d.refuse: kind, mod = "Stop", " step--stop"
-        elif (rid, what) in d.warn: kind, mod = "Check", " step--flag"
+        if (rid, what) in d.refuse: kind, mod = "Stop", ""
+        elif (rid, what) in d.warn: kind, mod = "Check", ""
         else:                       kind, mod = "Holds", ""
-        rows.append(f'<div class="step{mod}"><div class="who">{kind}<br>'
+        rows.append(f'<div{mod}><div>{kind}<br>'
                     f'<span style="letter-spacing:.02em">{esc(rid)}</span></div>'
-                    f'<div class="say">{esc(what)}</div></div>')
-    return '<div class="ladder">' + "\n".join(rows) + "</div>"
+                    f'<div>{esc(what)}</div></div>')
+    return '<div>' + "\n".join(rows) + "</div>"
 
 def supplied(lines):
     body = "".join(f'<p class="txt">{esc(l)}</p>' for l in lines)
@@ -79,7 +79,7 @@ def supplied(lines):
             '<p class="lab">As you supplied it</p>' + body + '</div>')
 
 def block(head, intro, lines, d, outro=None, show=True):
-    o = [f'<h3 class="exh">{esc(head)}</h3>', f'<p>{intro}</p>', supplied(lines), ladder(d)]
+    o = [f'<h3>{esc(head)}</h3>', f'<p>{intro}</p>', supplied(lines), ladder(d)]
     if d.blocked:
         o.append('<div class="nc-lab">What comes out</div>'
                  '<div class="nc-panel nc-panel--left acc-coral">'
@@ -88,7 +88,7 @@ def block(head, intro, lines, d, outro=None, show=True):
                  'designed around.</p></div>')
     elif show:
         o.append('<div class="nc-lab">What comes out</div>'
-                 f'<div class="demo">{d.html}</div>')
+                 f'<div>{d.html}</div>')
     if outro: o.append(f'<p class="nc-small">{outro}</p>')
     return "\n".join(o)
 
@@ -148,7 +148,7 @@ EX = "\n".join([
    "its own level; where it lands does. That is the same principle as the type scaling: "
    "the context sets the base, the component sizes itself against it. Drop the same "
    "section opener at the top of a report and it comes out as a second-level heading, "
-   "looking bigger, with nothing rewritten.</p><p class=\"sm\">"
+   "looking bigger, with nothing rewritten.</p><p class=\"nc-small\">"
    "Two <b>checks</b>, not stops — both are yours to decide. On the heading: “How cities "
    "make great places” names a topic. “Cities make places worth staying out in” would "
    "state a finding, and a contents list built from findings reads as a summary, which is "

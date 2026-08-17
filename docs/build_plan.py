@@ -68,17 +68,17 @@ blocks = []
 for num, title, why, acc in WAVES:
     mine = [(it, f) for it, f in items if it["wave"] == num]
     rows = "\n".join(
-      '<tr><td class="nm">' + esc(it["n"]) + '</td>'
-      '<td class="sr">' + esc(f) + '</td>'
-      '<td class="cd">' + esc(", ".join(it.get("rules", [])) or "—") + '</td>'
-      '<td class="wt">' + esc(it["done"]) + '</td>'
-      '<td class="sr">' + esc(" · ".join(SRC.get(s, s).split(" — ")[0] for s in it["src"]) or "—")
+      '<tr><td>' + esc(it["n"]) + '</td>'
+      '<td>' + esc(f) + '</td>'
+      '<td class="nc-code">' + esc(", ".join(it.get("rules", [])) or "—") + '</td>'
+      '<td>' + esc(it["done"]) + '</td>'
+      '<td>' + esc(" · ".join(SRC.get(s, s).split(" — ")[0] for s in it["src"]) or "—")
       + "</td></tr>" for it, f in mine)
     blocks.append(
-      f'<div class="nc-panel nc-panel--top {acc} wv">'
+      f'<div class="nc-panel nc-panel--top {acc}">'
       f'<p class="lab">Wave {num} · {len(mine)} items</p>'
-      f'<p class="wt-t">{esc(title)}</p><p class="txt">{esc(why)}</p></div>'
-      '<div class="tw"><table class="nc-table"><thead><tr>'
+      f'<p>{esc(title)}</p><p class="txt">{esc(why)}</p></div>'
+      '<div><table class="nc-table"><thead><tr>'
       '<th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th>'
       "</tr></thead><tbody>" + rows + "</tbody></table></div>")
 

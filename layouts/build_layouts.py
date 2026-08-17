@@ -250,7 +250,7 @@ for code, name, lead, ground, reg, why, markup in LAYOUTS:
   <div class="nc-slide"><div class="cv {ground}">{markup}</div></div>
 </section>''')
 
-rows = "".join(f'<tr><td class="nm">{job}</td><td>{pick}</td></tr>' for job, pick in CHOOSE)
+rows = "".join(f'<tr><td>{job}</td><td>{pick}</td></tr>' for job, pick in CHOOSE)
 GRID = f'''<div><table class="nc-table"><thead><tr>
 <th>Zone</th><th class="num">Measure</th><th>Rule</th></tr></thead><tbody>
 <tr><td>Side margins</td><td class="num">{S["sideMargin"]}</td><td>Nothing crosses them.</td></tr>
@@ -298,18 +298,8 @@ BODY = f'''<section>
     <th>What you are doing</th><th>Layout</th></tr></thead><tbody>{rows}</tbody></table></div>
 </section>'''
 
-SCAFFOLD = """/* Layout-catalogue furniture only — the card around each slide. Everything
-   else on this page is a page component (NC-PAG-02). */
-.lay{margin:0 0 var(--nc-sp7)}
-.layh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;margin:0 0 var(--nc-sp2);
- display:flex;align-items:baseline;gap:var(--nc-sp3);flex-wrap:wrap;text-transform:none}
-.layh .code{background:var(--nc-ink);color:var(--nc-chalk);padding:var(--nc-sp1) var(--nc-sp2);
- font-size:.8em;letter-spacing:.06em}
-.layh .meta{font-weight:600;font-size:max(.72em,12px);letter-spacing:.06em;text-transform:uppercase;
- color:var(--nc-charcoal)}
-.why{font-size:max(.9em,13px);color:var(--nc-charcoal);max-width:74ch;margin-bottom:var(--nc-sp4)}
-.nc-slide{outline:1px solid var(--nc-hair);outline-offset:-1px}
-"""
+# The catalogue furniture is in the generated layer now (section 24). No extra_css.
+
 
 import sys
 sys.path.insert(0, str(ROOT / "docs"))
@@ -326,12 +316,12 @@ page(name="index", folder="layouts",
      title="Twelve layouts",
      stand="Generated from the tokens, so every margin on this page is the value the rule set "
            "holds. Change the grid once and all twelve move together.",
-     body=BODY, extra_css=SCAFFOLD)
+     body=BODY)
 page(name="slide-layouts", folder="dist",
      kicker="Nightlife Culture · design system",
      title="Twelve layouts",
      stand="Generated from the tokens, so every margin on this page is the value the rule set "
            "holds. Change the grid once and all twelve move together.",
-     body=logo_inline, extra_css=SCAFFOLD)
+     body=logo_inline)
 print(f"wrote layouts/index.html         {len(LAYOUTS)} layouts, linked")
 print(f"wrote dist/slide-layouts.html    self-contained")

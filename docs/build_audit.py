@@ -84,17 +84,17 @@ for fam in INV["families"]:
         rt   = ["produced by the router"] if prim in ROUTED else []
         rt  += ["checked by " + c for c in sorted(enforced(it))]
         chip = {"ok":"nc-prov","flag":"nc-prov nc-prov--mid","gap":"nc-prov nc-prov--low"}[kind]
-        made = ('<br><span class="rt">' + esc(" \u00b7 ".join(rt)) + "</span>") if rt else ""
+        made = ('<br><span>' + esc(" \u00b7 ".join(rt)) + "</span>") if rt else ""
         body.append(
-          '<tr class="r r--' + kind + '"><td class="nm">' + esc(it["n"]) + made + "</td>"
-          '<td class="sr">' + esc(srcs) + "</td>"
-          '<td class="cd">' + esc(cls) + '</td><td class="cd">' + esc(rls) + "</td>"
+          "<tr><td>" + esc(it["n"]) + made + "</td>"
+          '<td>' + esc(srcs) + "</td>"
+          '<td class="nc-code">' + esc(cls) + '</td><td class="nc-code">' + esc(rls) + "</td>"
           '<td><span class="' + chip + '">' + esc(label) + "</span></td></tr>")
     n_ok = sum(1 for it in fam["items"] if status(it)[1] == "ok")
     rows.append(
-      f'<h3 class="famh">{esc(fam["name"])}'
-      f' <span class="cnt">{n_ok} of {len(fam["items"])} complete</span></h3>'
-      '<div class="tw"><table class="nc-table"><thead><tr>'
+      f'<h3 class="nc-h3">{esc(fam["name"])}'
+      f' <span>{n_ok} of {len(fam["items"])} complete</span></h3>'
+      '<div><table class="nc-table"><thead><tr>'
       '<th>Component or style</th><th>Named in</th><th>In the codebase as</th>'
       '<th>Logic</th><th>Status</th></tr></thead><tbody>'
       + "\n".join(body) + "</tbody></table></div>")
@@ -124,7 +124,7 @@ extra = sorted(incss - declared)
 EXTRA = ("<p>Everything in the stylesheet traces back to a reference file.</p>"
          if not extra else
          '<p>In the stylesheet, not asked for by any reference file — each one needs a '
-         'reason recorded or removing:</p><p class="cd">' + esc(", ".join(extra)) + "</p>")
+         'reason recorded or removing:</p><p class="nc-code">' + esc(", ".join(extra)) + "</p>")
 
 # --- rules with no component ---------------------------------------------
 used = {r for fam in INV["families"] for it in fam["items"] for r in it.get("rules", [])}
