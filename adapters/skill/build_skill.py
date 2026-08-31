@@ -132,6 +132,8 @@ def main():
     tpl = tpl.replace('<meta charset="utf-8">', f'<meta charset="utf-8">\n<meta name="nc-build-stamp" content="{stamp}">', 1)
     (OUT / "assets" / "template.html").write_text(tpl)
     shutil.copy(SRC / "scripts" / "contrast.py", OUT / "scripts" / "contrast.py")
+    shutil.copy(ROOT / "assets" / "logo" / "nightlife-culture-wordmark.svg",
+                OUT / "assets" / "nightlife-culture-wordmark.svg")
     shutil.copy(SRC / "parity_check.py", OUT / "scripts" / "parity_check.py")
 
     # ---- guards ----
@@ -145,6 +147,9 @@ def main():
                 ctx = txt[max(0, mm.start()-160):mm.start()].lower()
                 if "retired" not in ctx and "old" not in ctx and "false" not in ctx and "supersede" not in ctx:
                     fail.append(f"RETIRED LAW stated as current in {p.relative_to(OUT)}")
+        if re.search(r"(?i)>\s*nightlife\s*<br\s*/?>\s*culture", txt) or \
+           re.search(r"\.logo\b[^}]*\{[^}]*font-family", txt):
+            fail.append(f"live-type wordmark in {p.relative_to(OUT)} — the logo is a placed SVG (LOGO.md)")
         if "tools/validate.py" in txt:
             fail.append(f"stale tools/validate.py reference in {p.relative_to(OUT)}")
     skill_md = all_text[OUT / "SKILL.md"]

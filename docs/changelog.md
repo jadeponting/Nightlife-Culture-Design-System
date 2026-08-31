@@ -285,3 +285,12 @@ rather than taken on trust. Every number in the audit reproduced exactly.
 - **Still to do in the decision-book session:** regenerate `v1.4-register.json` from the
   corrected guide — statement 146 currently quotes the old sentence verbatim, and X-02's
   resolution is now implemented at source. Not done here: the register belongs to that workflow.
+
+## 31 August 2026 — the skill's logo slot stops inviting live type
+
+Carly caught Brand on a Page setting the wordmark as live Archivo Black — twice, header and
+footer, zero placed SVGs in the file. Fixed there (both lockups are now the outlined wordmark,
+inline, currentColor). The same latent breach was in the skill: `.cv .logo` styled a slide logo
+slot as live display type. The slot now sizes a placed SVG, the wordmark ships in the skill's
+`assets/`, SKILL.md states the rule, and `build_skill.py` fails on any live-type lockup or any
+`.logo` rule that declares a font. Fires on the pattern Brand on a Page actually had.

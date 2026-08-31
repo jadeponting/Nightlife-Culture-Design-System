@@ -73,6 +73,9 @@ Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE`
   `@font-face` rules. Inline this into any HTML deliverable.
 - `assets/template.html` — a starter document with fonts, tokens and components already wired.
   Copy it and replace the content.
+- `assets/nightlife-culture-wordmark.svg` — the outlined wordmark, `fill="currentColor"`.
+  Place it inline and set `color` on the container. **Never re-type the logo in Archivo Black** —
+  the two lines carry different sizes and per-line tracking that live type cannot reproduce.
 
 **3. Check contrast before shipping** any new colour pairing:
 `python scripts/contrast.py "#0000FF" "#FFFFFF"` → ratio and pass/fail at AA and AAA.
