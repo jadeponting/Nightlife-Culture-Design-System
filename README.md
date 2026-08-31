@@ -2,8 +2,8 @@
 
 The brand as a working system: tokens, layout contracts, stylesheets, templates and a validator.
 
-**Source of truth:** Nightlife Culture Style Guide v1.4 (August 2026).
-**This file:** v1.4 · 16 August 2026.
+**Source of truth:** Nightlife Culture Style Guide v1.4.1 (August 2026).
+**This file:** v1.4.1 · 31 August 2026.
 **Instructions for AI agents:** [AGENTS.md](AGENTS.md) — read this first if you are a model.
 
 ---

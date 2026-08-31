@@ -224,3 +224,64 @@ rather than taken on trust. Every number in the audit reproduced exactly.
 - `.nc-slide .cv` defines `.cv`. Reading every class in a selector is how seventeen components once
   read as built when only a child of each was defined. The resolver reads the last compound of each
   comma-separated part and nothing else.
+
+## 31 August 2026 — the portable skill becomes a build artefact
+
+**The Claude skill was a fork, and it was teaching the retired law**
+- `nightlife-culture-design.skill` — the portable skill used by claude.ai sessions — was built
+  before v1.3 and maintained by hand. Its `SKILL.md`, `references/tokens.md` and
+  `scripts/contrast.py` all stated *"every accent is a black-text surface; every ground is a
+  white-text surface"* — the exact sentence v1.3 corrected everywhere else and made the validator
+  fail on. Its source of truth said Style Guide v1.0. Its font stacks had no metric-corrected
+  fallbacks (NC-TYP-15). Its stylesheet predated the decided document type scale.
+- Every hand-maintained copy of the system drifts the same way; this one had simply not been
+  looked at since the corrections landed.
+
+**Now generated: `adapters/skill/build_skill.py`**
+- `references/tokens.md` is generated entirely from `foundations/tokens.json` — the law, the
+  per-ground text colours with each ratio naming its pairing, charcoal filed as a text colour,
+  the ramp, the decided document type scale and the retired list.
+- `SKILL.md`, `nc.css` and `template.html` are templates in `adapters/skill/src/` with the
+  volatile values injected at build time: the law, the source version, the `:root` token block,
+  metric-corrected fallback stacks, and the six generated type-scale classes with per-line
+  provenance comments.
+- `fonts.css` is copied from `foundations/fonts.css`, so the skill inherits the size-adjusted
+  fallbacks and any future font change automatically.
+- The emitted `template.html` and `nc.css` carry build stamps; `check_stamps.py` covers them.
+
+**Guards, proven to fire**
+- The retired law stated as current anywhere in the output fails the build (tested: it fires).
+- A reference to the archived `tools/validate.py`, a superseded guide version in `SKILL.md`,
+  a non-token hex in `nc.css`, or a retired colour anywhere all fail.
+- The skill-chat's `parity_check.py` is adopted into the pipeline and shipped in the skill's
+  `scripts/`: every class the references and template name must exist in `nc.css`. 59/59.
+
+**Output**
+- `dist/skill/nightlife-culture-design/` and `dist/nightlife-culture-design.skill` (182KB).
+  The copy in iCloud `Design System Outputs/` is now superseded by the generated one.
+
+**Noted, not fixed here**
+- `Nightlife_Culture_Brand_on_a_Page.html` states the retired law twice and files charcoal under
+  Grounds; corrections proposed to Carly separately before touching the file.
+- Playwright is not installed on this machine, so the rendered-contrast check reported SKIPPED
+  during this build; nothing in this change touches rendered pages.
+
+## v1.4.1 — 31 August 2026
+
+**The guide itself carried the retired law — corrected at source**
+- Style Guide section 07 still said *"every accent is a black-text surface; every ground is a
+  white-text surface… if you remember one thing from this section, remember this sentence"* —
+  while its own token cards four lines above said INK OR CHARCOAL TEXT for chalk and white. This
+  was register contradiction X-02, recorded and resolved on 16 August; the source document was
+  never brought into line with its own resolution.
+- Section 07 now states the per-ground rule, names the two failing pairings (white on chalk
+  1.11:1, white on white 1.00:1), and carries a note retiring the old sentence. A 1.4.1 row was
+  added to the guide's version history. Both copies patched: the repo's `assets/` copy and the
+  iCloud `Core Layouts` copy (their footer email addresses differ — studio@ vs carly@ — left as
+  found, flagged to Carly).
+- Version stamps bumped to v1.4.1 in `foundations/tokens.json` meta, `AGENTS.md`, `CLAUDE.md`
+  and `README.md`. Token values are unchanged — this is a wording correction, not a palette
+  change. NC-BRK-01 parses v1.4.1 as the same 1.4 line, so existing stamped artefacts stay valid.
+- **Still to do in the decision-book session:** regenerate `v1.4-register.json` from the
+  corrected guide — statement 146 currently quotes the old sentence verbatim, and X-02's
+  resolution is now implemented at source. Not done here: the register belongs to that workflow.

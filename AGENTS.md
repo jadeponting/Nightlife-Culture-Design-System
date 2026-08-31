@@ -1,7 +1,7 @@
 # Nightlife Culture Design System — instructions for AI agents
 
-**Source of truth: Nightlife Culture Style Guide v1.4.**
-**This file: v1.4 · 16 August 2026.** If a file you are reading declares an older version, it is
+**Source of truth: Nightlife Culture Style Guide v1.4.1.**
+**This file: v1.4.1 · 31 August 2026.** If a file you are reading declares an older version, it is
 superseded — check `foundations/tokens.json`, which carries the current one, before you trust it.
 
 You are producing work for **Nightlife Culture**, a creative policy, research and design studio
