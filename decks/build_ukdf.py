@@ -191,7 +191,7 @@ SLIDES.append(slide("L12", "ground-blue", f'''<div class="nc-pad" data-anchor="c
     <hr class="nc-brk nc-brk--bar acc-pink">
     <h2 class="nc-t">Artists make<br>great places</h2>
     <p class="nc-sub" style="margin-top:2cqw">Carly Heath &middot; Nightlife Culture &middot;
-      carly@nightlifeculture.co.uk</p>
+      studio@nightlifeculture.co.uk</p>
   </div>
   {foot(None, LOGO, "dark")}'''))
 
