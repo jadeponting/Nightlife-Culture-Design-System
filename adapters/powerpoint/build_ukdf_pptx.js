@@ -188,7 +188,12 @@ CONTENT.slides.forEach(sp => {
         color: "FFFFFF", lineSpacing: 20, margin: 0, valign: "top" });
     sl.addText(sp.closeline, { x: SIDE, y: H - BAND - 0.62, w: CW * 0.85, h: 0.5,
       fontFace: F_HEAD, bold: true, fontSize: 20, color: A.teal, margin: 0 });
+    // The email sweep deleted the contact line along with the old address. A
+    // funding pitch ends with a way to reach its author: restored, role address.
     footer(sl, g, null);
+    if (sp.contact) sl.addText(sp.contact, { x: W - SIDE - 6.4, y: H - BASE - 0.32,
+      w: 6.4, h: 0.35, align: "right", fontFace: F_HEAD, bold: true, fontSize: 14,
+      color: "FFFFFF", margin: 0 });
   }
 });
 

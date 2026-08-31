@@ -42,5 +42,10 @@ with zipfile.ZipFile(tmp) as zin, zipfile.ZipFile(PPTX, "w", zipfile.ZIP_DEFLATE
                         changed += 1
             data = ET.tostring(tree, xml_declaration=True, encoding="UTF-8", standalone=True)
         zout.writestr(item, data)
-tmp.unlink()
+try:
+    tmp.unlink()
+except PermissionError:      # synced folders often forbid unlink; parking works
+    dest = tmp.parent.parent / "_to_delete" / tmp.name
+    dest.parent.mkdir(exist_ok=True)
+    tmp.replace(dest)
 print(f"cap='all' applied to {changed} runs — text stays sentence case underneath")

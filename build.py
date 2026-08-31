@@ -27,6 +27,10 @@ STEPS = [
     ("layouts",  [sys.executable, "layouts/build_layouts.py"]),
     ("plan",     [sys.executable, "docs/build_plan.py"]),
     ("decks",    [sys.executable, "decks/build_ukdf.py"]),
+    # The skill is a derived artefact like any other. Outside the pipeline it
+    # was regenerated only when someone remembered — the exact staleness the
+    # design-decisions skill taught us about. In the pipeline, drift fails.
+    ("skill",    [sys.executable, "adapters/skill/build_skill.py"]),
 ]
 fail = 0
 for name, cmd in STEPS:
