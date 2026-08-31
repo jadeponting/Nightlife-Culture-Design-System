@@ -1,7 +1,7 @@
 {
  "meta": {
   "purpose": "Every statement in Style Guide v1.4 that is a rule or a value, extracted verbatim and machine-readable. This is the approved steer, committed. Joined to The Decision Book for tier and reasoning.",
-  "source": "Nightlife Culture Style Guide v1.4",
+  "source": "Nightlife Culture Style Guide v1.4.1",
   "bookDigest": "6034d466ccbf4071",
   "generated": "2026-08-16",
   "counts": {
@@ -10,7 +10,8 @@
    "machineCheckable": 228
   },
   "quoting": "The `statement` field is verbatim from v1.4. Table rows are reassembled as 'row label · <Column>: <cell>' using the guide's own column headers. Every row was string-matched back to the source: zero unverified.",
-  "blocked": "15 statements cannot be encoded as written because v1.4 contradicts itself. See contradictions[] — 3 resolved on accessibility grounds, 7 awaiting Carly, 5 bookkeeping."
+  "blocked": "15 statements cannot be encoded as written because v1.4 contradicts itself. See contradictions[] — 3 resolved on accessibility grounds, 7 awaiting Carly, 5 bookkeeping.",
+  "patched": "2026-08-31 — statement 146 re-quoted from v1.4.1 (the retired one-line colour law); X-02 resolved at source. All other statements unchanged from the 2026-08-16 extraction."
  },
  "contradictions": [
   {
@@ -29,14 +30,15 @@
   {
    "id": "X-02",
    "tier": "fixed",
-   "status": "resolved-accessibility",
+   "status": "resolved-at-source",
    "sections": [
     "07"
    ],
    "a": "Every accent is a black-text surface. Every ground is a white-text surface. There are no exceptions and no judgement calls.",
    "b": "Chalk #F3F3F3 · INK OR CHARCOAL TEXT · 17.52:1 — White #FFFFFF · INK OR CHARCOAL TEXT · 19.44:1",
    "finding": "White on chalk is 1.11:1. The headline rule is false for 2 of the 5 grounds.",
-   "resolution": "The rule holds for the dark grounds — blue and ink. Chalk and white are reading grounds taking ink or charcoal. Also wrong in the nightlife-culture-design skill, non-negotiable 1."
+   "resolution": "The rule holds for the dark grounds — blue and ink. Chalk and white are reading grounds taking ink or charcoal. Also wrong in the nightlife-culture-design skill, non-negotiable 1.",
+   "resolvedIn": "Style Guide v1.4.1 — section 07 corrected at source, 31 August 2026; statement 146 re-quoted verbatim"
   },
   {
    "id": "X-03",
@@ -1358,7 +1360,7 @@
   {
    "section": "07",
    "sectionName": "Colour",
-   "statement": "Every accent is a black-text surface. Every ground is a white-text surface. There are no exceptions and no judgement calls. White on pink is 2.62:1 and fails; white on violet is 2.54:1 and fails; black on blue is 2.44:1 and fails. If you remember one thing from this section, remember this sentence.",
+   "statement": "Every accent takes ink text. Every ground takes the text colour its own token declares — white on blue and ink, ink on chalk and white. There is no single sentence covering all four grounds: white on chalk is 1.11:1 and white on white is 1.00:1, so read the pairing off the token, never from memory. The other failures stand as before — white on pink is 2.62:1, white on violet is 2.54:1, black on blue is 2.44:1.",
    "kind": "rule",
    "machineCheckable": true,
    "subject": "colour"
