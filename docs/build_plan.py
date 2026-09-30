@@ -44,10 +44,9 @@ WAVES = [
   "honest note that it is a human step. A rule with neither is a rule that will quietly "
   "stop being true.", "acc-violet"),
  (4, "The slide layer",
-  "The hole. Twelve layouts exist as working markup in slide layouts v1.0 and in the "
-  "repo's older folder, but nothing generates them from the tokens, so nothing checks "
-  "them — the last place a hand-set value can hide. This wave is blocked on one decision "
-  "of yours: the grid geometry.", "acc-butter"),
+  "Twelve layouts are generated from the tokens on the grid settled 16 August. Their "
+  "slot contracts in foundations/layouts.json are recorded but not yet read by any "
+  "script, so word limits and anchors are not checked.", "acc-butter"),
  (5, "The remaining surfaces",
   "The nine HTML elements the browser will style whether or not we decide, and the table "
   "variants. Low glamour, high frequency — and unstyled is still a look.", "acc-pink"),

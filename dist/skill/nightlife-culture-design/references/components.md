@@ -42,6 +42,7 @@ recommendation logs — so they must stay readable for a long time.
 ### Table rules
 - The header row is a **real** header row — `<th>` in HTML, repeated header row in Word. Screen-reader
   requirement, not a style.
+- The first column is bold: it names the row.
 - Numbers right-aligned, monospaced, decimals lined up. Text left-aligned.
 - No vertical rules unless the table is genuinely a grid read in both directions.
 - Never band and rule at once.

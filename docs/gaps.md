@@ -5,36 +5,31 @@ becomes drift.
 
 ## Open
 
-### 1. Dense layout tier
-Every layout is the generous register — one idea, half the canvas empty. Content-heavy slides need a
-second tier with its own margins, sizes and coverage ceiling.
-
-**Interim rule:** hold the 6% margins and the 14% footer band, allow coverage up to 70%, drop slide
-body to the 18pt minimum, cap at six blocks. Flag any slide built this way as provisional.
-
 ### 2. Diagram kit
 No diagram system exists. Process chains, funnels, progressions and timelines are all needed.
 
 **Interim rule:** build from the containment treatments and the chart ramp. **Never use PowerPoint
 SmartArt defaults** — they override colour, type, spacing and outlines.
 
-### 3. Document, chart and asset stylesheets
-`system/slides.css` exists. Still to port from the style guide: `document.css` (long-form reports,
-tables, pull quotes, stat blocks), `charts.css` (the full chart component set) and `assets.css`
-(business cards, letterheads, social graphics, email signatures).
+### 3. Asset stylesheets
+Slides (`foundations/nightlife-slides.css`) and the component layer — long-form furniture,
+tables, pull quotes, stat blocks and the chart set (`foundations/nightlife-culture.css`) — are
+generated. Still nothing for marcoms assets: business cards, letterheads, social graphics, email
+signatures.
 
 ### 4. Contracts for non-slide artefacts
-`contracts/layouts.json` covers slides only. Reports, charts and marcoms assets need equivalent
+`foundations/layouts.json` covers slides only. Reports, charts and marcoms assets need equivalent
 contracts before the validator can check them.
 
 ### 5. Web / published pages
 No page templates yet for nightlifeculture.co.uk or a published HTML report.
 
 ### 6. PowerPoint export
-Decks are built in HTML. A `.pptx` path — either a python-pptx builder driven by the same contracts,
-or a documented manual mapping — is not yet written.
+Partly addressed: `adapters/powerpoint/` builds the UKDF deck as a real `.pptx`. Still missing: a
+PowerPoint master (`.potx`) built from the slide patterns, so a deck made in PowerPoint matches the
+HTML decks; and the adapter is not yet run or inspected by `build.py`.
 
-### 6. Masthead ground — RESOLVED 16 Aug 2026, rule still to be written
+### 6b. Masthead ground — RESOLVED 16 Aug 2026, rule still to be written
 No rule said what ground a document masthead takes. Five sheets were built, each with its own
 hand-written stylesheet, and the ground was picked by eye — three ink, two blue.
 
@@ -205,8 +200,40 @@ and mixing them is how the real gaps get lost.
 - **The section-header numeral box outgrows its title** at narrow widths — the box is a fixed
   `.94em` while the title is a clamp that collapses toward `1.15em`.
 
+Found by the full read of 29 September 2026 — every live file, the build run, each claim checked
+against the file and line. Fixed that day where the right answer was already recorded; the rest
+below need a decision or a larger job.
+
+- **NC-CON-02 counts hairline declarations, not uses.** It now fires as a warning on every page
+  because it counts the hairlines defined in the inlined stylesheet. Needs rewriting to count uses.
+- **Fixed-tier checks that only warn.** `validate.py` says "exit 1 on any Fixed breach" but routes
+  NC-TYP-01, CON-02, LAY-04, TYP-15, EVI-09, PSE-01, TBL-01, DOC-04 and part of DAT-05 to
+  warnings. Making them fail will turn the build red until the breaches are fixed. Needs Carly's go.
+- **Checks that cannot see what they test.** NC-TYP-04 and NC-CON-01 read px only, while every
+  component is in em; NC-TBL-01 only runs inside blocks that set uppercase; the NC-TYP-01
+  acronym exemption matches substrings ("FINANCE"); NC-COL-01 checks white-on-light but not
+  accent fills. 29 rules declared machine-checkable are implemented nowhere.
+- **Invented greys and translucencies.** `C9C9C9` in the Word adapter; `#000000` in the allowlist; `rgba(13,13,13,.10)` as `--nc-grid` and
+  seven other translucent inks and whites with no token.
+- **`.acc-blue` can feed fill components that hard-set ink text** — ink on blue, 2.26:1. Latent.
+- **NC-TYP-06 sets a 13px note floor** — below the 10pt (13.33px) footnote minimum — and captions
+  (12.5px) and source lines (12.8px) break even that.
+- **The Office adapters are outside the build.** 14pt caps labels in the UKDF .pptx and 10.5pt caps
+  in the .docx; the .pptx places a raster PNG wordmark, not the outlined SVG.
+- **`adapters/powerpoint/node_modules/` is committed** — about 360 third-party files in git.
+
 ## Closed
 
-- ~~Slide layouts undocumented~~ — twelve layouts, contracts and canonical files. v1.0.
-- ~~No enforcement~~ — `tools/validate.py`. v1.0.
-- ~~Slides hanging from the top with dead bottoms~~ — the anchor rule. v1.0.
+- Dense layout tier — closed 29 Sep 2026 by the live reference deck (`reference/amgp-v2.0`): the
+  working-slide patterns in `foundations/patterns.json`, at its measured sizes.
+- Slide contracts recorded but not enforced — closed 29 Sep 2026: the twelve generated layouts and
+  `layouts.json` are archived; every slide names a registered pattern, the build fails an unknown
+  one, and a browser check fails any slide whose content overflows (NC-LAY-07).
+- Slide type below the floors, vertical percentages resolving against width, `.nc-sub` meaning two
+  things, content in the footer band — closed 29 Sep 2026 with the archived slide layer. Slide
+  sizes now come from `tokens.json` in points: body 18pt.
+- `dist/index.html` written by two builds — closed 29 Sep 2026.
+- `--nc-charcoal` never defined; a skipped contrast check reading as a pass; two layout titles
+  missing `>`; NC-CON-02 matching a variable that did not exist; NC-BRK-01 accepting any version
+  string — fixed 29 Sep 2026.
+- Slide layouts undocumented; no enforcement; slides hanging from the top — v1.0.

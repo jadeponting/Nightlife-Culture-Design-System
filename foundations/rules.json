@@ -1,7 +1,7 @@
 {
  "meta": {
   "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.4 or a Decision Book rule ID.",
-  "source": "Nightlife Culture Style Guide v1.4 + The Decision Book (digest 6034d466ccbf4071)",
+  "source": "Nightlife Culture Style Guide v1.4.1 + The Decision Book (digest 6034d466ccbf4071)",
   "generated": "2026-08-16",
   "tiers": {
    "fixed": "There is a right answer. Pass or fail, measurable. Breaking it is negligence.",
@@ -122,9 +122,9 @@
   {
    "id": "NC-CON-01",
    "tier": "fixed",
-   "source": "v1.4 §09 · containment v1.3 (which retracts grounds v1.2's 'structural hairline')",
-   "rule": "Contain with colour and space, not outlines. The 2px ink outline is reserved for the flyer register — covers, posters, section dividers — never the default.",
-   "breaks": "Used full-time it does the work space should do and makes every panel shout at the same volume. Reserved, the box means something when it turns up.",
+   "source": "v1.4 §09",
+   "rule": "Contain with colour and space, not outlines. The hard outline is retired; the hairline is the only outline.",
+   "breaks": "An outline does the work space should do and makes every panel shout at the same volume.",
    "machine": "noHardOutline"
   },
   {
@@ -147,17 +147,18 @@
    "id": "NC-LAY-01",
    "tier": "adaptable",
    "source": "v1.4 §10 · measured in the working deck",
-   "rule": "Slide side margin 5.25%, kicker line 6.67%. The written 6% / 7.5% is superseded by what the deck does.",
+   "rule": "Slide side margin 5.25%; top margin by what leads — 4% kicker, 6.667% title, 13.333% full-bleed (NC-LAY-06, tokens.json space.slide). The written 6% / 7.5% is superseded by what the deck does.",
    "breaks": "Two grids in one system.",
    "machine": "slideGrid"
   },
   {
    "id": "NC-LAY-02",
    "tier": "adaptable",
-   "source": "v1.4 §10",
-   "rule": "One idea per slide. Roughly half the canvas empty; over ~55% covered means two slides. Remove copy before reducing type.",
+   "source": "v1.4 §10 · reference/amgp-v2.0",
+   "rule": "Two registers. A statement slide (cover, statement) holds one idea with most of the canvas empty. A working slide — any other pattern in foundations/patterns.json — may carry a title, a lead and up to eight short text blocks, as the reference deck does. If it does not fit at the type sizes in tokens.json, it is two slides. Remove copy before reducing type.",
    "breaks": "Reducing type to fit is how the floor gets broken.",
-   "machine": "coverage"
+   "machine": "coverage",
+   "revised": "29 Sep 2026 — revised from the live reference deck, Artists Make Great Places v2.0 (reference/amgp-v2.0)"
   },
   {
    "id": "NC-LAY-03",
@@ -195,10 +196,11 @@
   {
    "id": "NC-PRS-03",
    "tier": "fixed",
-   "source": "v1.4 §14",
-   "rule": "No tables on slides. A table on a slide is a reference table in the wrong artefact.",
+   "source": "v1.4 §14 · reference/amgp-v2.0#14",
+   "rule": "No tables on projected slides. A deck that is sent and read may carry a table slide (pattern 'table') at the 12pt table size in tokens.json; if it does not fit, it is two slides.",
    "breaks": "Puts reference density into a presented artefact.",
-   "machine": "noSlideTables"
+   "machine": "a table inside a slide whose pattern is not 'table'",
+   "revised": "29 Sep 2026 — revised from the live reference deck, Artists Make Great Places v2.0 (reference/amgp-v2.0)"
   },
   {
    "id": "NC-PRS-04",
@@ -644,18 +646,20 @@
   {
    "id": "NC-LAY-07",
    "tier": "fixed",
-   "source": "tokens.json space.slide · ch12 · v1.4 §10",
-   "rule": "The bottom 13.333% is reserved on every slide — covers and closing slides included. Content never enters it.",
+   "source": "tokens.json space.slide.pattern · reference/amgp-v2.0 · v1.4 §10",
+   "rule": "Content stops 8% above the foot of the slide. Where a slide has a closing band, the band takes the bottom 17.333% and content stops above it. The slide number sits in the bottom-right corner.",
    "breaks": "In a room the bottom of the screen is the hardest place to read: heads sit in the sightline. The reserve is about legibility, not about whether a number is printed there, so it does not vary by slide type. Two grids would mean the cover is the one slide whose foot is unreadable.",
-   "machine": "no content below 86.667% of slide height"
+   "machine": "no content below 92% of slide height, or inside the closing band",
+   "revised": "29 Sep 2026 — revised from the live reference deck, Artists Make Great Places v2.0 (reference/amgp-v2.0)"
   },
   {
    "id": "NC-LAY-08",
    "tier": "fixed",
-   "source": "handover §01 · contracts/layouts.json",
-   "rule": "Every content area declares where it pins — bottom, centre, split or top. Implicit top-anchoring is barred.",
+   "source": "foundations/patterns.json · reference/amgp-v2.0",
+   "rule": "Every slide names its pattern (data-pattern), and the pattern's reference slide fixes where content sits. A pattern that is not in foundations/patterns.json fails the build: an unregistered pattern is an invented layout.",
    "breaks": "A dead band across the bottom third. This was the single largest cause of weak slides in the earlier system, and it is invisible until the slide is beside another one.",
-   "machine": "every .nc-pad carries data-anchor or takes the declared default"
+   "machine": "every .nc-slide carries a data-pattern registered in patterns.json",
+   "revised": "29 Sep 2026 — revised from the live reference deck, Artists Make Great Places v2.0 (reference/amgp-v2.0)"
   },
   {
    "id": "NC-PRS-05",
@@ -676,10 +680,11 @@
   {
    "id": "NC-SEQ-02",
    "tier": "adaptable",
-   "source": "slide layouts v1.0 · working deck",
-   "rule": "Choose the layout from the job: an argument opening takes the divider, three related points the columns, two things in tension the two-column contrast, one line the quote, one number the vertical-third stat, a sequence the ink strip, data the chart slide, detail the vertical third.",
+   "source": "foundations/patterns.json",
+   "rule": "Choose the pattern from the job, using each pattern's 'useWhen' in foundations/patterns.json. If no pattern fits, compose the slide from blocks and register it with the live slide it came from.",
    "breaks": "A layout chosen by picture rather than by job, which is how a deck ends up with five arrangements doing the same thing and none of them saying anything.",
-   "machine": null
+   "machine": null,
+   "revised": "29 Sep 2026 — revised from the live reference deck, Artists Make Great Places v2.0 (reference/amgp-v2.0)"
   },
   {
    "id": "NC-SYS-07",

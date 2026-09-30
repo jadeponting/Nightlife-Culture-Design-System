@@ -7,12 +7,14 @@ is generated. Nothing there is hand-edited.
 python3 build.py
 ```
 
-Stdlib only — no install, no network, no node.
+The build is standard-library Python. Two exceptions, stated rather than hidden: the rendered
+contrast check needs Playwright, and the Office adapters in `adapters/` need node. The Office
+adapters are not yet part of `build.py`.
 
 ## The chain, one way
 
 ```
-Style Guide v1.4  ─┐
+Style Guide v1.4.1 ─┐
 The Decision Book ─┤
                    ├─► foundations/tokens.json      every VALUE, once
                    └─► foundations/rules.json       every RULE, tiered and sourced
@@ -37,7 +39,8 @@ The Decision Book ─┤
 | `foundations/tokens.json` — the values | `foundations/nightlife-culture.css` |
 | `foundations/rules.json` — the rules | `foundations/fonts.css` |
 | `components/library.body.html` — the library's content | `components/index.html` |
-| `components/library.scaffold.css` — page layout only, no components | `dist/*` |
+| `foundations/patterns.json`, `decks/*.json` — slides | `foundations/nightlife-slides.css` |
+| `docs/changelog.md`, `docs/gaps.md` | `dist/*` |
 
 Change a token, run `python3 build.py`, and the stylesheet, the library and the
 distributable all regenerate. A colour cannot be chosen at authoring time,
@@ -73,15 +76,14 @@ artefacts report STALE with the old and new digests.
 
 ## What the validator enforces
 
-`checks/validate.py FILE.html` — exit 1 on any Fixed breach.
+`checks/validate.py FILE.html` — exit 1 on a Fixed breach it can detect. Some Fixed-tier checks
+currently report as warnings rather than failing; see `docs/gaps.md`.
 
-Colour allowlist · retired colours and typefaces · hard outlines outside the
-flyer register · hairline scope · typed capitals · fonts linked rather than
+Colour allowlist · retired colours and typefaces · hard outlines · hairline scope · typed capitals · fonts linked rather than
 embedded · skipped heading levels · absent version stamp · live-type wordmark.
 
-Two exemptions are **named** rather than silent: the flyer-register 2px outline
-(`NC-CON-01`) and keylines on chart marks (`NC-CON-05`), which are the separator
-ch04 requires where marks touch.
+One exemption is **named** rather than silent: keylines on chart marks (`NC-CON-05`), which are
+the separator ch04 requires where marks touch.
 
 ## Absence as enforcement
 
@@ -96,24 +98,28 @@ ch04 requires where marks touch.
 assets/fonts/            source .woff2 files
 foundations/
   tokens.json            SOURCE — every value
-  rules.json             SOURCE — 45 rules, tiered, each citing v1.4 or a Book chapter
+  rules.json             SOURCE — 88 rules, tiered, each citing v1.4 or a Book chapter
+  patterns.json          SOURCE — slide patterns, each citing its live slide in reference/
   v1.4-register.json     458 statements from v1.4, verbatim, + 15 contradictions
   fonts.css              generated
-  nightlife-culture.css  generated — 113 component classes
+  nightlife-culture.css  generated — the component layer
+  nightlife-slides.css   generated — the slide layer
 components/
   library.body.html      SOURCE — the library's content
-  library.scaffold.css   SOURCE — page layout only
   index.html             generated, linked
 checks/
-  build_fonts.py  build.py  validate.py  check_stamps.py  allowed-hex.json
+  build.py  build_fonts.py  build_slides.py  validate.py  allowed-hex.json
+  check_coverage.py  check_contrast.py  check_stamps.py  inspect_docx/pptx/xlsx.py
 dist/
   component-library.html generated, self-contained, stamped
-adapters/                html · word · powerpoint · excel — next
+layouts/                 render.py (slides from blocks) · the pattern sheet
+decks/                   decks as data, rendered · reference/  live decks, the visual truth
+adapters/                word · powerpoint · excel · skill
 archive/                 pre-v1.4 material, marked
 build.py                 run this
 ```
 
 ---
-*Sources: Nightlife Culture Style Guide v1.4 · The Decision Book, chapters 1–18,
+*Sources: Nightlife Culture Style Guide v1.4.1 · The Decision Book, chapters 1–18,
 digest `6034d466ccbf4071`. Component specs from `headers.html`, containment v1.3,
 charts v1.4, slides v1.5, furniture v1.6 and `joy.html`.*

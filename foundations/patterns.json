@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "source": "Nightlife Culture Style Guide v1.4.1 + live reference decks in reference/",
+    "note": "A pattern is a slide arrangement a real deck has used, built from the blocks in foundations/nightlife-slides.css. Patterns grow from live work: a new reference slide either fits a pattern here, or is composed from blocks and added as a new pattern citing that slide. Replaces the twelve generated layouts (archived 29 Sep 2026).",
+    "howToGrow": "1. Put the live deck in reference/<name>/ (PDF plus one image per slide). 2. For each slide, find the pattern it fits. 3. If none fits, compose it from blocks in a deck JSON, add a pattern entry here with its reference slide, and rebuild. 4. If a block itself is missing, that is a gap: log it in docs/gaps.md — a block changes only when a token changes."
+  },
+  "patterns": {
+    "cover": {
+      "name": "Cover",
+      "useWhen": "The opening slide.",
+      "grounds": ["blue", "ink"],
+      "blocks": ["meta", "title (cover)", "rule", "lead (lg)", "logo (cover)"],
+      "reference": ["amgp-v2.0#1"]
+    },
+    "statement": {
+      "name": "Statement",
+      "useWhen": "One big idea, with a few sentences that explain it.",
+      "grounds": ["blue", "ink"],
+      "blocks": ["title (xl)", "rule", "lead (lg) ×1–3"],
+      "reference": ["amgp-v2.0#2"]
+    },
+    "statement-two-columns": {
+      "name": "Statement and two columns",
+      "useWhen": "A defining line, then two short columns that unpack it.",
+      "grounds": ["blue", "ink"],
+      "blocks": ["title (xl)", "lead (2xl)", "rule", "columns ×2"],
+      "reference": ["amgp-v2.0#7"]
+    },
+    "three-columns": {
+      "name": "Three columns",
+      "useWhen": "Three related points, each with a heading and a short paragraph. Optional lead above and a callout or closing line below.",
+      "grounds": ["chalk", "white", "blue", "ink"],
+      "blocks": ["title", "lead", "columns ×3 (top rule)", "callout | line"],
+      "reference": ["amgp-v2.0#3", "amgp-v2.0#5", "amgp-v2.0#8"]
+    },
+    "three-boxes": {
+      "name": "Three filled boxes",
+      "useWhen": "Three parallel areas, each important enough to hold its own filled block.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title", "columns ×3 (fill)", "lead (hl)", "text"],
+      "reference": ["amgp-v2.0#4"]
+    },
+    "text-and-side-block": {
+      "name": "Text and side block",
+      "useWhen": "Main text in columns, plus one thing different in kind set apart in an accent block at the right edge.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title", "columns ×2", "side block"],
+      "reference": ["amgp-v2.0#6"]
+    },
+    "steps": {
+      "name": "Steps",
+      "useWhen": "A method or process of up to eight steps, read left to right. One filled cell may carry the summary.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title (fit)", "lead", "columns ×4 (top rule), two rows"],
+      "reference": ["amgp-v2.0#9"]
+    },
+    "list": {
+      "name": "Labelled list",
+      "useWhen": "Named groups, each with one or two lines of description: partners, roles, audiences.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title (fit)", "lead", "rows", "line (plain)"],
+      "reference": ["amgp-v2.0#10"]
+    },
+    "two-by-two": {
+      "name": "Two by two",
+      "useWhen": "Four questions or workstreams of equal weight. Optional label above and a closing line or band below.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title", "label", "columns ×2, two rows (left rule or plain)", "line | band"],
+      "reference": ["amgp-v2.0#11", "amgp-v2.0#13"]
+    },
+    "phases": {
+      "name": "Phases",
+      "useWhen": "Periods of time and what happens in each, with a milestone.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title (fit)", "columns ×2 (big, caps heading, text)", "panel", "text"],
+      "reference": ["amgp-v2.0#12"]
+    },
+    "table": {
+      "name": "Table",
+      "useWhen": "Figures that have to be read row by row, such as a budget. For decks that are sent and read, not projected.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title (fit)", "table"],
+      "reference": ["amgp-v2.0#14"]
+    },
+    "team-and-close": {
+      "name": "Team and close",
+      "useWhen": "Who is doing the work, ending on the offer in a closing band with the wordmark.",
+      "grounds": ["chalk", "white"],
+      "blocks": ["title", "label", "text", "rule", "columns ×3", "band (with logo)"],
+      "reference": ["amgp-v2.0#15"]
+    }
+  }
+}

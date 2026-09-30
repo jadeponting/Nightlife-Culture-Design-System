@@ -1,7 +1,7 @@
 # Nightlife Culture Design System — instructions for AI agents
 
 **Source of truth: Nightlife Culture Style Guide v1.4.1.**
-**This file: v1.4.1 · 31 August 2026.** If a file you are reading declares an older version, it is
+**This file: v1.4.1 · 29 September 2026.** If a file you are reading declares an older version, it is
 superseded — check `foundations/tokens.json`, which carries the current one, before you trust it.
 
 You are producing work for **Nightlife Culture**, a creative policy, research and design studio
@@ -40,10 +40,11 @@ that reference is stale.
 
 ## Never do these
 
-1. **Never invent a slide layout.** Twelve exist in `foundations/layouts.json`. Pick one. If none fits,
-   say so and ask — do not improvise a thirteenth.
-2. **Never add a slot a layout does not declare.** No extra paragraph under the columns. If the content
-   does not fit the contract, it is two slides.
+1. **Never invent a slide layout.** Every slide uses a pattern in `foundations/patterns.json`, and
+   every pattern comes from a live deck in `reference/`. If none fits, compose the slide from the
+   blocks and say it is a new pattern (see *How the patterns grow*). Never improvise quietly.
+2. **Never set a size, colour or spacing on a slide by hand.** The blocks carry them, measured from
+   the live deck. If the content does not fit, it is two slides.
 3. **Never set a text colour by hand. Read it off the ground.** Every accent
    (`pink, teal, violet, butter, coral`) takes **ink** text. Each ground declares its own:
    **white on blue and ink, ink on chalk and white.**
@@ -68,43 +69,47 @@ that reference is stale.
 
 ## Building a slide deck
 
-1. Read `foundations/layouts.json`. Pick a layout per slide.
-2. Take the matching arrangement from `layouts/index.html`, which is generated from the tokens.
-   Do not copy from `archive/` — everything in there is superseded.
-3. Every `<section>` carries `data-layout="L03"`.
-4. Every `.cv` carries a `ground-*` class. **The ground brings its own text, kicker and title colours** —
-   that is why you must use the class rather than setting colours by hand.
-5. Every `.pad` carries `data-anchor`, and the value comes from the contract:
-   - `two` — the last block pins to the bottom so the composition spans the frame. The default.
-   - `centre` — one block optically centred. Dividers and quotes.
-   - `top` — only where the contract declares it.
-   **A missing anchor renders a loud coral warning on the slide.** That is deliberate.
-6. Run the validator. Fix everything. Then render and *look at it* before delivering.
+1. Write the deck as data: `decks/<name>.json`, one entry per slide, each naming its pattern and
+   its blocks. `decks/amgp-v2.json` is the worked example — copy its shape.
+2. Open `layouts/slide-patterns.html`. Every pattern is shown beside the live slide it came from.
+   Match the live slide, not your idea of it.
+3. Run `python3 build.py`. It renders the deck, fails any slide naming an unregistered pattern,
+   and fails any slide whose content runs past its floor or under a side block (checked in a
+   real browser). Then *look at it*.
 
-### Layout picker
-| Need | Layout |
+### Pattern picker
+| Need | Pattern |
 |---|---|
-| Cover | L01 |
-| Opening a section | L02 |
-| Three related points | L03 (rules) · L06 / L07 (filled cells) |
-| Two things in tension | L04 — the Nightlife Culture argument shape |
-| A line that must land | L05 |
-| A number that must land | L10 |
-| A process or sequence | L09 |
-| Data | L11 |
-| Detail-heavy content | L08 |
-| The ask | L12 |
+| The opening slide | `cover` |
+| One big idea, with a few sentences that explain it | `statement` |
+| A defining line, then two short columns that unpack it | `statement-two-columns` |
+| Three related points, each with a heading and a short paragraph | `three-columns` |
+| Three parallel areas, each important enough to hold its own filled block | `three-boxes` |
+| Main text in columns, plus one thing different in kind set apart in an accent block at the right edge | `text-and-side-block` |
+| A method or process of up to eight steps, read left to right | `steps` |
+| Named groups, each with one or two lines of description: partners, roles, audiences | `list` |
+| Four questions or workstreams of equal weight | `two-by-two` |
+| Periods of time and what happens in each, with a milestone | `phases` |
+| Figures that have to be read row by row, such as a budget | `table` |
+| Who is doing the work, ending on the offer in a closing band with the wordmark | `team-and-close` |
+
+### How the patterns grow
+The system grows from live work, not from invention. When a real deck exists:
+1. Put it in `reference/<name>/` — the PDF, plus one image per slide (`slide-01.jpg` …).
+2. Rebuild it as `decks/<name>.json`. Each slide either fits a pattern, or is composed from blocks.
+3. A new arrangement becomes a new entry in `foundations/patterns.json`, citing its live slide.
+4. A missing *block* is a gap: log it in `docs/gaps.md`. Blocks change only when a token changes.
 
 ---
 
 ## Composition
 
-- **Half the canvas stays empty.** Over ~55% covered means it is two slides.
+- **Two registers.** Statement slides (cover, statement) hold one idea with most of the canvas
+  empty. Working slides may carry a title, a lead and up to eight short blocks, as the reference
+  deck does.
 - **Remove copy before reducing type.** Always. This protects every other rule.
-- **One breaker per slide** (except L04, which takes one per column — the contract says so).
 - **Title zone: three lines maximum.**
-- **Kickers are three or four words**, not sentences. A leading `07 ·` index does not count.
-- Content never enters the bottom 14% — that band is the logo and the slide number.
+- Content stops 8% above the foot, or above a closing band. The build measures it.
 
 ## Colour — and why it is not one sentence
 
@@ -157,15 +162,18 @@ Avoid: "this matters" · "in today's rapidly changing landscape" · "unlock the 
 ## Repository map
 
 ```
-tokens/       colours, type, spacing, fonts — the single source of truth
-system/       stylesheets that implement the tokens (slides.css, and more to come)
-contracts/    layouts.json + rules.json — machine-readable, what the validator enforces
-layouts/      one canonical HTML file per layout
-templates/    working starters (deck.html, and more to come)
-checks/       build.py, build_fonts.py, build_slides.py, validate.py, check_stamps.py
-golden/       reference renders — compare your output against these
-assets/       fonts, logo
-docs/         the human-readable guide
+foundations/  tokens.json + rules.json + patterns.json — the single source of truth;
+              nightlife-culture.css, nightlife-slides.css, fonts.css — generated, never edited
+checks/       generators, validate.py (the one validator), coverage, contrast, stamps, inspectors
+components/   the component library and the router
+layouts/      the slide renderer and the pattern sheet (slide-patterns.html)
+decks/        decks as data (decks/*.json), rendered from the slide blocks
+reference/    live decks the patterns were taken from — the visual truth for slides
+adapters/     Word, PowerPoint, Excel, and the portable skill
+assets/       fonts, outlined wordmark SVGs, the style guide
+docs/         changelog, gap register, wordmark rules, explainer pages
+dist/         self-contained stamped copies for sending
+archive/      superseded — never copy from here
 ```
 
 ## When the system does not cover something

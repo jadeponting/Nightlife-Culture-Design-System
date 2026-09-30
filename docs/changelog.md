@@ -294,3 +294,77 @@ inline, currentColor). The same latent breach was in the skill: `.cv .logo` styl
 slot as live display type. The slot now sizes a placed SVG, the wordmark ships in the skill's
 `assets/`, SKILL.md states the rule, and `build_skill.py` fails on any live-type lockup or any
 `.logo` rule that declares a font. Fires on the pattern Brand on a Page actually had.
+
+## 29 September 2026 — the full read, and the fixes that needed no decision
+
+Every live file read in full, the build run with rendered contrast actually measured, each claim
+checked against file and line. Findings recorded in `docs/gaps.md` under *Defects, not gaps*;
+decisions for Carly listed in the project's THE-PLAN.
+
+**Fixed**
+- `--nc-charcoal` is emitted into `:root` again, from `tokens.json` `textColours`. It was used 29
+  times and defined nowhere after charcoal moved out of the grounds on 16 Aug. Charcoal joins the
+  hex allowlist.
+- A skipped contrast check no longer prints "BUILD OK — everything current"; the build says the
+  contrast was not measured.
+- NC-CON-02 matched `--nc-hairline`, which does not exist; it now matches `--nc-hair`.
+- NC-BRK-01 no longer accepts any "vX.Y" on the page — only "Style Guide vX.Y".
+- L06 and L07 titles were missing a `>` and did not render.
+- Version stamps to v1.4.1: generated pages' `nc-source` meta (`docs/sheet.py`,
+  `decks/build_ukdf.py`), `rules.json` meta, two page footers.
+- NC-LAY-01 stated a 6.67% kicker line against NC-LAY-06's 4%; now matches the tokens.
+  NC-LAY-08 cited `contracts/layouts.json`; now `foundations/layouts.json`.
+- `layouts.json` no longer claims the validator reads it — nothing does yet.
+- README.md still carried the retired colour law, the archived `tools/validate.py` and folders
+  that no longer exist; rewritten to the current repo. README-BUILD.md, AGENTS.md (repository
+  map, 13.333% footer band, the anchor mechanism's real state) and `docs/gaps.md` (stale paths,
+  duplicate number 6) corrected.
+- The build-order and what-we-have pages still said the grid blocked the slide layer and four
+  chart forms were unbuilt. Both were done in August; the pages now say so.
+
+**Not changed — needs Carly:** see THE-PLAN, open decisions.
+
+## 29 September 2026 — slides come from live work: the pattern layer
+
+The twelve slide layouts were generated, not taken from real work, and they could make one slide
+of Carly's live deck properly. They are replaced by patterns taken from that deck.
+
+**Added**
+- `reference/amgp-v2.0/` — Artists Make Great Places v2.0, the first live deck adopted as the
+  visual truth for slides: the PDF and one image per slide.
+- `tokens.json` `type.sizes.slide.pattern` and `space.slide.pattern` — sizes and spacing measured
+  from that deck, in points on a 960pt slide: title 43.3, lead 19.5, heading 20.9, body 18, label 18.
+  The table size (12pt) is marked PROPOSAL.
+- `checks/build_slides.py` rewritten: slide blocks (title, lead, text, label, rule, columns and
+  items, callout, closing line, rows, panel, side block, closing band, table), sizes read from tokens.
+- `foundations/patterns.json` — twelve patterns, each citing the live slide it came from, plus how
+  the set grows.
+- `layouts/render.py` — one renderer from slide data to blocks. `decks/build_deck.py` renders every
+  `decks/*.json`; an unregistered pattern fails the build. `decks/amgp-v2.json` is the live deck as data.
+- `layouts/slide-patterns.html` — the visual guide: each pattern beside its live slide.
+- Slide fit check in `checks/check_contrast.py`: a slide whose content runs past its floor or under
+  a side block fails the build (NC-LAY-07).
+- The skill's `references/slides.md` is now generated from the patterns, with markup for each and
+  the reference images in `assets/reference/`; `assets/slides.css` ships with it.
+
+**Rules revised from the live deck** (each carries a `revised` note): NC-LAY-02 (two registers:
+statement and working slides), NC-LAY-07 (content stops 8% above the foot or above a closing band),
+NC-LAY-08 (every slide names a registered pattern), NC-PRS-03 (a table slide is allowed in a deck
+that is sent, not projected), NC-SEQ-02 (choose the pattern from its "use when").
+
+**Archived** to `archive/2026-09-29-ai-slide-layer/`: the generated layouts and their builder,
+`layouts.json`, the golden renders, the old UKDF HTML pitch (superseded by the live v2.0 deck),
+the old slide stylesheet and the skill's hand-written slide guide.
+
+## 29 September 2026 — the hard outline is retired, as v1.4 §09 says
+
+The repo still carried a 2px ink "flyer register" panel from containment v1.3, which v1.4 had
+already retired. Removed: `.nc-panel--flyer`, its specimen, its routing entry and the validator's
+exemption for it. NC-CON-01 now reads: the hairline is the only outline.
+
+## 29 September 2026 — ink is a text colour too; the first column is bold
+
+- `tokens.json`: ink's role now reads "Night ground. Full-bleed surfaces and strips where accents
+  need to glow." Ink is listed under text colours as the primary text colour, beside charcoal.
+- Document tables (`.nc-table`, the skill's tables, the style guide): the first column is bold,
+  because it names the row.

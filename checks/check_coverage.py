@@ -12,8 +12,8 @@ invisible to the person who has to choose it.
 A component nobody can see is a component nobody will use, and the system was
 built on 'show, do not describe'. This makes that a check.
 
-Two surfaces demonstrate: components/library.body.html for the document layer,
-layouts/index.html for the slide layer. A class shown in either passes.
+The surfaces that demonstrate: the component library for the document layer, the
+slide pattern sheet and every deck for the slide layer. A class shown in any passes.
 """
 import pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -29,7 +29,8 @@ defined = {m for m in re.findall(r"\.(nc-[a-z0-9-]+)", css)} | \
 # build itself — the markup disclosure under each specimen is generated, not
 # typed — and a check that reads the source cannot see them. What matters is
 # what renders, so that is what is counted.
-SURFACES = ["components/index.html", "layouts/index.html", "decks/ukdf-pitch.html"]
+SURFACES = ["components/index.html", "layouts/slide-patterns.html"] + \
+           sorted(str(p.relative_to(ROOT)) for p in (ROOT / "decks").glob("*.html"))
 shown = set()
 for f in SURFACES:
     p = ROOT / f

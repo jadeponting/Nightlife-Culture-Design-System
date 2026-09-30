@@ -1,10 +1,12 @@
 # Nightlife Culture Design System
 
-The brand as a working system: tokens, layout contracts, stylesheets, templates and a validator.
+The brand as a working system: tokens, rules, generated stylesheets, a component library, slide
+layouts, Office adapters, the portable skill, and the checks that refuse anything off-system.
 
 **Source of truth:** Nightlife Culture Style Guide v1.4.1 (August 2026).
-**This file:** v1.4.1 · 31 August 2026.
+**This file:** v1.4.1 · 29 September 2026.
 **Instructions for AI agents:** [AGENTS.md](AGENTS.md) — read this first if you are a model.
+**How the build works:** [README-BUILD.md](README-BUILD.md).
 
 ---
 
@@ -14,40 +16,39 @@ A design system written as prose gets read, approximately followed, and then qui
 because prose leaves room for judgement, and judgement varies. This repo makes the system
 **checkable instead of describable**, so the output is the same whoever or whatever builds it.
 
-The three things that do that work:
+The things that do that work:
 
-1. **`contracts/layouts.json`** — every layout declares its slots, word limits, required elements and
-   vertical anchor. Machine-readable, not prose.
-2. **The anchor rule** — every content area declares `data-anchor`, and the value comes from the
-   contract. This is what stops a slide hanging from the top and dying in a dead band at the bottom,
-   which was the single biggest failure in earlier attempts.
-3. **`tools/validate.py`** — one command that fails loudly on block budget, word overruns, missing
-   numerals, wrong ground colours, forbidden slots and retired colours. Standard library only.
+1. **`foundations/tokens.json` and `foundations/rules.json`** — every value and every rule, once.
+   Everything else is generated from them.
+2. **`foundations/patterns.json` and `reference/`** — every slide pattern is taken from a live
+   deck, and the build fails a slide that names an unregistered pattern or overflows its space.
+3. **`python3 build.py`** — one command that regenerates everything, then validates, checks
+   coverage, rendered contrast, slide fit and staleness. **`checks/validate.py`** is the one validator.
 
 ---
 
 ## Quick start
 
 ```bash
-# see what layouts exist
-python tools/validate.py --list
+# build everything, then check it — it must print BUILD OK
+python3 build.py
 
-# check the contracts are internally consistent
-python tools/validate.py --check-contracts
+# validate one artefact on its own
+python3 checks/validate.py path/to/file.html
 
-# validate something you have built
-python tools/validate.py templates/deck.html
-
-# check any colour pair against WCAG
-python tools/contrast.py "#ED77C2" "#FFFFFF"
+# has any derived artefact gone stale?
+python3 checks/check_stamps.py
 ```
 
-To view a template, serve the repo and open it — the fonts are relative paths, so `file://` will not
-load them:
+Rendered contrast needs Playwright (`pip install playwright && playwright install chromium`).
+Without it the build says so — a skipped check is not a passed check.
+
+To view a generated page, serve the repo and open it — fonts are relative paths, so `file://`
+will not load them:
 
 ```bash
-python -m http.server 8000
-# then open http://localhost:8000/templates/deck.html
+python3 -m http.server 8000
+# then open http://localhost:8000/components/index.html
 ```
 
 ---
@@ -56,57 +57,66 @@ python -m http.server 8000
 
 | Path | What it holds |
 |---|---|
-| `tokens/` | Colour, type, spacing and fonts. The single source of truth. Everything else references these. |
-| `system/` | Stylesheets implementing the tokens. `slides.css` today; document, chart and asset sheets to follow. |
-| `contracts/` | `layouts.json` and `rules.json` — the machine-readable spec the validator enforces. |
-| `layouts/` | One canonical HTML file per layout. |
-| `templates/` | Working starters you can copy. |
-| `tools/` | `validate.py`, `contrast.py`. No dependencies. |
-| `golden/` | Reference renders. Compare output against these rather than guessing. |
-| `assets/` | Fonts (self-hosted, never linked) and logo. |
-| `docs/` | The human-readable guide and the known-gaps list. |
+| `foundations/` | `tokens.json`, `rules.json`, `patterns.json` (sources); `nightlife-culture.css`, `nightlife-slides.css`, `fonts.css` (generated); `v1.4-register.json` (every statement in the guide, plus its contradictions). |
+| `checks/` | The generators for the stylesheets and fonts, `validate.py`, coverage, contrast and stamp checks, and inspectors for .docx, .pptx and .xlsx. |
+| `components/` | The component library (`library.body.html` is the source) and the router. |
+| `layouts/` | The slide renderer and the pattern sheet. |
+| `decks/` | Decks as data (`*.json`), rendered from the slide blocks. |
+| `reference/` | Live decks the slide patterns were taken from. The visual truth for slides. |
+| `adapters/` | Word, PowerPoint, Excel and the portable skill. |
+| `docs/` | The changelog, the gap register, the wordmark rules and the generated explainer pages. |
+| `assets/` | Fonts (self-hosted, never linked), the outlined wordmark SVGs and the style guide. |
+| `dist/` | Self-contained, stamped copies for sending — including the skill. |
+| `archive/` | Superseded material, marked. Never copy from here. |
 
 ---
 
-## The twelve slide layouts
+## Slide patterns
 
-| id | Name | Anchor | Grounds |
-|---|---|---|---|
-| L01 | Cover | two | blue, ink |
-| L02 | Section divider | centre | blue, ink |
-| L03 | Three points | two | blue, chalk, white, ink |
-| L04 | Two-column contrast | top | blue, ink |
-| L05 | Quote | centre | blue, ink |
-| L06 | Report register | two | chalk, white |
-| L07 | Night register | two | ink |
-| L08 | Vertical third | two | chalk, white |
-| L09 | Ink strip | two | chalk, white |
-| L10 | Vertical third stat | two | chalk, white |
-| L11 | Chart slide | two | chalk, white |
-| L12 | Closing | two | blue, ink |
+Slides are built from blocks, arranged into patterns taken from live decks. See them beside the
+live slides they came from in `layouts/slide-patterns.html`.
+
+| Pattern | Use when |
+|---|---|
+| Cover | The opening slide |
+| Statement | One big idea, with a few sentences that explain it |
+| Statement and two columns | A defining line, then two short columns that unpack it |
+| Three columns | Three related points, each with a heading and a short paragraph |
+| Three filled boxes | Three parallel areas, each important enough to hold its own filled block |
+| Text and side block | Main text in columns, plus one thing different in kind set apart in an accent block at the right edge |
+| Steps | A method or process of up to eight steps, read left to right |
+| Labelled list | Named groups, each with one or two lines of description: partners, roles, audiences |
+| Two by two | Four questions or workstreams of equal weight |
+| Phases | Periods of time and what happens in each, with a milestone |
+| Table | Figures that have to be read row by row, such as a budget |
+| Team and close | Who is doing the work, ending on the offer in a closing band with the wordmark |
+
+New live work grows the set: add the deck to `reference/`, rebuild it in `decks/`, and register
+any new arrangement in `foundations/patterns.json` (details in AGENTS.md).
 
 ---
 
 ## The non-negotiables
 
-1. Every accent is a **black-text** surface. Every ground is a **white-text** surface.
+1. **Every accent takes ink text. Every ground takes the text colour its own token declares** —
+   white on blue and ink, ink on chalk and white. Read the ground off `foundations/tokens.json`.
 2. Accents never encode data — only the four-series chart ramp does.
 3. Caps for display, H1, H2 and labels: always tracked, never below 16pt, eight words maximum.
 4. Contain with colour and space, not outlines.
-5. Fonts are embedded or self-hosted. Never linked.
+5. Fonts are embedded or self-hosted. Never linked. The wordmark is always the placed SVG.
 6. Half the canvas stays empty. Remove copy before reducing type.
 
 ---
 
 ## Contributing
 
-Changing a token or a contract changes every artefact built from it. So:
+Changing a token or a rule changes every artefact built from it. So:
 
-1. Change `tokens/` or `contracts/` — never hard-code a value in a template.
-2. Run `python tools/validate.py --check-contracts`.
-3. Re-validate the templates.
-4. Regenerate the golden renders and eyeball the diff.
-5. Note what changed and why in `docs/changelog.md`.
+1. Change `foundations/tokens.json` or `foundations/rules.json` — never hard-code a value in a
+   generated file or a template.
+2. Run `python3 build.py`. It must print `BUILD OK`.
+3. Look at what changed, and compare slides against `reference/` in the pattern sheet.
+4. Note what changed and why in `docs/changelog.md`.
 
 If the system does not cover what you need, add it to `docs/gaps.md` rather than inventing a
 one-off. A gap recorded is a gap that gets fixed; a gap patched around becomes drift.

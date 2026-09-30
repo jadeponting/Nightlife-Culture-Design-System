@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The build order — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
-<meta name="nc-build-stamp" content="tokens:e2276925b20ef2b5;rules:b49b7662e7737d24;css:dc65505893c5be70;fonts:ea8fca0d5e87a01a;slides:682e5dc895c7b096">
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.4.1">
+<meta name="nc-build-stamp" content="tokens:a6612720aaf29dd6;rules:dae0eeb42d299809;css:bafbca8f750e78c4;fonts:ea8fca0d5e87a01a;slides:b3593d7a047cb3d4">
 <link rel="stylesheet" href="../foundations/fonts.css">
 <link rel="stylesheet" href="../foundations/nightlife-culture.css">
 <link rel="stylesheet" href="../foundations/nightlife-slides.css">
@@ -17,7 +17,7 @@
 <div class="nc-wrap">
 <section>
   <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">Where we are</span></h2>
-  <div class="nc-g2"><div class="nc-stat nc-stat--top acc-teal"><p class="big">136</p><p class="lb">Complete</p><p class="src">Built, with the rule attached — or ruled and enforced by a check that fails the build.</p></div><div class="nc-stat nc-stat--top acc-coral"><p class="big">6</p><p class="lb">Left to build</p><p class="src">Everything below. Ordered so that nothing waits on a decision that has not been made.</p></div></div>
+  <div class="nc-g2"><div class="nc-stat nc-stat--top acc-teal"><p class="big">131</p><p class="lb">Complete</p><p class="src">Built, with the rule attached — or ruled and enforced by a check that fails the build.</p></div><div class="nc-stat nc-stat--top acc-coral"><p class="big">6</p><p class="lb">Left to build</p><p class="src">Everything below. Ordered so that nothing waits on a decision that has not been made.</p></div></div>
   <p class="nc-stand">No new asset types until this list is empty.</p>
   <p>Word, PowerPoint and Excel templates all consume the component layer. Building them
      while the layer has holes in it means the holes get filled ad hoc, in three formats,
@@ -33,8 +33,8 @@
 <div class="nc-bar"><span class="lb">Wave 3</span><span class="tk"><span class="fl" style="width:100%"></span></span><span class="vl">6</span></div>
 <div class="nc-bar"><span class="lb">Wave 4</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
 <div class="nc-bar"><span class="lb">Wave 5</span><span class="tk"><span class="fl" style="width:0%"></span></span><span class="vl">0</span></div>
-    <figcaption class="ev"><b>Reading.</b> The slide layer is more than half of what is
-      left, and it is the only wave blocked on a decision.</figcaption>
+    <figcaption class="ev"><b>Reading.</b> Items left per wave, counted from the
+      inventory at build time.</figcaption>
   </div>
 </section>
 
@@ -53,24 +53,23 @@
 <tr><td>Section rhythm — the space between sections</td><td>Page furniture — the frame around the components</td><td class="nc-code">—</td><td>Take the rule from the Book, write it down, then build it.</td><td>charts &amp; data v1.4 · containment v1.3 · breakers, grid &amp; furniture v1.6 · grounds &amp; components v1.2 · joy.html · slide system v1.5 · slide layouts v1.0</td></tr>
 <tr><td>Contents list at the head of a long document</td><td>Page furniture — the frame around the components</td><td class="nc-code">—</td><td>Take the rule from the Book, write it down, then build it.</td><td>Style Guide v1.4</td></tr>
 <tr><td>Status tag — a state, in a word</td><td>Page furniture — the frame around the components</td><td class="nc-code">—</td><td>Take the rule from the Book, write it down, then build it.</td><td>handover sheet</td></tr></tbody></table></div>
-<div class="nc-panel nc-panel--top acc-butter"><p class="lab">Wave 4 · 0 items</p><p>The slide layer</p><p class="txt">The hole. Twelve layouts exist as working markup in slide layouts v1.0 and in the repo&#x27;s older folder, but nothing generates them from the tokens, so nothing checks them — the last place a hand-set value can hide. This wave is blocked on one decision of yours: the grid geometry.</p></div><div><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
+<div class="nc-panel nc-panel--top acc-butter"><p class="lab">Wave 4 · 0 items</p><p>The slide layer</p><p class="txt">Twelve layouts are generated from the tokens on the grid settled 16 August. Their slot contracts in foundations/layouts.json are recorded but not yet read by any script, so word limits and anchors are not checked.</p></div><div><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
 <div class="nc-panel nc-panel--top acc-pink"><p class="lab">Wave 5 · 0 items</p><p>The remaining surfaces</p><p class="txt">The nine HTML elements the browser will style whether or not we decide, and the table variants. Low glamour, high frequency — and unstyled is still a look.</p></div><div><table class="nc-table"><thead><tr><th>What</th><th>Family</th><th>Rule</th><th>What done means</th><th>Named in</th></tr></thead><tbody></tbody></table></div>
 </section>
 
 <hr class="nc-brk acc-coral">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">What blocks wave four</span></h2>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">What is still open</span></h2>
   <div class="nc-panel nc-panel--left acc-butter">
-    <p class="lab">One decision, yours</p>
-    <p class="txt"><b>The grid geometry.</b> Your decks measure roughly 5.5% side margins
-      and a three-step top margin — 3.9, 6.7 or 9.6% depending on what leads the slide.
-      The style guide states 6% flat and 7.5% flat. The 14% footer band removes 8% of
-      canvas your original decks use.</p>
-    <p class="txt">The Book can tell you the three-step top margin is a real decision that
-      got flattened to a constant. It cannot tell you which you want. Everything in wave
-      four is measured against whichever you pick, so it is worth answering before we
-      generate twelve layouts against the wrong one.</p>
+    <p class="lab">The grid is settled</p>
+    <p class="txt">Settled 16 August 2026: 5.25% side margins, a three-step top margin
+      (4%, 6.667% or 13.333% by what leads the slide) and a 13.333% footer band, all
+      multiples of one unit. Recorded in <span class="nc-code">foundations/tokens.json</span>
+      and NC-LAY-06. The twelve layouts are generated against it.</p>
+    <p class="txt">What is not done: the slot contracts in
+      <span class="nc-code">foundations/layouts.json</span> are recorded but no script reads
+      them, so word limits and anchors are not yet checked.</p>
   </div>
   <p class="nc-small" style="margin-top:var(--nc-sp5)">Seven contradictions inside Style Guide
      v1.4 are also still open — butter as Series 4, title lines two or three, coverage 55

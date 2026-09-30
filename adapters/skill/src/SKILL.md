@@ -26,7 +26,9 @@ Get these right and the work is on brand. Get one wrong and it is not.
 4. **Contain with colour and space, not outlines.** Hard black boxes are retired.
 5. **Embed fonts as base64 in every digital deliverable.** Never link Google Fonts — it fails
    silently and falls back to a system sans without warning.
-6. **Half the canvas stays empty on slides.** More than ~55% covered means it is two slides.
+6. **Slides come from patterns, not invention.** Build every slide from a pattern in
+   `references/slides.md` and look at its reference image first. Statement slides stay mostly
+   empty; working slides may carry up to eight short blocks. If it does not fit, it is two slides.
    Remove copy before reducing type.
 
 ---
@@ -93,7 +95,7 @@ or convert DOCX/PDF and read the pages. Do not ship a layout you have not seen.
 - **Document mastheads sit on signal blue** — ink is the night register, not a default (decided 16 Aug 2026).
 - **Document type scale is decided, not chosen per document:** {{TYPESCALE_LINE}}
 - **PDF** exported from a structured source, never printed to PDF.
-- **PowerPoint** only when the user asks for it. Build to the slide grid in `references/slides.md`.
+- **PowerPoint** only when the user asks for it. Build from the patterns in `references/slides.md`.
 
 ---
 
@@ -122,14 +124,11 @@ Full detail in `references/charts.md`.
 
 ---
 
-## Known gaps — v1.1
+## Known gaps
 
-Two things this system does not yet cover. If asked for either, build from the nearest existing
-components and flag that the rule is provisional:
+If asked for something this system does not cover, build from the nearest existing components and
+say that the rule is provisional:
 
-- **Dense layout tier.** Everything specified is the generous register. For content-heavy slides:
-  hold the 6% margins and 14% footer band, allow coverage up to 70%, drop to the 18pt body minimum,
-  cap at six blocks.
 - **Diagram kit.** No diagram system exists yet. Build process chains, funnels and timelines from
   the containment treatments and the chart ramp. Never use PowerPoint SmartArt defaults — they
   override colour, type, spacing and outlines.

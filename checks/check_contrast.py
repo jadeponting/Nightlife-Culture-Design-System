@@ -17,10 +17,10 @@ onto, and computes the ratio. WCAG 1.4.3: 4.5:1 for text, 3:1 for large text
 import asyncio, json, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ["components/index.html", "layouts/index.html", "docs/what-we-have.html",
+PAGES = ["components/index.html", "layouts/slide-patterns.html", "docs/what-we-have.html",
          "docs/the-build-order.html", "docs/how-the-logic-works.html",
-         "dist/component-library.html", "dist/slide-layouts.html", "dist/index.html",
-         "decks/ukdf-pitch.html", "dist/ukdf-pitch.html"]
+         "dist/component-library.html", "dist/slide-patterns.html", "dist/index.html"] + \
+        sorted(f"{d}/{p.stem}.html" for p in (ROOT / "decks").glob("*.json") for d in ("decks", "dist"))
 
 # Two widths. A phone is where the reviewer actually reads these, and it is where
 # a clamp collapses, a grid stacks and a colour lands on a different ground.
@@ -96,6 +96,31 @@ JS = r"""
 }
 """
 
+# NC-LAY-07 — slide fit. Content stops 8% above the foot, or above the closing
+# band; it never runs under the side block. Measured on the rendered slide,
+# because a slide that overflows looks fine in its source.
+FIT = r"""
+() => [...document.querySelectorAll('.nc-slide')].map((s, i) => {
+  const pad = s.querySelector('.nc-sp'), side = s.querySelector('.nc-sside');
+  if (!pad) return null;
+  const pr = pad.getBoundingClientRect();
+  const floor = pr.bottom;              // the pad IS the allowance: 8% up, above a band, or the cover's
+  const wall = side ? side.getBoundingClientRect().left : pr.right + 1;
+  let worst = null;
+  s.querySelectorAll('.nc-sp *').forEach(e => {
+    if (e.closest('svg')) return;
+    const b = e.getBoundingClientRect();
+    if (!b.height) return;
+    const over = Math.max(b.bottom - floor, b.right - wall);
+    if (over > 1 && (!worst || over > worst.over))
+      worst = {over: Math.round(over), text: (e.textContent || '').trim().slice(0, 50)};
+  });
+  return worst ? {n: i + 1, pattern: s.dataset.pattern || '', ...worst} : null;
+}).filter(Boolean)
+"""
+
+
+SKIPPED = False
 
 async def run():
     try:
@@ -104,7 +129,8 @@ async def run():
         print("  SKIPPED — playwright is not installed on this machine.\n"
               "  pip install playwright && playwright install chromium\n"
               "  A skipped check is not a passed check: nothing here has been measured.")
-        return 0
+        global SKIPPED; SKIPPED = True
+        return 3
     fails = 0
     async with async_playwright() as pw:
         b = await pw.chromium.launch()
@@ -135,6 +161,11 @@ async def run():
                     print(f"          \u201c{h['text']}\u201d")
             else:
                 print(f"=== PASS  {rel}")
+            if width == WIDTHS[0]:
+                for o in await p.evaluate(FIT):
+                    fails += 1
+                    print(f"  FIT   {rel} slide {o['n']} ({o['pattern']}): runs {o['over']}px past "
+                          f"its floor — NC-LAY-07. \u201c{o['text']}\u201d")
           await p.close()
         await b.close()
     return fails
@@ -142,4 +173,4 @@ async def run():
 
 n = asyncio.run(run())
 print(f"\n{n} rendered contrast failure(s)")
-sys.exit(1 if n else 0)
+sys.exit(3 if n == 3 and SKIPPED else (1 if n else 0))

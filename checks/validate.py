@@ -48,10 +48,8 @@ def check(path):
         if re.search(rf"\b{f}\b", h, re.I):
             F.append(("NC-COL-05", f"retired typeface '{f}' referenced"))
 
-    # NC-CON-01 — hard outlines. The 2px ink outline is permitted ONLY on the
-    # flyer-register class (containment v1.3): covers, posters, dividers.
+    # NC-CON-01 — hard outlines are retired (v1.4 §09). The hairline is the only outline.
     for sel, block in blocks:
-        flyer = "flyer" in sel.lower()
         mark = any(k in sel for k in (".pt", ".nc-key i", ".key i", ".nc-meter span"))  # NC-CON-05
         # NC-CON-06 — a focus ring is required visibility, not containment. The
         # 3:1 non-text rule applies to focus states by name, so the ring is the
@@ -63,7 +61,7 @@ def check(path):
             if not w or "none" in val.lower(): continue
             px = float(w.group(1))
             ok = (px == 9 and "top" in prop) or (px == 12 and "left" in prop) or "bottom" in prop
-            if px >= 2 and not ok and not flyer and not mark and not focus:
+            if px >= 2 and not ok and not mark and not focus:
                 F.append(("NC-CON-01", f"{prop}: {val.strip()[:40]} on {sel.strip()[:34]} — {px:g}px hard outline"))
     for prop, val in re.findall(r"style=\"[^\"]*?(border(?!-radius)[a-z-]*|outline)\s*:\s*([^;\"]+)", h, re.I):
         w = re.search(r"(\d+(?:\.\d+)?)px", val); prop = prop.lower()
@@ -91,7 +89,7 @@ def check(path):
             F.append(("NC-COL-01", "inline white text on a light ground"))
 
     # NC-CON-02 — hairline scope
-    hair = len(re.findall(r"1px\s+solid\s+(?:rgba\(13,\s*13,\s*13|var\(--nc-hairline)", h, re.I))
+    hair = len(re.findall(r"1px\s+solid\s+(?:rgba\(13,\s*13,\s*13|var\(--nc-hair\b)", h, re.I))
     tables = len(re.findall(r"<table", body, re.I))
     if hair > max(tables, 1):
         W.append(("NC-CON-02", f"{hair} hairline borders but only {tables} tables — hairline is not for anything carrying meaning"))
@@ -181,7 +179,7 @@ def check(path):
 
     # NC-PSE-01 — one breaker per surface. Two rules stop meaning pause.
     # A specimen section shows every variant side by side on purpose; it says so
-    # in the markup, the same way the flyer register declares its hard outline.
+    # in the markup.
     # A surface is a slide where there are slides, and a section otherwise.
     # A catalogue page holding twelve slides is twelve surfaces, not one.
     surfaces = [s for s in chunks(body, '<div class="nc-slide"', "</div></div>")] \
@@ -197,7 +195,7 @@ def check(path):
     # NC-PRS-03 — no tables on slides. Unreadable from the back of the room,
     # and a reference table on a slide is a reference table in the wrong artefact.
     for sec in chunks(body, "<section", "</section>"):
-        if klass(sec, "nc-slide") and "<table" in sec:
+        if klass(sec, "nc-slide") and "<table" in sec and 'data-pattern="table"' not in sec:
             F.append(("NC-PRS-03", "a table inside a slide")); break
 
     # NC-TYP-04 — caps floor. Below roughly 11px the letterform differences
@@ -241,7 +239,7 @@ def check(path):
     ver = re.search(r"v(\d+\.\d+)", json.loads((ROOT/"foundations"/"tokens.json")
                     .read_text())["meta"]["source"])
     cur = ver.group(1) if ver else "1.4"
-    stated = set(re.findall(r"Style Guide v(\d+\.\d+)", h)) | set(re.findall(r"\bv(\d+\.\d+)\b", h))
+    stated = set(re.findall(r"Style Guide v(\d+\.\d+)", h))
     if not stated:
         F.append(("NC-BRK-01", "no source version stated on the artefact"))
     elif cur not in stated:

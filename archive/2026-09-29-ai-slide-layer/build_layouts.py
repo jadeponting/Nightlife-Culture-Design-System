@@ -117,7 +117,7 @@ LAYOUTS = [
   "outlines. Chalk in decks, white in reports.",
   f'''<div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-blue)">04 · Principles for partnership</p>
-    <p class="nc-t" style="color:var(--nc-charcoal)"How shared evidence<br>should be built</p>
+    <p class="nc-t" style="color:var(--nc-charcoal)">How shared evidence<br>should be built</p>
     <hr class="nc-brk acc-blue">
     <p class="nc-sub" style="color:var(--nc-blue)">Knowledge in the commons. Data as an asset.</p>
     <div class="nc-cells">
@@ -134,7 +134,7 @@ LAYOUTS = [
   "section-header colour on every dark ground — butter on ink reads as a warning label.",
   f'''<div class="nc-pad nc-pad--kicker">
     <p class="nc-k" style="color:var(--nc-teal)">05 · What the night creates</p>
-    <p class="nc-t" style="color:var(--nc-teal)"Nightlife is a<br>talent programme</p>
+    <p class="nc-t" style="color:var(--nc-teal)">Nightlife is a<br>talent programme</p>
     <hr class="nc-brk acc-teal">
     <p class="nc-sub nc-sub--wide">It produces agency and ambition before formal institutions can see them.</p>
     <div class="nc-cells">

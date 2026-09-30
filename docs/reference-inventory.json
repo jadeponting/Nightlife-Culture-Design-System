@@ -15,7 +15,8 @@
   "ds": "decision sheet — 68 undecided surfaces",
   "hv": "handover sheet — ten proposals triaged",
   "rc": "reconciliation sheet",
-  "db": "The Decision Book"
+  "db": "The Decision Book",
+  "rf": "reference/amgp-v2.0 — Artists Make Great Places v2.0, the live reference deck (Sept 2026)"
  },
  "families": [
   {
@@ -560,15 +561,11 @@
    "name": "Containment — five ways, one retired",
    "items": [
     {
-     "n": "A · Hard outline — retired, flyer register only",
+     "n": "A · Hard outline — retired",
      "src": [
-      "cn",
-      "sg",
-      "jy"
+      "sg"
      ],
-     "class": [
-      ".nc-panel--flyer"
-     ],
+     "class": [],
      "rules": [
       "NC-CON-01"
      ],
@@ -1381,7 +1378,7 @@
       "sy"
      ],
      "class": [
-      ".nc-slogo--lockup"
+      ".nc-slogo--cover"
      ],
      "rules": [
       "NC-BRK-04"
@@ -1396,7 +1393,7 @@
       "sg"
      ],
      "class": [
-      ".nc-slogo--lockup"
+      ".nc-slogo--cover"
      ],
      "rules": [
       "NC-BRK-04",
@@ -1422,303 +1419,182 @@
    ]
   },
   {
-   "name": "Slide layouts — twelve",
+   "name": "Slide patterns — from live decks",
    "items": [
     {
-     "n": "L1 Cover",
+     "n": "Cover — The opening slide",
      "src": [
-      "sy",
-      "wd"
+      "rf"
      ],
      "class": [
-      ".nc-slide",
-      ".nc-pad--bleed",
-      ".nc-sfoot"
+      ".nc-sp--cover",
+      ".nc-st--cover",
+      ".nc-smeta",
+      ".nc-slogo--cover"
      ],
      "rules": [
-      "NC-LAY-06",
-      "NC-LAY-07",
+      "NC-LAY-08",
+      "NC-SEQ-02",
+      "NC-BRK-04"
+     ]
+    },
+    {
+     "n": "Statement — One big idea, with a few sentences that explain it",
+     "src": [
+      "rf"
+     ],
+     "class": [
+      ".nc-st--xl",
+      ".nc-srule",
+      ".nc-sl--lg"
+     ],
+     "rules": [
+      "NC-LAY-08",
       "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     ]
     },
     {
-     "n": "L2 Section divider",
+     "n": "Statement and two columns — A defining line, then two short columns that unpack it",
      "src": [
-      "sy",
-      "sl"
+      "rf"
      ],
      "class": [
-      ".nc-pad",
-      ".nc-brk"
+      ".nc-sl--2xl",
+      ".nc-sgrid--2"
      ],
      "rules": [
-      "NC-PSE-05",
+      "NC-LAY-08",
       "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     ]
     },
     {
-     "n": "L3 Three points — the workhorse",
+     "n": "Three columns — Three related points, each with a heading and a short paragraph",
      "src": [
-      "sy",
-      "wd",
-      "sl"
+      "rf"
      ],
      "class": [
-      ".nc-pad--kicker",
-      ".nc-cols",
-      ".nc-cols .col"
+      ".nc-sgrid",
+      ".nc-si--rule",
+      ".nc-scall"
      ],
      "rules": [
-      "NC-LAY-06",
+      "NC-LAY-08",
       "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     ]
     },
     {
-     "n": "L4 Two-column contrast",
+     "n": "Three filled boxes — Three parallel areas, each important enough to hold its own filled block",
      "src": [
-      "sy",
-      "wd",
-      "fu"
+      "rf"
      ],
      "class": [
-      ".nc-cols--2"
+      ".nc-si--fill",
+      ".nc-sl--hl"
      ],
      "rules": [
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L5 Quote",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".nc-slide .nc-quote .q",
-      ".nc-brk--bar"
-     ],
-     "rules": [
-      "NC-PSE-03",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L6 Report register",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".nc-cells",
-      ".nc-cells .cell"
-     ],
-     "rules": [
-      "NC-COL-01",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L7 Night register",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".ground-ink",
-      ".nc-cells .cell"
-     ],
-     "rules": [
-      "NC-COL-01",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L8 Vertical third",
-     "src": [
-      "sy",
-      "sl"
-     ],
-     "class": [
-      ".nc-third",
-      ".nc-third .side"
-     ],
-     "rules": [
-      "NC-COL-01",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L9 Ink strip",
-     "src": [
-      "sy",
-      "sl"
-     ],
-     "class": [
-      ".nc-strip",
-      ".nc-strip .band"
-     ],
-     "rules": [
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L10 Vertical third stat",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".nc-third .side--wide",
-      ".nc-third .bignum"
-     ],
-     "rules": [
-      "NC-EVI-07",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L11 Chart slide",
-     "src": [
-      "sy"
-     ],
-     "class": [
-      ".nc-sbar",
-      ".nc-sbar .fl",
-      ".nc-srcline"
-     ],
-     "rules": [
-      "NC-COL-02",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "L12 Closing",
-     "src": [
-      "sy",
-      "wd"
-     ],
-     "class": [
-      ".nc-pad",
-      ".nc-brk--bar"
-     ],
-     "rules": [
-      "NC-PSE-03",
-      "NC-SEQ-02"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "Three top-rule columns",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".nc-cols",
-      ".nc-cols .col"
-     ],
-     "rules": [
-      "NC-CON-03"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
-    },
-    {
-     "n": "Filled cells, three across",
-     "src": [
-      "sy",
-      "wd",
-      "sl"
-     ],
-     "class": [
-      ".nc-cells",
-      ".nc-cells .cell"
-     ],
-     "rules": [
-      "NC-CON-01",
+      "NC-LAY-08",
+      "NC-SEQ-02",
       "NC-COL-01"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     ]
     },
     {
-     "n": "Vertical third split",
+     "n": "Text and side block — Main text in columns, plus one thing different in kind set apart in an accent block at the right edge",
      "src": [
-      "sy",
-      "sl"
+      "rf"
      ],
      "class": [
-      ".nc-third",
-      ".nc-third .main",
-      ".nc-third .side"
+      ".nc-sp--side",
+      ".nc-sside"
      ],
      "rules": [
+      "NC-LAY-08",
+      "NC-SEQ-02",
       "NC-COL-01"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     ]
     },
     {
-     "n": "Full-bleed ink strip",
+     "n": "Steps — A method or process of up to eight steps, read left to right",
      "src": [
-      "sy",
-      "sl"
+      "rf"
      ],
      "class": [
-      ".nc-strip",
-      ".nc-strip .band"
+      ".nc-sgrid--4",
+      ".nc-st--fit"
      ],
      "rules": [
-      "NC-CON-01"
-     ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+      "NC-LAY-08",
+      "NC-SEQ-02"
+     ]
     },
     {
-     "n": "Slide bar row — chart at slide scale",
+     "n": "Labelled list — Named groups, each with one or two lines of description: partners, roles, audiences",
      "src": [
-      "sy",
-      "wd"
+      "rf"
      ],
      "class": [
-      ".nc-sbar",
-      ".nc-sbar .tk",
-      ".nc-sbar .fl"
+      ".nc-srows",
+      ".nc-sline--plain"
      ],
      "rules": [
-      "NC-COL-02",
-      "NC-SYS-03"
+      "NC-LAY-08",
+      "NC-SEQ-02"
+     ]
+    },
+    {
+     "n": "Two by two — Four questions or workstreams of equal weight",
+     "src": [
+      "rf"
      ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "class": [
+      ".nc-si--left",
+      ".nc-slab"
+     ],
+     "rules": [
+      "NC-LAY-08",
+      "NC-SEQ-02"
+     ]
+    },
+    {
+     "n": "Phases — Periods of time and what happens in each, with a milestone",
+     "src": [
+      "rf"
+     ],
+     "class": [
+      ".nc-spanel"
+     ],
+     "rules": [
+      "NC-LAY-08",
+      "NC-SEQ-02"
+     ]
+    },
+    {
+     "n": "Table — Figures that have to be read row by row, such as a budget",
+     "src": [
+      "rf"
+     ],
+     "class": [
+      ".nc-stable"
+     ],
+     "rules": [
+      "NC-LAY-08",
+      "NC-SEQ-02",
+      "NC-PRS-03"
+     ]
+    },
+    {
+     "n": "Team and close — Who is doing the work, ending on the offer in a closing band with the wordmark",
+     "src": [
+      "rf"
+     ],
+     "class": [
+      ".nc-sband",
+      ".nc-sp--band"
+     ],
+     "rules": [
+      "NC-LAY-08",
+      "NC-SEQ-02",
+      "NC-LAY-07"
+     ]
     },
     {
      "n": "A layout arranges components, it never defines one",
@@ -1748,10 +1624,8 @@
       "sy"
      ],
      "class": [
-      ".nc-pad",
-      ".nc-pad--kicker",
-      ".nc-pad--bleed",
-      ".nc-sfoot"
+      ".nc-sp",
+      ".nc-snum"
      ],
      "rules": [
       "NC-LAY-06",
@@ -1761,7 +1635,7 @@
      "done": "Build it. The rule already says what it must do."
     },
     {
-     "n": "Half the canvas empty — over ~55% covered means two slides",
+     "n": "Two registers — statement slides mostly empty, working slides as the reference deck",
      "src": [
       "fu",
       "sg",
@@ -1784,8 +1658,8 @@
       "sg"
      ],
      "class": [
-      ".nc-sub",
-      ".nc-sbody"
+      ".nc-sx",
+      ".nc-sl"
      ],
      "rules": [
       "NC-LAY-03"
@@ -1800,7 +1674,7 @@
       "sg"
      ],
      "class": [
-      ".nc-t"
+      ".nc-st"
      ],
      "rules": [
       "NC-LAY-02",
@@ -1827,18 +1701,18 @@
      ]
     },
     {
-     "n": "The anchor rule — bottom, centre or top, declared",
+     "n": "Every slide names a registered pattern",
      "src": [
       "hv"
      ],
-     "class": [
-      ".nc-pad[data-anchor=\"centre\"]"
-     ],
+     "class": [],
      "rules": [
       "NC-LAY-08"
      ],
-     "wave": 4,
-     "done": "Take the rule from the Book, write it down, then build it."
+     "done": "Take the rule from the Book, write it down, then build it.",
+     "enforced_by": [
+      "decks/build_deck.py"
+     ]
     },
     {
      "n": "Clustered spacing rhythm — one base unit, everything a multiple",
@@ -1861,8 +1735,8 @@
       "hv"
      ],
      "class": [
-      ".nc-pad",
-      ".nc-sfoot"
+      ".nc-sp",
+      ".nc-snum"
      ],
      "rules": [
       "NC-LAY-06"
@@ -1876,10 +1750,9 @@
       "wd"
      ],
      "class": [
-      ".nc-k",
-      ".nc-t",
-      ".nc-sub",
-      ".nc-sbody"
+      ".nc-st",
+      ".nc-sl",
+      ".nc-sx"
      ],
      "rules": [
       "NC-SEQ-01",

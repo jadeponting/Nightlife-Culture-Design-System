@@ -1,4 +1,4 @@
-/* nc-build-stamp tokens:e2276925b20ef2b5
+/* nc-build-stamp tokens:a6612720aaf29dd6
    Nightlife Culture component stylesheet — GENERATED from foundations/tokens.json
    by adapters/skill/build_skill.py. Source: Nightlife Culture Style Guide v1.4.1. Do not edit by hand;
    edit tokens or adapters/skill/src/nc.css.tmpl and rebuild. Pair with fonts.css. */
@@ -65,6 +65,7 @@ th{font-family:var(--head);font-weight:700;text-transform:uppercase;font-size:10
 tbody tr:last-child td{border-bottom:1px solid rgba(13,13,13,.13)}
 td.n{font-family:ui-monospace,Menlo,monospace;font-size:13px;text-align:right;white-space:nowrap;padding-right:0}
 table td:last-child,table th:last-child{padding-right:0}
+tbody td:first-child{font-weight:700}
 
 /* ---- table variants ---- */
 .t-chalk th{background:var(--chalk);color:var(--ink);border-bottom:1px solid rgba(13,13,13,.20);padding:10px 14px}

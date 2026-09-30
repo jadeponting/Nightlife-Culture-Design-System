@@ -241,8 +241,8 @@ FAMILIES = [
   "tier":"Fixed on structure, Adaptable on emphasis — which sentence gets the breakout "
          "is a judgement, that it is a real element is not."},
  {"name":"Containment", "job":"Groups things, and tells you how to read the group.",
-  "members":["top-rule panel","left-rule panel","flyer panel","filled panel","full-width band"],
-  "classes":[".nc-panel--top",".nc-panel--left",".nc-panel--flyer",".nc-panel--fill",".nc-band"],
+  "members":["top-rule panel","left-rule panel","hairline panel","filled panel","full-width band"],
+  "classes":[".nc-panel--top",".nc-panel--left",".nc-panel--hair",".nc-panel--fill",".nc-band"],
   "place":"The edge treatment is the instruction — see the container ladder below. "
           "Choosing the edge is choosing what you are telling the reader to do.",
   "tier":"Fixed — v1.4 §09 assigns each edge a meaning. Picking one for looks breaks the code."},
@@ -276,9 +276,6 @@ CONTAINERS = [
   "than a box'. The reader's eye can pass it."),
  ("Is it a labelled group that belongs to the section it sits under?",
   ".nc-panel--top", "Top rule, 9px. The rule is a lid — it ties the box to what precedes it."),
- ("Is it a standalone card that has to survive being pulled out on its own?",
-  ".nc-panel--flyer", "Full outline. The only sanctioned hard outline, because the thing "
-  "genuinely has no context around it."),
  ("Is it a whole movement — a change of subject, not a change of paragraph?",
   ".nc-band", "Full-width band with a ground change. The most expensive move available; "
   "it must buy one of the six purchases."),

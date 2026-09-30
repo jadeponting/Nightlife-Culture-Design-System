@@ -2,7 +2,7 @@
 
 **Status:** candidate, not committed contracts. Extracted from the UKDF fellowship proposal deck
 (`~/Documents/GitHub/ukdf-application/`), built 17 Aug 2026, approved by Carly on sight.
-Validated visually and for accessibility; NOT yet run through `tools/validate.py`. Encode as
+Validated visually and for accessibility; NOT yet run through `checks/validate.py`. Encode as
 contracts in a Phase 2/3 pass. Where this file and `AGENTS.md`/existing contracts disagree,
 resolve explicitly — do not silently overwrite either.
 

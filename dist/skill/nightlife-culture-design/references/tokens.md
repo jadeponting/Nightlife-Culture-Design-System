@@ -13,7 +13,7 @@ There is no single sentence covering all four grounds: blue takes white · ink t
 | Token | Hex | Role | Text on it |
 |---|---|---|---|
 | Blue | `#0000FF` | Primary ground. Covers, dividers, statements, links. | white · 8.59:1 (white text on blue) |
-| Ink | `#0D0D0D` | Night ground and primary text colour. | white · 19.44:1 (white text on ink) |
+| Ink | `#0D0D0D` | Night ground. Full-bleed surfaces and strips where accents need to glow. | white · 19.44:1 (white text on ink) |
 | Chalk | `#F3F3F3` | Reading ground — decks and screen. | ink · 17.52:1 (ink text on chalk) |
 | White | `#FFFFFF` | Reading ground — reports and print; panels on chalk. | ink · 19.44:1 (ink text on white) |
 

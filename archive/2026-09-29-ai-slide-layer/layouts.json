@@ -2,7 +2,7 @@
  "$schema": "./layouts.schema.md",
  "version": "1.0",
  "source": "Nightlife Culture Style Guide v1.0 + slide-layouts.html",
- "howToUse": "Every <section> in a deck declares data-layout. The validator reads this file and checks the section against its contract. Do not add slots a layout does not declare — pick a different layout instead.",
+ "howToUse": "Every <section> in a deck declares data-layout. NOT YET ENFORCED: no script reads this file (see movedNote and docs/gaps.md); limits here are recorded, not checked. Do not add slots a layout does not declare — pick a different layout instead.",
  "layouts": {
   "L01": {
    "name": "Cover",

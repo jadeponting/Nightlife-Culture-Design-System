@@ -34,7 +34,7 @@ def _stamp():
 HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4">
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.4.1">
 <meta name="nc-build-stamp" content="{stamp}">
 {styles}
 </head><body class="nc-doc">

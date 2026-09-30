@@ -45,9 +45,6 @@ DEMOS = {
  ".nc-panel--top":
    '<div class="nc-panel nc-panel--top acc-teal"><p class="lab">Method</p>'
    '<p class="txt">This belongs to the section it sits under. The rule is a lid.</p></div>',
- ".nc-panel--flyer":
-   '<div class="nc-panel nc-panel--flyer"><p class="lab">Call to action</p>'
-   '<p class="txt">Survives being pulled out on its own, with nothing around it.</p></div>',
  ".nc-band":
    '<div class="nc-band ground-ink"><p class="lab">A change of subject</p>'
    '<p class="txt">Full width, ground change. The most expensive move available.</p></div>',

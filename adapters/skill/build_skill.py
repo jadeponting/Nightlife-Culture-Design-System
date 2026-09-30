@@ -99,15 +99,101 @@ def gen_typescale_css():
                  f"line-height:{s['lineHeight']};{caps.get(r,'')}}}  /* {s['px']}px · {s['from']} */")
     return "\n".join(L)
 
+# ---- slides: generated from foundations/patterns.json + the reference decks ----
+def gen_slides_md():
+    sys.path.insert(0, str(ROOT / "layouts"))
+    from render import slide as render_slide
+    P = json.load(open(ROOT / "foundations" / "patterns.json"))
+    Z = T["type"]["sizes"]["slide"]["pattern"]; SP = T["space"]["slide"]
+    decks = {pathlib.Path(json.load(open(f))["reference"]).name: json.load(open(f))
+             for f in sorted((ROOT / "decks").glob("*.json"))}
+    L = ["# Slides — generated from foundations/patterns.json. Do not edit by hand.\n",
+         "Slides are built from **blocks** arranged into **patterns**. Every pattern comes from a real",
+         "Nightlife Culture deck, and its reference slide is in `assets/reference/`. **Look at the",
+         "reference image before you build a slide in that pattern, and match it.**\n",
+         "Build slides in HTML with `assets/fonts.css` + `assets/slides.css`. Every size is in `cqw`,",
+         "so the slide scales. Never set a colour or a size on a slide yourself: the ground class sets",
+         "the text, title and highlight colours, and the block classes set the sizes.\n",
+         "## Sizes (points on a 13.33in slide)\n",
+         f"Title {Z['title']} (long titles {Z['titleFit']}) · statement {Z['statement']} · cover {Z['cover']} · "
+         f"lead {Z['lead']} · heading {Z['head']} · **body {Z['body']}** · label {Z['label']} caps · "
+         f"table {Z['table']['pt']}. Line height {Z['lineHeight']['text']}.\n",
+         f"Side margins {SP['sideMargin']}. Title sits {SP['topMargin']['titleLeads']} from the top. "
+         f"Content stops {SP['pattern']['bottom']} above the foot, or above a closing band "
+         f"({SP['pattern']['closingBand']} tall).\n",
+         "## Two registers\n",
+         "- **Statement slides** (cover, statement): one idea, most of the canvas empty.",
+         "- **Working slides** (every other pattern): a title, a lead and up to eight short text blocks.",
+         "  If it does not fit at the sizes above, it is two slides. Remove copy before reducing type.\n",
+         "## Grounds\n",
+         "- **Blue or ink**: white titles and text, teal headings. **Chalk or white**: blue titles and headings, ink text.",
+         "- Accents (pink, teal, violet, butter, coral) are rules, fills and side blocks — always with ink text,",
+         "  never a whole slide.\n",
+         "## Blocks\n",
+         "| Block | Markup |", "|---|---|",
+         "| Title | `<h2 class=\"nc-st\">` · `--fit` long · `--xl` statement · `--cover` |",
+         "| Lead | `<p class=\"nc-sl\">` · `--lg` `--xl` `--2xl` bigger · `--hl` blue/teal |",
+         "| Text | `<p class=\"nc-sx\">` |",
+         "| Label (caps) | `<p class=\"nc-slab\">` |",
+         "| Rule | `<hr class=\"nc-srule acc-pink\">` |",
+         "| Spacer | `<div class=\"nc-sfill\"></div>` pushes what follows down |",
+         "| Columns | `<div class=\"nc-sgrid\">` (3) · `--2` · `--4` |",
+         "| Column item | `<div class=\"nc-si nc-si--rule acc-teal\">` · `--left` · `--fill`; inside: `.h` heading, `.hc` caps heading, `.big`, `.sub`, `.b` text, `.u` bold text, `ul.ls` |",
+         "| Callout | `<p class=\"nc-scall acc-pink\"><b>Lead:</b> text</p>` |",
+         "| Closing line | `<p class=\"nc-sline\">` · `--rule` · `--plain` |",
+         "| Labelled rows | `<dl class=\"nc-srows\"><dt>..</dt><dd>..</dd></dl>` |",
+         "| Panel | `<div class=\"nc-spanel acc-pink\"><p class=\"l\">..</p><p class=\"b\">..</p></div>` |",
+         "| Side block | `<div class=\"nc-sside acc-pink\">` after the pad; pad takes `nc-sp--side` |",
+         "| Closing band | `<div class=\"nc-sband\"><p class=\"t\">..</p></div>`; pad takes `nc-sp--band` |",
+         "| Table | `<table class=\"nc-stable\">` — sent decks only, pattern `table` |",
+         "| Wordmark | `<div class=\"nc-slogo\">` + the inline SVG from `assets/nightlife-culture-wordmark.svg`. Never typeset |",
+         "| Slide number | `<p class=\"nc-snum\">10</p>` |",
+         "\nEvery slide: `<div class=\"nc-slide\" data-pattern=\"NAME\"><div class=\"cv ground-chalk\"><div class=\"nc-sp\">…</div></div></div>`\n",
+         "## Patterns\n"]
+    for pid, p in P["patterns"].items():
+        refs = ", ".join(f"`assets/reference/{r.split('#')[0]}/slide-{int(r.split('#')[1]):02d}.jpg`" for r in p["reference"])
+        L += [f"### {p['name']} — `{pid}`\n", f"**Use when:** {p['useWhen']}  ", f"**Grounds:** {', '.join(p['grounds'])}  ",
+              f"**Reference:** {refs}\n"]
+        ref, n = p["reference"][0].split("#")
+        ex = [s for s in decks[ref]["slides"] if str(s["n"]).rstrip("ab") == n][0]
+        mk = render_slide(ex)
+        mk = re.sub(r"<svg.*?</svg>", "<!-- inline assets/nightlife-culture-wordmark.svg -->", mk, flags=re.S)
+        mk = mk.replace("><", ">\n<")
+        L += ["```html", mk, "```\n"]
+    L += ["## When nothing fits\n",
+          "Compose the slide from the blocks above and say which pattern is new. The design system adds",
+          "it to `foundations/patterns.json` with the live slide it came from. Never invent a size, a colour",
+          "or a spacing value; if a block is missing, say so.\n",
+          "## Diagrams — not yet specified\n",
+          "No diagram kit exists. Build process chains and timelines from columns, rules and panels. Never",
+          "use PowerPoint SmartArt defaults.\n"]
+    return "\n".join(L)
+
+def gen_slides_css():
+    """slides.css for the skill: the --nc- tokens, grounds and accent modifiers from the
+    component layer, then the slide layer. Self-contained with fonts.css."""
+    comp = (ROOT / "foundations" / "nightlife-culture.css").read_text()
+    root = re.search(r":root\{.*?\n\}", comp, re.S).group(0)
+    lines = [l for l in comp.splitlines() if re.match(r"\.(ground|acc)-[a-z]+\{", l)]
+    slides = (ROOT / "foundations" / "nightlife-slides.css").read_text()
+    return (f"/* nc-build-stamp tokens:{_digest(ROOT / 'foundations' / 'tokens.json')}\n"
+            "   Nightlife Culture slide stylesheet for the skill — GENERATED by adapters/skill/build_skill.py\n"
+            "   from foundations/. Pair with fonts.css. */\n" + root + "\n" + "\n".join(lines) + "\n" + slides)
+
 def main():
     # overwrite in place — some checkouts (and the Cowork mount) forbid deletes
     for d in ("references", "assets", "scripts"):
         (OUT / d).mkdir(parents=True, exist_ok=True)
 
     # references: four static + generated tokens.md
-    for n in ("components.md", "charts.md", "slides.md", "voice.md"):
+    for n in ("components.md", "charts.md", "voice.md"):
         shutil.copy(SRC / "references" / n, OUT / "references" / n)
     (OUT / "references" / "tokens.md").write_text(gen_tokens_md())
+    (OUT / "references" / "slides.md").write_text(gen_slides_md())
+    (OUT / "assets" / "slides.css").write_text(gen_slides_css())
+    for img in sorted((ROOT / "reference").glob("*/slide-*.jpg")):
+        d = OUT / "assets" / "reference" / img.parent.name; d.mkdir(parents=True, exist_ok=True)
+        shutil.copy(img, d / img.name)
 
     # SKILL.md
     s = (SRC / "SKILL.md").read_text()
@@ -167,10 +253,12 @@ def main():
                 fail.append(f"retired colour {h} in {p.relative_to(OUT)}")
     # parity
     import subprocess
-    r = subprocess.run([sys.executable, str(OUT / "scripts" / "parity_check.py"), str(OUT / "assets" / "nc.css"),
+    both = OUT.parent / "_parity.css"
+    both.write_text(all_text[OUT / "assets" / "nc.css"] + "\n" + all_text[OUT / "assets" / "slides.css"])
+    r = subprocess.run([sys.executable, str(OUT / "scripts" / "parity_check.py"), str(both),
                         *[str(OUT / "references" / n) for n in ("components.md", "charts.md", "slides.md", "tokens.md")],
                         str(OUT / "assets" / "template.html")], capture_output=True, text=True)
-    print(r.stdout.strip())
+    print(r.stdout.strip()); both.unlink()
     if r.returncode: fail.append("parity check failed")
 
     if fail:

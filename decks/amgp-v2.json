@@ -1,0 +1,1183 @@
+{
+  "name": "amgp-v2",
+  "title": "Artists Make Great Places",
+  "kicker": "Nightlife Culture · UK Dynamism Fund · September 2026",
+  "stand": "The v2.0 deck, rebuilt from the design system's blocks. The original is in reference/amgp-v2.0.",
+  "reference": "reference/amgp-v2.0",
+  "slides": [
+    {
+      "n": 1,
+      "pattern": "cover",
+      "ground": "blue",
+      "pad": "cover",
+      "blocks": [
+        {
+          "meta": "Carly Heath / UK Dynamism Fund / September 2026"
+        },
+        {
+          "fill": true
+        },
+        {
+          "title": "Artists make great places",
+          "size": "cover"
+        },
+        {
+          "rule": "pink"
+        },
+        {
+          "lead": "A shared evidence foundation for nightlife advocacy",
+          "size": "lg"
+        },
+        {
+          "fill": true
+        },
+        {
+          "logo": "cover"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "pattern": "statement",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "The change I want to see",
+          "size": "xl"
+        },
+        {
+          "fill": true
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "lead": "I want the people who create the UKs cultural life after dark to have greater influence over the decisions and investment that shape their places.",
+          "size": "lg"
+        },
+        {
+          "lead": "That means recognising the gathering places, creative communities and connections that make somewhere worth belonging to and helping people secure the conditions for that culture to flourish.",
+          "size": "lg"
+        },
+        {
+          "lead": "My purpose for is so that their cultural contribution can be better recognised in policy decisions, placemaking, and investment in their businesses and community",
+          "size": "lg"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "pattern": "three-columns",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Nightlife needs a seat"
+        },
+        {
+          "lead": "Nightlife Culture exists to make it easier for the people who create the cultural life of the night to evidence their value, understand their ecosystems and influence the decisions and investment that shape their futures."
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "mark": "rule",
+              "acc": "teal",
+              "parts": [
+                [
+                  "h",
+                  "Knowledge exists, but is fragmented"
+                ],
+                [
+                  "b",
+                  "Evidence takes time and money to assemble, dates quickly and often misses small independent activity."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "butter",
+              "parts": [
+                [
+                  "h",
+                  "Advocacy needs a shared foundation"
+                ],
+                [
+                  "b",
+                  "We repeat the research and make different claims, sometimes from the same evidence. Common definitions and shared priorities can help us build a united case for change."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "violet",
+              "parts": [
+                [
+                  "h",
+                  "Cultural value needs a route into action"
+                ],
+                [
+                  "b",
+                  "A shared resource, developed with its users, could strengthen collective advocacy and help shape policy and investment."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "callout": "If people can recognise their scene in a shared evidence base, agree what they need and take a credible collective proposition to the people who can act, nightlife can gain more influence over the decisions and investment shaping its future.",
+          "lead": "Working hypothesis:",
+          "acc": "pink"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "pattern": "three-boxes",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "The policy moment"
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "mark": "fill",
+              "acc": "teal",
+              "parts": [
+                [
+                  "h",
+                  "Placemaking"
+                ],
+                [
+                  "b",
+                  "Neighbourhood and town-centre decisions shape cultural space. Nightlife needs representation and evidence of the people and activity already making a place valuable."
+                ]
+              ]
+            },
+            {
+              "mark": "fill",
+              "acc": "butter",
+              "parts": [
+                [
+                  "h",
+                  "Business support"
+                ],
+                [
+                  "b",
+                  "Promoters, artists, freelancers and independent venues need support that fits their working lives. We can test where existing provision reaches them, and where it needs to change."
+                ]
+              ]
+            },
+            {
+              "mark": "fill",
+              "acc": "violet",
+              "parts": [
+                [
+                  "h",
+                  "Devolution"
+                ],
+                [
+                  "b",
+                  "Regional growth, cultural investment and planning create routes to influence. We need to connect a scene's priorities with the people who control those decisions."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "lead": "Policy already recognises nightlife in important ways. The work is to turn recognition into suitable support and accountable action.",
+          "hl": true
+        },
+        {
+          "text": "English Devolution, Pride in Place, Backing Your Business, Turn It Up, and Regional Mayoral Growth strategies give an opportunity for nightlife to provide concrete evidence about their contribution in Neighbourhood Boards, Strategic Authority growth plans and Spatial Development Strategies currently underway"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "pattern": "three-columns",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Who uses it, and why"
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "mark": "rule",
+              "acc": "teal",
+              "parts": [
+                [
+                  "h",
+                  "Policymakers and politicians"
+                ],
+                [
+                  "b",
+                  "Problem: fragmented information makes cultural ecosystems difficult to understand within a place plan, business-support programme or investment decision."
+                ],
+                [
+                  "u",
+                  "Use: recognise existing activity, hear the people behind it and develop a response with them."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "butter",
+              "parts": [
+                [
+                  "h",
+                  "Advocates and trade bodies"
+                ],
+                [
+                  "b",
+                  "Problem: repeated research consumes scarce time, while different definitions and competing claims weaken a collective case."
+                ],
+                [
+                  "u",
+                  "Use: agree a shared evidence foundation, build consensus around common priorities and take a united case into the relevant decision process."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "violet",
+              "parts": [
+                [
+                  "h",
+                  "Funders and investors"
+                ],
+                [
+                  "b",
+                  "Problem: cultural potential and the support it needs can be difficult to identify through conventional measures alone."
+                ],
+                [
+                  "u",
+                  "Use: develop stronger propositions around existing scenes, including space, talent development and business support."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "line": "Artists, DJs, promoters, crews and venues help develop the model, feedback on if they recognise themselves in it, suggest how others might use it, and shape how their voice shows up.",
+          "rule": true
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "pattern": "text-and-side-block",
+      "ground": "chalk",
+      "pad": "side",
+      "blocks": [
+        {
+          "title": "The evidence already exists",
+          "size": "fit"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "A scoped method, ready to develop"
+                ],
+                [
+                  "b",
+                  "Ticket Atlas is a fully scoped methodology awaiting build. I am expanding it with the ATTTF Vibe Setting findings and public data I used regularly at Bristol City Council."
+                ],
+                [
+                  "h",
+                  "Purpose and cultural meaning"
+                ],
+                [
+                  "b",
+                  "Connect the evidence with the scene's knowledge, relationships and collective joy. Agree the measures, access and interpretation before building the interactive layer."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Skiddle as a partner"
+                ],
+                [
+                  "b",
+                  "We could access customer insight usually available only to an individual promoter, then develop useful benchmarks across comparable events and places. Skiddle can also help us involve venues, promoters and, where needed, audiences through its existing relationships. Other ticketing APIs can help fill gaps in event listings."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "side": {
+        "acc": "pink",
+        "parts": [
+          [
+            "h",
+            "Public data already in the comons"
+          ],
+          [
+            "b",
+            "ONS/Nomis: population, employment and business context."
+          ],
+          [
+            "b",
+            "Companies House: company records and legal control."
+          ],
+          [
+            "b",
+            "Planning and local records: development, cultural space and operating conditions."
+          ],
+          [
+            "b",
+            "Published funding data: where support goes."
+          ]
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "pattern": "statement-two-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "A vibe map",
+          "size": "xl"
+        },
+        {
+          "lead": "A living, interactive map of the people, activity, value and support systems that sustain a place’s nightlife culture.",
+          "size": "2xl"
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "u",
+                  "It would combine:"
+                ],
+                [
+                  "ls",
+                  [
+                    "Data +",
+                    "Design +",
+                    "Storytelling"
+                  ]
+                ],
+                [
+                  "u",
+                  "To function as a public access decision-support system for culture and cities."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "u",
+                  "It’s not simply about making beautiful graphics. It’s about building tools that help governments, funders, cultural organisations and communities understand complex urban systems and make better choices."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "pattern": "three-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "The vibe map",
+          "size": "fit"
+        },
+        {
+          "lead": "What if nightlife data could be as exciting as a club promotion, or cultural convening instead of a spreadsheet?",
+          "size": "xl"
+        },
+        {
+          "lead": "An interactive account of the people, connections and collective joy that show the hyper-local story of place, the people who make nightlife happen, and shows what a place feels like."
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "Recognisable to the scene"
+                ],
+                [
+                  "b",
+                  "People can find themselves, contribute knowledge and challenge what is missing. Identity, belonging and cultural labour sit alongside economic and institutional evidence."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Designed to invite understanding"
+                ],
+                [
+                  "b",
+                  "Data, design and storytelling work together. A clear first view offers a meaningful account of place, with deeper exploration and evidence people can cite and reuse."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Shared without flattening difference"
+                ],
+                [
+                  "b",
+                  "Common definitions help the work travel. Local voices and cultural identities shape each place's account. Visibility and participation remain matters of choice."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "line": "We speak the truth of the dancefloor. Let’s do that with data."
+        },
+        {
+          "text": "A free public-interest resource, developed with the people who create and use it."
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "pattern": "steps",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Our creative policy design method",
+          "size": "fit"
+        },
+        {
+          "lead": "My practice brings together human-centred design thinking, restorative economics and participatory creative production."
+        },
+        {
+          "cols": 4,
+          "items": [
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Listen"
+                ],
+                [
+                  "sub",
+                  "— gather the people"
+                ],
+                [
+                  "b",
+                  "Hear lived experience, establish trust and agree what matters."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Map"
+                ],
+                [
+                  "sub",
+                  "— see the system"
+                ],
+                [
+                  "b",
+                  "Connect cultural activity, relationships, resources and power."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Ideate"
+                ],
+                [
+                  "sub",
+                  "— shape possible answers"
+                ],
+                [
+                  "b",
+                  "Develop shared priorities and responses to the needs people identify."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Prototype"
+                ],
+                [
+                  "sub",
+                  "— make it tangible"
+                ],
+                [
+                  "b",
+                  "Build an early resource or intervention people can use and challenge."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Test"
+                ],
+                [
+                  "sub",
+                  "— learn in the open"
+                ],
+                [
+                  "b",
+                  "Examine recognition, usefulness and action with the people involved."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Refine"
+                ],
+                [
+                  "sub",
+                  "— improve the method"
+                ],
+                [
+                  "b",
+                  "Use feedback and evidence to change the account and the approach."
+                ]
+              ]
+            },
+            {
+              "mark": "rule",
+              "acc": "blue",
+              "parts": [
+                [
+                  "hc",
+                  "Expand"
+                ],
+                [
+                  "sub",
+                  "— let the idea travel"
+                ],
+                [
+                  "b",
+                  "Adapt what works with another place while preserving local identity."
+                ]
+              ]
+            },
+            {
+              "mark": "fill",
+              "acc": "butter",
+              "parts": [
+                [
+                  "u",
+                  "A repeatable creative production practice, developed through decades of sector-led delivery."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "pattern": "list",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Different partners, shared purpose",
+          "size": "fit"
+        },
+        {
+          "lead": "Serious work needs the right people around the table and the right team behind it."
+        },
+        {
+          "rows": [
+            [
+              "Scenes",
+              "Artists, DJs, promoters, crews and venues: shape the questions, recognise themselves and be heard without being flattened."
+            ],
+            [
+              "Sector bodies",
+              "NTIA, AIF, UK Music and FAC: connect practitioner knowledge, test collective priorities and help evidence travel into united advocacy."
+            ],
+            [
+              "Infrastructure partners",
+              "Skiddle: in-kind support, richer ticketing insight and a route to involve venues, promoters and audiences, with potential investment after launch. Data access and investment terms to agree."
+            ],
+            [
+              "Places and policy",
+              "Nightlife policy officers at LGA, WMCA, MCA and LCR, and the WECA culture team: connect local needs with policy, place and business-support decisions."
+            ],
+            [
+              "Funders and investors",
+              "LIVE Trust and prospective public/private funders: explore propositions with sector legitimacy and what support could change conditions."
+            ],
+            [
+              "Researchers",
+              "Research partners to develop: strengthen the method, interpret evidence and evaluate what happens."
+            ]
+          ]
+        },
+        {
+          "line": "Existing relationships and potential collaborations. Specific roles and commitments to agree.",
+          "plain": true
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "pattern": "two-by-two",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Discovery is part of the test"
+        },
+        {
+          "fill": true
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "mark": "left",
+              "acc": "teal",
+              "parts": [
+                [
+                  "h",
+                  "Can we co-design something universally useful?"
+                ],
+                [
+                  "b",
+                  "Discover needs across the user groups, agree common foundations and test how much must adapt between places."
+                ]
+              ]
+            },
+            {
+              "mark": "left",
+              "acc": "teal",
+              "parts": [
+                [
+                  "h",
+                  "Does it paint a recognisable picture?"
+                ],
+                [
+                  "b",
+                  "Ask hyperlocal scenes whether they recognise their activity, relationships and identity. Record who is missing and what contributors change."
+                ]
+              ]
+            },
+            {
+              "mark": "left",
+              "acc": "pink",
+              "parts": [
+                [
+                  "h",
+                  "Can it steer decisions and collective action?"
+                ],
+                [
+                  "b",
+                  "Follow its use in policy, united advocacy and public/private investment. Record changed and unchanged decisions, and the barriers that remain."
+                ]
+              ]
+            },
+            {
+              "mark": "left",
+              "acc": "pink",
+              "parts": [
+                [
+                  "h",
+                  "Can it travel and stay useful?"
+                ],
+                [
+                  "b",
+                  "Test another context and establish the ongoing production, analysis, content, design and maintenance required."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "The ambition is broad usefulness.<br>The fellowship tests where that holds, where it fails and what must change."
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "pattern": "phases",
+      "ground": "chalk",
+      "number": "10",
+      "blocks": [
+        {
+          "title": "Building together, ready for launch",
+          "size": "fit"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "big",
+                  "Months 1–3"
+                ],
+                [
+                  "hc",
+                  "Discover and agree"
+                ],
+                [
+                  "b",
+                  "Convene scenes and decision users. Build shared understanding and priorities. Audit existing data, agree partner access and develop the first prototype around the needs identified."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "big",
+                  "Months 3–6"
+                ],
+                [
+                  "hc",
+                  "Develop and prepare"
+                ],
+                [
+                  "b",
+                  "Co-design and test the resource with its users. Refine the evidence and experience. Coordinate partner participation, launch storytelling and PR/comms with Plaster Creative Communications."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "panel": [
+            "Public milestone",
+            "Aim for the Night Time Economy Summit in 2027, Feb 7-11, and participation. Prepare demonstrations and ways for people to contribute and use the resource afterwards."
+          ],
+          "acc": "pink"
+        },
+        {
+          "text": "Production support covers coordination, logistics and follow-through. Early application and business development begin alongside the build."
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "pattern": "two-by-two",
+      "ground": "chalk",
+      "pad": "band",
+      "number": "11",
+      "blocks": [
+        {
+          "title": "What we do with it"
+        },
+        {
+          "label": "Months 6–12: application and a durable business"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "Use the evidence for change"
+                ],
+                [
+                  "b",
+                  "Work with partners on place decisions, suitable business support, united advocacy and public/private investment. Follow what changes, refine what helps and share practical learning."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Take the method into other places"
+                ],
+                [
+                  "b",
+                  "Develop further convenings and place partnerships. Test transfer, including a possible touring format with the production support to deliver it."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Build Nightlife Culture's revenue model"
+                ],
+                [
+                  "b",
+                  "Develop paid commissions for strategy, evidence and facilitation; funded research; and support for the sector platform through partnerships. Test demand, pricing and the recurring costs of the team and resource."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Plan long-term capability"
+                ],
+                [
+                  "b",
+                  "Establish internal content creation and design, alongside data stewardship, partner development and delivery support. Build the next-stage funding and operating plan."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "band": {
+        "text": "The Vibe Map is the start. What we do with it is the revolution."
+      }
+    },
+    {
+      "n": "14a",
+      "pattern": "table",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Budget",
+          "size": "fit"
+        },
+        {
+          "table": {
+            "head": [
+              "Cost item",
+              "Unit",
+              "Quantity",
+              "Rate GBP",
+              "Cost GBP",
+              "Timing",
+              "Included scope"
+            ],
+            "num": [
+              2,
+              3,
+              4
+            ],
+            "rows": [
+              [
+                "Carly and project leadership",
+                "months",
+                "6",
+                "£3,000",
+                "£18,000",
+                "M1–6",
+                "Vision, discovery, facilitation, partnerships, synthesis and business development."
+              ],
+              [
+                "Producer and operations",
+                "days",
+                "14.0",
+                "£450",
+                "£6,300",
+                "M1–6",
+                "Work tracking, logistics, partner coordination, reporting and launch production."
+              ],
+              [
+                "Creative technology",
+                "days",
+                "16.0",
+                "£600",
+                "£9,600",
+                "M1–6",
+                "Shared capacity for data integration, prototype development, testing and launch fixes."
+              ],
+              [
+                "Analysis and data quality",
+                "days",
+                "6.0",
+                "£700",
+                "£4,200",
+                "M1–5",
+                "Data audit, GIS, source matching, evidence definitions and quality checks."
+              ],
+              [
+                "Design and accessibility",
+                "days",
+                "3.0",
+                "£600",
+                "£1,800",
+                "M2–6",
+                "Information and interface design, cultural voice and accessibility review."
+              ],
+              [
+                "Participant contributions",
+                "payments",
+                "15",
+                "£120",
+                "£1,800",
+                "M1–5",
+                "Payment for substantial contributions; this is not a community-research staff budget."
+              ],
+              [
+                "Convening venue and catering",
+                "sessions",
+                "2",
+                "£300",
+                "£600",
+                "M2 and M4",
+                "Two small co-design convenings. Facilitation and production are in the people lines."
+              ],
+              [
+                "Participant travel and access",
+                "allowance",
+                "1",
+                "£600",
+                "£600",
+                "M1–5",
+                "Travel, access and participation support; requirements need checking with contributors."
+              ],
+              [
+                "Launch content and PR",
+                "allowance",
+                "1",
+                "£1,800",
+                "£1,800",
+                "M4–6",
+                "Launch story, copy, assets and PR support. Agree the scope with Plaster."
+              ],
+              [
+                "Launch session direct costs",
+                "event",
+                "1",
+                "£700",
+                "£700",
+                "M5–6",
+                "A modest launch session: venue, materials and local delivery costs. Producer time is separate."
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "n": "14b",
+      "pattern": "table",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Budget",
+          "size": "fit"
+        },
+        {
+          "label": "Continued"
+        },
+        {
+          "table": {
+            "head": [
+              "Cost item",
+              "Unit",
+              "Quantity",
+              "Rate GBP",
+              "Cost GBP",
+              "Timing",
+              "Included scope"
+            ],
+            "num": [
+              2,
+              3,
+              4
+            ],
+            "rows": [
+              [
+                "Pooled specialist advice",
+                "allowance",
+                "1",
+                "£1,500",
+                "£1,500",
+                "M1–5",
+                "Research/ethics, measurement, value and legal/commercial advice share this one pool."
+              ],
+              [
+                "Hosting and software",
+                "months",
+                "6",
+                "£100",
+                "£600",
+                "M1–6",
+                "Prototype hosting, tools and storage. Paid data licences and ongoing support are unpriced."
+              ],
+              [
+                "Contingency",
+                "reserve",
+                "1",
+                "£2,500",
+                "£2,500",
+                "As needed",
+                "Unallocated reserve for changes in discovery and build; no hidden extra specialist staffing."
+              ],
+              [
+                "Separate prototype user tests",
+                "payments",
+                "8",
+                "£50",
+                "£400",
+                "M3–5",
+                "Short additional testing sessions. Do not use this to pay twice for the same workshop activity."
+              ],
+              [
+                "Participant travel and access",
+                "allowance",
+                "1",
+                "£1,000",
+                "£1,000",
+                "M1–5",
+                "Travel and access support for contributors; check requirements during recruitment."
+              ],
+              [
+                "Prototype launch: story and PR",
+                "allowance",
+                "1",
+                "£1,500",
+                "£1,500",
+                "Before Summit",
+                "A focused story, copy/assets and PR support for the prototype; agree a brief with Plaster."
+              ],
+              [
+                "Hosted demo: direct expenses",
+                "allowance",
+                "1",
+                "£500",
+                "£500",
+                "Summit target",
+                "Modest travel, materials and hosted demonstration expenses; confirm the event arrangement."
+              ],
+              [
+                "Hosting and software",
+                "months",
+                "6",
+                "£75",
+                "£450",
+                "M1–6",
+                "Light prototype hosting, tools and storage during the starter phase."
+              ],
+              [
+                "Contingency",
+                "reserve",
+                "1",
+                "£2,500",
+                "£2,500",
+                "As needed",
+                "Reserve for scope and cost changes. It is not another specialist staffing budget."
+              ]
+            ],
+            "foot": [
+              "Total",
+              "",
+              "",
+              "",
+              "£48,550",
+              "",
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "pattern": "team-and-close",
+      "ground": "chalk",
+      "pad": "band",
+      "blocks": [
+        {
+          "title": "The team and the backing"
+        },
+        {
+          "label": "Carly Heath"
+        },
+        {
+          "text": "Creative producer, former promoter and cultural-policy practitioner. Lead the vision, facilitate convenings and develop partnerships and the business."
+        },
+        {
+          "rule": "blue"
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Already around the work"
+                ],
+                [
+                  "b",
+                  "Storytelling, design and communications relationships. Plaster Creative Communications supports storytelling and PR for the prototype launch."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Capacity to bring on board"
+                ],
+                [
+                  "b",
+                  "Production support for coordination, logistics and follow-through, including any touring convenings. Creative technologists to build and iterate. Analysts to connect, interpret and maintain credible evidence."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Long-term team development"
+                ],
+                [
+                  "b",
+                  "Internal content creation and design, with ongoing production, data and partnership capacity. Bring in specialist research and paid cultural expertise as the work requires."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "band": {
+        "text": "A meaningful six-month fellowship scope for discussion within the longer plan.",
+        "plain": true,
+        "logo": true
+      }
+    }
+  ]
+}

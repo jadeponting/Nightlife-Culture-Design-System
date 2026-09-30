@@ -14,6 +14,7 @@ C, TY, SP = T["colour"], T["type"], T["space"]
 G = {k:v["hex"] for k,v in C["grounds"].items()}
 A = {k:v["hex"] for k,v in C["accents"].items() if isinstance(v,dict)}
 RAMP = C["chartRamp"]["series"]
+TX = {k:v["hex"] for k,v in C["textColours"].items() if k not in G}  # ink is also a ground
 SC = TY['sizes']['document']['scale']
 RH = TY['sizes']['document']['rhythm']['aboveIsMultipleOfBelow']
 DSP = TY['sizes']['document']['display']
@@ -36,6 +37,7 @@ css = f"""/* =============================================================
 
 :root{{
 {chr(10).join(f'  --nc-{k}: {v};' for k,v in G.items())}
+{chr(10).join(f'  --nc-{k}: {v};' for k,v in TX.items())}
 {chr(10).join(f'  --nc-{k}: {v};' for k,v in A.items())}
 {chr(10).join(f'  --nc-chart-{i}: {h};' for i,h in enumerate(RAMP,1))}
 {chr(10).join(f"  --nc-{k}: {v};" for k,v in SP["scale"]["steps"].items())}
@@ -133,15 +135,12 @@ css = f"""/* =============================================================
 .nc-section-head:not(:has(.num)){{gap:0}}
 
 /* --- 4 · CONTAINMENT — colour and space, not outlines -------------
-   Hard outline is NOT retired outright: it is reserved for the flyer
-   register — covers, posters, dividers. "That way the box means
-   something when it does turn up." (containment v1.3) */
+   Hard outline is retired (v1.4 §09). The hairline is the only outline. */
 .nc-panel{{padding:var(--nc-sp4) var(--nc-sp5)}}
 .nc-panel--fill{{background:var(--nc-acc,var(--nc-teal));color:var(--nc-ink)}}
 .nc-panel--top{{background:var(--nc-white);border-top:.56em solid var(--nc-acc,var(--nc-teal))}}
 .nc-panel--left{{background:var(--nc-white);border-left:.75em solid var(--nc-acc,var(--nc-pink))}}
 .nc-panel--hair{{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px}}
-.nc-panel--flyer{{background:var(--nc-acc,var(--nc-teal));border:2px solid var(--nc-ink);color:var(--nc-ink)}}
 .nc-band{{padding:var(--nc-sp5) max(var(--nc-bleed,0px),var(--nc-sp5));
   margin-left:calc(var(--nc-bleed,0px) * -1);margin-right:calc(var(--nc-bleed,0px) * -1);
   background:var(--nc-acc,var(--nc-violet));color:var(--nc-ink)}}
@@ -218,6 +217,8 @@ css = f"""/* =============================================================
   border-bottom:.16em solid var(--nc-ink);padding-bottom:var(--nc-sp2)}}
 .nc-table td:last-child,.nc-table th:last-child{{padding-right:0}}
 .nc-table .num{{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}}
+/* The first column names the row, so it is bold in every document table (Carly, 29 Sep 2026). */
+.nc-table tbody td:first-child{{font-weight:700}}
 .nc-table--accent{{border-top:.44em solid var(--nc-acc,var(--nc-teal))}}
 .nc-table--accent th{{border-bottom:1px solid rgba(13,13,13,.20);padding-top:.75em}}
 .nc-table--band tbody tr:nth-child(odd){{background:rgba(13,13,13,.035)}}
@@ -595,7 +596,7 @@ css += """
 """
 
 out = ROOT/"foundations"/"nightlife-culture.css"; out.write_text(css)
-allow = sorted({v.upper() for v in list(G.values())+list(A.values())+RAMP+["#FFFFFF","#000000"]})
+allow = sorted({v.upper() for v in list(G.values())+list(TX.values())+list(A.values())+RAMP+["#FFFFFF","#000000"]})
 (ROOT/"checks"/"allowed-hex.json").write_text(json.dumps({
  "source":T["meta"]["source"],"allowed":allow,"retired":C["retired"]["values"],
  "note":"Generated. Any hex outside this list is NC-COL-06, Fixed."},indent=2))

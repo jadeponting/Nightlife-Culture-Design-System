@@ -12,8 +12,8 @@
     <h3 class="ct">Where the remaining work sits</h3>
     <p class="cs">Items per wave. Single series, so a single colour.</p>
     {{BARS}}
-    <figcaption class="ev"><b>Reading.</b> The slide layer is more than half of what is
-      left, and it is the only wave blocked on a decision.</figcaption>
+    <figcaption class="ev"><b>Reading.</b> Items left per wave, counted from the
+      inventory at build time.</figcaption>
   </div>
 </section>
 
@@ -30,17 +30,16 @@
 <hr class="nc-brk acc-coral">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">What blocks wave four</span></h2>
+  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">What is still open</span></h2>
   <div class="nc-panel nc-panel--left acc-butter">
-    <p class="lab">One decision, yours</p>
-    <p class="txt"><b>The grid geometry.</b> Your decks measure roughly 5.5% side margins
-      and a three-step top margin — 3.9, 6.7 or 9.6% depending on what leads the slide.
-      The style guide states 6% flat and 7.5% flat. The 14% footer band removes 8% of
-      canvas your original decks use.</p>
-    <p class="txt">The Book can tell you the three-step top margin is a real decision that
-      got flattened to a constant. It cannot tell you which you want. Everything in wave
-      four is measured against whichever you pick, so it is worth answering before we
-      generate twelve layouts against the wrong one.</p>
+    <p class="lab">The grid is settled</p>
+    <p class="txt">Settled 16 August 2026: 5.25% side margins, a three-step top margin
+      (4%, 6.667% or 13.333% by what leads the slide) and a 13.333% footer band, all
+      multiples of one unit. Recorded in <span class="nc-code">foundations/tokens.json</span>
+      and NC-LAY-06. The twelve layouts are generated against it.</p>
+    <p class="txt">What is not done: the slot contracts in
+      <span class="nc-code">foundations/layouts.json</span> are recorded but no script reads
+      them, so word limits and anchors are not yet checked.</p>
   </div>
   <p class="nc-small" style="margin-top:var(--nc-sp5)">Seven contradictions inside Style Guide
      v1.4 are also still open — butter as Series 4, title lines two or three, coverage 55

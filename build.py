@@ -9,8 +9,12 @@
   3b docs     runs the router -> docs/how-the-logic-works.html + dist/
   3c audit    checks every reference component -> docs/what-we-have.html + dist/
   3d plan     sorts what is left -> docs/the-build-order.html + dist/
+  3e decks    decks/*.json -> decks/<name>.html + dist/, from the slide blocks
+  3f patterns foundations/patterns.json + reference/ -> layouts/slide-patterns.html + dist/
   4  validate every HTML artefact against foundations/rules.json
-  5  stamps   every derived artefact against its source digests
+  5  coverage every class defined is shown somewhere, and every class used is defined
+  6  contrast rendered text contrast, and slide fit (NC-LAY-07), in a real browser
+  7  stamps   every derived artefact against its source digests
 
 Nothing in foundations/ or components/index.html is hand-edited. Edit
 tokens.json, rules.json or library.body.html, then run this.
@@ -24,15 +28,16 @@ STEPS = [
     ("library",  [sys.executable, "components/build_library.py"]),
     ("docs",     [sys.executable, "docs/build_routing.py"]),
     ("audit",    [sys.executable, "docs/build_audit.py"]),
-    ("layouts",  [sys.executable, "layouts/build_layouts.py"]),
     ("plan",     [sys.executable, "docs/build_plan.py"]),
-    ("decks",    [sys.executable, "decks/build_ukdf.py"]),
+    ("decks",    [sys.executable, "decks/build_deck.py"]),
+    ("patterns", [sys.executable, "layouts/build_patterns.py"]),
     # The skill is a derived artefact like any other. Outside the pipeline it
     # was regenerated only when someone remembered — the exact staleness the
     # design-decisions skill taught us about. In the pipeline, drift fails.
     ("skill",    [sys.executable, "adapters/skill/build_skill.py"]),
 ]
 fail = 0
+unmeasured = False
 for name, cmd in STEPS:
     print(f"\n=== {name} " + "=" * (56 - len(name)), flush=True)
     r = subprocess.run(cmd, cwd=ROOT)
@@ -49,9 +54,13 @@ if not fail:
     print("\n=== coverage " + "=" * 51, flush=True)
     fail |= subprocess.run([sys.executable, "checks/check_coverage.py"], cwd=ROOT).returncode
     print("\n=== contrast " + "=" * 51, flush=True)
-    fail |= subprocess.run([sys.executable, "checks/check_contrast.py"], cwd=ROOT).returncode
+    rc = subprocess.run([sys.executable, "checks/check_contrast.py"], cwd=ROOT).returncode
+    unmeasured = rc == 3          # skipped: not a pass and not a fail, and it says so
+    if not unmeasured: fail |= rc
     print("\n=== stamps " + "=" * 53, flush=True)
     fail |= subprocess.run([sys.executable, "checks/check_stamps.py"], cwd=ROOT).returncode
 
-print("\n" + ("BUILD FAILED" if fail else "BUILD OK — everything current"), flush=True)
+print("\n" + ("BUILD FAILED" if fail else
+              "BUILD OK — but rendered contrast was NOT measured (playwright missing)" if unmeasured
+              else "BUILD OK — everything current"), flush=True)
 sys.exit(fail)
