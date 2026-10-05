@@ -14,7 +14,7 @@ adapters are not yet part of `build.py`.
 ## The chain, one way
 
 ```
-Style Guide v1.4.1 ─┐
+Style Guide v1.5   ─┐
 The Decision Book ─┤
                    ├─► foundations/tokens.json      every VALUE, once
                    └─► foundations/rules.json       every RULE, tiered and sourced
@@ -98,9 +98,10 @@ the separator ch04 requires where marks touch.
 assets/fonts/            source .woff2 files
 foundations/
   tokens.json            SOURCE — every value
-  rules.json             SOURCE — 88 rules, tiered, each citing v1.4 or a Book chapter
+  rules.json             SOURCE — 98 rules, tiered, each citing the guide, a Book chapter or a dated decision
   patterns.json          SOURCE — slide patterns, each citing its live slide in reference/
-  v1.4-register.json     458 statements from v1.4, verbatim, + 15 contradictions
+  v1.4-register.json     458 statements from v1.4, verbatim, + 15 contradictions (historical)
+  type-manifest.json     generated — every text style: Specified, Inherits or Barred (v1.5)
   fonts.css              generated
   nightlife-culture.css  generated — the component layer
   nightlife-slides.css   generated — the slide layer
@@ -120,6 +121,6 @@ build.py                 run this
 ```
 
 ---
-*Sources: Nightlife Culture Style Guide v1.4.1 · The Decision Book, chapters 1–18,
-digest `6034d466ccbf4071`. Component specs from `headers.html`, containment v1.3,
+*Sources: Nightlife Culture Style Guide v1.5 · The Decision Book, chapters 1–18,
+digest `8701c5a003db5b0b`. Component specs from `headers.html`, containment v1.3,
 charts v1.4, slides v1.5, furniture v1.6 and `joy.html`.*

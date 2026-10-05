@@ -19,6 +19,57 @@ def d(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 
 body     = (ROOT / "components" / "library.body.html").read_text()
 
+# ---- the type roles, generated from the same tokens as the stylesheet --------
+# The table under "02 · Type" is not typed: it is built from tokens.json
+# type.roles, which is also what checks/build.py generates the CSS from. If a
+# role changes, the specimen, the stylesheet and the Word style name change
+# together or not at all (v1.5, 5 Oct 2026).
+import json as _json
+_T = _json.loads((F / "tokens.json").read_text())
+_V = {k: v for k, v in _T["type"]["voices"].items() if isinstance(v, dict)}
+_S = {k: v for k, v in _T["type"]["steps"].items() if isinstance(v, dict)}
+_R = {k: v for k, v in _T["type"]["roles"].items() if isinstance(v, dict)}
+_FACE = {"display": "Archivo Black", "head": "Archivo", "body": "Inter"}
+_WT = {400: "Regular", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"}
+
+
+def _voice_line(k):
+    v = _V[k]
+    face = _FACE[v["face"]] + ("" if v["face"] == "display" else " " + _WT[v["weight"]])
+    case = {"upper": "capitals", "sentence": "sentence case"}[v["case"]]
+    return f"{k.capitalize()} voice · {face}, {case}" + (", spaced" if k == "label" else "")
+
+
+def _sample(name, r):
+    label = name.replace("-", " ").capitalize()
+    st = ""
+    if name == "display": st = ' style="background:var(--nc-blue);padding:.2rem .5rem"'
+    elif name == "button": st = ' style="background:var(--nc-blue);padding:.3rem .8rem;border-radius:999px"'
+    elif r["colour"] == "white": st = ' style="background:var(--nc-ink);padding:.15rem .4rem"'
+    return f'<span class="nc-{name}"{st}>{label}</span>'
+
+
+def roles_table():
+    out = ['<div class="nc-table-scroll"><table class="nc-table">',
+           '<caption class="nc-table-title">Table 0 · Every text style, under the voice it inherits · generated from tokens.json</caption>',
+           '<thead><tr><th scope="col">Style</th><th scope="col">Looks like</th><th scope="col" class="nc-figure-cell">Size</th>'
+           '<th scope="col">What it is for</th><th scope="col">In Word</th></tr></thead>']
+    cur = None
+    for name, r in _R.items():
+        if r["voice"] != cur:
+            cur = r["voice"]
+            if cur != "display" or True:
+                out.append(f'<tbody><tr><th colspan="5" scope="rowgroup" class="nc-label" style="padding-left:var(--nc-sp3);background:var(--nc-white)">{_h.escape(_voice_line(cur))}</th></tr>')
+        st = _S.get(str(r["step"]))
+        size = "Set to the cover" if st is None else f"{st['px']}px · {st['pt']}pt"
+        el = r.get("element") or "—"
+        out.append(f'<tr><th scope="row">nc-{name}</th><td style="white-space:nowrap">{_sample(name, r)}</td>'
+                   f'<td class="nc-figure-cell">{size}</td><td>{_h.escape(r["use"])}' + (f' · <span class="nc-small">on {el}</span>' if r.get("element") else "") + f'</td><td>{_h.escape(r["word"])}</td></tr>')
+    out.append("</tbody></table></div>")
+    out.append('<p class="nc-small">' + " · ".join(f"<strong>{_voice_line(k).split(' voice')[0]}</strong>: {_h.escape(_V[k]['use'])}" for k in _V) + "</p>")
+    return "\n".join(out)
+
+
 # ---- the markup disclosure, and where the styling came from ---------------
 # Under every specimen: the markup that produced it, read off the rendered
 # block; then, for every class in it, the file, line and section that DEFINES
@@ -119,6 +170,7 @@ def _disclose(src):
     return "".join(out), n, red_total, spec_flagged
 
 
+body = body.replace("<!-- NC:ROLES -->", roles_table(), 1)
 body, _n, _red, _sf = _disclose(body)
 print(f"provenance disclosed under {_n} specimens — "
       f"{_red} things flagged across {_sf} of them")

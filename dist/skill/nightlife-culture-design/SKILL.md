@@ -1,6 +1,6 @@
 ---
 name: nightlife-culture-design
-description: The Nightlife Culture brand and design system — colour tokens, typography, layout, containment, breakers, slides, charts, tables and evidence components, plus voice and editorial rules. Use this skill whenever producing ANYTHING for Nightlife Culture or Carly Heath: decks, slides, presentations, reports, Word documents, PDFs, HTML pages, charts, graphs, tables, statistics, infographics, proposals, funding bids, briefings, one-pagers, social graphics, or written copy. Also use when asked about brand colours, fonts, the palette, "on brand", the style guide, chart colours, slide layouts, or how something should look. Trigger even when the user does not say "brand" or "design system" — if the output carries the Nightlife Culture name, it must follow this system.
+description: The Nightlife Culture brand and design system (Style Guide v1.5) — colour tokens, the five type voices and 26 named roles, four line weights, layout, containment, breakers, slides, charts, tables, status chips, controls and evidence components, plus voice and editorial rules and what to do when there is no rule. Use this skill whenever producing ANYTHING for Nightlife Culture or Carly Heath: decks, slides, presentations, reports, Word documents, PDFs, HTML pages, charts, graphs, tables, statistics, infographics, proposals, funding bids, briefings, one-pagers, social graphics, or written copy. Also use when asked about brand colours, fonts, the palette, "on brand", the style guide, chart colours, slide layouts, or how something should look. Trigger even when the user does not say "brand" or "design system" — if the output carries the Nightlife Culture name, it must follow this system.
 ---
 
 # Nightlife Culture Design System
@@ -21,8 +21,11 @@ Get these right and the work is on brand. Get one wrong and it is not.
    There is no single sentence covering all four grounds: blue takes white · ink takes white · chalk takes ink · white takes ink. White on chalk is 1.11:1 and white on white is 1.00:1 — the old one-line law is retired.
 2. **Never encode data in the brand accents.** They are separated by hue alone and collapse in
    greyscale. Charts use the four-series ramp only.
-3. **All-caps for Display, H1, H2 and labels — always tracked, never below 16pt, eight words max.**
-   H3 and body are sentence case. Never caps in body, captions, source lines or table cells.
+3. **One rule for all type.** Every text style is one of five voices at one of six sizes, and
+   every one has a name (`references/tokens.md`). A component never sets a typeface, a size, a
+   weight or capitals; you pick the role. Capitals are Display, H1, H2, titles in contents and
+   tables, and the label voice; H3, H4 and everything in the text voice are sentence case. Heading
+   styles sit on their own element, h1 to h4. **There is no H5 or H6.** No monospace anywhere.
 4. **Contain with colour and space, not outlines.** Hard black boxes are retired.
 5. **Embed fonts as base64 in every digital deliverable.** Never link Google Fonts — it fails
    silently and falls back to a system sans without warning.
@@ -50,8 +53,18 @@ Get these right and the work is on brand. Get one wrong and it is not.
 
 **Chart ramp** (data only): `#0000FF` → `#C7339A` → `#00C6C5` → `#FFDE6B`. Four series maximum.
 
-**Type:** Archivo Black (display) · Archivo ExtraBold 800 (H1/H2) · Archivo Bold 700 (H3) ·
-Inter 400 (body) · Archivo SemiBold 600 (labels).
+**Type:** five voices · Display: Archivo Black, capitals, covers only · Capitals: Archivo ExtraBold
+800 (H1 32px, H2 24px, contents and table titles 14px, numbers 12px) · Sentence: Archivo Bold 700
+(H3 18px, H4 16px, takeaway, key statement, button) · Text: Inter 400 (subtitle 18px, body 16px,
+table cells and small 14px; bold 700 for the first column of a table; italic for a short run) ·
+Label: Archivo SemiBold 600, capitals, spaced, 12px. Six sizes and no others: 32 · 24 · 18 · 16 · 14 · 12px
+(24 · 18 · 13.5 · 12 · 10.5 · 10pt).
+
+**Lines:** four weights and no others · hairline 1px · table line 2px · rule 4px (a line that goes
+with text) · callout 8px (a line on a filled box).
+
+**Language:** British English · **night time** is two words, never hyphenated · cultural value, not
+cultural contribution.
 
 Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE` cream, Aptos.
 
@@ -70,7 +83,8 @@ Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE`
 | Colour, contrast, type questions | `references/tokens.md` |
 
 **2. Start from the assets, do not rebuild from scratch.**
-- `assets/nc.css` — the full component stylesheet. Every class in the references is defined here.
+- `assets/nc.css` — the design system's own generated stylesheet (`foundations/nightlife-culture.css`),
+  not a copy. Every class in the references is defined here. Use `<body class="nc-doc">`.
 - `assets/fonts.css` — Archivo Black, Archivo 600/700/800, Inter 400/500/600/700 as base64
   `@font-face` rules. Inline this into any HTML deliverable.
 - `assets/template.html` — a starter document with fonts, tokens and components already wired.
@@ -93,7 +107,10 @@ or convert DOCX/PDF and read the pages. Do not ship a layout you have not seen.
   embedded, semantic headings, real tables.
 - **Word (.docx)** when a partner needs to edit or comment. White ground, not chalk.
 - **Document mastheads sit on signal blue** — ink is the night register, not a default (decided 16 Aug 2026).
-- **Document type scale is decided, not chosen per document:** h1 32px · h2 24px · h3 18px · body 16px · note 14px (v1.4 readable sizes + Decision Book ch03; read off the sources, not chosen)
+- **Document type is decided, not chosen per document:** 26 named roles from 5 voices at 6 sizes (32px · 24px · 18px · 16px · 14px · 12px), generated from tokens.json; every role in references/tokens.md with the Word style it becomes
+- **Word styles are the roles.** The Word column in `references/tokens.md` names the style each role
+  becomes: Heading 1–4, Subtitle, Normal, Quote, Intense Quote, Caption, Table style with Header Row
+  and First Column, and the new styles Label, Small, Key statement and File reference.
 - **PDF** exported from a structured source, never printed to PDF.
 - **PowerPoint** only when the user asks for it. Build from the patterns in `references/slides.md`.
 
@@ -124,19 +141,42 @@ Full detail in `references/charts.md`.
 
 ---
 
-## Known gaps
+## When there is no rule
 
-If asked for something this system does not cover, build from the nearest existing components and
-say that the rule is provisional:
+The system is deliberately incomplete, and an undecided surface gets an interim position, not an
+invention (Decision Book TYP-20, TYP-22). When a piece of work needs something the system does not
+cover:
 
-- **Diagram kit.** No diagram system exists yet. Build process chains, funnels and timelines from
-  the containment treatments and the chart ramp. Never use PowerPoint SmartArt defaults — they
-  override colour, type, spacing and outlines.
+1. **Say so first**, in the reply, before building anything: "there is no rule for X".
+2. **Build the nearest thing from what exists**: the five voices, the six sizes, the four lines, the
+   components and the colours as they are. Never a new colour, a new size, a new weight or a new
+   typeface. Never monospace. Never a browser default.
+3. **Show it as an option, with what it costs**, built with the design system's own stylesheet, not
+   described in prose. Two options at most, differing in one thing.
+4. **Mark it in the artefact**: a Claude note (`.nc-claude-note`) saying the rule is provisional and
+   which decision it is waiting on.
+5. **Log it**: name the surface it came from and the option taken, so the design system can add it to
+   `docs/gaps.md`. The gap closes when Carly decides, not when the output ships.
+
+Known gaps today, each with an interim position:
+
+- **Public severity marks.** Internal coloured chips carry the word; a public document gets no
+  coloured severity until one is decided against a real case. Never RAG tags.
+- **Other button styles and the icon set.** One blue button and one text action exist; the search
+  icon is the only icon.
+- **Ink and charcoal** are visually close; both stay until decided.
+- **Diagram kit.** None exists. Build process chains, funnels and timelines from the containment
+  treatments and the chart ramp. Never PowerPoint SmartArt defaults.
+- **Office templates.** The Word, Excel and PowerPoint adapters each build one document and carry
+  style sets of their own; templates generated from the roles are the next piece of work.
 
 ---
 
 ## Source of truth
 
-**Nightlife Culture Style Guide v1.4.1 (August 2026)** — the full guide, plus its machine-readable rule register
-(`foundations/v1.4-register.json` in the design-system repo, 458 statements). Where this skill and the guide disagree, the guide wins. Where the guide and
-`Comparative Place-Based Research Methodology v1.0` touch, the methodology wins.
+**Nightlife Culture Style Guide v1.5 (August 2026)** — the full guide, with `foundations/tokens.json` (the type roles and line weights),
+`foundations/rules.json` (98 rules, tiered and sourced) and `foundations/type-manifest.json` (every
+text style marked Specified, Inherits or Barred) in the design-system repo. Where this skill and the
+guide disagree, the guide wins. Where the guide and `Comparative Place-Based Research Methodology
+v1.0` touch, the methodology wins. Superseded: v1.4, v1.4.1 and the unadopted v1.4.2 draft, in
+`archive/`.

@@ -368,3 +368,75 @@ exemption for it. NC-CON-01 now reads: the hairline is the only outline.
   need to glow." Ink is listed under text colours as the primary text colour, beside charcoal.
 - Document tables (`.nc-table`, the skill's tables, the style guide): the first column is bold,
   because it names the row.
+
+## v1.5 — 5 October 2026 — one rule for all type, four weights of line
+
+Decided with Carly across seven review rounds, 4–5 October 2026, each round a rendered options
+sheet built with the system's own stylesheet. The trigger was a reader built with the skill that
+needed an H4 and got a bold line: the type scale stopped at H3, six roles existed in `tokens.json`,
+and about 130 other styles restated their own type by hand, so nothing inherited.
+
+**The primary rule.** Every text style is one of five voices at one of six sizes, with a name that
+says what it is. A component may place text, colour it and put a line beside it; it never sets a
+typeface, a size, a weight or capitals. `checks/build.py` now refuses a component rule that does.
+
+**Added**
+- `tokens.json` `type.voices` (display, capitals, sentence, text, label), `type.steps` (32 · 24 ·
+  18 · 16 · 14 · 12px; 24 · 18 · 13.5 · 12 · 10.5 · 10pt), `type.roles` (26 named roles, each with
+  the element it sits on and the Word style it becomes), `type.headings` (H4 is the floor; h5 and
+  h6 barred), `lines` (hair 1px · table 2px · rule 4px · callout 8px) and `language` (night time
+  is two words).
+- `foundations/type-manifest.json` — generated: every text style marked Specified, Inherits (an
+  alias) or Barred, with the chart marks named as the one place a size is set outside the roles.
+- Roles as classes: `.nc-heading-1` to `.nc-heading-4`, `.nc-subtitle`, `.nc-key-statement`,
+  `.nc-takeaway`, `.nc-quotation`, `.nc-table-title`, `.nc-table-header-row`,
+  `.nc-table-first-column`, `.nc-table-cell`, `.nc-file-reference`, `.nc-evidence-mark`,
+  `.nc-attribution`, `.nc-running-foot`, `.nc-contents-title`, `.nc-number`, `.nc-label`,
+  `.nc-small`, `.nc-chip`, `.nc-button`, `.nc-text-action`, `.nc-list-item`.
+- Components from the reader: status chips (`.nc-chip--*`), the button, the text action, the
+  search field, the collapsible heading (`.nc-collapsible`), the key statement panel, the
+  recommendation box, the Claude note (hidden in print), the contents with a boxed chapter number
+  and a page number, the rail, the H4 with its blue bar.
+- A true Inter Italic (Inter 4.001, latin, OFL) embedded for a short run inside a paragraph.
+- Rules NC-TYP-07, NC-TYP-08, NC-TYP-09, NC-LIN-01, NC-COL-09, NC-CHP-01, NC-CTL-01,
+  NC-DOC-11, NC-LNG-01, NC-SYS-08. Reworded with the old text kept as `was`: NC-PSE-01,
+  NC-CON-03, NC-CON-04, NC-TYP-03, NC-TYP-04, NC-TYP-06, NC-DOC-10, NC-TBL-02.
+- `checks/validate.py`: a heading style only on its own element and no h5/h6 (NC-CON-04); borders
+  only at the four weights (NC-CON-01); no monospace (NC-TYP-07); no "night-time" (NC-LNG-01).
+- The library's "02 · Type" table is generated from `tokens.json`, so the specimen, the stylesheet
+  and the Word style names cannot disagree. Section 11, "Status, controls and headings that open".
+
+**Changed**
+- Line weights: eleven values, ten of them em-based, become four fixed weights. Section-title rule
+  .19em → 4px; table header line .16em → 2px; left rule 12px and top rule 9px → 8px callout line;
+  quote rule → 4px; breakers → 4px.
+- Section header: the number sits in a slot one line high, so it is centred on the first line of a
+  title that wraps. Markup is `nc-section-head nc-heading-2` with `nc-number-slot`, `nc-number`
+  and `nc-section-title`; the old `.num` and `.ttl` are gone from every source.
+- Quote: `.q`/`.a` → `.nc-takeaway` or `.nc-quotation` and `<footer class="nc-attribution">`;
+  at body size with a 4px pink rule, no longer 1.45em.
+- Contents: `.n .t .p` and the colour chip → number box, `nc-contents-title`, `nc-small` claim and
+  `nc-page-number`. Table numeric cells `.num` → `.nc-figure-cell`.
+- `.nc-h1 .nc-h2 .nc-h3 .nc-fnote` renamed to the roles everywhere; the names are retired, not
+  aliased.
+- Labels: one voice at 12px replaces fourteen small caps styles between 9.12px and 14px. The chip
+  (`.nc-prov`, `.nc-illus`) is the label voice on a fill.
+- On ink and blue every text role, label and link is white (was teal); the number box and section
+  rule stay teal. Role colours are custom properties, so a ground sets them once.
+- No monospace: `.nc-code`, `.nc-pre`, `.nc-note`, `.nc-origin`, `.nc-kbd` and every `<code>` in a
+  document are Inter; a file name is the file-reference chip.
+- `.nc-details` loses its grey left rule: content sits in line with its heading.
+- The skill ships `foundations/nightlife-culture.css` verbatim as `assets/nc.css`. The hand-written
+  parallel stylesheet it carried (`nc.css.tmpl`: `h2.sec`, `h3.sub`, `h4.sub2`, `.box`, `.q`,
+  `.callq`, mono figures) is archived; `components.md`, `charts.md`, `template.html` and
+  `tokens.md` rewritten to the system's classes; SKILL.md gains "When there is no rule".
+- "night-time" → "night time" in the library, the router and the routing doc (ten places).
+- Every sheet declares Style Guide v1.5; `tokens.json`, `rules.json` and `patterns.json` cite it.
+
+**Archived** (`archive/2026-10-05-v1.5/`): the skill's `nc.css.tmpl`; Style Guide v1.4.1 and the
+unadopted v1.4.2 draft move to `archive/2026-10-05-v1.5/` with v1.5 the only guide in `assets/`.
+
+**Still open** — see `docs/gaps.md` 15–19: public severity marks, other button styles and the icon
+set, ink versus charcoal, the chart marks' own sizes, and Office templates generated from the roles
+(the Word, Excel and PowerPoint adapters still carry style sets of their own).
+

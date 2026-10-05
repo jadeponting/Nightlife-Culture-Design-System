@@ -2,16 +2,17 @@
    Nightlife Culture — component layer
    GENERATED from foundations/tokens.json by checks/build.py
    DO NOT EDIT BY HAND. Edit the tokens and rebuild.
-   Source of truth: Nightlife Culture Style Guide v1.4.1
-   Component specs: headers.html (gen-2 build), containment v1.3,
-   furniture v1.6, charts v1.4, joy.html
+   Source of truth: Nightlife Culture Style Guide v1.5
    ============================================================= */
 
-/* Every size is in em. The CONTEXT sets the base, the component scales
-   itself. That is what makes a pull quote in a report and a pull quote on
-   a slide the same component rather than two things that drift apart.
-   Never hard-code px inside a component. Never redefine a component in a
-   context file — those set context and nothing else. */
+/* The primary rule for type (v1.5): every text style is one of five voices at
+   one of six steps, generated below from tokens.json. A component places text,
+   colours it and puts a line beside it. It never sets a typeface, a size, a
+   weight or capitals — the build refuses one that does (checks/build.py,
+   check_type). Role sizes are rem against the 16px document base, so a role
+   is the same size wherever it sits. Spacing stays in em so it scales with
+   the thing it spaces. Slides are a separate layer with their own measured
+   sizes (nightlife-slides.css). */
 
 :root{
   --nc-blue: #0000FF;
@@ -47,24 +48,27 @@
   --nc-font-display: "Archivo Black","Archivo Black Fallback",Arial Black,sans-serif;
   --nc-font-head: "Archivo","Archivo Fallback",Arial,sans-serif;
   --nc-font-body: "Inter","Inter Fallback",Arial,sans-serif;
+  /* the four weights of line (tokens lines.*) — hair · table · rule · callout */
+  --nc-line-hair: 1px;
+  --nc-line-table: 2px;
+  --nc-line-rule: 4px;
+  --nc-line-callout: 8px;
 }
 
 /* --- 0 · CONTEXT — sets the base, defines nothing ---------------- */
-.nc-doc{font-size:16px;font-family:var(--nc-font-body);line-height:1.6;color:var(--nc-ink)}
+.nc-doc{font-size:16px;font-family:var(--nc-font-body);line-height:1.55;color:var(--nc-ink)}
 .nc-slide .cv{font-size:1.55cqw;font-family:var(--nc-font-body);line-height:1.5}
 
 /* --- 1 · GROUNDS ------------------------------------------------- */
 /* Each ground declares its own text colour, as a token. There is deliberately
-   no single --nc-on-ground: one value spanning every ground is what let
-   'every ground is a white-text surface' look true. White on chalk is 1.1096:1.
+   no single --nc-on-ground: one value spanning every ground is what let the
+   retired sentence 'every ground is a white-text surface' look true. White on chalk is 1.1096:1.
    Measured: blue/white 8.5925 · ink/white 19.4355 · chalk/ink 17.5155 ·
    white/ink 19.4355 (NC-COL-01). */
 .ground-blue{--nc-on:var(--nc-white);background:var(--nc-blue);color:var(--nc-on)}
 .ground-ink{--nc-on:var(--nc-white);background:var(--nc-ink);color:var(--nc-on)}
 .ground-chalk{--nc-on:var(--nc-ink);background:var(--nc-chalk);color:var(--nc-on)}
 .ground-white{--nc-on:var(--nc-ink);background:var(--nc-white);color:var(--nc-on)}
-/* Teal is the section-header colour on EVERY dark ground — one rule, not two.
-   Butter kicker on ink read as a warning label. (slides v1.5, fix 3) */
 
 /* --- 2 · ACCENT MODIFIER — colour is never baked into a component -- */
 .acc-pink{--nc-acc:var(--nc-pink)}
@@ -74,109 +78,158 @@
 .acc-coral{--nc-acc:var(--nc-coral)}
 .acc-blue{--nc-acc:var(--nc-blue)}
 
-/* --- 2b · THE TYPE SCALE — the roles, as classes -------------------
-   This did not exist. Six roles sat in tokens.json with a face, a weight, a
-   case and a tracking value, and NO class carried any of them — so the one
-   specimen that was supposed to prove the type system was drawn by hand, with
-   five sizes nobody had chosen.
-
-   Nothing below is chosen here either. The sizes are read off v1.4's Readable
-   size rules (document body 12pt = 16px) and the Decision Book ch03 worked
-   example (32 → 24 → 18 → 16px, "a deliberately narrow range, because weight
-   and space are carrying the distinction"). Leading is v1.4's scoped
-   line-height table, HTML column. Case, weight and tracking are the roles
-   already in tokens.
-
-   The rhythm is ch03's: a heading carries THREE TIMES the space above it that
-   it carries below, so it attaches to what follows instead of floating. The
-   margins are set in the heading's OWN em — 1.5em above (sp5), .5em below
-   (sp2) — so the values sit on the spacing scale AND the rhythm scales with
-   the heading size, instead of one rule breaking the other.
-
-   Display is the decorative tier by the Book's own rule, and is named as such
-   rather than pretending to be a step on the scale. */
-.nc-display{font-family:var(--nc-font-display);font-size:3.4em;line-height:0.9;
-  text-transform:uppercase;letter-spacing:-.01em;margin:0}
-.nc-h1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0em;line-height:1.05;
-  text-transform:uppercase;letter-spacing:.01em;margin:1.5em 0 .5em}
-.nc-h2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5em;line-height:1.25;
-  text-transform:uppercase;letter-spacing:.04em;margin:1.5em 0 .5em}
-.nc-h3{font-family:var(--nc-font-head);font-weight:700;font-size:1.125em;line-height:1.3;
-  letter-spacing:0;margin:1.5em 0 .5em}
-.nc-body{font-family:var(--nc-font-body);font-weight:400;font-size:1.0em;line-height:1.55;
-  text-align:left;max-width:70ch;margin:0 0 0.750em}
-/* Note, caption, footnote. v1.4: 10pt floor, 10.5–11pt preferred. The px floor
-   stops an em cascade dragging it under the floor in a nested context. */
-.nc-fnote{font-size:max(0.875em,13px);line-height:1.4;color:var(--nc-charcoal)}
-.ground-blue .nc-fnote,.ground-ink .nc-fnote{color:var(--nc-teal)}
-/* A first child never carries its top rhythm — the container's padding already
-   opened that space, and doubling it is what makes a panel look mis-set. */
-.nc-h1:first-child,.nc-h2:first-child,.nc-h3:first-child{margin-top:0}
+/* --- 2b · THE ROLES — generated from tokens.json type.roles ---------
+   One voice, one step, one colour each. The selector list on each role is the
+   role name followed by the older names that now mean it (an alias inherits;
+   it specifies nothing). A heading role sits only on its own element, and
+   h5, h6 are barred (NC-CON-04). */
+/* Emphasis inside the text voice. Italic is for a short run inside a paragraph
+   (logged override of Decision Book DOC-14); bold inside a paragraph is rare.
+   Declared before the roles so a label that is also a <b> stays at its voice's weight. */
+.nc-doc em,.nc-doc i{font-style:italic}
+.nc-doc strong,.nc-doc b{font-weight:700}
+/* display · display · cover · Word: Title */
+.nc-display{font-family:var(--nc-font-display);font-weight:400;font-size:clamp(2.1rem,6.4vw,4.25rem);line-height:0.94;text-transform:uppercase;letter-spacing:-0.01em;color:var(--nc-white)}
+/* heading-1 · capitals · 32px · 24pt · Word: Heading 1 */
+.nc-heading-1{font-family:var(--nc-font-head);font-weight:800;font-size:2.0rem;line-height:1.12;text-transform:uppercase;letter-spacing:0.01em;color:var(--nc-text,var(--nc-ink))}
+/* heading-2 · capitals · 24px · 18pt · Word: Heading 2 */
+.nc-heading-2{font-family:var(--nc-font-head);font-weight:800;font-size:1.5rem;line-height:1.12;text-transform:uppercase;letter-spacing:0.04em;color:var(--nc-text,var(--nc-ink))}
+/* contents-title · capitals · 14px · 10.5pt · Word: TOC 1 */
+.nc-contents-title,.nc-chart .ct{font-family:var(--nc-font-head);font-weight:800;font-size:0.875rem;line-height:1.12;text-transform:uppercase;letter-spacing:0.04em;color:var(--nc-text,var(--nc-ink))}
+/* table-title · capitals · 14px · 10.5pt · Word: Caption */
+.nc-table-title{font-family:var(--nc-font-head);font-weight:800;font-size:0.875rem;line-height:1.12;text-transform:uppercase;letter-spacing:0.04em;color:var(--nc-text,var(--nc-ink))}
+/* number · capitals · 12px · 10pt · Word: Part of the heading */
+.nc-number,.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:0.75rem;line-height:1.12;text-transform:uppercase;letter-spacing:0.04em;color:var(--nc-white)}
+/* heading-3 · sentence · 18px · 13.5pt · Word: Heading 3 */
+.nc-heading-3,.nc-details>summary,.nc-dl dt{font-family:var(--nc-font-head);font-weight:700;font-size:1.125rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* heading-4 · sentence · 16px · 12pt · Word: Heading 4 */
+.nc-heading-4{font-family:var(--nc-font-head);font-weight:700;font-size:1.0rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* takeaway · sentence · 16px · 12pt · Word: Intense Quote */
+.nc-takeaway,.nc-quote .q{font-family:var(--nc-font-head);font-weight:700;font-size:1.0rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* key-statement · sentence · 16px · 12pt · Word: Key statement (new style) */
+.nc-key-statement{font-family:var(--nc-font-head);font-weight:700;font-size:1.0rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* button · sentence · 16px · 12pt · Word: Screen only */
+.nc-button{font-family:var(--nc-font-head);font-weight:700;font-size:1.0rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-white)}
+/* text-action · sentence · 16px · 12pt · Word: Screen only */
+.nc-text-action{font-family:var(--nc-font-head);font-weight:700;font-size:1.0rem;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--nc-action,var(--nc-blue))}
+/* subtitle · text · 18px · 13.5pt · Word: Subtitle */
+.nc-subtitle,.nc-stand,.nc-mast .stand{font-family:var(--nc-font-body);font-weight:400;font-size:1.125rem;line-height:1.5;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* body · text · 16px · 12pt · Word: Normal */
+.nc-body,.nc-panel .txt,.nc-band .txt,.nc-pre,.nc-dl dd{font-family:var(--nc-font-body);font-weight:400;font-size:1.0rem;line-height:1.55;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* quotation · text · 16px · 12pt · Word: Quote */
+.nc-quotation{font-family:var(--nc-font-body);font-weight:400;font-size:1.0rem;line-height:1.55;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* list-item · text · 16px · 12pt · Word: List Bullet, List Number */
+.nc-list-item{font-family:var(--nc-font-body);font-weight:400;font-size:1.0rem;line-height:1.55;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* table-first-column · text · 14px · 10.5pt · Word: Table style, First Column */
+.nc-table-first-column,.nc-table tbody th,.nc-table tbody td:first-child{font-family:var(--nc-font-body);font-weight:700;font-size:0.875rem;line-height:1.35;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* table-cell · text · 14px · 10.5pt · Word: Table style */
+.nc-table-cell,.nc-table td{font-family:var(--nc-font-body);font-weight:400;font-size:0.875rem;line-height:1.35;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* file-reference · text · 14px · 10.5pt · Word: File reference (new style) */
+.nc-file-reference,.nc-code,.nc-kbd,.nc-doc code{font-family:var(--nc-font-body);font-weight:400;font-size:0.875rem;line-height:1.55;text-transform:none;letter-spacing:0;color:var(--nc-text,var(--nc-ink))}
+/* small · text · 14px · 10.5pt · Word: Small (new style) */
+.nc-small,.nc-note,.nc-caption,.nc-source,.nc-stat .src,.nc-chart .cs,.nc-chart .ev,.nc-comp,.nc-origin,.nc-flags{font-family:var(--nc-font-body);font-weight:400;font-size:0.875rem;line-height:1.45;text-transform:none;letter-spacing:0;color:var(--nc-text-2,var(--nc-charcoal))}
+/* label · label · 12px · 10pt · Word: Label (new style) */
+.nc-label,.nc-lab,.nc-kick,.nc-panel .lab,.nc-band .lab,.nc-stat .lb,.nc-meter-lab,.nc-chart .ev b,.nc-comp b,.nc-flag .tag,.nc-na,.nc-details>summary::after,.nc-donut .tot .l,.nc-line .ax{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-text-2,var(--nc-charcoal))}
+/* table-header-row · label · 12px · 10pt · Word: Table style, Header Row */
+.nc-table-header-row,.nc-table thead th,.nc-origin thead th{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-text-2,var(--nc-charcoal))}
+/* chip · label · 12px · 10pt · Word: Screen only */
+.nc-chip,.nc-prov,.nc-illus{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-chip-text,var(--nc-white))}
+/* evidence-mark · label · 12px · 10pt · Word: Label, as a character style */
+.nc-evidence-mark{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-text-2,var(--nc-charcoal))}
+/* attribution · label · 12px · 10pt · Word: Label */
+.nc-attribution,.nc-quote .a{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-text-2,var(--nc-charcoal))}
+/* running-foot · label · 12px · 10pt · Word: Footer */
+.nc-running-foot,.nc-foot{font-family:var(--nc-font-head);font-weight:600;font-size:0.75rem;line-height:1.4;text-transform:uppercase;letter-spacing:0.1em;color:var(--nc-text-2,var(--nc-charcoal))}
+/* a role carries no margin of its own; the rhythm below sets it once */
+.nc-display,.nc-contents-title,.nc-table-title,.nc-number,.nc-takeaway,.nc-key-statement,.nc-button,.nc-text-action,.nc-quotation,.nc-table-first-column,.nc-table-cell,.nc-file-reference,.nc-small,.nc-label,.nc-table-header-row,.nc-chip,.nc-evidence-mark,.nc-attribution,.nc-running-foot{margin:0}
+/* heading rhythm: three times the space above that it carries below (ch03) */
+.nc-heading-1,.nc-heading-2,.nc-heading-3,.nc-heading-4{margin:1.5em 0 .5em}
+.nc-heading-1:first-child,.nc-heading-2:first-child,.nc-heading-3:first-child,.nc-heading-4:first-child{margin-top:0}
+.nc-body,.nc-panel .txt,.nc-band .txt{max-width:70ch;margin:0 0 .75em}
+.nc-subtitle,.nc-stand{max-width:60ch;margin:0 0 var(--nc-sp4)}
+.nc-mast .stand{margin:var(--nc-sp5) 0 0;max-width:58ch}
+.nc-list-item{margin-bottom:var(--nc-sp2)}
+/* H4: the lowest heading. A short blue bar above it belongs to the heading and
+   is not a breaker (NC-PSE-01). */
+.nc-heading-4::before{content:"";display:block;width:3em;height:var(--nc-line-rule);background:var(--nc-blue);margin-bottom:var(--nc-sp3)}
+/* Figures are Inter with tabular figures. Never monospace. */
+.nc-figure-cell,.nc-contents .nc-page-number{font-variant-numeric:tabular-nums}
+/* The file reference is a white hairline chip, in the text voice. */
+.nc-file-reference,.nc-code,.nc-doc code{background:var(--nc-white);padding:1px 5px;
+  outline:1px solid var(--nc-hair);outline-offset:-1px;overflow-wrap:anywhere;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.nc-kbd{background:var(--nc-ink);--nc-text:var(--nc-chalk);padding:1px 5px}
+.nc-evidence-mark{white-space:nowrap}
+/* On a dark ground every text role is white, and so are links (round four).
+   A white box or an accent fill sitting on a dark ground turns them back to
+   ink. The number box and the line under a section title stay teal, as the
+   slides do for the line above a title. */
+.ground-blue,.ground-ink{--nc-text:var(--nc-white);--nc-text-2:var(--nc-white);--nc-action:var(--nc-white)}
+.ground-chalk,.ground-white,.nc-panel--top,.nc-panel--left,.nc-panel--hair,.nc-panel--fill,.nc-band,.nc-stat,.nc-chart,
+.nc-key-statement-panel,.nc-recommendation,.nc-claude-note,.nc-file-reference,.nc-code,.nc-search input{--nc-text:var(--nc-ink);--nc-text-2:var(--nc-charcoal);--nc-action:var(--nc-blue)}
+.ground-blue .nc-stat--fill,.ground-ink .nc-stat--fill{--nc-text:var(--nc-ink)}
 
 /* --- 3 · SECTION HEADER — documents and web. NOT FOR SLIDES. ------
-   Rule BELOW. Numeral in a filled box, vertically centred, Archivo
-   ExtraBold at H3 scale — not Archivo Black at display scale, so the
-   weights sit together instead of competing. The numeral is OPTIONAL;
-   an invented number is worse than none. */
-.nc-section-head{display:flex;align-items:center;gap:var(--nc-sp4);
-  border-bottom:.19em solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}
-.nc-section-head .num{font-family:var(--nc-font-head);font-weight:800;font-size:0.750em;
-  letter-spacing:.04em;background:var(--nc-ink);color:var(--nc-chalk);
-  padding:var(--nc-sp2) var(--nc-sp2);line-height:1;display:flex;align-items:center;flex:none}
-.nc-section-head .ttl{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
-  font-size:clamp(1.15em,4.6vw,1.65em);letter-spacing:.02em;line-height:1.05;
-  min-width:0;flex:1;hyphens:none;overflow-wrap:break-word}
-/* Display type NEVER hyphenates — a broken word in Archivo ExtraBold at heading
-   scale reads as a fault, not a line break. hyphens:none forbids the hyphen;
-   overflow-wrap:break-word still lets a word too long for its container wrap,
-   without inserting one. Those are different properties and confusing them is
-   what put hyphens in the headings. The numeral stays locked to the title (the
-   row does not wrap); the title shrinks and wraps inside itself, so 320px
-   reflow holds without splitting the lockup. SC 1.4.10, Fixed. */
+   Rule below, at the rule weight. The number sits in an ink box, centred on
+   the FIRST LINE of the title by construction (a slot one line high), so it
+   stays put when a title runs to two lines (round five). The numeral is
+   OPTIONAL; an invented number is worse than none. The heading element
+   carries its own heading role; this class is layout only (NC-CON-04). */
+.nc-section-head{display:flex;align-items:flex-start;gap:var(--nc-sp4);
+  border-bottom:var(--nc-line-rule) solid var(--nc-ink);padding-bottom:var(--nc-sp3);margin-bottom:var(--nc-sp5)}
+.nc-section-head .nc-number-slot,.nc-number-slot{flex:none;display:flex;align-items:center;height:1.12em;height:1lh}
+.nc-number-box,.nc-section-head .num,.nc-section-head .nc-number{display:inline-block;background:var(--nc-ink);
+  padding:.26rem .45rem;line-height:1.12;flex:none}
+.nc-section-head .ttl,.nc-section-head .nc-section-title{min-width:0;flex:1;hyphens:none;overflow-wrap:break-word}
+.nc-section-head .num{align-self:flex-start}
 .ground-blue .nc-section-head,.ground-ink .nc-section-head{border-bottom-color:var(--nc-teal)}
-.ground-blue .nc-section-head .num,.ground-ink .nc-section-head .num{
-  background:var(--nc-teal);color:var(--nc-ink)}
-.nc-section-head:not(:has(.num)){gap:0}
+.ground-blue .nc-number-box,.ground-ink .nc-number-box,.ground-blue .nc-section-head .num,.ground-ink .nc-section-head .num,
+.ground-blue .nc-section-head .nc-number,.ground-ink .nc-section-head .nc-number{background:var(--nc-teal);color:var(--nc-ink)}
+.nc-section-head:not(:has(.num)):not(:has(.nc-number)){gap:0}
 
 /* --- 4 · CONTAINMENT — colour and space, not outlines -------------
-   Hard outline is retired (v1.4 §09). The hairline is the only outline. */
+   Hard outline is retired (v1.4 §09). The hairline is the only outline. A line
+   on a filled box is the CALLOUT weight, top or left (NC-CON-03, v1.5). */
 .nc-panel{padding:var(--nc-sp4) var(--nc-sp5)}
 .nc-panel--fill{background:var(--nc-acc,var(--nc-teal));color:var(--nc-ink)}
-.nc-panel--top{background:var(--nc-white);border-top:.56em solid var(--nc-acc,var(--nc-teal))}
-.nc-panel--left{background:var(--nc-white);border-left:.75em solid var(--nc-acc,var(--nc-pink))}
+.nc-panel--top{background:var(--nc-white);border-top:var(--nc-line-callout) solid var(--nc-acc,var(--nc-teal))}
+.nc-panel--left{background:var(--nc-white);border-left:var(--nc-line-callout) solid var(--nc-acc,var(--nc-pink))}
 .nc-panel--hair{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px}
+.nc-panel>:last-child{margin-bottom:0}
 .nc-band{padding:var(--nc-sp5) max(var(--nc-bleed,0px),var(--nc-sp5));
   margin-left:calc(var(--nc-bleed,0px) * -1);margin-right:calc(var(--nc-bleed,0px) * -1);
   background:var(--nc-acc,var(--nc-violet));color:var(--nc-ink)}
-/* Horizontal padding falls back to the standard panel inset when the band is
-   not actually bleeding. Without the max() it rendered at zero — text hard
-   against the colour edge. Found on a phone. */
-.nc-panel .lab,.nc-band .lab{font-family:var(--nc-font-head);font-weight:800;
-  text-transform:uppercase;font-size:.72em;letter-spacing:.06em;margin-bottom:var(--nc-sp2)}
-.nc-panel .txt,.nc-band .txt{font-size:.85em;line-height:1.45}
-/* The band is a containment treatment like the other five, so its internals take
-   the same specs. Targeting .nc-panel alone let .nc-band fall through to inherited
-   size and sentence case — invisible until they sat side by side on a phone. */
+.nc-panel .lab,.nc-band .lab{margin-bottom:var(--nc-sp2)}
+/* Named panels, so the markup says what the box is for. */
+.nc-key-statement-panel{background:var(--nc-white);border-top:var(--nc-line-callout) solid var(--nc-acc,var(--nc-violet));
+  padding:var(--nc-sp4) var(--nc-sp5);margin:var(--nc-sp3) 0 var(--nc-sp5)}
+.nc-recommendation{background:var(--nc-white);border-left:var(--nc-line-callout) solid var(--nc-blue);
+  padding:var(--nc-sp4) var(--nc-sp5);margin:var(--nc-sp5) 0}
+.nc-recommendation>.nc-chip{margin-bottom:var(--nc-sp3)}
+.nc-claude-note{background:var(--nc-white);border-left:var(--nc-line-callout) solid var(--nc-coral);
+  padding:var(--nc-sp3) var(--nc-sp4);margin:var(--nc-sp4) 0;max-width:66ch}
+.nc-claude-note>.nc-small{color:var(--nc-text,var(--nc-ink));margin-top:var(--nc-sp1)}
+@media print{.nc-claude-note{display:none}}
+.ground-chalk .nc-key-statement-panel,.ground-chalk .nc-recommendation,.ground-chalk .nc-claude-note{background:var(--nc-white)}
+.ground-white .nc-key-statement-panel,.ground-white .nc-recommendation,.ground-white .nc-claude-note,
+.ground-white .nc-panel--top,.ground-white .nc-panel--left{background:var(--nc-chalk)}
 
-/* --- 5 · PULL QUOTE — the 12px pink rule, as an em ---------------- */
-.nc-quote{border-left:.75em solid var(--nc-acc,var(--nc-pink));padding:var(--nc-sp1) 0 var(--nc-sp1) var(--nc-sp5);margin:var(--nc-sp5) 0}
-.nc-quote .q{font-family:var(--nc-font-head);font-weight:800;font-size:1.45em;line-height:1.24;max-width:40ch}
-.nc-quote .a{font-size:.8em;color:var(--nc-charcoal);margin-top:var(--nc-sp3)}
-.nc-quote.lg .q{font-size:2.1em;max-width:30ch}
-.ground-blue .nc-quote .a,.ground-ink .nc-quote .a{color:var(--nc-teal)}
+/* --- 5 · QUOTE — in the running text, at body size, with a pink RULE ---
+   Two text roles sit inside it: the takeaway (bold) and the quotation
+   (regular). The attribution is the label voice. Not necessarily boxed. */
+.nc-quote{border-left:var(--nc-line-rule) solid var(--nc-acc,var(--nc-pink));padding:var(--nc-sp1) 0 var(--nc-sp1) var(--nc-sp4);
+  margin:var(--nc-sp5) 0;max-width:60ch}
+.nc-quote .nc-attribution,.nc-quote .a{display:block;margin-top:var(--nc-sp2)}
 
 /* --- 6 · BREAKOUT STAT — the source line is part of the component,
    not an afterthought. A big number without period, geography and
-   provenance is a claim, not a finding. */
+   provenance is a claim, not a finding. A filled box: callout line. */
 .nc-stat{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;
-  padding:var(--nc-sp4) var(--nc-sp5);border-left:.62em solid var(--nc-acc,var(--nc-blue))}
-.nc-stat--top{border-left:0;border-top:.56em solid var(--nc-acc,var(--nc-teal))}
+  padding:var(--nc-sp4) var(--nc-sp5);border-left:var(--nc-line-callout) solid var(--nc-acc,var(--nc-blue))}
+.nc-stat--top{border-left:0;border-top:var(--nc-line-callout) solid var(--nc-acc,var(--nc-teal))}
 .nc-stat--fill{outline:0;border:0;background:var(--nc-acc,var(--nc-butter));color:var(--nc-ink)}
-.nc-stat .big{font-family:var(--nc-font-display);font-size:2.4em;line-height:.9;letter-spacing:-.02em}
-.nc-stat .lb{font-family:var(--nc-font-head);font-weight:800;font-size:.66em;
-  text-transform:uppercase;letter-spacing:.1em;margin-top:var(--nc-sp4);line-height:1.3}
-.nc-stat .src{font-size:.69em;color:var(--nc-charcoal);margin-top:var(--nc-sp3);line-height:1.4}
-.nc-stat.lg .big{font-size:3.4em}
+.nc-stat .lb{margin-top:var(--nc-sp4)}
+.nc-stat .src{margin-top:var(--nc-sp3)}
 
 /* --- 7 · EVIDENCE FURNITURE — from the methodology. Not decorative.
    Ink = open and traceable · butter = documented but partial ·
@@ -184,410 +237,303 @@
    "handle with a stated caveat". The code text carries the meaning on
    its own, so the tier survives greyscale and screen readers. */
 .nc-evidence{display:flex;align-items:baseline;flex-wrap:wrap;gap:var(--nc-sp1) 0}
-.nc-prov{display:inline-block;font-family:var(--nc-font-head);font-weight:800;font-size:.68em;
-  letter-spacing:.09em;padding:var(--nc-sp1) var(--nc-sp2);background:var(--nc-ink);color:var(--nc-white);
-  margin:0 var(--nc-sp2) 0 0;line-height:1.35;vertical-align:baseline;text-transform:uppercase}
-.nc-prov--mid{background:var(--nc-butter);color:var(--nc-ink)}
-.nc-prov--low{background:var(--nc-coral);color:var(--nc-ink)}
-.nc-source{font-family:var(--nc-font-head);font-weight:600;font-size:.8em;letter-spacing:.04em;
-  color:var(--nc-charcoal);line-height:1.5;text-transform:none}
-.ground-blue .nc-source,.ground-ink .nc-source{color:var(--nc-teal)}
+.nc-prov{display:inline-block;padding:var(--nc-sp1) var(--nc-sp2);background:var(--nc-ink);
+  margin:0 var(--nc-sp2) 0 0;vertical-align:baseline}
+.nc-prov--mid{background:var(--nc-butter);--nc-chip-text:var(--nc-ink)}
+.nc-prov--low{background:var(--nc-coral);--nc-chip-text:var(--nc-ink)}
 .nc-meter{display:flex;gap:var(--nc-sp1);margin:var(--nc-sp1) 0 var(--nc-sp2)}
 .nc-meter span{flex:1;height:.9em;background:var(--nc-chalk);outline:1px solid var(--nc-hair);outline-offset:-1px}
 .nc-meter span.on{background:var(--nc-ink);outline-color:var(--nc-ink)}
-.nc-meter-lab{display:flex;justify-content:space-between;font-family:var(--nc-font-head);
-  font-weight:600;font-size:.64em;letter-spacing:.04em;text-transform:uppercase;color:var(--nc-charcoal)}
+.nc-meter-lab{display:flex;justify-content:space-between}
+
+/* --- 7b · STATUS CHIPS — the label voice on a fill (rounds two to six).
+   One accent per state; the word carries the meaning, never the colour
+   alone. Agreed and Your answer are the inverse of the ground. */
+.nc-chip{display:inline-block;padding:var(--nc-sp1) var(--nc-sp2);background:var(--nc-ink);vertical-align:baseline}
+.nc-chip--to-do{background:var(--nc-violet);--nc-chip-text:var(--nc-ink)}
+.nc-chip--in-progress,.nc-chip--proposed{background:var(--nc-butter);--nc-chip-text:var(--nc-ink)}
+.nc-chip--review{background:var(--nc-pink);--nc-chip-text:var(--nc-ink)}
+.nc-chip--blocked{background:var(--nc-coral);--nc-chip-text:var(--nc-ink)}
+.nc-chip--done{background:var(--nc-teal);--nc-chip-text:var(--nc-ink)}
+.nc-chip--parked{background:var(--nc-white);--nc-chip-text:var(--nc-ink);outline:1px solid var(--nc-hair);outline-offset:-1px}
+.nc-chip--conclusion{background:var(--nc-blue)}
+.ground-ink .nc-chip--settled,.ground-blue .nc-chip--settled{background:var(--nc-white);--nc-chip-text:var(--nc-ink)}
+.ground-blue .nc-chip--conclusion{background:var(--nc-ink)}
+.nc-chip-row{display:flex;flex-wrap:wrap;gap:var(--nc-sp2) var(--nc-sp3);align-items:center;margin:0 0 var(--nc-sp3)}
 
 /* --- 8 · BREAKERS — one per surface. A separator, not an ornament.
-   Mid-statement break is RETIRED: it interrupts the sentence. */
-.nc-brk{height:.26em;width:20%;background:var(--nc-acc,var(--nc-blue));border:0;margin:var(--nc-sp4) 0}
-.nc-brk--bar{height:.34em;width:14%;background:var(--nc-acc,var(--nc-pink))}
-.nc-brk--hair{height:1px;width:74%;background:var(--nc-hair)}
+   A breaker is a line that goes with text: the rule weight. */
+.nc-brk{height:var(--nc-line-rule);width:20%;background:var(--nc-acc,var(--nc-blue));border:0;margin:var(--nc-sp4) 0}
+.nc-brk--bar{width:14%;background:var(--nc-acc,var(--nc-pink))}
+.nc-brk--hair{height:var(--nc-line-hair);width:74%;background:var(--nc-hair)}
 .ground-blue .nc-brk,.ground-ink .nc-brk{background:var(--nc-teal)}
 
 /* --- 9 · TABLE — editorial is the default. No fill, no vertical
-   rules, no outer border. 2.25px ink rule under the header. */
-.nc-table{border-collapse:collapse;width:100%;font-size:.88em;background:transparent}
-/* Cells are not paragraphs. Tight is MORE readable here — rows have to stay
-   scannable, and a 1.6 inherited from .nc-doc turns a table into a list of
-   loose lines. ch03 scopes leading by class and context; this is the class
-   the original gap was raised about (GAP-01), and the one the fix missed. */
-.nc-table{line-height:1.3}
-.nc-slide .nc-table{line-height:1.25}
+   rules, no outer border. A title above (table-title), a header row in the
+   label voice under the TABLE line, a bold first column (NC-TBL-02). */
+.nc-table{border-collapse:collapse;width:100%;background:transparent;margin:var(--nc-sp4) 0}
+.nc-table caption{caption-side:top;text-align:left;margin:0 0 var(--nc-sp3)}
 .nc-table th,.nc-table td{padding:var(--nc-sp3) var(--nc-sp4) var(--nc-sp3) 0;text-align:left;vertical-align:top;
-  border-bottom:1px solid rgba(13,13,13,.13)}
-.nc-table th{font-family:var(--nc-font-head);font-weight:700;text-transform:uppercase;
-  font-size:.75em;letter-spacing:.12em;color:var(--nc-charcoal);
-  border-bottom:.16em solid var(--nc-ink);padding-bottom:var(--nc-sp2)}
+  border-bottom:var(--nc-line-hair) solid rgba(13,13,13,.13)}
+.nc-table thead th{border-bottom:var(--nc-line-table) solid var(--nc-ink);padding-bottom:var(--nc-sp2)}
 .nc-table td:last-child,.nc-table th:last-child{padding-right:0}
-.nc-table .num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-/* The first column names the row, so it is bold in every document table (Carly, 29 Sep 2026). */
-.nc-table tbody td:first-child{font-weight:700}
-.nc-table--accent{border-top:.44em solid var(--nc-acc,var(--nc-teal))}
-.nc-table--accent th{border-bottom:1px solid rgba(13,13,13,.20);padding-top:.75em}
+.nc-table .nc-figure-cell{text-align:right;white-space:nowrap}
+.nc-table+.nc-small{margin-top:var(--nc-sp2)}
+.nc-table--accent{border-top:var(--nc-line-callout) solid var(--nc-acc,var(--nc-teal))}
+.nc-table--accent thead th{border-bottom:var(--nc-line-hair) solid rgba(13,13,13,.20);padding-top:.75em}
 .nc-table--band tbody tr:nth-child(odd){background:rgba(13,13,13,.035)}
-.nc-table--band td{border-bottom:0}
-.ground-blue .nc-table th,.ground-ink .nc-table th{color:var(--nc-teal);border-bottom-color:var(--nc-teal)}
-.ground-blue .nc-table td,.ground-ink .nc-table td{border-bottom-color:rgba(255,255,255,.22)}
+.nc-table--band td,.nc-table--band tbody th{border-bottom:0}
+.nc-table-scroll{overflow-x:auto}
+.ground-blue .nc-table thead th,.ground-ink .nc-table thead th{border-bottom-color:var(--nc-teal)}
+.ground-blue .nc-table td,.ground-ink .nc-table td,.ground-blue .nc-table tbody th,.ground-ink .nc-table tbody th{border-bottom-color:rgba(255,255,255,.22)}
 
 /* --- 10 · CHART CARD — every chart ships as a package.
    title · subtitle carrying unit and population · the chart ·
    the evidence block. Single series = single colour. Label at the
    mark. Hatched = suppressed [c] or not collected n/a — never a
    blank row, because a gap in the data is a finding. */
-.nc-chart{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;
-  padding:var(--nc-sp5) var(--nc-sp5) var(--nc-sp4);border-top:.5em solid var(--nc-acc,var(--nc-blue))}
-.nc-chart .ct{font-family:var(--nc-font-head);font-weight:800;text-transform:uppercase;
-  font-size:.88em;letter-spacing:.05em;line-height:1.15}
-.nc-chart .cs{font-size:.78em;color:var(--nc-charcoal);margin:var(--nc-sp1) 0 var(--nc-sp4)}
-.nc-chart .ev{margin-top:var(--nc-sp4);padding-top:var(--nc-sp3);border-top:1px solid var(--nc-hair);
-  font-size:.72em;line-height:1.5;color:var(--nc-charcoal)}
-.nc-chart .ev b{font-family:var(--nc-font-head);font-weight:800;letter-spacing:.05em;
-  text-transform:uppercase;font-size:.86em;color:var(--nc-ink)}
+.nc-chart{background:var(--nc-white);outline:1px solid var(--nc-hair);outline-offset:-1px;margin:var(--nc-sp4) 0;
+  padding:var(--nc-sp5) var(--nc-sp5) var(--nc-sp4);border-top:var(--nc-line-callout) solid var(--nc-acc,var(--nc-blue))}
+.nc-chart .cs{margin:var(--nc-sp1) 0 var(--nc-sp4)}
+.nc-chart .ev{margin-top:var(--nc-sp4);padding-top:var(--nc-sp3);border-top:1px solid var(--nc-hair)}
+.nc-chart .ev b{color:var(--nc-text,var(--nc-ink))}
 .nc-bar{display:flex;align-items:center;gap:var(--nc-sp3);margin-bottom:var(--nc-sp2)}
-.nc-bar .lb{font-size:.78em;width:7.5em;flex:none;font-weight:500}
 .nc-bar .tk{flex:1;height:1.5em;position:relative;
   background:linear-gradient(90deg,var(--nc-grid) 1px,transparent 1px) 0 0/25% 100%}
 .nc-bar .fl{position:absolute;left:0;top:0;bottom:0;background:var(--nc-chart-1)}
-.nc-bar .vl{font-size:.75em;min-width:3em;text-align:right;flex:none;white-space:nowrap;font-variant-numeric:tabular-nums}
-/* On a dark ground the track is invisible: an ink-on-ink 7% wash reads as nothing,
-   so the bar loses the baseline it is measured against. Straight from
-   components_proof.html, which had this and the generated sheet did not. */
 .ground-blue .nc-bar .tk,.ground-ink .nc-bar .tk{background:rgba(255,255,255,.14)}
 .ground-blue .nc-bar .fl,.ground-ink .nc-bar .fl{background:var(--nc-teal)}
 .nc-hatch,.nc-bar .fl.nc-hatch{background-image:repeating-linear-gradient(45deg,rgba(13,13,13,.30) 0 3px,transparent 3px 7px);
   background-color:var(--nc-chalk);outline:1px solid var(--nc-hair);outline-offset:-1px}
-/* Hatched = suppressed [c] or not collected n/a. NEVER a blank row, and never
-   a solid bar — a gap in the data is a finding, and dropping or filling the
-   row hides it. The value label always states which. */
-
 
 /* --- 12 · TEXT COMPONENTS ---------------------------------------
-   Lists sit between prose and table: space BETWEEN items does the work
-   (ch03, 1.4-1.5). Links carry their purpose in the text alone (SC 2.4.4,
-   Level A) - never "click here", never a bare URL. */
-.nc-list{margin:var(--nc-sp3) 0;padding-left:var(--nc-sp4);line-height:1.45}
-.nc-list li{margin-bottom:var(--nc-sp2)}
+   Lists are indented list paragraphs (round two). Links carry their purpose
+   in the text alone (SC 2.4.4) - never "click here", never a bare URL. */
+.nc-list{margin:var(--nc-sp3) 0;padding-left:2.5rem}
+.nc-list li{margin-bottom:var(--nc-sp2);padding-left:.2rem}
 .nc-list--num{list-style:decimal}
 .nc-link{color:var(--nc-blue);text-decoration:underline;text-underline-offset:.15em}
-.ground-blue .nc-link,.ground-ink .nc-link{color:var(--nc-teal)}
-.nc-caption{font-size:.78em;line-height:1.35;color:var(--nc-charcoal);margin:var(--nc-sp2) 0 0}
+.ground-blue .nc-link,.ground-ink .nc-link{color:var(--nc-white)}
+.nc-caption{margin:var(--nc-sp2) 0 0}
 .nc-figure{margin:var(--nc-sp5) 0}
-.nc-term{font-weight:600;border-bottom:1px dotted var(--nc-charcoal)}
+.nc-term{font-weight:700;border-bottom:1px dotted var(--nc-charcoal)}
 
 /* --- 13 · CONTENTS — built from finding-headings, so reading only the
-   contents is reading the argument (ch11). Colour-chip index. */
+   contents is reading the argument (ch11). The chapter number is the
+   same ink box as on a section title; the page number is the number
+   role with a p; titles are capitals with a line of Inter beneath. The
+   rail is the same list with a rule-weight marker (rounds two to five). */
 .nc-contents{margin:var(--nc-sp4) 0}
-.nc-contents a{display:flex;align-items:baseline;gap:var(--nc-sp2);padding:var(--nc-sp2) 0;
-  border-bottom:1px solid rgba(13,13,13,.13);text-decoration:none;color:inherit}
-.nc-contents .n{font-family:var(--nc-font-head);font-weight:800;font-size:.7em;
-  letter-spacing:.08em;color:var(--nc-charcoal);width:2.2em;flex:none}
-.nc-contents .t{font-family:var(--nc-font-head);font-weight:700;font-size:.95em;flex:1}
-.nc-contents .p{font-variant-numeric:tabular-nums;font-size:.8em;color:var(--nc-charcoal)}
-.nc-contents .chip{width:.8em;height:.8em;flex:none;background:var(--nc-acc,var(--nc-blue))}
+.nc-contents a{display:grid;grid-template-columns:auto 1fr auto;column-gap:var(--nc-sp3);row-gap:.2rem;align-items:start;
+  padding:.7rem 0;border-bottom:var(--nc-line-hair) solid rgba(13,13,13,.13);text-decoration:none;color:inherit}
+.nc-contents .nc-contents-title{display:contents}
+.nc-contents a .nc-small{grid-column:2}
+.nc-contents--rail{display:block}
+.nc-contents--rail a{padding-left:var(--nc-sp3);padding-right:var(--nc-sp3)}
+.nc-contents a[aria-current]{background:var(--nc-chalk);box-shadow:inset var(--nc-line-rule) 0 0 var(--nc-blue)}
+.ground-chalk .nc-contents a[aria-current]{background:var(--nc-white)}
+.nc-contents .nc-page-number{color:var(--nc-text-2,var(--nc-charcoal));background:none;padding:0}
 
 /* --- 14 · RUNNING FOOT — a photocopied page must know where it came
-   from (ch11). Section, not just document title. */
-.nc-foot{display:flex;justify-content:space-between;align-items:baseline;gap:1em;
-  border-top:1px solid var(--nc-hair);padding-top:var(--nc-sp3);margin-top:var(--nc-sp6);
-  font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
-  letter-spacing:.1em;font-size:.66em;color:var(--nc-charcoal)}
+   from (ch11). Section, not just document title. The running-foot role. */
+.nc-foot,.nc-running-foot-row{display:flex;justify-content:space-between;align-items:baseline;gap:1em;
+  border-top:var(--nc-line-hair) solid var(--nc-hair);padding-top:var(--nc-sp3);margin-top:var(--nc-sp6)}
+
+/* --- 14b · CONTROLS — one button, one minor action, one search field
+   (rounds two to four). The button is the one thing to press: blue, fully
+   rounded, sentence case. The text action is the same voice, underlined. */
+.nc-button{border:0;border-radius:999px;background:var(--nc-blue);padding:.6rem 1.25rem;cursor:pointer}
+.ground-blue .nc-button{background:var(--nc-white);color:var(--nc-blue)}
+.nc-text-action{background:none;border:0;padding:.6rem 0;cursor:pointer;text-decoration:underline;text-underline-offset:.15em}
+.nc-action-row{display:flex;flex-wrap:wrap;gap:var(--nc-sp2) var(--nc-sp5);align-items:center}
+.nc-search{display:block}
+.nc-search label{display:block;margin:0 0 var(--nc-sp1)}
+.nc-search-row{display:flex}
+.nc-search input{flex:1;min-width:0;box-sizing:border-box;margin:0;padding:.75rem 1rem;border:0;outline:1px solid var(--nc-hair);
+  outline-offset:-1px;background:var(--nc-white);color:var(--nc-ink);font:inherit}
+.nc-search input::placeholder{color:var(--nc-charcoal);opacity:1}
+.nc-search input:focus{outline:3px solid var(--nc-blue);position:relative;z-index:1}
+.nc-search-button{flex:none;width:3.2rem;border:0;background:var(--nc-white);color:var(--nc-blue);outline:1px solid var(--nc-hair);
+  outline-offset:-1px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:-1px}
+.ground-ink .nc-search-button,.ground-blue .nc-search-button{background:transparent;color:var(--nc-white);outline-color:rgba(255,255,255,.55)}
+.ground-ink .nc-search input:focus,.ground-blue .nc-search input:focus{outline-color:var(--nc-white)}
+.nc-button:focus-visible,.nc-text-action:focus-visible,.nc-collapsible>summary:focus-visible,.nc-contents a:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
+.ground-ink :focus-visible,.ground-blue :focus-visible{outline-color:var(--nc-white)}
+
+/* --- 14c · COLLAPSIBLE HEADING — a behaviour on any heading level. The
+   heading keeps the style of its level and the content sits in line with it
+   (round three; NC-DOC-10). The marker is a word's worth of blue, not an
+   icon. Everything prints open. */
+.nc-collapsible{display:block}
+.nc-collapsible>summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:var(--nc-sp3);margin-top:1.5em}
+.nc-collapsible>summary::-webkit-details-marker{display:none}
+.nc-collapsible>summary>:first-child{flex:1;min-width:0;margin-top:0}
+.nc-collapsible>summary::after{content:"+";color:var(--nc-blue);flex:none;font-weight:800}
+.nc-collapsible[open]>summary::after{content:"\2013"}
+.nc-collapsible>summary:has(>.nc-heading-4)::after{margin-top:calc(var(--nc-line-rule) + var(--nc-sp3))}
+@media print{.nc-collapsible>summary::after{display:none}}
 
 /* --- 15 · MORE CHART FORMS (charts v1.4) ------------------------
    Dot plot for places: bars imply quantity from zero, dots imply
    position on a scale. Range shown because a bare point estimate
    reads as a count. */
 .nc-dot .row{display:flex;align-items:center;gap:var(--nc-sp3);margin-bottom:var(--nc-sp3)}
-.nc-dot .lb{font-size:.78em;width:7.5em;flex:none;font-weight:500}
 .nc-dot .tk{flex:1;height:1.4em;position:relative;border-bottom:1px solid var(--nc-grid)}
 .nc-dot .rng{position:absolute;top:.55em;height:.25em;background:rgba(0,0,255,.20)}
 .nc-dot .pt{position:absolute;top:.28em;width:.85em;height:.85em;transform:translateX(-50%);
   background:var(--nc-chart-1);border:2px solid var(--nc-white)}
-.nc-dot .vl{font-size:.75em;min-width:3.4em;text-align:right;flex:none;white-space:nowrap;font-variant-numeric:tabular-nums}
-/* Donut: four segments maximum, percentages in the key, clockwise from
-   largest. The hole holds the total — usually the most useful number. */
 .nc-donut{display:flex;gap:var(--nc-sp5);align-items:center;flex-wrap:wrap}
 .nc-donut .ring{width:9.5em;height:9.5em;border-radius:50%;flex:none;position:relative}
 .nc-donut .ring::after{content:"";position:absolute;inset:30%;background:var(--nc-white);border-radius:50%}
 .nc-donut .tot{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;z-index:2}
-.nc-donut .tot .n{font-family:var(--nc-font-display);font-size:1.1em;line-height:1}
-.nc-donut .tot .l{font-family:var(--nc-font-head);font-weight:800;font-size:.52em;
-  letter-spacing:.1em;text-transform:uppercase;margin-top:var(--nc-sp1)}
+.nc-donut .tot .l{margin-top:var(--nc-sp1)}
 .nc-donut .key{flex:1;min-width:11em}
-.nc-donut .key div{display:flex;align-items:center;gap:var(--nc-sp2);font-size:.78em;margin-bottom:var(--nc-sp2)}
+.nc-donut .key div{display:flex;align-items:center;gap:var(--nc-sp2);margin-bottom:var(--nc-sp2)}
 .nc-donut .key i{width:.95em;height:.95em;flex:none;display:block;outline:1px solid var(--nc-hair)}
 .nc-donut .key b{font-weight:400;margin-left:auto;font-variant-numeric:tabular-nums}
-/* 100% stacked — replaces most pies. Two stacked bars compare easily;
-   two pies do not. Values inside the segments, key as reference. */
 .nc-stack{display:flex;height:2.7em;margin-bottom:var(--nc-sp3);outline:1px solid var(--nc-hair);outline-offset:-1px}
-.nc-stack div{display:flex;align-items:center;justify-content:center;
-  font-family:var(--nc-font-head);font-weight:800;font-size:.72em;letter-spacing:.04em}
-.nc-key{display:flex;flex-wrap:wrap;gap:var(--nc-sp4);font-size:.75em}
+.nc-stack div{display:flex;align-items:center;justify-content:center}
+.nc-key{display:flex;flex-wrap:wrap;gap:var(--nc-sp4)}
 .nc-key span{display:flex;align-items:center;gap:var(--nc-sp2)}
 .nc-key i{width:.85em;height:.85em;display:block;outline:1px solid var(--nc-hair)}
 
-/* --- 11 · CASE — declared per component, never inherited ---------- */
-.nc-section-head .ttl,.nc-panel .lab,.nc-band .lab,.nc-stat .lb,.nc-prov,
-.nc-meter-lab,.nc-table th{text-transform:uppercase}
-.nc-quote .q,.nc-quote .a,.nc-panel .txt,.nc-band .txt,.nc-stat .src,.nc-source,
-.nc-table td,.nc-bar .lb,.nc-caption{text-transform:none}
-
 /* --- 16 · PIE — permitted, with the caveat stated ------------------
    People read angles less accurately than lengths, so a pie is the weakest
-   way to compare segments. It stays in the system because it is the most
-   recognisable, and for one dominant share in a committee paper that is
-   worth something. Same limits as the donut: four segments, percentages in
-   the key, and the white keyline because adjacent ramp contrast in greyscale
-   is 1.79, 2.27 and 1.61 — all under the 3:1 threshold for touching marks. */
+   way to compare segments. Four segments, percentages in the key, and the
+   white keyline because adjacent ramp contrast in greyscale is under 3:1. */
 .nc-pie{display:flex;gap:var(--nc-sp5);align-items:center;flex-wrap:wrap}
 .nc-pie .disc{width:9.5em;height:9.5em;border-radius:50%;flex:none;position:relative}
 .nc-pie .key{flex:1;min-width:11em}
-.nc-pie .key div{display:flex;align-items:center;gap:var(--nc-sp2);font-size:.78em;margin-bottom:var(--nc-sp2)}
+.nc-pie .key div{display:flex;align-items:center;gap:var(--nc-sp2);margin-bottom:var(--nc-sp2)}
 .nc-pie .key i{width:.95em;height:.95em;flex:none;display:block;outline:1px solid var(--nc-hair)}
 .nc-pie .key b{font-weight:400;margin-left:auto;font-variant-numeric:tabular-nums}
 
 /* --- 17 · LINE — change over time ----------------------------------
-   Series labelled at the line, never in a legend, so nobody holds a colour
-   key in their head. A dashed segment is a break in collection: not an
-   estimate and not a smooth trend. Interpolating across one would be a
-   design decision masquerading as data. */
+   Series labelled at the line, never in a legend. A dashed segment is a
+   break in collection: not an estimate and not a smooth trend. */
 .nc-line{position:relative;width:100%;height:14em}
 .nc-line svg{width:100%;height:100%;display:block;overflow:visible}
 .nc-line .gl{stroke:var(--nc-grid);stroke-width:1;fill:none}
 .nc-line .ln{fill:none;stroke-width:.22em;stroke-linecap:round;stroke-linejoin:round}
 .nc-line .ln--break{stroke-dasharray:.5em .4em}
-.nc-line .sl{font-family:var(--nc-font-head);font-weight:800;font-size:.72em;
-  letter-spacing:.04em;dominant-baseline:middle}
-.nc-line .ax{font-family:var(--nc-font-head);font-weight:600;font-size:.68em;
-  letter-spacing:.06em;fill:var(--nc-charcoal);text-transform:uppercase}
+.nc-line .sl{dominant-baseline:middle}
+.nc-line .ax{fill:var(--nc-charcoal)}
 
 /* --- 18 · RANGE BAR — wherever uncertainty is material -------------
-   A bare point estimate reads as a count. Where a value is modelled or
-   surveyed the interval is drawn, and the point sits on it with a keyline
-   so it survives against its own range (NC-CON-05). */
+   The interval is drawn and the point sits on it with a keyline (NC-CON-05). */
 .nc-range{display:flex;align-items:center;gap:var(--nc-sp3);margin-bottom:var(--nc-sp3)}
-.nc-range .lb{font-size:.78em;width:7.5em;flex:none;font-weight:500}
 .nc-range .tk{flex:1;height:1.5em;position:relative;min-width:0}
 .nc-range .rng{position:absolute;top:.6em;height:.3em;background:rgba(0,0,255,.20)}
 .nc-range .pt{position:absolute;top:.32em;width:.85em;height:.85em;transform:translateX(-50%);
   background:var(--nc-chart-1);border:2px solid var(--nc-white)}
-.nc-range .vl{font-size:.75em;min-width:4.6em;text-align:right;flex:none;white-space:nowrap;
-  font-variant-numeric:tabular-nums}
 .ground-blue .nc-range .rng,.ground-ink .nc-range .rng{background:rgba(255,255,255,.22)}
 .ground-blue .nc-range .pt,.ground-ink .nc-range .pt{background:var(--nc-teal);border-color:var(--nc-ink)}
 
 /* --- 19 · MISSING AND SUPPRESSED MARKERS ---------------------------
    A gap in the data is a finding. The row stays and says which kind of gap
-   it is: [c] suppressed for disclosure control, n/a not collected for this
-   population. Never a blank, and never a dropped row. */
-.nc-na{font-family:var(--nc-font-head);font-weight:600;font-size:.72em;letter-spacing:.06em;
-  color:var(--nc-charcoal);font-style:normal}
+   it is: [c] suppressed for disclosure control, n/a not collected. */
+.nc-na{font-style:normal}
 .nc-bar .vl .nc-na,.nc-range .vl .nc-na{display:inline-block}
-.ground-blue .nc-na,.ground-ink .nc-na{color:var(--nc-teal)}
 
 /* --- 20 · COMPARABILITY FLAG ---------------------------------------
-   Any chart comparing two or more places states whether the indicator
-   comparability gate has been cleared, and which of the eight criteria
-   required harmonising. A comparison without this note is not publishable
-   (v1.4 §12, from the research methodology). Ordinal, like the provenance
-   chip: the word carries the meaning, the colour only ranks it. */
-.nc-comp{display:block;font-size:.72em;line-height:1.45;margin-top:var(--nc-sp2);
-  padding-left:var(--nc-sp4);border-left:.25em solid var(--nc-teal);color:var(--nc-charcoal)}
-.nc-comp b{font-family:var(--nc-font-head);font-weight:800;letter-spacing:.05em;
-  text-transform:uppercase;font-size:.92em;color:var(--nc-ink)}
+   Any chart comparing two or more places states whether the comparability
+   gate has been cleared. A line that goes with text: the rule weight. */
+.nc-comp{display:block;margin-top:var(--nc-sp2);padding-left:var(--nc-sp4);border-left:var(--nc-line-rule) solid var(--nc-teal)}
+.nc-comp b{color:var(--nc-text,var(--nc-ink))}
 .nc-comp--part{border-left-color:var(--nc-butter)}
 .nc-comp--fail{border-left-color:var(--nc-coral)}
-.ground-blue .nc-comp,.ground-ink .nc-comp{color:#fff}
-.ground-blue .nc-comp b,.ground-ink .nc-comp b{color:var(--nc-teal)}
 
 /* --- 21 · ILLUSTRATIVE FLAG ----------------------------------------
-   Any placeholder or worked example says so, in the chart, every time — not
-   in a footnote and not in the covering email. Charts travel; the flag has
-   to travel with the marks. */
-.nc-illus{display:inline-block;font-family:var(--nc-font-head);font-weight:800;font-size:.66em;
-  letter-spacing:.09em;text-transform:uppercase;padding:var(--nc-sp1) var(--nc-sp2);
-  background:var(--nc-butter);color:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
+   Any placeholder or worked example says so, in the chart, every time. */
+.nc-illus{display:inline-block;padding:var(--nc-sp1) var(--nc-sp2);
+  background:var(--nc-butter);--nc-chip-text:var(--nc-ink);margin:0 var(--nc-sp2) var(--nc-sp1) 0}
 
 /* The markup disclosure sits under a specimen and carries its own markup. It
-   is a details block, so nothing load-bearing lives inside it (NC-DOC-10) —
-   the specimen is above it, in the open. */
-.nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5);border-left-color:var(--nc-teal)}
-.nc-disclose>summary{font-size:max(.78em,12px);letter-spacing:.04em;color:var(--nc-charcoal)}
+   is a details block, so nothing load-bearing lives inside it (NC-DOC-10). */
+.nc-disclose{margin:var(--nc-sp2) 0 var(--nc-sp5)}
 .nc-disclose pre{max-height:26em;overflow:auto}
-/* The disclosure marker was the browser default, in the one component whose
-   job is to show that nothing is left to a default (NC-DOC-08). It is a word,
-   not a glyph: no icon, and it says what it does rather than pointing. */
-.nc-details>summary{list-style:none;display:flex;gap:var(--nc-sp3);
-  justify-content:space-between;align-items:baseline}
+.nc-details>summary{list-style:none;display:flex;gap:var(--nc-sp3);justify-content:space-between;align-items:baseline;cursor:pointer;padding:var(--nc-sp1) 0}
 .nc-details>summary::-webkit-details-marker{display:none}
-.nc-details>summary::after{content:"Show";flex:none;font-weight:600;
-  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase;
-  color:var(--nc-blue);text-decoration:underline;text-underline-offset:.2em}
+.nc-details>summary::after{content:"Show";flex:none;color:var(--nc-blue);text-decoration:underline;text-underline-offset:.2em}
 .nc-details[open]>summary::after{content:"Hide"}
-.ground-blue .nc-details>summary::after,
-.ground-ink .nc-details>summary::after{color:var(--nc-teal)}
+.nc-details>summary:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
 /* Where each class in a specimen is defined. A table, because the question is
-   per-class and comparison down a column is the whole point. NOT .nc-prov —
-   that name is already the evidence-provenance chip, and taking it turned
-   every cell here into white text on white. A duplicate class definition is
-   now a check. */
-.nc-origin{font-size:max(.76em,12px);margin:var(--nc-sp3) 0}
-.nc-origin code{font-family:ui-monospace,Menlo,monospace;font-size:.94em}
+   per-class and comparison down a column is the whole point. */
+.nc-origin{margin:var(--nc-sp3) 0}
 .nc-origin .at{font-variant-numeric:tabular-nums;color:var(--nc-charcoal)}
-/* Self-reference flags. Severity never rests on colour alone (NC-DOC-09) —
-   every flag carries a word, and the count sits on the summary where it is
-   read without opening anything (NC-DOC-10). */
-.nc-flags{list-style:none;margin:var(--nc-sp3) 0 0;padding:0;
-  font-size:max(.8em,12px);line-height:1.45}
-.nc-flag{display:flex;gap:var(--nc-sp3);align-items:baseline;
-  padding:var(--nc-sp2) 0;border-top:1px solid var(--nc-hair)}
-.nc-flag .tag{flex:none;width:6.5em;font-family:var(--nc-font-head);font-weight:600;
-  font-size:max(.72em,11px);letter-spacing:.08em;text-transform:uppercase}
-.nc-flag--red .tag{color:var(--nc-ink)}
-.nc-flag--amber .tag{color:var(--nc-charcoal)}
-.nc-flag--grey .tag{color:var(--nc-charcoal)}
-/* The tag is NOT pink. Pink on white is 2.58:1 and this is 11px caps. The pink
-   rule down the left edge is the colour signal and the word is the one that
-   has to be read — which is the same division NC-DOC-09 asks for. */
+/* Self-reference flags. Severity never rests on colour alone (NC-DOC-09). */
+.nc-flags{list-style:none;margin:var(--nc-sp3) 0 0;padding:0}
+.nc-flag{display:flex;gap:var(--nc-sp3);align-items:baseline;padding:var(--nc-sp2) 0;border-top:1px solid var(--nc-hair)}
+.nc-flag .tag{flex:none;width:6.5em}
+.nc-flag--red .tag{--nc-text-2:var(--nc-text,var(--nc-ink))}
+.nc-flag--amber .tag,.nc-flag--grey .tag{--nc-text-2:var(--nc-charcoal)}
 .nc-flag .n{flex:none;color:var(--nc-charcoal);font-variant-numeric:tabular-nums}
-.nc-flag--red{border-left:.25em solid var(--nc-pink);padding-left:var(--nc-sp3);
-  margin-left:calc(-1 * var(--nc-sp3) - .25em)}
-.nc-flag code{font-family:ui-monospace,Menlo,monospace}
+.nc-flag--red{border-left:var(--nc-line-rule) solid var(--nc-pink);padding-left:var(--nc-sp3);
+  margin-left:calc(-1 * var(--nc-sp3) - var(--nc-line-rule))}
 
 /* --- 23 · THE PAGE LAYER --------------------------------------------
    The furniture every sheet needs: a masthead, a measure to read in, a
    kicker, a standfirst, a note under a specimen, and the frame a specimen
-   sits in.
-
-   This did not exist. The system had ninety components and nothing for the
-   page around them, so every sheet was hand-authored — five separate
-   stylesheets, none governed, none checked. Every visual defect found in
-   review lived here rather than in the components, including a masthead
-   ground picked by eye five times.
-
-   Now it is generated from the tokens like everything else, and the coverage
-   check demands a specimen of each. NC-PAG-01 to 04. */
-
-/* The masthead takes the primary brand colour. Blue. Not a preference — the
-   primary is the primary, and a masthead is the most outward-facing surface
-   an artefact has (NC-PAG-01). Ink is the night register and is used where
-   the night register is the subject, never as a default. */
-/* One masthead, one measure. A night variant and two alternative measures were
-   written and nothing used them — and an unused variant is an invitation to pick
-   by eye, which is the thing this layer exists to stop. Deleted rather than
-   demonstrated. If the night register is ever genuinely the subject, it comes
-   back with a reason attached. */
-.nc-mast{background:var(--nc-blue);color:var(--nc-white);
-  padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
+   sits in. Generated like everything else; NC-PAG-01 to 04. */
+.nc-mast{background:var(--nc-blue);color:var(--nc-white);padding:var(--nc-sp7) 0 var(--nc-sp6);margin-bottom:var(--nc-sp7)}
 .nc-mast .nc-wrap{padding-bottom:0}
-.nc-mast h1{font-family:var(--nc-font-display);text-transform:uppercase;
-  letter-spacing:-.012em;line-height:.94;font-size:clamp(34px,6.4vw,68px);margin:0}
-.nc-mast .stand{font-size:1.06em;max-width:58ch;margin:var(--nc-sp5) 0 0;line-height:1.5}
-
-/* The measure. One value, so two sheets cannot disagree about how wide a
-   line of text is allowed to be. */
+.nc-mast{--nc-text:var(--nc-white);--nc-text-2:var(--nc-white);--nc-action:var(--nc-white)}
 .nc-wrap{max-width:72rem;margin:0 auto;padding:0 var(--nc-sp5) var(--nc-sp9)}
-
-/* Kicker — where you are, above the title. Teal on a dark ground, blue on a
-   light one, because it is a signal and signals follow the ground. */
-.nc-kick{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
-  letter-spacing:.16em;font-size:max(.75em,12px);margin:0 0 var(--nc-sp4);color:var(--nc-blue)}
-.ground-blue .nc-kick,.ground-ink .nc-kick,.nc-mast .nc-kick{color:var(--nc-teal)}
-
-/* Standfirst — the one paragraph that says what this is. Larger than body,
-   shorter measure, never a second paragraph. */
-.nc-stand{font-size:1.12em;max-width:60ch;line-height:1.5;margin:0 0 var(--nc-sp4)}
-
-/* The note under a specimen: what it is called, what rule governs it, where
-   it came from. Monospace because it names classes, and floored at 13px
-   because it is the layer people actually read when choosing (NC-TYP-06). */
-.nc-note{font-family:ui-monospace,Menlo,monospace;font-size:max(.75em,13px);
-  color:var(--nc-charcoal);letter-spacing:0;margin:var(--nc-sp2) 0 0;line-height:1.55;
-  overflow-wrap:break-word}
-.ground-ink .nc-note,.ground-blue .nc-note{color:var(--nc-teal);font-weight:500}
-
-/* The frame a specimen sits in. Inert by design — a hairline and nothing
-   else, because anything with an opinion would be read as part of the
-   specimen (NC-PAG-03). Where the specimen carries its own ground, the
-   ground goes on an inner element so the frame cannot override it. */
+.nc-kick{margin:0 0 var(--nc-sp4);--nc-text-2:var(--nc-action,var(--nc-blue))}
+.nc-note{margin:var(--nc-sp2) 0 0;overflow-wrap:break-word}
 .nc-specimen{background:var(--nc-white);padding:var(--nc-sp5) var(--nc-sp5);
   margin:var(--nc-sp3) 0 0;outline:1px solid var(--nc-hair);outline-offset:-1px}
 .nc-specimen--bare{background:none;padding:0;outline:0}
-.nc-specimen--bare>.pad{padding:var(--nc-sp5) var(--nc-sp6)}
-.nc-lab{font-family:var(--nc-font-head);font-weight:600;text-transform:uppercase;
-  letter-spacing:.1em;font-size:max(.7em,12px);color:var(--nc-charcoal);
-  margin:var(--nc-sp6) 0 var(--nc-sp2)}
-
-/* Grids for laying specimens beside each other. Two and three only — a
-   fourth column is below the readable measure on any screen worth using. */
+.nc-specimen--bare .pad{padding:var(--nc-sp5) var(--nc-sp6)}
+.nc-lab{margin:var(--nc-sp6) 0 var(--nc-sp2)}
 .nc-g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--nc-sp4)}
 .nc-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--nc-sp4)}
 @media (max-width:52rem){.nc-g2,.nc-g3{grid-template-columns:1fr}}
-
-/* Interactive states. A link with one state is a link that looks unclicked
-   after you have clicked it, which is the one job link colour has always
-   had (NC-PAG-04). */
 .nc-link:visited{color:var(--nc-violet)}
 .ground-blue .nc-link:visited,.ground-ink .nc-link:visited{color:var(--nc-pink)}
 .nc-link:hover{text-decoration-thickness:.12em}
 .nc-link:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
-.ground-blue .nc-link:focus-visible,.ground-ink .nc-link:focus-visible{outline-color:var(--nc-teal)}
+.ground-blue .nc-link:focus-visible,.ground-ink .nc-link:focus-visible{outline-color:var(--nc-white)}
 
 /* --- 22 · THE REMAINING HTML SURFACES ------------------------------
-   The browser renders these whether or not we decide. Unstyled is still a
-   look — and it is the one look nobody chose. Each is specified, inherits, or
-   is barred; nothing is left to the user agent. */
-.nc-code{font-family:ui-monospace,Menlo,monospace;font-size:.86em;
-  background:rgba(13,13,13,.05);padding:0 var(--nc-sp1);overflow-wrap:anywhere}
-.nc-pre{font-family:ui-monospace,Menlo,monospace;font-size:.82em;line-height:1.5;
-  background:var(--nc-white);padding:var(--nc-sp4);overflow-x:auto;
-  border-left:.25em solid var(--nc-acc,var(--nc-teal))}
+   The browser renders these whether or not we decide. Each is specified,
+   inherits, or is barred; nothing is left to the user agent. No monospace
+   anywhere: a file name or literal is the file-reference chip, and a block
+   of markup is the text voice at small size in a white box. */
+.nc-pre{white-space:pre-wrap;background:var(--nc-white);padding:var(--nc-sp4);overflow-x:auto;max-width:none;
+  border-left:var(--nc-line-rule) solid var(--nc-acc,var(--nc-teal))}
+.nc-pre .nc-code{background:none;outline:0;padding:0}
 .nc-dl{margin:var(--nc-sp4) 0}
-.nc-dl dt{font-family:var(--nc-font-head);font-weight:800;font-size:.8em;letter-spacing:.06em;
-  text-transform:uppercase;margin-top:var(--nc-sp4)}
-.nc-dl dd{margin:var(--nc-sp1) 0 0;font-size:.94em;line-height:1.5}
-/* Small is secondary, never a way to smuggle text under the floor. */
-.nc-small{font-size:max(.84em,13px);color:var(--nc-charcoal);line-height:1.45}
-.ground-blue .nc-small,.ground-ink .nc-small{color:var(--nc-teal)}
-/* Progressive disclosure. Never for anything load-bearing — a finding behind a
-   twisty is a finding most readers will not meet. */
-.nc-details{border-left:.25em solid var(--nc-hair);padding-left:var(--nc-sp4);margin:var(--nc-sp4) 0}
-.nc-details>summary{font-family:var(--nc-font-head);font-weight:700;font-size:.92em;
-  cursor:pointer;padding:var(--nc-sp1) 0}
-.nc-details>summary:focus-visible{outline:3px solid var(--nc-blue);outline-offset:2px}
-/* Abbreviation: the expansion is written out on first use in the prose. The
-   dotted rule is a reminder, never the only route to the meaning. */
+.nc-dl dt{margin-top:var(--nc-sp4)}
+.nc-dl dd{margin:var(--nc-sp1) 0 0}
+.nc-details{margin:var(--nc-sp4) 0}
 .nc-abbr{border-bottom:1px dotted var(--nc-charcoal);text-decoration:none;cursor:help}
-/* Highlight. Colour is never the only signal, so the mark also carries weight. */
-.nc-mark{background:var(--nc-butter);color:var(--nc-ink);font-weight:600;padding:0 var(--nc-sp1)}
-.nc-sup,.nc-sub{font-size:.7em;line-height:0;position:relative;vertical-align:baseline}
+.nc-mark{background:var(--nc-butter);color:var(--nc-ink);font-weight:700;padding:0 var(--nc-sp1)}
+.nc-sup,.nc-sub{line-height:0;position:relative;vertical-align:baseline}
 .nc-sup{top:-.45em} .nc-sub{bottom:-.2em}
-.nc-kbd{font-family:ui-monospace,Menlo,monospace;font-size:.8em;padding:0 var(--nc-sp1);
-  background:var(--nc-ink);color:var(--nc-chalk)}
 
-/* ---- 16 · narrow widths -------------------------------------------------
-   A bar earns its place by encoding length from zero. Squeeze the track to a
-   stub on a phone and the encoding is gone — the chart still looks like a
-   chart while no longer being readable as one, which is worse than not
-   drawing it. Below 30rem the row stacks: category on its own line, then the
-   full-width track with its value. Same component, same rules, same colour —
-   only the arrangement changes, which is what a modifier is for. */
+/* --- 25 · CHART MARKS — the one place a size is set outside the roles.
+   Marks inside a chart or a statistic are sized to the chart (charts v1.4):
+   the big figure in Archivo Black, the bar label and value, the segment
+   label, the series label. Each is SPECIFIED here, not inheriting, and is
+   named in the manifest as such (TYP-21). When the chart set is next
+   revised these move onto the roles. */
+.nc-stat .big{font-family:var(--nc-font-display);font-size:2.4em;line-height:.9;letter-spacing:-.02em}
+.nc-stat.lg .big{font-size:3.4em}
+.nc-bar .lb,.nc-dot .lb,.nc-range .lb{font-size:.875rem;width:7.5em;flex:none;font-weight:400}
+.nc-bar .vl,.nc-dot .vl,.nc-range .vl{font-size:.875rem;min-width:3em;text-align:right;flex:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nc-range .vl{min-width:4.6em} .nc-dot .vl{min-width:3.4em}
+.nc-donut .tot .n{font-family:var(--nc-font-display);font-size:1.1em;line-height:1}
+.nc-stack div,.nc-line .sl{font-family:var(--nc-font-head);font-weight:800;font-size:.75rem;letter-spacing:.04em}
+.nc-donut .key div,.nc-pie .key div,.nc-key{font-size:.875rem}
+.nc-sup,.nc-sub{font-size:.7em}  /* footnote markers: a mark on the text, not a role */
+
+/* ---- 26 · narrow widths -------------------------------------------------
+   Below 30rem a bar row stacks: category on its own line, then the
+   full-width track with its value. */
 @media (max-width:30rem){
   .nc-bar,.nc-dot .row{flex-wrap:wrap}
   .nc-bar .lb,.nc-dot .lb{flex:1 0 100%;width:auto;margin-bottom:var(--nc-sp1)}
   .nc-bar .tk,.nc-dot .tk{flex:1 1 auto;min-width:0}
 }
-
-/* --- 24 · LAYOUT-CATALOGUE FURNITURE -------------------------------
-   The card around each slide in layouts/index.html — and only there.
-   Moved from that page's extra_css so no page styles itself (NC-PAG-02). */
-.lay{margin:0 0 var(--nc-sp7)}
-.layh{font-family:var(--nc-font-head);font-weight:800;font-size:1.06em;margin:0 0 var(--nc-sp2);
- display:flex;align-items:baseline;gap:var(--nc-sp3);flex-wrap:wrap;text-transform:none}
-.layh .code{background:var(--nc-ink);color:var(--nc-chalk);padding:var(--nc-sp1) var(--nc-sp2);
- font-size:.8em;letter-spacing:.06em}
-.layh .meta{font-weight:600;font-size:max(.72em,12px);letter-spacing:.06em;text-transform:uppercase;
- color:var(--nc-charcoal)}
-.why{font-size:max(.9em,13px);color:var(--nc-charcoal);max-width:74ch;margin-bottom:var(--nc-sp4)}
-.lay .nc-slide{outline:1px solid var(--nc-hair);outline-offset:-1px}

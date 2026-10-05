@@ -1,5 +1,5 @@
 <section data-nc-specimen="breakers">
-<h2 class="nc-section-head"><span class="num">01</span><span class="ttl">Grounds</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">01</span></span><span class="nc-section-title">Grounds</span></h2>
 <p class="nc-small">Two dark grounds take white text. Two reading grounds take ink or charcoal. Teal is the
 section-header colour on <em>every</em> dark ground — one rule, not two.</p>
 <div class="nc-specimen">
@@ -20,53 +20,67 @@ section-header colour on <em>every</em> dark ground — one rule, not two.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">02</span><span class="ttl">Type</span></h2>
-<div class="nc-specimen">
-<p class="nc-display">Music is how a place<br>knows itself</p>
-<p class="nc-fnote">.nc-display · Archivo Black · caps applied · tracking −1% · leading .9 · two lines maximum. <b>Decorative tier</b> — ch03 puts display and covers there, so this step is free and is not part of the reading scale.</p>
-<p class="nc-h1">The bridge we build</p>
-<p class="nc-fnote">.nc-h1 · 2em = 32px = 24pt · Archivo ExtraBold 800 · caps · +1% · leading 1.05. Size from ch03's worked scale; eight words maximum, break rather than shrink.</p>
-<p class="nc-h2">Principles for partnership</p>
-<p class="nc-fnote">.nc-h2 · 1.5em = 24px = 18pt · caps · +4% — tracking compensates for optical tightening as caps shrink.</p>
-<p class="nc-h3">How shared evidence should be built</p>
-<p class="nc-fnote">.nc-h3 · 1.125em = 18px · sentence case · leading 1.3. The floor — caps stop working below 16pt.</p>
-<p class="nc-body">Public systems often measure the night, but the metrics miss the stories nightlife tells about itself. Culturally powerful, institutionally under-evidenced.</p>
-<p class="nc-fnote">.nc-body · 1em = 16px = 12pt · leading 1.55 · left aligned, never justified · measure capped at 70ch. v1.4 sets 12pt as both the minimum AND the preferred document body.</p>
-<p class="nc-fnote">.nc-fnote · 0.875em = 14px = 10.5pt · v1.4 footnotes and caveats. This paragraph is the specimen.</p>
-<p class="nc-body"><b>The rhythm is not a size.</b> Each heading carries three times the space above it that it carries below, so it attaches to what follows rather than floating between blocks — ch03. That is why the gaps above these headings are uneven and deliberate.</p>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">02</span></span><span class="nc-section-title">Type</span></h2>
+<p class="nc-small"><strong>One rule for all type (v1.5).</strong> Every text style is one of five voices at one of six
+sizes, generated from <code class="nc-code">foundations/tokens.json</code>. A component may place text, colour it and
+put a line beside it; it never sets a typeface, a size, a weight or capitals, and the build refuses one that does.
+The table below is generated from the same rows as the stylesheet, so the two cannot disagree. A heading style sits
+only on its own element, h1 to h4; there is no H5 or H6.</p>
+<!-- NC:ROLES -->
+<p class="nc-lab">The roles in use — one page of a chapter, built only from them</p>
+<div class="nc-specimen ground-white">
+<h3 class="nc-section-head nc-heading-3"><span class="nc-number-slot"><span class="nc-number">01</span></span><span class="nc-section-title">The default view</span></h3>
+<p class="nc-subtitle">The landing view is the claim</p>
+<p class="nc-chip-row"><span class="nc-chip nc-chip--done">Done</span><span class="nc-small">Part 0 · The glance</span></p>
+<h4 class="nc-heading-3">The decision</h4>
+<div class="nc-key-statement-panel"><p class="nc-key-statement">What does the instrument say before anyone touches it, and to whom?</p></div>
+<h4 class="nc-heading-3">The 60-second version</h4>
+<div class="nc-panel nc-panel--left acc-teal"><p class="nc-body">The default view is not a starting point for interaction. For most visitors it is the entire product: the New York Times' own analytics found only 10–15% of readers touch the interaction layer at all.</p></div>
+<h5 class="nc-heading-4">Step one: accept that the default is the product</h5>
+<p class="nc-body">Gregor Aisch, then of the New York Times graphics desk, published the desk's own finding: readers interact with roughly 10–15% of graphics, <em>"the 85% of readers didn't ignore the graphic, they just didn't click the button."</em> <span class="nc-evidence-mark">[Measured · internal analytics]</span></p>
+<blockquote class="nc-quote"><p class="nc-takeaway">“If some information is crucial, don’t make the user click or hover to see it.”</p><footer class="nc-attribution">Gregor Aisch · New York Times graphics desk</footer></blockquote>
+<blockquote class="nc-quote"><p class="nc-quotation">“The 85% of readers didn’t ignore the graphic, they just didn’t click the button. If some information is crucial, don’t make the user click or hover to see it.”</p><footer class="nc-attribution">Gregor Aisch · New York Times graphics desk</footer></blockquote>
+<ul class="nc-list"><li class="nc-list-item">Judgment precedes reading</li><li class="nc-list-item">Text carries the message</li><li class="nc-list-item">Defaults are read as advice</li></ul>
+<p class="nc-body"><span class="nc-label">Source file</span> <code class="nc-file-reference">04-chapters/ch01-the-default-view.md</code></p>
+<div class="nc-running-foot-row"><span class="nc-running-foot">Nightlife Culture · Dashboard design</span><span class="nc-running-foot">The reader · 4 Oct 2026 · 07</span></div>
 </div>
-<p class="nc-small"><strong>Leading is scoped, not one number.</strong> Display 1.02–1.1 · H2/H3 1.15–1.25 ·
-running prose 1.5–1.6 · table cells 1.25–1.35 · captions 1.3–1.4 · <strong>statistic blocks 1.0–1.1,
-because a number is not text</strong> · lists 1.4–1.5. The 1.5 floor is a running-prose rule and
-applying it as a blanket is a category error.</p>
+<p class="nc-note">The headings here are h3, h4 and h5 because this page's own structure already uses h1 and h2; each carries the role of the level it plays in the chapter (heading-3 on the section, heading-3 on the sub-sections, heading-4 on the step). In a document the roles sit on h1 to h4 directly. The subtitle is Inter Regular at 18px; the key statement is Archivo Bold at body size in its top-rule panel; the takeaway is bold and the quotation regular, both at body size with a pink rule; the evidence mark is the label voice in brackets; the file reference is a white hairline chip, never monospace.</p>
+<p class="nc-small"><strong>Leading is scoped, not one number.</strong> Each voice carries its own: capitals 1.12 · sentence 1.3 · text 1.55
+(table cells 1.35, small 1.45) · label 1.4 · display .94. Each heading carries three times the space above it that it carries
+below, so it attaches to what follows rather than floating between blocks (ch03). <strong>Emphasis:</strong> italic for a short
+run inside a paragraph; bold for the first column of a table and, rarely, a word or two in a sentence.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Section header</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">03</span></span><span class="nc-section-title">Section header</span></h2>
 <p class="nc-small">Documents and web only — <strong>not slides</strong>. A numbered block is a heading in
 Archivo ExtraBold; a slide title is display in Archivo Black. Different type levels, different jobs.
 The numeral is optional; an invented number is worse than none.</p>
 <div class="nc-specimen">
-<h3 class="nc-section-head"><span class="num">04</span><span class="ttl">Evidence standard</span></h3>
-<p class="nc-note" style="margin-top:calc(-1 * var(--nc-sp3))">Rule <em>below</em>, .19em ink · numeral in a filled box, vertically centred · gap .9em · padding-bottom .7em</p>
-<h3 class="nc-section-head" style="margin-top:var(--nc-sp6)"><span class="ttl">Unnumbered — the rule and title still hold</span></h3>
+<h3 class="nc-section-head nc-heading-3"><span class="nc-number-slot"><span class="nc-number">04</span></span><span class="nc-section-title">Evidence standard</span></h3>
+<p class="nc-note" style="margin-top:calc(-1 * var(--nc-sp3))">Rule <em>below</em>, at the rule weight (4px) · numeral in an ink box, centred on the first line of the title · the heading element carries its own heading role</p>
+<h3 class="nc-section-head nc-heading-3" style="margin-top:var(--nc-sp6)"><span class="nc-section-title">Unnumbered — the rule and title still hold</span></h3>
+<div class="nc-g3" style="margin-top:var(--nc-sp6)"><h3 class="nc-section-head nc-heading-3"><span class="nc-number-slot"><span class="nc-number">02</span></span><span class="nc-section-title">The two columns stand side by side</span></h3></div>
+<p class="nc-note" style="margin-top:calc(-1 * var(--nc-sp3))">On two lines the number stays on the first line and the rule runs the full width</p>
 </div>
 <div class="nc-specimen nc-specimen--bare"><div class="pad ground-ink">
-<h3 class="nc-section-head"><span class="num">07</span><span class="ttl">On a dark ground it inverts</span></h3>
-<p class="nc-note" style="color:var(--nc-teal)">Rule and numeral box both become teal · numeral text becomes ink</p>
+<h3 class="nc-section-head nc-heading-3"><span class="nc-number-slot"><span class="nc-number">07</span></span><span class="nc-section-title">On a dark ground it inverts</span></h3>
+<p class="nc-note">Rule and numeral box both become teal · numeral text becomes ink · every text role is white</p>
 </div></div>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">04</span><span class="ttl">Containment</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">04</span></span><span class="nc-section-title">Containment</span></h2>
 <p class="nc-small">Contain with colour and space, not outlines. Before reaching for any of these, check
 whether you are compensating for a proximity error — you usually are, and the fix is to move things
-rather than draw a line between them.</p>
+rather than draw a line between them. <strong>Four weights of line and no others</strong> (v1.5): the
+hairline (1px), the table line (2px, under a header row), the rule (4px, a line that goes with text) and the
+callout line (8px, a line on a filled box, top or left).</p>
 <div class="nc-specimen">
 <div class="nc-g3" style="margin-top:var(--nc-sp4)">
 <div class="nc-panel nc-panel--fill acc-violet"><p class="lab">Fill</p><p class="txt">The colour field <em>is</em> the container. The default for accent panels. Needs generous space around it.</p></div>
-<div class="nc-panel nc-panel--top acc-teal"><p class="lab">Top rule · 9px</p><p class="txt">White panel, accent bar. Dense pages, tables, long documents where five filled panels would be too much.</p></div>
-<div class="nc-panel nc-panel--left acc-pink"><p class="lab">Left rule · 12px</p><p class="txt">Reads as an aside rather than a box. Pull quotes, callouts, asides.</p></div>
+<div class="nc-panel nc-panel--top acc-teal"><p class="lab">Top rule · callout line</p><p class="txt">White panel, accent bar. Dense pages, tables, long documents where five filled panels would be too much.</p></div>
+<div class="nc-panel nc-panel--left acc-pink"><p class="lab">Left rule · callout line</p><p class="txt">Reads as an aside rather than a box. Pull quotes, callouts, asides.</p></div>
 </div>
 <div class="nc-g3" style="margin-top:var(--nc-sp4)">
 <div class="nc-band acc-violet" style="margin:0"><p class="lab">Full-bleed band</p><p class="txt">Runs edge to edge. Stops being a panel and becomes a change of ground.</p></div>
@@ -76,28 +90,28 @@ rather than draw a line between them.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">05</span><span class="ttl">Breakers</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">05</span></span><span class="nc-section-title">Breakers</span></h2>
 <p class="nc-small">A breaker is a paragraph break for a surface — a separator, not an ornament.
 <strong>One per surface.</strong> The mid-statement break is retired: it interrupts the sentence
 rather than pacing it.</p>
 <div class="nc-specimen">
-<p class="nc-lab" style="margin-top:0">Separator — the default, flush left, between title zone and body</p><hr class="nc-brk">
-<p class="nc-lab">Accent bar — above a pull quote. The only decorative use, and always at the top</p><hr class="nc-brk nc-brk--bar">
+<p class="nc-lab" style="margin-top:0">Separator — the default, flush left, between title zone and body, at the rule weight</p><hr class="nc-brk">
+<p class="nc-lab">Accent bar — above a pull quote. Same weight, pink</p><hr class="nc-brk nc-brk--bar">
 <p class="nc-lab">Hairline — under a title on dense or document-register surfaces</p><hr class="nc-brk--hair">
 <p class="nc-lab">Stop — under a divider title, with nothing following it</p><hr class="nc-brk acc-teal">
 </div>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">06</span><span class="ttl">Quote and statistic</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">06</span></span><span class="nc-section-title">Quote and statistic</span></h2>
 <div class="nc-specimen">
-<div class="nc-quote"><div class="q">Enough rigour for institutions. Enough cultural truth for the people who make the night.</div>
-<div class="a">Trusted Partner Deck · slide 08</div></div>
-<p class="nc-note">Pull quote · 12px pink rule as .75em · quote 1.45em · measure 40ch · <code>.lg</code> for slide scale</p>
+<div class="nc-quote"><p class="nc-takeaway">Enough rigour for institutions. Enough cultural truth for the people who make the night.</p>
+<footer class="nc-attribution">Trusted Partner Deck · slide 08</footer></div>
+<p class="nc-note">Takeaway · the sentence voice at body size, in the running text, with a pink rule at the rule weight · attribution in the label voice · measure 60ch. The quotation role (regular weight) takes the same frame; see section 02.</p>
 </div>
 <p class="nc-lab">Breakout stat — three variants. The source line is part of the component.</p>
 <div class="nc-g3" style="margin-top:var(--nc-sp2)">
-<div class="nc-stat"><p class="big">£36.4bn</p><p class="lb">Night-time economy</p><p class="src">ONS Business Register · 2024 · England · administrative · final</p></div>
+<div class="nc-stat"><p class="big">£36.4bn</p><p class="lb">Night time economy</p><p class="src">ONS Business Register · 2024 · England · administrative · final</p></div>
 <div class="nc-stat nc-stat--top acc-teal"><p class="big">6PM–6AM</p><p class="lb">Night, operationally defined</p><p class="src">Nightlife Culture · v1.4 §05 · for measurement purposes</p></div>
 <div class="nc-stat nc-stat--fill acc-butter"><p class="big">£49.8K</p><p class="lb">Fellowship ask</p><p class="src">8-month core plus 4 months follow-through · illustrative</p></div>
 </div>
@@ -108,7 +122,7 @@ produce, so it carries a minimum base.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">07</span><span class="ttl">Evidence furniture</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">07</span></span><span class="nc-section-title">Evidence furniture</span></h2>
 <p class="nc-small">From the methodology, not decoration. The <strong>code carries the meaning</strong> —
 colour is a fast visual sort, never the carrier. So the tier survives greyscale, a projector and a
 screen reader. Coral never means “bad”; it means “handle with a stated caveat”.</p>
@@ -126,21 +140,21 @@ screen reader. Coral never means “bad”; it means “handle with a stated cav
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">08</span><span class="ttl">Tables</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">08</span></span><span class="nc-section-title">Tables</span></h2>
 <p class="nc-small"><strong>Demonstration and reference tables are two different objects.</strong> This is a
 demonstration table — small, in the flow, supporting the sentence beside it. A reference table belongs
 in a spreadsheet. Editorial is the default: no fill, no vertical rules, no outer border.</p>
 <div class="nc-specimen">
 <table class="nc-table" style="margin-top:var(--nc-sp4)">
-<caption class="nc-caption" style="text-align:left;margin:0 0 .6em">Table 1 · Where value is held in the night-time economy, by actor</caption>
-<thead><tr><th>Actor</th><th>Share of value</th><th class="num">Index</th><th class="num">Change</th></tr></thead>
+<caption class="nc-table-title">Table 1 · Where value is held in the night time economy, by actor</caption>
+<thead><tr><th>Actor</th><th>Share of value</th><th class="nc-figure-cell">Index</th><th class="nc-figure-cell">Change</th></tr></thead>
 <tbody>
-<tr><td>Venues</td><td>Premises turnover, licensed trade</td><td class="num">82.4</td><td class="num">+4.1</td></tr>
-<tr><td>Artists</td><td>Fees, recording, publishing</td><td class="num">64.0</td><td class="num">−2.3</td></tr>
-<tr><td>Promoters</td><td>Ticketing margin, production</td><td class="num">47.2</td><td class="num">+1.8</td></tr>
-<tr><td>Crew and tech</td><td>Freelance and agency labour</td><td class="num">[c]</td><td class="num">n/a</td></tr>
+<tr><td>Venues</td><td>Premises turnover, licensed trade</td><td class="nc-figure-cell">82.4</td><td class="nc-figure-cell">+4.1</td></tr>
+<tr><td>Artists</td><td>Fees, recording, publishing</td><td class="nc-figure-cell">64.0</td><td class="nc-figure-cell">−2.3</td></tr>
+<tr><td>Promoters</td><td>Ticketing margin, production</td><td class="nc-figure-cell">47.2</td><td class="nc-figure-cell">+1.8</td></tr>
+<tr><td>Crew and tech</td><td>Freelance and agency labour</td><td class="nc-figure-cell">[c]</td><td class="nc-figure-cell">n/a</td></tr>
 </tbody></table>
-<p class="nc-caption">The first column is bold: it names the row. Figures and their column headings right-aligned, so digits line up by place
+<p class="nc-small">The title above is the table-title role; the header row is the label voice under the 2px table line; the first column is bold, because it names the row. Figures and their column headings right-aligned, so digits line up by place
 value. Consistent precision within each column. Rows ordered by the data, largest first — not
 alphabetically. <code>[c]</code> suppressed for disclosure control; <code>n/a</code> not collected.
 Never a blank cell, because a gap in the data is a finding.</p>
@@ -156,7 +170,7 @@ Never a blank cell, because a gap in the data is a finding.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">09</span><span class="ttl">Charts</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">09</span></span><span class="nc-section-title">Charts</span></h2>
 <p class="nc-small">Every chart ships as a package or not at all: title carrying the message, subtitle with
 unit and population, the chart, then the evidence block. <strong>Label at the mark</strong> — for a
 brand-derived palette, direct labelling is not a polish pass, it is the mechanism by which the chart
@@ -191,7 +205,7 @@ Ranges are plausible intervals, not confidence intervals.<br>
 </div>
 
 <div class="nc-chart acc-violet">
-<p class="ct">Where night-time spend goes</p>
+<p class="ct">Where night time spend goes</p>
 <p class="cs">Share of total, 2024. Four segments, ordered clockwise from largest. Illustrative.</p>
 <div class="nc-donut">
 <div class="ring" style="background:conic-gradient(#0000FF 0 41%,#C7339A 41% 68%,#00C6C5 68% 87%,#FFDE6B 87% 100%)">
@@ -232,7 +246,7 @@ rule already covers most cases, which is why it comes first.</p>
 </section>
 
 <section>
-<h2 class="nc-section-head"><span class="num">10</span><span class="ttl">Text, contents and furniture</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">10</span></span><span class="nc-section-title">Text, contents and furniture</span></h2>
 <div class="nc-g2">
 <div class="nc-specimen" style="margin-top:0">
 <p class="nc-lab" style="margin-top:0">Lists — space between items does the work</p>
@@ -242,7 +256,7 @@ rule already covers most cases, which is why it comes first.</p>
 <li><strong>Local ownership</strong> — each place keeps its own truth</li>
 </ul>
 <p class="nc-lab">Link — purpose clear from the text alone</p>
-<p style="margin:.5em 0 0"><a class="nc-link" href="#">Download the 2024 night-time economy dataset</a>
+<p style="margin:.5em 0 0"><a class="nc-link" href="#">Download the 2024 night time economy dataset</a>
 — never “click here”, never a bare URL, and the URL is printed if the document will be.</p>
 <p class="nc-lab">Glossary term — explained at first use</p>
 <p style="margin:.5em 0 0">The <span class="nc-term">comparability gate</span> is cleared when concept,
@@ -256,32 +270,70 @@ fell by a third between 2019 and 2024”, never “line chart of venue counts”
 </div>
 <div class="nc-specimen" style="margin-top:0">
 <p class="nc-lab" style="margin-top:0">Contents — built from finding-headings</p>
-<nav class="nc-contents">
-<a href="#"><span class="chip acc-blue"></span><span class="n">01</span><span class="t">Nightlife is cultural infrastructure</span><span class="p">04</span></a>
-<a href="#"><span class="chip acc-pink"></span><span class="n">02</span><span class="t">Public systems measure the night and miss it</span><span class="p">09</span></a>
-<a href="#"><span class="chip acc-teal"></span><span class="n">03</span><span class="t">A shared evidence layer would travel</span><span class="p">17</span></a>
-<a href="#"><span class="chip acc-butter"></span><span class="n">04</span><span class="t">What we cannot yet say, and why</span><span class="p">24</span></a>
+<nav class="nc-contents" aria-label="Contents">
+<a href="#"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">01</span></span><span>Nightlife is cultural infrastructure</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 04</span></span></span><span class="nc-small">The landing view is the claim</span></a>
+<a href="#"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">02</span></span><span>Public systems measure the night and miss it</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 09</span></span></span><span class="nc-small">What's missed stands beside what's measured</span></a>
+<a href="#"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">03</span></span><span>A shared evidence layer would travel</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 17</span></span></span><span class="nc-small">A map is a thinking tool, not a postcode plot</span></a>
 </nav>
 <p class="nc-small" style="margin-top:var(--nc-sp4)"><strong>Reading only the contents is reading the argument.</strong>
-That is not a compromise — for most readers it is the intended reading. The colour chip is a thumb
-tab; the number and title carry the meaning without it.</p>
-<div class="nc-foot"><span>Nightlife Culture · Evidence standard</span><span>v1.4 · 16 Aug 2026 · 07</span></div>
+The chapter number is the same ink box as on a section title, centred on the first line; the title is capitals with a
+line of Inter beneath; the page number is the number role with a p (rounds two to five).</p>
+<p class="nc-lab">The rail — the same list, with a rule-weight marker on the current chapter</p>
+<nav class="nc-contents nc-contents--rail ground-chalk" aria-label="Chapters" style="padding:var(--nc-sp2) 0">
+<a href="#" aria-current="true"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">01</span></span><span>Nightlife is cultural infrastructure</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 04</span></span></span><span class="nc-small">The landing view is the claim</span></a>
+<a href="#"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">02</span></span><span>Public systems measure the night and miss it</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 09</span></span></span><span class="nc-small">What's missed stands beside what's measured</span></a>
+</nav>
+<div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · Evidence standard</span><span class="nc-running-foot">v1.5 · 5 Oct 2026 · 07</span></div>
 <p class="nc-note">Running foot carries the <em>section</em>, not just the document title — so a
 photocopied page knows where it came from. Version and date on the face.</p>
 </div>
 
 </div>
 
+<section>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">11</span></span><span class="nc-section-title">Status, controls and headings that open</span></h2>
+<p class="nc-small">Added in v1.5 from the reader (4–5 Oct 2026). A status chip is the label voice on a fill, one accent
+per state, and the word carries the meaning, never the colour alone. Agreed and Your answer are the inverse of the
+ground. There is one button, one minor action and one search field. Any heading may open and close, and keeps the
+style of its level.</p>
+<div class="nc-specimen ground-white">
+<p class="nc-lab" style="margin-top:0">Status chips — the Kanban states</p>
+<p class="nc-chip-row"><span class="nc-chip nc-chip--to-do">To do</span><span class="nc-chip nc-chip--in-progress">In progress</span><span class="nc-chip nc-chip--review">Review</span><span class="nc-chip nc-chip--blocked">Blocked</span><span class="nc-chip nc-chip--done">Done</span><span class="nc-chip nc-chip--parked">Parked</span></p>
+<p class="nc-lab">Decision chips</p>
+<p class="nc-chip-row"><span class="nc-chip nc-chip--proposed">Proposed</span><span class="nc-chip nc-chip--settled">Agreed</span><span class="nc-chip nc-chip--settled">Your answer</span><span class="nc-chip nc-chip--conclusion">Recommendation</span></p>
+<p class="nc-lab">Recommendation box, and the Claude note that never prints</p>
+<div class="nc-recommendation"><span class="nc-chip nc-chip--conclusion">Recommendation</span><p class="nc-body"><strong>A.</strong> A title has to outrank the row of column headings under it, and in the label voice it cannot, because that row is already the label voice.</p></div>
+<div class="nc-claude-note"><p class="nc-label">Claude note · not for publication</p><p class="nc-small">This reader is rebuilt from the chapter files; it is not the handbook.</p></div>
+</div>
+<p class="nc-lab">Button, text action, link, search and chips on each ground</p>
+<div class="nc-specimen nc-specimen--bare"><div class="nc-g3">
+<div class="pad ground-chalk"><div class="nc-search"><label class="nc-label" for="nc-search-1">Search the whole book</label><div class="nc-search-row"><input class="nc-body" id="nc-search-1" type="search" placeholder="threshold, crop test, Form 696" autocomplete="off"><button type="button" class="nc-search-button" aria-label="Search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 L21 21"></path></svg></button></div></div><div class="nc-action-row" style="margin-top:var(--nc-sp4)"><button type="button" class="nc-button">Read chapter two</button><button type="button" class="nc-text-action">Collapse all</button></div><p class="nc-body" style="margin:var(--nc-sp4) 0 0">A link inside a sentence, such as <a class="nc-link" href="#">the audit of live instruments</a>, is underlined.</p><p class="nc-chip-row" style="margin:var(--nc-sp3) 0 0"><span class="nc-chip nc-chip--proposed">Proposed</span><span class="nc-chip nc-chip--settled">Agreed</span><span class="nc-chip nc-chip--settled">Your answer</span><span class="nc-chip nc-chip--conclusion">Recommendation</span></p></div>
+<div class="pad ground-ink"><div class="nc-search"><label class="nc-label" for="nc-search-2">Search the whole book</label><div class="nc-search-row"><input class="nc-body" id="nc-search-2" type="search" placeholder="threshold, crop test, Form 696" autocomplete="off"><button type="button" class="nc-search-button" aria-label="Search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 L21 21"></path></svg></button></div></div><div class="nc-action-row" style="margin-top:var(--nc-sp4)"><button type="button" class="nc-button">Read chapter two</button><button type="button" class="nc-text-action">Collapse all</button></div><p class="nc-body" style="margin:var(--nc-sp4) 0 0">A link inside a sentence, such as <a class="nc-link" href="#">the audit of live instruments</a>, is underlined.</p><p class="nc-chip-row" style="margin:var(--nc-sp3) 0 0"><span class="nc-chip nc-chip--proposed">Proposed</span><span class="nc-chip nc-chip--settled">Agreed</span><span class="nc-chip nc-chip--settled">Your answer</span><span class="nc-chip nc-chip--conclusion">Recommendation</span></p></div>
+<div class="pad ground-blue"><div class="nc-search"><label class="nc-label" for="nc-search-3">Search the whole book</label><div class="nc-search-row"><input class="nc-body" id="nc-search-3" type="search" placeholder="threshold, crop test, Form 696" autocomplete="off"><button type="button" class="nc-search-button" aria-label="Search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 L21 21"></path></svg></button></div></div><div class="nc-action-row" style="margin-top:var(--nc-sp4)"><button type="button" class="nc-button">Read chapter two</button><button type="button" class="nc-text-action">Collapse all</button></div><p class="nc-body" style="margin:var(--nc-sp4) 0 0">A link inside a sentence, such as <a class="nc-link" href="#">the audit of live instruments</a>, is underlined.</p><p class="nc-chip-row" style="margin:var(--nc-sp3) 0 0"><span class="nc-chip nc-chip--proposed">Proposed</span><span class="nc-chip nc-chip--settled">Agreed</span><span class="nc-chip nc-chip--settled">Your answer</span><span class="nc-chip nc-chip--conclusion">Recommendation</span></p></div>
+</div></div>
+<p class="nc-note">The button is blue and fully rounded, the one thing to press; on blue it is white with blue wording. The text action is the button's voice, underlined. The search field is white with a hairline, a charcoal hint, a blue focus ring and an icon button. On ink and blue every text role, label and link is white; Agreed is the inverse chip; Recommendation is ink on blue. Known: the blue button's edge on ink is 2.26:1, shown as chosen.</p>
+<p class="nc-lab">Headings that open and close — each keeps the style of its level</p>
+<div class="nc-specimen">
+<details class="nc-collapsible" open><summary><h3 class="nc-heading-3">How the decision is made</h3></summary>
+<details class="nc-collapsible" open><summary><h4 class="nc-heading-4">Step one: accept that the default is the product</h4></summary>
+<p class="nc-body">The first step opens here, in line with its heading.</p></details>
+<details class="nc-collapsible"><summary><h4 class="nc-heading-4">Step two: write the first sentence before designing the first screen</h4></summary>
+<p class="nc-body">The second step is closed.</p></details>
+</details>
+</div>
+<p class="nc-note">A details element with a heading inside its summary. Nothing load-bearing is hidden: a heading that holds the finding starts open, and everything prints open (NC-DOC-10).</p>
+</section>
+
 <hr class="nc-brk acc-coral">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">16</span><span class="ttl">The rest of the chart set</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">16</span></span><span class="nc-section-title">The rest of the chart set</span></h2>
   <p>Specified in charts v1.4 and built in the last pass. Every one carries the same rules as
      the bar: four series maximum, labelled at the mark, provenance on the chart.</p>
 
   <p class="nc-lab">Pie — permitted, with the caveat stated</p>
   <figure class="nc-chart">
-    <h3 class="ct">Venues hold two fifths of night-time spend</h3>
+    <h3 class="ct">Venues hold two fifths of night time spend</h3>
     <p class="cs">Share of turnover by actor type, illustrative.</p>
     <div class="nc-pie">
       <div class="disc" style="background:conic-gradient(var(--nc-chart-1) 0 41%,var(--nc-chart-2) 41% 68%,var(--nc-chart-3) 68% 87%,var(--nc-chart-4) 87% 100%)"></div>
@@ -378,20 +430,20 @@ photocopied page knows where it came from. Version and date on the face.</p>
 <hr class="nc-brk acc-violet">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">17</span><span class="ttl">Every remaining text surface</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">17</span></span><span class="nc-section-title">Every remaining text surface</span></h2>
   <p>The browser renders these whether or not we decide. Unstyled is still a look — and it is the
      one nobody chose. Each is specified, inherits, or is barred; nothing is left to the user agent.</p>
 
   <div class="nc-specimen">
-    <p>A defined term like <span class="nc-term">night-time economy</span> keeps its definition in the
-      prose. An abbreviation such as <abbr class="nc-abbr" title="Night-Time Economy">NTE</abbr> is
+    <p>A defined term like <span class="nc-term">night time economy</span> keeps its definition in the
+      prose. An abbreviation such as <abbr class="nc-abbr" title="Night Time Economy">NTE</abbr> is
       written out in full on first use — the dotted rule is a reminder, never the only route to the
       meaning. Inline code reads <code class="nc-code">--nc-sp4</code>, a key is
       <kbd class="nc-kbd">esc</kbd>, and a highlight like <mark class="nc-mark">this one</mark> carries
       weight as well as fill, so it survives greyscale. Footnote markers sit
       up<sup class="nc-sup">1</sup> or down<sub class="nc-sub">2</sub>.</p>
-    <p class="nc-small">Small is secondary — never a way to get under the 12pt floor. This line is
-      at the 13px note floor.</p>
+    <p class="nc-small">Small is secondary — never a way to get under the floor. This line is the
+      small role, 14px; only the label voice goes to 12px, in capitals, as a phrase.</p>
     <ol class="nc-list nc-list--num">
       <li>A numbered list, where the order is part of the meaning.</li>
       <li>Space between items does the work, not the leading inside them.</li>
@@ -414,12 +466,12 @@ photocopied page knows where it came from. Version and date on the face.</p>
 
   <p class="nc-lab">Banded table — long reference tables where the eye needs a rail</p>
   <table class="nc-table nc-table--band">
-    <thead><tr><th>Ground</th><th>Text</th><th class="num">Measured</th></tr></thead>
+    <thead><tr><th>Ground</th><th>Text</th><th class="nc-figure-cell">Measured</th></tr></thead>
     <tbody>
-      <tr><td>Blue</td><td>white</td><td class="num">8.5925</td></tr>
-      <tr><td>Ink</td><td>white</td><td class="num">19.4355</td></tr>
-      <tr><td>Chalk</td><td>ink</td><td class="num">17.5155</td></tr>
-      <tr><td>White</td><td>ink</td><td class="num">19.4355</td></tr>
+      <tr><td>Blue</td><td>white</td><td class="nc-figure-cell">8.5925</td></tr>
+      <tr><td>Ink</td><td>white</td><td class="nc-figure-cell">19.4355</td></tr>
+      <tr><td>Chalk</td><td>ink</td><td class="nc-figure-cell">17.5155</td></tr>
+      <tr><td>White</td><td>ink</td><td class="nc-figure-cell">19.4355</td></tr>
     </tbody></table>
   <p class="nc-note">.nc-table--band. Never band and rule at once — two grouping mechanisms doing one
     job means neither reads as deliberate. NC-TBL-01.</p>
@@ -428,18 +480,18 @@ photocopied page knows where it came from. Version and date on the face.</p>
 </section>
 
 <hr class="nc-brk--hair" style="width:100%;margin:0 0 var(--nc-sp4)">
-<p class="nc-small">Component library v1.0. Generated from <code>foundations/tokens.json</code> by
-<code>checks/build.py</code> — 113 classes, no hand-authored CSS, no colour chosen at authoring time.
-Gated by <code>checks/validate.py</code> against <code>foundations/rules.json</code>. Component specs
-from <code>headers.html</code>, containment v1.3, charts v1.4, slides v1.5, furniture v1.6 and
-<code>joy.html</code>. Rules from Style Guide v1.4 and The Decision Book chapters 1–18, digest
-<code>6034d466ccbf4071</code>. Every caps string applied by <code>text-transform</code>; every heading
-a real element; fonts embedded; reflows at 320px.</p>
+<p class="nc-small">Component library v1.5 (5 October 2026). Generated from <code>foundations/tokens.json</code> by
+<code>checks/build.py</code> — every text style one of the 26 roles, no hand-authored CSS, no colour chosen at authoring time;
+the build refuses a component that sets its own type. Gated by <code>checks/validate.py</code> against <code>foundations/rules.json</code>.
+Component specs from <code>headers.html</code>, containment v1.3, charts v1.4, slides v1.5, furniture v1.6, <code>joy.html</code>
+and the review rounds of 4–5 October 2026. Rules from Style Guide v1.5 and The Decision Book chapters 1–18, digest
+<code>8701c5a003db5b0b</code>. Every caps string applied by <code>text-transform</code>; every heading
+a real element on its own level; fonts embedded; reflows at 320px.</p>
 
 <hr class="nc-brk acc-blue">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">18</span><span class="ttl">The page layer</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">18</span></span><span class="nc-section-title">The page layer</span></h2>
   <p>The furniture every sheet needs. This did not exist until now — the system had ninety
      components and nothing for the page around them, so each sheet was hand-authored. Five
      separate stylesheets, none governed, and they disagreed: three declared an ink masthead and
@@ -453,7 +505,7 @@ a real element; fonts embedded; reflows at 320px.</p>
     <header class="nc-mast" style="margin-bottom:0">
       <div class="nc-wrap" style="padding-bottom:0">
         <p class="nc-kick">Nightlife Culture · design system</p>
-        <h1 style="font-size:clamp(var(--nc-sp6),4.4vw,var(--nc-sp7))">A masthead</h1>
+        <h1 class="nc-display">A masthead</h1>
         <p class="stand">One paragraph saying what this is. Never a second one — if it needs two,
           the first is not doing its job.</p>
       </div>

@@ -76,7 +76,7 @@ scaffolds are deleted, and one generator produces every sheet.
 **Logged upstream as GAP-30** in the decision-book register — the Book has no rule for page
 furniture either, so this is not only ours.
 
-### 9. The type scale is not a component — NEEDS A DECISION
+### 9. The type scale is not a component — RESOLVED 5 Oct 2026 (v1.5: 26 roles generated from tokens)
 The most fundamental thing in a design system, and there is no class for it. `tokens.json` holds
 six type ROLES — display, h1, h2, h3, body, label — each with a face, a weight, a case and a
 tracking value. It holds no document SIZES: `type.sizes.document.scale` reads, in the file,
@@ -98,7 +98,7 @@ are this one specimen.
 `tokens.json`, the library specimen uses those classes, and a check fails on type set in a style
 attribute. **I am not choosing the sizes.**
 
-### 10. A component may be re-declared in a later section — no rule either way
+### 10. A component may be re-declared in a later section — RESOLVED 5 Oct 2026: one class, one place; type comes only from the roles, and the build refuses a component that sets its own
 `.nc-prov` was the evidence-provenance chip. A second `.nc-prov` was written for a provenance
 table, four sections later. The later one won. Every cell in that table rendered as white text on
 white — and the validator passed, coverage passed, the stamps matched. Nothing in the system could
@@ -134,7 +134,7 @@ repeatedly that if there is no answer we have probably already written the logic
 **Now built:** `.nc-display .nc-h1 .nc-h2 .nc-h3 .nc-body .nc-fnote`, generated from tokens, every
 number carrying the source it was read from.
 
-**Still genuinely open — ONE number, not six:** the document LABEL size. v1.4's size table gives
+**Decided 5 Oct 2026: 12px on screen, 10pt in print, the label voice only (round two).** Was open as the document LABEL size. v1.4's size table gives
 slide labels (14pt min, 16pt+) and no document label at all, and the caps floor is stated as 16pt
 "on screen". At a 12pt document body a 16pt caps label would be larger than the body text.
 
@@ -182,6 +182,41 @@ to a handful of properties and will not report it, so the "visited one" in that 
 identically to the unvisited one. The page describes hover and focus and demonstrates neither. That
 is a specimen that describes instead of showing, in the library built to prove the opposite.
 
+### 15. Public severity marks — PARKED by Carly, 4 Oct 2026
+Internal status chips carry a word on a fill (NC-CHP-01). A public document has no coloured severity
+mark. **Interim:** none; the word alone. **Closes when:** a real case comes up and Carly decides
+against it. Do not invent RAG tags.
+
+### 16. Other button styles and the icon set
+One blue button, one text action, one search icon. **Interim:** build any further action from these
+two; say the icon is missing rather than drawing one. **Closes when:** a second button or a second
+icon is needed in live work and chosen.
+
+### 17. Ink and charcoal are visually indistinguishable
+Carly, round two: "isn't all the font charcoal?" Charcoal is the colour of the small and label roles,
+ink of everything else; on a chalk ground the two cannot be told apart. **Interim:** both stay as
+the tokens have them. **Closes when:** Carly decides whether charcoal stays a text colour.
+
+### 18. Chart marks keep their own sizes
+`.nc-stat .big`, the bar and dot labels and values, segment and series labels, and the footnote
+markers are sized to their chart, outside the six steps. They are the one permitted exception and
+are named as "Specified outside the roles" in `foundations/type-manifest.json`. **Closes when:**
+the chart set is next revised and the marks move onto the roles.
+
+### 19. Office templates are not generated from the roles
+The Word, Excel and PowerPoint adapters each build one document (the Operating Plan, the budget
+workbook, the UKDF deck) and carry style sets of their own: the Word one names styles but types in
+sizes; Excel sets Inter 11; PowerPoint sets sizes per text box. The roles now carry the Word style
+name for each; the templates that read them do not exist yet. **Cost:** amber until a Word document
+is next produced. **Closes when:** `adapters/word` builds a `.dotx` from `type.roles`, and the
+other two follow.
+
+### 20. The library's sample chapter sits inside the page's own outline
+The reference sheet's h1 and h2 are taken by the page, so specimens of heading roles sit on deeper
+elements than the rule allows in a document. `validate.py` exempts headings inside a
+`.nc-specimen`. **Interim:** the note under the specimen says so. **Closes when:** the library
+renders specimens in isolated frames.
+
 ## Defects, not gaps
 
 Recorded separately because a defect in the work is a different thing from a gap in the guidance,
@@ -216,8 +251,8 @@ below need a decision or a larger job.
 - **Invented greys and translucencies.** `C9C9C9` in the Word adapter; `#000000` in the allowlist; `rgba(13,13,13,.10)` as `--nc-grid` and
   seven other translucent inks and whites with no token.
 - **`.acc-blue` can feed fill components that hard-set ink text** — ink on blue, 2.26:1. Latent.
-- **NC-TYP-06 sets a 13px note floor** — below the 10pt (13.33px) footnote minimum — and captions
-  (12.5px) and source lines (12.8px) break even that.
+- ~~**NC-TYP-06 sets a 13px note floor** — and captions (12.5px) and source lines (12.8px) break even that.~~
+  FIXED 5 Oct 2026: small is 14px, the label voice alone is 12px, nothing else exists under 14px.
 - **The Office adapters are outside the build.** 14pt caps labels in the UKDF .pptx and 10.5pt caps
   in the .docx; the .pptx places a raster PNG wordmark, not the outlined SVG.
 - **`adapters/powerpoint/node_modules/` is committed** — about 360 third-party files in git.

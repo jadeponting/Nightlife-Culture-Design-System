@@ -92,7 +92,7 @@ for fam in INV["families"]:
           '<td><span class="' + chip + '">' + esc(label) + "</span></td></tr>")
     n_ok = sum(1 for it in fam["items"] if status(it)[1] == "ok")
     rows.append(
-      f'<h3 class="nc-h3">{esc(fam["name"])}'
+      f'<h3 class="nc-heading-3">{esc(fam["name"])}'
       f' <span>{n_ok} of {len(fam["items"])} complete</span></h3>'
       '<div><table class="nc-table"><thead><tr>'
       '<th>Component or style</th><th>Named in</th><th>In the codebase as</th>'

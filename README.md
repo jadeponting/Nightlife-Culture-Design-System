@@ -3,8 +3,8 @@
 The brand as a working system: tokens, rules, generated stylesheets, a component library, slide
 layouts, Office adapters, the portable skill, and the checks that refuse anything off-system.
 
-**Source of truth:** Nightlife Culture Style Guide v1.4.1 (August 2026).
-**This file:** v1.4.1 · 29 September 2026.
+**Source of truth:** Nightlife Culture Style Guide v1.5 (5 October 2026).
+**This file:** v1.5 · 5 October 2026.
 **Instructions for AI agents:** [AGENTS.md](AGENTS.md) — read this first if you are a model.
 **How the build works:** [README-BUILD.md](README-BUILD.md).
 

@@ -3,89 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightlife Culture — [Document title]</title>
-<!-- STEP 1: inline the full contents of fonts.css here, inside this style block.
-     STEP 2: inline the full contents of nc.css after it.
-     Do NOT link either file, and never link Google Fonts. -->
+<title>[Document title] — Nightlife Culture</title>
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.5">
+<!-- STEP 1: inline the full contents of assets/fonts.css here, inside this style block.
+     STEP 2: inline the full contents of assets/nc.css after it.
+     Do NOT link either file, and never link Google Fonts. Never add a style of your own:
+     every text style is a role in nc.css, and a component never sets its own type. -->
 <style>
 /* PASTE assets/fonts.css HERE */
 /* PASTE assets/nc.css HERE */
+html,body{margin:0;background:var(--nc-chalk)}
 </style>
 </head>
-<body>
+<body class="nc-doc">
 
-<header>
-  <div class="inner">
-    <div class="meta">Nightlife Culture · [context] · [date]</div>
-    <div class="rule"></div>
-    <h1 class="display">[Display title,<br>two lines max]</h1>
-    <p class="lede" style="color:#fff;max-width:56ch">[One sentence of standfirst.]</p>
+<header class="nc-mast">
+  <div class="nc-wrap">
+    <p class="nc-kick">Nightlife Culture · [context] · [date]</p>
+    <h1 class="nc-display">[Display title,<br>two lines max]</h1>
+    <p class="stand">[One sentence of standfirst.]</p>
   </div>
 </header>
 
-<div class="wrap">
+<div class="nc-wrap">
 
 <section>
-  <h2 class="sec"><span class="n">01</span>[Section title]</h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">01</span></span><span class="nc-section-title">[Section title]</span></h2>
+  <p class="nc-subtitle">[The line under the title.]</p>
 
-  <p class="lede">[Lede paragraph — the point, frontloaded.]</p>
-  <p>[Body copy in Inter Regular. Sentence case, left-aligned, never justified.]</p>
+  <h3 class="nc-heading-3">[Sub-section]</h3>
+  <div class="nc-key-statement-panel"><p class="nc-key-statement">[The question or point this section turns on.]</p></div>
+  <p class="nc-body">[Body copy in Inter Regular. Sentence case, left-aligned, never justified. <em>A short run in italic</em> for emphasis. A file name is <code class="nc-file-reference">path/to/file.md</code>. An evidence mark reads <span class="nc-evidence-mark">[Measured · source]</span>.]</p>
 
-  <!-- Pull quote — 12px pink left rule -->
-  <div class="q">[A statement worth stopping for.]</div>
+  <h4 class="nc-heading-4">[The lowest heading. There is no H5 or H6.]</h4>
+  <ul class="nc-list"><li class="nc-list-item">[Point]</li><li class="nc-list-item">[Point]</li></ul>
 
-  <!-- Callout — white panel, left rule -->
-  <div class="callq"><p style="margin-bottom:0">[Aside or caveat.]</p></div>
+  <!-- Takeaway and quotation — in the running text, pink rule -->
+  <blockquote class="nc-quote"><p class="nc-takeaway">[A sentence worth remembering.]</p><footer class="nc-attribution">[Who · where]</footer></blockquote>
 
-  <!-- Box — white panel, top rule -->
-  <div class="box"><h4>[Box heading]</h4>
-    <ul style="margin-bottom:0"><li>[Point]</li></ul>
-  </div>
+  <!-- Callout — white panel, callout line on the left -->
+  <div class="nc-panel nc-panel--left acc-teal"><p class="nc-body">[Aside or caveat.]</p></div>
+
+  <!-- Recommendation -->
+  <div class="nc-recommendation"><span class="nc-chip nc-chip--conclusion">Recommendation</span><p class="nc-body"><strong>[A.]</strong> [Why.]</p></div>
 
   <!-- Breakout stats — source line is mandatory -->
-  <div class="stats">
-    <div class="st"><div class="big" style="color:var(--blue)">[31]</div>
-      <div class="lb">[What it counts]</div>
-      <div class="src">[Period · geography · boundary vintage · PROVENANCE-CODE]</div></div>
-    <div class="st acc-teal"><div class="big">[±1.4]</div>
-      <div class="lb">[Plausible range]</div>
-      <div class="src">[Modelled, not observed]</div></div>
+  <div class="nc-g2">
+    <div class="nc-stat"><p class="big">[31]</p><p class="lb">[What it counts]</p><p class="src">[Period · geography · boundary vintage · PROVENANCE-CODE]</p></div>
+    <div class="nc-stat acc-teal"><p class="big">[±1.4]</p><p class="lb">[Plausible range]</p><p class="src">[Modelled, not observed]</p></div>
   </div>
 
-  <!-- Table — Editorial is the default. Variants: t-chalk · t-accent · t-band · t-ink -->
-  <table>
-    <thead><tr><th style="width:30%">[Column]</th><th>[Column]</th></tr></thead>
-    <tbody><tr><td>[Cell]</td><td>[Cell]</td></tr></tbody>
-  </table>
+  <!-- Table — editorial is the default. Title above, real header row, bold first column -->
+  <div class="nc-table-scroll"><table class="nc-table">
+    <caption class="nc-table-title">Table 1 · [What the table shows]</caption>
+    <thead><tr><th scope="col">[Column]</th><th scope="col">[Column]</th><th scope="col" class="nc-figure-cell">[Figure]</th></tr></thead>
+    <tbody><tr><th scope="row">[Row name]</th><td>[Cell]</td><td class="nc-figure-cell">[82.4]</td></tr></tbody>
+  </table></div>
+  <p class="nc-small">[c] suppressed for disclosure control · n/a not collected.</p>
 
-  <!-- Chart card. Accent top rule: (default blue) · pk · tl · bt · vt -->
-  <div class="ch tl">
-    <div class="ct">[Chart title]</div>
-    <div class="cs">[Chart type · what it shows]</div>
-    <div class="bar"><span class="lb">[Category]</span>
-      <span class="tkk"><span class="fl" style="width:82%;background:var(--c1)"></span></span>
-      <span class="vl">82</span></div>
-    <div class="bar"><span class="lb">[Suppressed]</span>
-      <span class="tkk"><span class="fl hatch" style="width:100%"></span></span>
-      <span class="vl">[c]</span></div>
-    <div class="ev"><b>[Note]</b><br>[Method, harmonisation, caveats.]<br>
-      <span style="display:inline-block;margin-top:8px">
-      <span class="prov">OFF-OPEN</span> [Period · geography · illustrative?]</span></div>
+  <!-- Chart card. Colour by accent modifier: acc-blue (default) · acc-pink · acc-teal · acc-butter · acc-violet -->
+  <div class="nc-chart acc-teal">
+    <p class="ct">[Chart title carrying the message]</p>
+    <p class="cs">[Chart type · unit · population]</p>
+    <div class="nc-bar"><span class="lb">[Category]</span><span class="tk"><span class="fl" style="width:82%"></span></span><span class="vl">82</span></div>
+    <div class="nc-bar"><span class="lb">[Suppressed]</span><span class="tk"><span class="fl nc-hatch" style="width:100%"></span></span><span class="vl">[c]</span></div>
+    <p class="ev"><b>[Note]</b><br>[Method, harmonisation, caveats.]<br>
+      <span class="nc-prov">OFF-OPEN</span> [Period · geography] <span class="nc-illus">Illustrative</span></p>
   </div>
 
-  <!-- Slide, 16:9. Grounds: blue (primary) · chalk/white · ink. Accents are blocks, not rooms. -->
-  <div class="slides">
-    <div><div class="slide"><div class="cv" style="background:var(--blue);color:#fff">
-      <div class="pad">
-        <div class="k" style="color:var(--teal);margin-bottom:5cqw">[01 · Section]</div>
-        <div class="t">[Slide title,<br>two lines]</div>
-        <div class="brk" style="background:var(--teal);margin-top:4cqw;margin-bottom:3cqw"></div>
-        <div class="sub" style="font-size:1.75cqw;font-weight:700">[One sentence.]</div>
-      </div>
-      <div class="foot"><div></div><div class="pnum" style="color:var(--teal)">07</div></div>
-    </div></div><div class="scap">[Caption]</div></div>
-  </div>
+  <!-- Status -->
+  <p class="nc-chip-row"><span class="nc-chip nc-chip--in-progress">In progress</span><span class="nc-small">[What the chip refers to]</span></p>
 
+  <!-- Working note that must not reach the final artefact. Hidden in print. -->
+  <div class="nc-claude-note"><p class="nc-label">Claude note · not for publication</p><p class="nc-small">[Note.]</p></div>
+
+  <div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · [Section]</span><span class="nc-running-foot">[Version · date · page]</span></div>
 </section>
 
 </div>

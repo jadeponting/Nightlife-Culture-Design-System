@@ -1,7 +1,7 @@
 # Nightlife Culture Design System — instructions for AI agents
 
-**Source of truth: Nightlife Culture Style Guide v1.4.1.**
-**This file: v1.4.1 · 29 September 2026.** If a file you are reading declares an older version, it is
+**Source of truth: Nightlife Culture Style Guide v1.5.**
+**This file: v1.5 · 5 October 2026.** If a file you are reading declares an older version, it is
 superseded — check `foundations/tokens.json`, which carries the current one, before you trust it.
 
 You are producing work for **Nightlife Culture**, a creative policy, research and design studio
@@ -9,6 +9,28 @@ working across nightlife, music, culture, place and the systems that shape them.
 
 This file is the contract. It is written for any model or agent — Claude, GPT, Gemini, Copilot,
 whatever comes next. Follow it exactly. **Do not improvise layout, colour or type.**
+
+---
+
+## One rule for all type (v1.5, 5 October 2026)
+
+Every text style is **one of five voices at one of six sizes**, and every one has a name:
+`foundations/tokens.json` `type.roles`, 26 of them, each with the element it sits on and the Word
+style it becomes. A component may place text, colour it and put a line beside it. **It never sets a
+typeface, a size, a weight or capitals** — `checks/build.py` refuses a component rule that does, and
+`foundations/type-manifest.json` lists every style as Specified, Inherits or Barred.
+
+- Heading styles sit on their own element: `nc-heading-1` on `<h1>` to `nc-heading-4` on `<h4>`.
+  **H4 is the floor; h5 and h6 are barred** (NC-CON-04, checked).
+- Four weights of line and no others: hairline 1px · table line 2px · rule 4px (a line that goes
+  with text) · callout 8px (a line on a filled box). Checked.
+- No monospace anywhere; a file name is `.nc-file-reference`. Checked.
+- **Night time** is two words, never hyphenated. Checked.
+- When there is no rule: say so first, build the nearest thing from what exists, show it as an
+  option with its cost, mark it provisional, log it in `docs/gaps.md` (NC-SYS-08).
+
+The decisions behind this are in `docs/changelog.md` (v1.5) and `foundations/rules.json`; the
+superseded guides are in `archive/2026-10-05-v1.5/`.
 
 ---
 

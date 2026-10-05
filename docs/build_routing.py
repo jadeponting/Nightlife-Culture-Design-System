@@ -76,7 +76,7 @@ def supplied(lines):
             '<p class="lab">As you supplied it</p>' + body + '</div>')
 
 def block(head, intro, lines, d, outro=None, show=True):
-    o = [f'<h3>{esc(head)}</h3>', f'<p>{intro}</p>', supplied(lines), ladder(d)]
+    o = [f'<h3 class="nc-heading-3">{esc(head)}</h3>', f'<p class="nc-body">{intro}</p>', supplied(lines), ladder(d)]
     if d.blocked:
         o.append('<div class="nc-lab">What comes out</div>'
                  '<div class="nc-panel nc-panel--left acc-coral">'
@@ -125,7 +125,7 @@ EX = "\n".join([
    "Now the ladder runs to the end — and every visual decision below is <i>derived</i>, "
    "not chosen.",
    ['Manchester 41,200 · Leeds 33,900 · Bristol 18,450 · Brighton and Hove 12,800',
-    'Night-time economy jobs, local authority districts, 2024'],
+    'Night time economy jobs, local authority districts, 2024'],
    ex["B2"],
    "Bar, not dot plot, because a job count is a quantity from zero. One colour, not four, "
    "because there is one series — the four-colour ramp would imply a distinction that is "

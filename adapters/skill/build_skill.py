@@ -34,6 +34,12 @@ CHARCOAL = T["colour"]["textColours"]["charcoal"]
 RAMP     = [s for s in T["colour"]["chartRamp"]["series"]] if isinstance(T["colour"]["chartRamp"], dict) else T["colour"]["chartRamp"]
 RETIRED  = T["colour"]["retired"]
 SCALE    = T["type"]["sizes"]["document"]["scale"]
+VOICES   = {k: v for k, v in T["type"]["voices"].items() if isinstance(v, dict)}
+STEPS    = {k: v for k, v in T["type"]["steps"].items()  if isinstance(v, dict)}
+ROLES    = {k: v for k, v in T["type"]["roles"].items()  if isinstance(v, dict)}
+LINES    = {k: v for k, v in T["lines"].items() if isinstance(v, dict)}
+FACE     = {"display": "Archivo Black", "head": "Archivo", "body": "Inter"}
+WEIGHT   = {400: "Regular", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"}
 
 def law_detail():
     pairs = " · ".join(f"{k} takes {v['textOn']}" for k, v in GROUNDS.items())
@@ -41,9 +47,10 @@ def law_detail():
             f"White on chalk is 1.11:1 and white on white is 1.00:1 — the old one-line law is retired.")
 
 def typescale_line():
-    order = ["h1", "h2", "h3", "body", "note"]
-    return " · ".join(f"{r} {SCALE[r]['px']}px" for r in order if isinstance(SCALE.get(r), dict)) + \
-           " (v1.4 readable sizes + Decision Book ch03; read off the sources, not chosen)"
+    sizes = " · ".join(f"{v['px']}px" for v in STEPS.values())
+    return (f"{len(ROLES)} named roles from {len(VOICES)} voices at {len(STEPS)} sizes "
+            f"({sizes}), generated from tokens.json; "
+            "every role in references/tokens.md with the Word style it becomes")
 
 def gen_tokens_md():
     L = ["# Tokens — generated from foundations/tokens.json. Do not edit by hand.",
@@ -61,43 +68,27 @@ def gen_tokens_md():
     ramp_hex = [s["hex"] if isinstance(s, dict) else s for s in RAMP]
     L += ["\n## Chart ramp — the only colours that may encode data\n",
           " → ".join(f"`{h}`" for h in ramp_hex) + " · four series maximum · lightness climbs monotonically.\n",
-          "## Document type scale (decided)\n", "| Role | px | em | Line height | From |", "|---|---|---|---|---|"]
-    for r in ("h1", "h2", "h3", "body", "note"):
-        s = SCALE.get(r)
-        if isinstance(s, dict):
-            L.append(f"| {r} | {s['px']} | {s['em']} | {s['lineHeight']} | {s['from']} |")
-    L += ["\n## Retired — never to return\n", " · ".join(f"`{h}`" for h in RETIRED) + "\n"]
+          "## The five voices\n", "| Voice | Face | Case | Tracking | Leading | Use |", "|---|---|---|---|---|---|"]
+    for k, v in VOICES.items():
+        face = FACE[v["face"]] + ("" if v["face"] == "display" else f" {WEIGHT[v['weight']]} {v['weight']}")
+        L.append(f"| {k.capitalize()} | {face} | {'capitals' if v['case']=='upper' else 'sentence case'} | {v['tracking']} | {v['lineHeight']} | {v['use']} |")
+    L += ["\n## The six sizes\n", "| Screen | Print | rem |", "|---|---|---|"]
+    for k, v in STEPS.items():
+        L.append(f"| {v['px']}px | {v['pt']}pt | {v['rem']} |")
+    L += ["\nThe caps floor for headings is 16pt. Below it, capitals appear only in the fixed small styles below (NC-TYP-04).\n",
+          "## The roles — every text style, and the Word style it becomes\n",
+          "A component never sets type; it carries one of these classes. A heading role sits only on its own element, h1 to h4; h5 and h6 are barred.\n",
+          "| Class | Voice | Size | Element | What it is for | In Word |", "|---|---|---|---|---|---|"]
+    for n, r in ROLES.items():
+        st = STEPS.get(str(r["step"]))
+        size = "cover" if st is None else f"{st['px']}px · {st['pt']}pt"
+        L.append(f"| `.nc-{n}` | {r['voice']} | {size} | {r.get('element') or '—'} | {r['use']} | {r['word']} |")
+    L += ["\n## The four weights of line\n", "| Weight | Screen | Print | Use |", "|---|---|---|---|"]
+    for k, v in LINES.items():
+        L.append(f"| {k} (`--nc-line-{k}`) | {v['px']}px | {v['pt']}pt | {v['use']} |")
+    L += ["\n## Language\n", f"{T['language']['nightTime']['rule']} {T['language']['english']}. {T['language']['culturalValue'].capitalize()}.\n",
+          "## Retired — never to return\n", " · ".join(f"`{h}`" for h in RETIRED) + "\n"]
     return "\n".join(L) + "\n"
-
-def gen_root():
-    g = {k: v["hex"] for k, v in GROUNDS.items()}
-    a = {k: v["hex"] for k, v in ACCENTS.items()}
-    ramp_hex = [s["hex"] if isinstance(s, dict) else s for s in RAMP]
-    return (":root{--blue:%s;--ink:%s;--chalk:%s;--white:%s;\n"
-            "--pink:%s;--teal:%s;--violet:%s;--butter:%s;--coral:%s;\n"
-            "--charcoal:%s;--hair:rgba(13,13,13,.22);\n"
-            "--c1:%s;--c2:%s;--c3:%s;--c4:%s;\n"
-            '--display:"Archivo Black","Archivo Black Fallback",Arial,sans-serif;\n'
-            '--head:"Archivo","Archivo Fallback",Arial,sans-serif;\n'
-            '--body:"Inter","Inter Fallback",Arial,-apple-system,sans-serif;}'
-            ) % (g["blue"], g["ink"], g["chalk"], g["white"],
-                 a["pink"], a["teal"], a["violet"], a["butter"], a["coral"],
-                 CHARCOAL["hex"], *ramp_hex)
-
-def gen_typescale_css():
-    face = {"h1": "var(--head)", "h2": "var(--head)", "h3": "var(--head)",
-            "body": "var(--body)", "note": "var(--body)"}
-    weight = {"h1": 800, "h2": 800, "h3": 700, "body": 400, "note": 400}
-    caps = {"h1": "text-transform:uppercase;letter-spacing:.01em;", "h2": "text-transform:uppercase;letter-spacing:.04em;"}
-    L = ["/* ---- Document type scale — generated from foundations/tokens.json.",
-         f"   {SCALE['source'].splitlines()[0][:110]}",
-         "   Six roles, sizes read off v1.4 + Decision Book ch03 — not chosen here. ---- */"]
-    for r in ("h1", "h2", "h3", "body", "note"):
-        s = SCALE.get(r)
-        if not isinstance(s, dict): continue
-        L.append(f".nc-{r}{{font-family:{face[r]};font-weight:{weight[r]};font-size:{s['em']}em;"
-                 f"line-height:{s['lineHeight']};{caps.get(r,'')}}}  /* {s['px']}px · {s['from']} */")
-    return "\n".join(L)
 
 # ---- slides: generated from foundations/patterns.json + the reference decks ----
 def gen_slides_md():
@@ -201,14 +192,16 @@ def main():
           .replace("{{SOURCE}}", f"{SOURCE} (August 2026)").replace("{{TYPESCALE_LINE}}", typescale_line()))
     (OUT / "SKILL.md").write_text(s)
 
-    # nc.css from template
-    css = (SRC / "nc.css.tmpl").read_text()
-    stamp_css = f"nc-build-stamp tokens:{_digest(ROOT / 'foundations' / 'tokens.json')}"
-    header = (f"/* {stamp_css}\n   Nightlife Culture component stylesheet — GENERATED from foundations/tokens.json\n"
-              f"   by adapters/skill/build_skill.py. Source: {SOURCE}. Do not edit by hand;\n"
-              "   edit tokens or adapters/skill/src/nc.css.tmpl and rebuild. Pair with fonts.css. */")
-    css = css.replace("{{HEADER}}", header).replace("{{TOKENS_ROOT}}", gen_root()).replace("{{TYPESCALE}}", gen_typescale_css())
-    (OUT / "assets" / "nc.css").write_text(css)
+    # nc.css IS the design system's generated stylesheet. Until v1.5 the skill carried a
+    # hand-written parallel stylesheet (nc.css.tmpl) with its own classes and sizes, and the
+    # outputs it produced disagreed with the component library. One stylesheet now; the
+    # template file is archived.
+    comp = (ROOT / "foundations" / "nightlife-culture.css").read_text()
+    stamp_css = f"nc-build-stamp tokens:{_digest(ROOT / 'foundations' / 'tokens.json')};css:{_digest(ROOT / 'foundations' / 'nightlife-culture.css')}"
+    header = (f"/* {stamp_css}\n   Nightlife Culture component stylesheet for the skill — a verbatim copy of\n"
+              f"   foundations/nightlife-culture.css, which checks/build.py generates from foundations/tokens.json.\n"
+              f"   Source: {SOURCE}. Do not edit by hand. Pair with fonts.css. */\n")
+    (OUT / "assets" / "nc.css").write_text(header + comp)
 
     # fonts + template + scripts — the template is a source fragment (template.part.html);
     # the emitted copy carries a build stamp so checks/check_stamps.py can date it.
@@ -241,7 +234,15 @@ def main():
     skill_md = all_text[OUT / "SKILL.md"]
     ver = re.search(r"v1\.\d", SOURCE).group()
     if ver not in skill_md: fail.append(f"SKILL.md does not declare {ver}")
-    if re.search(r"Style Guide v1\.[0-3]", skill_md): fail.append("SKILL.md names a superseded guide version")
+    if re.search(r"Style Guide v1\.[0-4]\b(?!.*superseded)", skill_md.replace("Superseded: v1.4, v1.4.1", "")): fail.append("SKILL.md names a superseded guide version")
+    # the old parallel stylesheet's class names may not come back
+    for p, txt in all_text.items():
+        if p.suffix in (".md", ".html") and re.search(r'class="(sec|sub2|box|callq|lede|tlab|t-chalk|t-ink|st2|stfill|ch tl)"|\bh2\.sec\b|\.callq\b|\.sub2\b', txt):
+            fail.append(f"old parallel-stylesheet class in {p.relative_to(OUT)}")
+        if p.suffix in (".md", ".html", ".css") and re.search(r"monospace|Menlo", txt) and "fonts.css" not in p.name and "Never monospace" not in txt and "No monospace" not in txt and "never monospace" not in txt:
+            fail.append(f"monospace named in {p.relative_to(OUT)}")
+        if p.suffix in (".md", ".html") and re.search(r"\b[Nn]ight-[Tt]ime\b", txt):
+            fail.append(f"'night-time' in {p.relative_to(OUT)} — night time is two words")
     # hex audit on nc.css
     allowed = {v["hex"].upper() for v in GROUNDS.values()} | {v["hex"].upper() for v in ACCENTS.values()} \
               | {CHARCOAL["hex"].upper()} | {(s["hex"] if isinstance(s, dict) else s).upper() for s in RAMP} | {"#FFF", "#FFFFFF"}

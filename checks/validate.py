@@ -15,6 +15,9 @@ HEX = json.loads((ROOT/"checks"/"allowed-hex.json").read_text())
 ALLOWED, RETIRED = set(HEX["allowed"]), {h.upper() for h in HEX["retired"]}
 RETIRED_FONTS = {"aptos"}
 
+LINE_PX = {float(v["px"]) for v in json.loads((ROOT/"foundations"/"tokens.json").read_text())["lines"].values()
+           if isinstance(v, dict)}   # 1 · 2 · 4 · 8 — the four weights of line (v1.5)
+
 def strip(html, tag):
     return re.sub(rf"<{tag}[^>]*>.*?</{tag}>", " ", html, flags=re.S|re.I)
 
@@ -60,13 +63,16 @@ def check(path):
             prop = prop.lower(); w = re.search(r"(\d+(?:\.\d+)?)px", val)
             if not w or "none" in val.lower(): continue
             px = float(w.group(1))
-            ok = (px == 9 and "top" in prop) or (px == 12 and "left" in prop) or "bottom" in prop
+            # v1.5: four weights of line and no others (tokens lines.*). A border
+            # at any other width is either a hard outline (NC-CON-01) or a fifth
+            # line weight, and both are refused.
+            ok = px in LINE_PX and prop != "border" and prop != "outline"
             if px >= 2 and not ok and not mark and not focus:
-                F.append(("NC-CON-01", f"{prop}: {val.strip()[:40]} on {sel.strip()[:34]} — {px:g}px hard outline"))
+                F.append(("NC-CON-01", f"{prop}: {val.strip()[:40]} on {sel.strip()[:34]} — {px:g}px is not one of the four line weights"))
     for prop, val in re.findall(r"style=\"[^\"]*?(border(?!-radius)[a-z-]*|outline)\s*:\s*([^;\"]+)", h, re.I):
         w = re.search(r"(\d+(?:\.\d+)?)px", val); prop = prop.lower()
-        if w and float(w.group(1)) >= 2 and "bottom" not in prop and "none" not in val.lower():
-            F.append(("NC-CON-01", f"inline {prop}: {val.strip()[:40]} — hard outline"))
+        if w and float(w.group(1)) >= 2 and float(w.group(1)) not in LINE_PX and "none" not in val.lower():
+            F.append(("NC-CON-01", f"inline {prop}: {val.strip()[:40]} — not one of the four line weights"))
 
     # NC-COL-01 — the colour law, as a check rather than a sentence. A light
     # ground may not carry white or near-white text. This is the rule that was
@@ -244,6 +250,40 @@ def check(path):
         F.append(("NC-BRK-01", "no source version stated on the artefact"))
     elif cur not in stated:
         F.append(("NC-BRK-01", f"declares v{sorted(stated)[0]}; the current guide is v{cur}"))
+
+    # NC-CON-04 (v1.5) — a heading style sits only on its own element, and h5/h6
+    # are barred. Inside a specimen on a reference sheet the page's own outline
+    # already uses the upper levels, so a deeper element may carry the role of
+    # the level it plays there; everywhere else the element and the role match.
+    spans = []
+    for sm in re.finditer(r'<div class="nc-specimen[^"]*"[^>]*>', body):
+        depth, j = 0, sm.start()
+        for t in re.compile(r"</?div\b").finditer(body, sm.start()):
+            depth += 1 if body[t.start():t.start() + 4] == "<div" else -1
+            if depth == 0:
+                spans.append((sm.start(), t.end())); break
+    def _in_specimen(pos):
+        return any(a <= pos < b for a, b in spans)
+    for m in re.finditer(r'<h([1-6])\b[^>]*class="([^"]*)"', body, re.I):
+        lvl, classes = int(m.group(1)), m.group(2).split()
+        roles = [c for c in classes if re.fullmatch(r"nc-heading-[1-4]", c)]
+        for r in roles:
+            if int(r[-1]) != lvl and not _in_specimen(m.start()):
+                F.append(("NC-CON-04", f"{r} on an h{lvl} — a heading style sits only on its own element"))
+    for m in re.finditer(r"<h([56])\b", body, re.I):
+        if not _in_specimen(m.start()):
+            F.append(("NC-CON-04", f"h{m.group(1)} used — H4 is the floor; there is no H5 or H6")); break
+
+    # NC-TYP-07 (v1.5) — no monospace anywhere. Figures are Inter with tabular
+    # figures; a file name is the file-reference chip.
+    for sel, block in blocks:
+        if re.search(r"font-family\s*:[^;]*(monospace|Menlo|Consolas|Courier)", block, re.I):
+            F.append(("NC-TYP-07", f"{sel.strip()[:40]} sets a monospace face")); break
+
+    # NC-LNG-01 (v1.5) — night time is two words, never hyphenated.
+    for m in re.finditer(r"\b[Nn]ight-?[Tt]ime\b", text):
+        if "-" in m.group(0) or m.group(0).lower() == "nighttime":
+            F.append(("NC-LNG-01", f"'{m.group(0)}' — night time is two words")); break
 
     # NC-BRK-02 — wordmark never live type
     if re.search(r"font-family:[^;}]*Archivo Black[^;}]*[^}]*}[^{]*\.nc-logo|\.nc-logo\b[^}]*Archivo Black", h, re.I):

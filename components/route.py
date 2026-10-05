@@ -81,10 +81,10 @@ def route_quote(text, attribution=None):
     d.rule("NC-CON-03", "Pull quotes take the left rule — a 12px accent bar, white panel. "
                         "v1.4 §09: 'reads as an aside rather than a box'.")
     d.rule("ch03", "Measure capped at 40ch. Leading 1.24 — display-adjacent, not running prose.")
-    att = f'\n  <cite class="a">{attribution}</cite>' if attribution else ""
+    att = f'\n  <footer class="nc-attribution">{attribution}</footer>' if attribution else ""
     if not attribution:
         d.flag("ch09", "No attribution. A quote without a speaker is a claim without a source.")
-    d.html = f'<blockquote class="nc-quote">\n  <p class="q">{body}</p>{att}\n</blockquote>'
+    d.html = f'<blockquote class="nc-quote">\n  <p class="nc-takeaway">{body}</p>{att}\n</blockquote>'
     d.notes.append("Accent is a modifier, never baked in: add .acc-teal etc. to change it.")
     return d
 
@@ -204,8 +204,10 @@ def route_section(number, title, body=None, level=2):
                        "An invented number is worse than none.")
     d.rule("ch11", f"Level h{level}. No skipped levels — h2 to h4 breaks outline navigation, "
                    "which is how screen-reader users move through a long document.")
-    num = f'<span class="num">{number:02d}</span>' if number is not None else ""
-    d.html = f'<h{level} class="nc-section-head">{num}<span class="ttl">{t}</span></h{level}>'
+    num = (f'<span class="nc-number-slot"><span class="nc-number">{number:02d}</span></span>'
+           if number is not None else "")
+    d.html = (f'<h{level} class="nc-section-head nc-heading-{level}">{num}'
+              f'<span class="nc-section-title">{t}</span></h{level}>')
     if body:
         s = body.strip()
         if len(s.split()) > 28 and s.count(".") < 2:
@@ -295,9 +297,9 @@ def run_examples():
         ("Manchester", 180000, 2026), ("West Midlands", 24958437, 2026),
         ("Brighton", 2947463628, 2026), ("Haywards Heath", 83627, 2926)])))
     ex.append(("B2", "The same question, with the data repaired", route_data(
-        "Night-time economy jobs", [("Manchester", 41200, 2024), ("Leeds", 33900, 2024),
+        "Night time economy jobs", [("Manchester", 41200, 2024), ("Leeds", 33900, 2024),
         ("Bristol", 18450, 2024), ("Brighton and Hove", 12800, 2024)],
-        title="Manchester employs more than twice as many night-time workers as Bristol",
+        title="Manchester employs more than twice as many night time workers as Bristol",
         reading="Four comparable districts, one measure, one year. The gap is the point.",
         source="Illustrative figures — replace with BRES, ONS, released 2025, "
                "2024 boundaries, unrevised.")))

@@ -1,7 +1,7 @@
 {
  "meta": {
-  "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.4 or a Decision Book rule ID.",
-  "source": "Nightlife Culture Style Guide v1.4.1 + The Decision Book (digest 6034d466ccbf4071)",
+  "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.5, a Decision Book rule ID, or a logged decision of Carly's with its date.",
+  "source": "Nightlife Culture Style Guide v1.5 + The Decision Book (digest 8701c5a003db5b0b)",
   "generated": "2026-08-16",
   "tiers": {
    "fixed": "There is a right answer. Pass or fail, measurable. Breaking it is negligence.",
@@ -98,18 +98,22 @@
   {
    "id": "NC-TYP-03",
    "tier": "fixed",
-   "source": "v1.4 §08",
-   "rule": "Body and H3 are sentence case. Never caps in body, captions, source lines or table cells.",
+   "source": "v1.4 §08 · round seven, 5 Oct 2026",
+   "rule": "Body, H3 and H4 are sentence case. Never caps in body, notes, source lines or table cells. A table's title and its header row are capitals.",
    "breaks": "Caps below ~16pt stop working.",
-   "machine": null
+   "machine": null,
+   "was": "Body and H3 are sentence case. Never caps in body, captions, source lines or table cells.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-TYP-04",
    "tier": "adaptable",
-   "source": "v1.4 §08",
-   "rule": "Caps floor is 16pt. Resolves the §08 conflict between the 14pt label minimum and the H3 note.",
+   "source": "v1.4 §08 · rounds two to seven, 5 Oct 2026",
+   "rule": "Caps floor is 16pt for headings. Below it, capitals appear only in the fixed small styles: titles in contents and tables at 14px (10.5pt), and the label voice and numbers at 12px (10pt).",
    "breaks": "Unresolved, the next person picks a different number.",
-   "machine": "capsFloor"
+   "machine": "capsFloor",
+   "was": "Caps floor is 16pt. Resolves the §08 conflict between the 14pt label minimum and the H3 note.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-TYP-05",
@@ -138,10 +142,12 @@
   {
    "id": "NC-CON-03",
    "tier": "adaptable",
-   "source": "v1.4 §09",
-   "rule": "Pull quotes, callouts and asides use the left rule (12px). Dense pages and tables use the top rule (9px). Accent panels use fill.",
-   "breaks": "Treatment carries the register; swapping them flattens the hierarchy.",
-   "machine": "containmentAssignment"
+   "source": "v1.4 §09 · rounds six and seven, 5 Oct 2026",
+   "rule": "A filled box takes one callout line, at the top or the left, at the callout weight (8px, 6pt). Pull quotes, callouts, key statements, recommendations and asides are filled boxes. Accent panels use fill.",
+   "breaks": "Before v1.5 the left rule was 12px, the top rule 9px, and nine other weights had grown up beside them, each set against the size of the text it sat on. Carly, round six: a callout line is double the rule, and a line that goes with text is the rule.",
+   "machine": "containmentAssignment",
+   "was": "Pull quotes, callouts and asides use the left rule (12px). Dense pages and tables use the top rule (9px). Accent panels use fill.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-LAY-01",
@@ -325,10 +331,12 @@
   {
    "id": "NC-CON-04",
    "tier": "fixed",
-   "source": "ch13 · SC 1.3.1",
-   "rule": "A section header must BE a heading, not look like one. The numeral box sits inside the heading element.",
+   "source": "ch13 · SC 1.3.1 · rounds five and seven, 5 Oct 2026",
+   "rule": "A section header must BE a heading, not look like one. A heading style sits only on its own element: nc-heading-1 on h1 through nc-heading-4 on h4. H4 is the floor; h5 and h6 are barred. The numeral box sits inside the heading element, centred on the first line of the title.",
    "breaks": "Found in headers.html: .nc-section-head is a div of spans. It renders as the document's H2 level and contains no heading — the exact 'appearance and structure are independent' failure, inside the component that structures every document.",
-   "machine": "headingLevels"
+   "machine": "headingLevels",
+   "was": "A section header must BE a heading, not look like one. The numeral box sits inside the heading element.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-EVI-05",
@@ -439,9 +447,11 @@
    "id": "NC-PSE-01",
    "tier": "fixed",
    "source": "furniture v1.6 §02 · v1.4 §10",
-   "rule": "A breaker is a pause, not an ornament. One per surface. Two rules stop meaning 'pause' and start meaning 'pattern'.",
+   "rule": "A breaker is a pause, not an ornament. One per surface. Two rules stop meaning 'pause' and start meaning 'pattern'. The bar above an H4 belongs to the heading and is not a breaker.",
    "breaks": "Rules read as decoration, so the reader stops using them to find the shape of the argument.",
-   "machine": "at most one .nc-brk per slide or section"
+   "machine": "at most one .nc-brk per slide or section",
+   "was": "A breaker is a pause, not an ornament. One per surface. Two rules stop meaning 'pause' and start meaning 'pattern'.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-PSE-02",
@@ -558,10 +568,12 @@
   {
    "id": "NC-TBL-02",
    "tier": "adaptable",
-   "source": "handover §04 · v1.4 §09 · ch09",
-   "rule": "Editorial is the default table and the only one that needs no class. The accent table marks a table that belongs to the section above it; the banded table is for long reference tables where the eye needs a rail. Numbers are right-aligned with tabular figures in all three.",
+   "source": "handover §04 · v1.4 §09 · ch09 · rounds three to seven, 5 Oct 2026",
+   "rule": "Editorial is the default table and the only one that needs no class. The accent table marks a table that belongs to the section above it; the banded table is for long reference tables where the eye needs a rail. Numbers are right-aligned with tabular figures in all three. A table has a title above it in the table-title style, a header row in the label voice under the 2px table line, and a bold first column.",
    "breaks": "A table style chosen by eye, so two tables in one document group their rows differently and the reader infers a distinction that is not there.",
-   "machine": "numeric cells carry .num"
+   "machine": "numeric cells carry .num",
+   "was": "Editorial is the default table and the only one that needs no class. The accent table marks a table that belongs to the section above it; the banded table is for long reference tables where the eye needs a rail. Numbers are right-aligned with tabular figures in all three.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-PSE-05",
@@ -614,18 +626,22 @@
   {
    "id": "NC-DOC-10",
    "tier": "fixed",
-   "source": "ch14 · decision sheet · joy.html §01",
-   "rule": "Progressive disclosure never hides anything load-bearing. A details block holds detail; the finding stays in the open.",
+   "source": "ch14 · decision sheet · round three, 5 Oct 2026",
+   "rule": "Progressive disclosure never hides anything load-bearing. Any heading may open and close, and keeps the style of its own level. A heading that holds the finding starts open. Everything prints open.",
    "breaks": "A finding behind a twisty is a finding most readers never meet, and one no printed copy contains at all.",
-   "machine": null
+   "machine": null,
+   "was": "Progressive disclosure never hides anything load-bearing. A details block holds detail; the finding stays in the open.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-TYP-06",
    "tier": "fixed",
-   "source": "v1.4 §08 · decision sheet",
-   "rule": "Small text is secondary, never a way to get under the floor. The 12pt body floor and the 13px note floor apply to it as they apply to everything else.",
+   "source": "v1.4 §08 · decision sheet · round two, 4 Oct 2026",
+   "rule": "Small text is secondary, never a way to get under the floor. Body is 16px (12pt in print). Small text is 14px (10.5pt). The label voice alone is 12px (10pt), in capitals, and is a phrase, never a sentence.",
    "breaks": "Source lines, captions and footnotes shrinking until the evidence layer is the least readable thing on the page.",
-   "machine": "no font-size below the floor on .nc-small, .nc-caption, .nc-source"
+   "machine": "no font-size below the floor on .nc-small, .nc-caption, .nc-source",
+   "was": "Small text is secondary, never a way to get under the floor. The 12pt body floor and the 13px note floor apply to it as they apply to everything else.",
+   "changed": "v1.5 · 5 Oct 2026"
   },
   {
    "id": "NC-CON-06",
@@ -733,6 +749,89 @@
    "rule": "Every interactive element declares its states — visited, hover, focus. A visited link is violet on light grounds and pink on dark.",
    "breaks": "A clicked link that looks unclicked, which is the one job link colour has always had. Focus without a ring is a keyboard user with no idea where they are.",
    "machine": ".nc-link declares :visited, :hover and :focus-visible"
+  },
+  {
+   "id": "NC-TYP-07",
+   "tier": "fixed",
+   "source": "round four, 5 Oct 2026 · TYP-21 TYP-11",
+   "rule": "Every text style is one of five voices at one of six sizes, with a name that says what it is (tokens.json type.roles). A component may place text, colour it and put a line beside it. It never sets a typeface, a size, a weight or capitals. No monospace anywhere: figures are Inter with tabular figures and a file name takes the file-reference style.",
+   "breaks": "Six roles existed in tokens.json and about 130 other styles restated their own type by hand, so nothing inherited: a table heading at three quarters of a label, a caption with a size of its own, seventeen small styles at thirteen sizes. Carly, round three: what is the point of rules if they do not carry through as the primary rule for the component type, with the child derivatives that tumble out from it.",
+   "added": "v1.5 · 5 Oct 2026",
+   "machine": "checks/build.py refuses a component rule that sets font-family, font-size, font-weight, text-transform or letter-spacing outside the roles and the chart marks; checks/validate.py refuses a monospace face"
+  },
+  {
+   "id": "NC-TYP-08",
+   "tier": "adaptable",
+   "source": "round two, 4 Oct 2026 · Decision Book DOC-14 (logged override)",
+   "rule": "Italic is for a short run inside a paragraph: a quoted phrase, a title, a word. Bold inside a paragraph is rare, and is the first column of a table. Inter 400 Italic is embedded for it.",
+   "breaks": "The Decision Book avoids italics in body text (DOC-14, Fixed). Carly chose a true italic for emphasis inside running text and found bold read as shouty. Logged as an override: trigger, emphasis inside a paragraph; alternative, bold; evidence, round one specimens.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-TYP-09",
+   "tier": "adaptable",
+   "source": "rounds five and six, 5 Oct 2026",
+   "rule": "A subtitle is Inter Regular at 18px, the line under a title. A key statement is Archivo Bold at body size in a top-rule panel. A takeaway is bold and a quotation is regular; both sit in the running text at body size with a pink rule and an attribution in the label voice.",
+   "breaks": "The same sentence had been used for a subtitle and a key statement, and the two could not be told apart. Weight before size (TYP-10): the key statement is pulled out by its weight and its panel, not by being larger than the heading above it.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-LIN-01",
+   "tier": "fixed",
+   "source": "rounds six and seven, 5 Oct 2026",
+   "rule": "Four weights of line and no others: hairline 1px, table line 2px, rule 4px, callout 8px (¾, 1½, 3 and 6pt). A line that goes with text is a rule. A line on a filled box is a callout line. The line under a table's header row is the table line.",
+   "breaks": "Eleven weights were in use, ten of them sized against the text they sat on so the same line was thicker on larger text. Each new weight is double the one before and all four are in Word's own border menu.",
+   "added": "v1.5 · 5 Oct 2026",
+   "machine": "checks/validate.py refuses a border or outline of 2px or more at any other width"
+  },
+  {
+   "id": "NC-COL-09",
+   "tier": "fixed",
+   "source": "round four, 5 Oct 2026",
+   "rule": "On ink and blue, every text role, label and link is white. The number box and the line under a section title stay teal, as the slides keep the teal line above a title. A white box or an accent fill on a dark ground takes ink text again.",
+   "breaks": "Teal labels and links on dark grounds were hard to read beside white text and had no consistency with the elements around them (Carly, round three). The stylesheet carries the colour as a custom property, so a ground sets it once.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-CHP-01",
+   "tier": "fixed",
+   "source": "rounds two, three and six, 5 Oct 2026 · COL-17",
+   "rule": "A status chip is the label voice on a fill, one accent per state: To do violet, In progress butter, Review pink, Blocked coral, Done teal, Parked white, Proposed butter. Agreed and Your answer are the inverse of the ground. Recommendation is blue, and ink on a blue ground. The word carries the meaning, never the colour alone.",
+   "breaks": "The reader had invented chips and RAG tags. Public severity marks stay a known gap: internal coloured chips carry the word, and a public document gets no coloured severity until Carly decides one against a real case.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-CTL-01",
+   "tier": "adaptable",
+   "source": "rounds two to four, 4–5 Oct 2026",
+   "rule": "One button: blue, fully rounded, sentence case, the one thing to press; white with blue wording on a blue ground. A minor action beside it is underlined, in the button's own voice. The search field is white with a hairline, a charcoal hint, a blue focus ring and an icon button, blue on white and white on dark.",
+   "breaks": "Other button styles and the icon set are not decided and sit on the gaps list. The blue button's edge on ink is 2.26:1 against the 3:1 asked of a control; Carly chose it knowing that.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-DOC-11",
+   "tier": "fixed",
+   "source": "rounds two to five, 4–5 Oct 2026",
+   "rule": "A contents list sets each title in capitals with a line of Inter Regular beneath it. The chapter number is the same ink box as on a section title, centred on the first line. The page number is the number style with a p. The rail is the same list with a rule-weight marker on the current chapter.",
+   "breaks": "The chapter number and the page number had been two different fonts and weights, and the number moved when a title ran to two lines.",
+   "added": "v1.5 · 5 Oct 2026"
+  },
+  {
+   "id": "NC-LNG-01",
+   "tier": "fixed",
+   "source": "Carly, 4 Oct 2026",
+   "rule": "Night time is two words, never hyphenated: night time economy, Night Time Advisor. British English throughout; cultural value, not cultural contribution.",
+   "breaks": "The component library said night-time economy in ten places.",
+   "added": "v1.5 · 5 Oct 2026",
+   "machine": "checks/validate.py refuses 'night-time' or 'nighttime' in rendered text"
+  },
+  {
+   "id": "NC-SYS-08",
+   "tier": "fixed",
+   "source": "round one, 4 Oct 2026 · TYP-20 TYP-22",
+   "rule": "When there is no rule: say so first; build the nearest thing from the components and the voices as they are, never a new colour, size or weight; show it as an option with what it costs; and log it in docs/gaps.md with the surface it came from. The gap closes when Carly decides, not when the output ships.",
+   "breaks": "The H4 had no rule and came out as a bold line. An unstated floor gets a level invented under it (TYP-22).",
+   "added": "v1.5 · 5 Oct 2026"
   }
  ],
  "removalTest": {

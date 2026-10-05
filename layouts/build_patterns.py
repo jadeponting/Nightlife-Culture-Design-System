@@ -43,7 +43,7 @@ for i, (pid, p) in enumerate(P["patterns"].items(), 1):
                      f'<figure>{sys_html}<figcaption>Built by the system</figcaption></figure></div>')
     grounds = " · ".join(p["grounds"])
     out.append(f'''<section>
-<h2 class="nc-section-head"><span class="num">{i:02d}</span><span class="ttl">{html.escape(p["name"])}</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">{i:02d}</span></span><span class="nc-section-title">{html.escape(p["name"])}</span></h2>
 <p class="nc-stand">{html.escape(p["useWhen"])}</p>
 <p class="nc-note">Grounds: {grounds} · pattern name: <code class="nc-code">{pid}</code></p>
 {"".join(pairs)}
@@ -52,7 +52,7 @@ for i, (pid, p) in enumerate(P["patterns"].items(), 1):
 steps = [x.strip() for x in re.split(r"\s*\d\.\s", P["meta"]["howToGrow"]) if x.strip()]
 grow = "".join(f"<li>{html.escape(x)}</li>" for x in steps)
 body = "".join(out) + f'''<section>
-<h2 class="nc-section-head"><span class="ttl">How the patterns grow</span></h2>
+<h2 class="nc-section-head nc-heading-2"><span class="nc-section-title">How the patterns grow</span></h2>
 <ol class="nc-list nc-list--num">{grow}</ol>
 </section>'''
 

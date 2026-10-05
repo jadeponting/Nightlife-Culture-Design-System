@@ -34,14 +34,14 @@ def _stamp():
 HEAD = """<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4.1">
+<meta name="nc-source" content="{source}">
 <meta name="nc-build-stamp" content="{stamp}">
 {styles}
 </head><body class="nc-doc">
 <header class="nc-mast{night}">
   <div class="nc-wrap{measure}">
     <p class="nc-kick">{kicker}</p>
-    <h1>{title}</h1>
+    <h1 class="nc-display">{title}</h1>
     <p class="stand">{stand}</p>
   </div>
 </header>
@@ -62,8 +62,8 @@ def page(*, name, title, kicker, stand, body, folder="docs", extra_css=""):
     inline = "\n".join((F / f).read_text() for f in
                        ("fonts.css", "nightlife-culture.css", "nightlife-slides.css")
                        if (F / f).exists())
-    common = dict(title=title, kicker=kicker, stand=stand, body=body,
-                  stamp=_stamp(), measure="", night="")
+    common = dict(title=title, kicker=kicker, stand=stand, body=body, stamp=_stamp(), measure="", night="",
+                  source=__import__("json").loads((F / "tokens.json").read_text())["meta"]["source"])
 
     out = ROOT / folder / f"{name}.html"
     out.parent.mkdir(parents=True, exist_ok=True)

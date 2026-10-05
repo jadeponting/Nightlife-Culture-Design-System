@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate foundations/fonts.css from assets/fonts/*.woff2.
+"""Generate foundations/fonts.css from assets/fonts/*.woff2 (nine faces from v1.5).
 
 Fonts are embedded as base64 so every deliverable is self-contained.
 Never link a web font service — it fails silently to a system sans (FID-12-14).
@@ -17,6 +17,7 @@ FACES = [
     ("Inter-Medium.woff2",     "Inter",         500, "normal"),
     ("Inter-SemiBold.woff2",   "Inter",         600, "normal"),
     ("Inter-Bold.woff2",       "Inter",         700, "normal"),
+    ("Inter-Italic.woff2",     "Inter",         400, "italic"),   # v1.5: a true italic for a short run inside a paragraph (NC-TYP-08); Inter 4.001 latin subset, OFL
 ]
 out = ["""/* =============================================================
    Nightlife Culture — embedded typefaces
@@ -42,7 +43,7 @@ for fn, fam, wt, st in FACES:
 # different leading, so the page reflows when the real face lands and every
 # measured layout rule is briefly false.
 #
-# Computed from the actual OS/2 and hhea tables of the eight .woff2 files
+# Computed from the actual OS/2 and hhea tables of the .woff2 files
 # against Arial (upm 2048, asc 1854, desc -434, xh 1062). size-adjust equalises
 # x-height so the stand-in reads at the same apparent size; ascent and descent
 # are then expressed against that adjusted em.

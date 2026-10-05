@@ -1,0 +1,568 @@
+{
+  "source": "Nightlife Culture Style Guide v1.5",
+  "generated": "2026-10-05",
+  "voices": {
+    "display": {
+      "face": "display",
+      "weight": 400,
+      "case": "upper",
+      "tracking": "-0.01em",
+      "lineHeight": 0.94,
+      "use": "Covers and mastheads only. Sized to the cover, never a step."
+    },
+    "capitals": {
+      "face": "head",
+      "weight": 800,
+      "case": "upper",
+      "tracking": "0.04em",
+      "lineHeight": 1.12,
+      "use": "Headings one and two, titles in contents and tables, numbers.",
+      "note": "Tracking compensates for optical tightening as caps shrink; heading-1 at 32px takes 0.01em."
+    },
+    "sentence": {
+      "face": "head",
+      "weight": 700,
+      "case": "sentence",
+      "tracking": "0",
+      "lineHeight": 1.3,
+      "use": "Headings three and four, the takeaway, the key statement, the button."
+    },
+    "text": {
+      "face": "body",
+      "weight": 400,
+      "case": "sentence",
+      "tracking": "0",
+      "lineHeight": 1.55,
+      "use": "Running text and everything that reads like it. Bold (700) for emphasis and the first column of a table. Italic for a short run inside a paragraph."
+    },
+    "label": {
+      "face": "head",
+      "weight": 600,
+      "case": "upper",
+      "tracking": "0.1em",
+      "lineHeight": 1.4,
+      "use": "A phrase, never a sentence: labels, table header rows, chips, evidence marks, attributions, the running foot."
+    }
+  },
+  "steps": {
+    "32": {
+      "px": 32,
+      "pt": 24,
+      "rem": 2.0
+    },
+    "24": {
+      "px": 24,
+      "pt": 18,
+      "rem": 1.5
+    },
+    "18": {
+      "px": 18,
+      "pt": 13.5,
+      "rem": 1.125
+    },
+    "16": {
+      "px": 16,
+      "pt": 12,
+      "rem": 1.0
+    },
+    "14": {
+      "px": 14,
+      "pt": 10.5,
+      "rem": 0.875
+    },
+    "12": {
+      "px": 12,
+      "pt": 10,
+      "rem": 0.75
+    }
+  },
+  "lines": {
+    "hair": {
+      "px": 1,
+      "pt": 0.75,
+      "colour": "hairline",
+      "use": "Table rows, contents rows, outlines, the foot of a page. Never carries meaning (NC-CON-02)."
+    },
+    "table": {
+      "px": 2,
+      "pt": 1.5,
+      "colour": "ink",
+      "use": "Under a table's header row. Half the rule, in proportion to the 12px headings it sits under."
+    },
+    "rule": {
+      "px": 4,
+      "pt": 3,
+      "colour": "ink, or an accent",
+      "use": "A line that goes with text: section title, H4 bar, breaker, rail marker, quotation, comparability flag."
+    },
+    "callout": {
+      "px": 8,
+      "pt": 6,
+      "colour": "an accent",
+      "use": "A line on a filled box, at the top or the left: key statement, callout, recommendation, Claude note, statistic, chart card, accent table."
+    }
+  },
+  "styles": [
+    {
+      "style": "nc-display",
+      "status": "Specified",
+      "voice": "display",
+      "px": "cover",
+      "pt": "",
+      "colour": "white",
+      "element": "h1",
+      "word": "Title",
+      "use": "Covers and mastheads only",
+      "aliases": []
+    },
+    {
+      "style": "nc-heading-1",
+      "status": "Specified",
+      "voice": "capitals",
+      "px": 32,
+      "pt": 24,
+      "colour": "ink",
+      "element": "h1",
+      "word": "Heading 1",
+      "use": "The title of a document",
+      "aliases": []
+    },
+    {
+      "style": "nc-heading-2",
+      "status": "Specified",
+      "voice": "capitals",
+      "px": 24,
+      "pt": 18,
+      "colour": "ink",
+      "element": "h2",
+      "word": "Heading 2",
+      "use": "A section, numbered or not",
+      "aliases": []
+    },
+    {
+      "style": "nc-contents-title",
+      "status": "Specified",
+      "voice": "capitals",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "ink",
+      "element": null,
+      "word": "TOC 1",
+      "use": "A title in a contents list",
+      "aliases": [
+        "nc-chart .ct"
+      ]
+    },
+    {
+      "style": "nc-table-title",
+      "status": "Specified",
+      "voice": "capitals",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "ink",
+      "element": "caption",
+      "word": "Caption",
+      "use": "The title above a table",
+      "aliases": []
+    },
+    {
+      "style": "nc-number",
+      "status": "Specified",
+      "voice": "capitals",
+      "px": 12,
+      "pt": 10,
+      "colour": "white",
+      "element": null,
+      "word": "Part of the heading",
+      "use": "Section and chapter numbers on an ink box; page numbers",
+      "aliases": [
+        "nc-section-head .num"
+      ]
+    },
+    {
+      "style": "nc-heading-3",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 18,
+      "pt": 13.5,
+      "colour": "ink",
+      "element": "h3",
+      "word": "Heading 3",
+      "use": "A sub-section",
+      "aliases": [
+        "nc-details>summary",
+        "nc-dl dt"
+      ]
+    },
+    {
+      "style": "nc-heading-4",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": "h4",
+      "word": "Heading 4",
+      "use": "The lowest heading, with its blue bar. The floor: there is no H5 or H6",
+      "aliases": []
+    },
+    {
+      "style": "nc-takeaway",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": null,
+      "word": "Intense Quote",
+      "use": "One or two sentences to remember, in the running text with a pink rule",
+      "aliases": [
+        "nc-quote .q"
+      ]
+    },
+    {
+      "style": "nc-key-statement",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": null,
+      "word": "Key statement (new style)",
+      "use": "The question or point a chapter turns on, in its top-rule panel",
+      "aliases": []
+    },
+    {
+      "style": "nc-button",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 16,
+      "pt": 12,
+      "colour": "white",
+      "element": "button",
+      "word": "Screen only",
+      "use": "The one thing to press. Blue, fully rounded",
+      "aliases": []
+    },
+    {
+      "style": "nc-text-action",
+      "status": "Specified",
+      "voice": "sentence",
+      "px": 16,
+      "pt": 12,
+      "colour": "blue",
+      "element": null,
+      "word": "Screen only",
+      "use": "A minor action beside a button, underlined",
+      "aliases": []
+    },
+    {
+      "style": "nc-subtitle",
+      "status": "Specified",
+      "voice": "text",
+      "px": 18,
+      "pt": 13.5,
+      "colour": "ink",
+      "element": null,
+      "word": "Subtitle",
+      "use": "The line under a title",
+      "aliases": [
+        "nc-stand",
+        "nc-mast .stand"
+      ]
+    },
+    {
+      "style": "nc-body",
+      "status": "Specified",
+      "voice": "text",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": "p",
+      "word": "Normal",
+      "use": "Running text",
+      "aliases": [
+        "nc-panel .txt",
+        "nc-band .txt",
+        "nc-pre",
+        "nc-dl dd"
+      ]
+    },
+    {
+      "style": "nc-quotation",
+      "status": "Specified",
+      "voice": "text",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": null,
+      "word": "Quote",
+      "use": "A quotation that runs on, in the running text with a pink rule",
+      "aliases": []
+    },
+    {
+      "style": "nc-list-item",
+      "status": "Specified",
+      "voice": "text",
+      "px": 16,
+      "pt": 12,
+      "colour": "ink",
+      "element": "li",
+      "word": "List Bullet, List Number",
+      "use": "Bulleted and numbered lists, indented",
+      "aliases": []
+    },
+    {
+      "style": "nc-table-first-column",
+      "status": "Specified",
+      "voice": "text",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "ink",
+      "element": "th",
+      "word": "Table style, First Column",
+      "use": "The first column of a table, which names each row. Bold",
+      "aliases": [
+        "nc-table tbody th",
+        "nc-table tbody td:first-child"
+      ]
+    },
+    {
+      "style": "nc-table-cell",
+      "status": "Specified",
+      "voice": "text",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "ink",
+      "element": "td",
+      "word": "Table style",
+      "use": "Every other cell",
+      "aliases": [
+        "nc-table td"
+      ]
+    },
+    {
+      "style": "nc-file-reference",
+      "status": "Specified",
+      "voice": "text",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "ink",
+      "element": "code",
+      "word": "File reference (new style)",
+      "use": "A file name or literal string, on a white hairline chip. Never monospace",
+      "aliases": [
+        "nc-code",
+        "nc-kbd",
+        "nc-doc code"
+      ]
+    },
+    {
+      "style": "nc-small",
+      "status": "Specified",
+      "voice": "text",
+      "px": 14,
+      "pt": 10.5,
+      "colour": "charcoal",
+      "element": null,
+      "word": "Small (new style)",
+      "use": "Notes under tables and charts, source lines, small print, hints",
+      "aliases": [
+        "nc-note",
+        "nc-caption",
+        "nc-source",
+        "nc-stat .src",
+        "nc-chart .cs",
+        "nc-chart .ev",
+        "nc-comp",
+        "nc-origin",
+        "nc-flags"
+      ]
+    },
+    {
+      "style": "nc-label",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "charcoal",
+      "element": null,
+      "word": "Label (new style)",
+      "use": "Labels above things",
+      "aliases": [
+        "nc-lab",
+        "nc-kick",
+        "nc-panel .lab",
+        "nc-band .lab",
+        "nc-stat .lb",
+        "nc-meter-lab",
+        "nc-chart .ev b",
+        "nc-comp b",
+        "nc-flag .tag",
+        "nc-na",
+        "nc-details>summary::after",
+        "nc-donut .tot .l",
+        "nc-line .ax"
+      ]
+    },
+    {
+      "style": "nc-table-header-row",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "charcoal",
+      "element": "th",
+      "word": "Table style, Header Row",
+      "use": "The row of column headings",
+      "aliases": [
+        "nc-table thead th",
+        "nc-origin thead th"
+      ]
+    },
+    {
+      "style": "nc-chip",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "white",
+      "element": null,
+      "word": "Screen only",
+      "use": "Status, on a fill. The word carries the meaning, never the colour alone",
+      "aliases": [
+        "nc-prov",
+        "nc-illus"
+      ]
+    },
+    {
+      "style": "nc-evidence-mark",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "charcoal",
+      "element": null,
+      "word": "Label, as a character style",
+      "use": "A bracketed mark inside a sentence",
+      "aliases": []
+    },
+    {
+      "style": "nc-attribution",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "charcoal",
+      "element": "footer",
+      "word": "Label",
+      "use": "Who said it, under a quotation",
+      "aliases": [
+        "nc-quote .a"
+      ]
+    },
+    {
+      "style": "nc-running-foot",
+      "status": "Specified",
+      "voice": "label",
+      "px": 12,
+      "pt": 10,
+      "colour": "charcoal",
+      "element": null,
+      "word": "Footer",
+      "use": "The foot of every page",
+      "aliases": [
+        "nc-foot"
+      ]
+    },
+    {
+      "style": ".nc-stat .big",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-bar .lb",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-bar .vl",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-dot .lb",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-dot .vl",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-range .lb",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-range .vl",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-donut .tot .n",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-stack div",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-line .sl",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-donut .key div",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-pie .key div",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-key",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": ".nc-sup,.nc-sub",
+      "status": "Specified outside the roles",
+      "voice": "chart mark",
+      "use": "Sized to the chart (charts v1.4). Moves onto the roles when the chart set is next revised."
+    },
+    {
+      "style": "h5, h6",
+      "status": "Barred",
+      "use": "A heading style sits only on its own element: nc-heading-1 on h1 through nc-heading-4 on h4. A collapsible heading keeps the style of its level (NC-CON-04, NC-DOC-10)."
+    }
+  ]
+}

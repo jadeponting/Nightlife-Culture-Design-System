@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How the logic works — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.4.1">
-<meta name="nc-build-stamp" content="tokens:a6612720aaf29dd6;rules:dae0eeb42d299809;css:bafbca8f750e78c4;fonts:ea8fca0d5e87a01a;slides:b3593d7a047cb3d4">
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.5">
+<meta name="nc-build-stamp" content="tokens:220d40d83cc3f82a;rules:f32e62dd29b90dc6;css:5da444564a39f50e;fonts:fb83ab0e122714d8;slides:b3593d7a047cb3d4">
 <link rel="stylesheet" href="../foundations/fonts.css">
 <link rel="stylesheet" href="../foundations/nightlife-culture.css">
 <link rel="stylesheet" href="../foundations/nightlife-slides.css">
@@ -10,13 +10,13 @@
 <header class="nc-mast">
   <div class="nc-wrap">
     <p class="nc-kick">Nightlife Culture · design system</p>
-    <h1>How the logic works</h1>
+    <h1 class="nc-display">How the logic works</h1>
     <p class="stand">Content goes in. A component comes out. The questions the system asks, in the order it asks them.</p>
   </div>
 </header>
 <div class="nc-wrap">
 <section>
-  <h2 class="nc-section-head"><span class="num">01</span><span class="ttl">The one idea</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">01</span></span><span class="nc-section-title">The one idea</span></h2>
   <p class="nc-stand">The system never asks <i>what should this look like?</i> It asks
      <i>what is this?</i> — and the look follows from the answer.</p>
   <p>That sounds like a small difference. It isn't. “What should this look like” has no
@@ -40,7 +40,7 @@
      A chart that cannot be made honest does not get a colour scheme. You will see that
      happen to your own numbers further down.</p>
 
-  <h3>How much freedom you have: three tiers</h3>
+  <h3 class="nc-heading-3">How much freedom you have: three tiers</h3>
   <div class="nc-g2">
     <div class="nc-panel nc-panel--top acc-teal">
       <p class="lab">Fixed</p>
@@ -69,7 +69,7 @@
 <hr class="nc-brk acc-pink">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">02</span><span class="ttl">What a component is here</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">02</span></span><span class="nc-section-title">What a component is here</span></h2>
   <p class="nc-stand">A component is a <i>job</i>, not a shape.</p>
   <p>Two things that look similar but do different jobs are two components. Two things that
      do the same job in different places are one component with a modifier. That is what
@@ -88,7 +88,7 @@
 <hr class="nc-brk acc-teal">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">03</span><span class="ttl">Which container, and why</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">03</span></span><span class="nc-section-title">Which container, and why</span></h2>
   <p>Containment is where most systems come apart, because a box is a box and people pick
      one by eye. Here the edge treatment <i>is</i> the instruction to the reader. Choosing a
      left rule instead of a top rule is choosing to say something different — so the choice
@@ -109,12 +109,12 @@
 <hr class="nc-brk acc-butter">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">04</span><span class="ttl">Your three examples</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">04</span></span><span class="nc-section-title">Your three examples</span></h2>
   <p>Here is the same machinery running on the three things you gave me. Nothing below was
      written by hand: the ladder, the verdicts and the finished components are all produced
      by the router, so this page cannot describe behaviour the system does not have.</p>
-  <h3>A · The pull quote</h3>
-<p>A quote is <b>Decorative</b> — the freest tier we have. So the first question is not how to style it. It is whether anything the reader <i>needs</i> is hiding in it, because the decorative layer is the one place meaning is not allowed to live.</p>
+  <h3 class="nc-heading-3">A · The pull quote</h3>
+<p class="nc-body">A quote is <b>Decorative</b> — the freest tier we have. So the first question is not how to style it. It is whether anything the reader <i>needs</i> is hiding in it, because the decorative layer is the one place meaning is not allowed to live.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">“if your chest ain’t rattling it ain’t happening”</p><p class="txt">— Carly Heath, Junglist Extraordinaire</p></div>
 <div><div><div>Holds<br><span style="letter-spacing:.02em">ch18</span></div><div>Tier first. A pull quote is decorative — free, provided nothing load-bearing lives only there.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">ch18</span></div><div>No figure, no measured claim — nothing load-bearing. Decorative holds.</div></div>
@@ -122,19 +122,19 @@
 <div><div>Holds<br><span style="letter-spacing:.02em">NC-CON-03</span></div><div>Pull quotes take the left rule — a 12px accent bar, white panel. v1.4 §09: &#x27;reads as an aside rather than a box&#x27;.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">ch03</span></div><div>Measure capped at 40ch. Leading 1.24 — display-adjacent, not running prose.</div></div></div>
 <div class="nc-lab">What comes out</div><div><blockquote class="nc-quote">
-  <p class="q">if your chest ain't rattling it ain't happening</p>
-  <cite class="a">Carly Heath, Junglist Extraordinaire</cite>
+  <p class="nc-takeaway">if your chest ain't rattling it ain't happening</p>
+  <footer class="nc-attribution">Carly Heath, Junglist Extraordinaire</footer>
 </blockquote></div>
 <p class="nc-small">The accent is a modifier, never baked in. That same quote in teal, violet or coral is the same component — one word changes, nothing is redrawn.</p>
-<h3>A · The same quote, if it carried a figure</h3>
-<p>Worth seeing the failure, because it shows what the tier is actually protecting. Add one number to that sentence and it stops being decoration.</p>
+<h3 class="nc-heading-3">A · The same quote, if it carried a figure</h3>
+<p class="nc-body">Worth seeing the failure, because it shows what the tier is actually protecting. Add one number to that sentence and it stops being decoration.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">“if your chest ain’t rattling it ain’t happening — and 60% of them say so”</p><p class="txt">— Carly Heath, Junglist Extraordinaire</p></div>
 <div><div><div>Holds<br><span style="letter-spacing:.02em">ch18</span></div><div>Tier first. A pull quote is decorative — free, provided nothing load-bearing lives only there.</div></div>
 <div><div>Stop<br><span style="letter-spacing:.02em">NC-DIR-01</span></div><div>This quote contains a figure or a measured claim. Meaning may not live in the decorative layer — move the finding into the body as real text with a source, and keep the quote for the voice.</div></div></div>
 <div class="nc-lab">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
 <p class="nc-small">The fix is not to style it differently. It is to move the finding into the body as real text with a source, and keep the quote for the voice. The quote gets to be a quote again.</p>
-<h3>B · Number of jobs, by place</h3>
-<p>Before any chart form is chosen, the numbers have to survive three questions. These are the only questions asked at this stage — there is deliberately no colour, no layout and no chart type in scope yet.</p>
+<h3 class="nc-heading-3">B · Number of jobs, by place</h3>
+<p class="nc-body">Before any chart form is chosen, the numbers have to survive three questions. These are the only questions asked at this stage — there is deliberately no colour, no layout and no chart type in scope yet.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Manchester, 180000 2026</p><p class="txt">West Midlands 24958437 2026</p><p class="txt">Brighton, 2947463628 2026</p><p class="txt">haywards heath 83627 2926</p></div>
 <div><div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>Name the comparison before the form. Several places, one measure, one period → magnitude and ranking. Not a time series.</div></div>
 <div><div>Stop<br><span style="letter-spacing:.02em">NC-EVI-01</span></div><div>Year 2926 is not a date. ISO 8601 in the data, natural language in the display — and a year outside range is a typo, not a value.</div></div>
@@ -143,9 +143,9 @@
 <div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>Provenance is part of the chart, not an afterthought: source linked to the dataset, reference period, geography and boundary vintage, method, revision status, disclosure treatment, illustrative flag.</div></div></div>
 <div class="nc-lab">What comes out</div><div class="nc-panel nc-panel--left acc-coral"><p class="lab">Nothing</p><p class="txt">No component is produced. The stops above are Fixed rules; they are fixed in the content, not designed around.</p></div>
 <p class="nc-small">Three separate stops, and any one of them alone would be enough. Note what did <i>not</i> happen: the system did not quietly drop the bad row, round the impossible number down or pick 2026 as the likely year. Silent repair is how a wrong figure ends up in a funding application.</p>
-<h3>B · The same question, with the data repaired</h3>
-<p>Four comparable districts, one measure, one year, plausible values, a stated source. Now the ladder runs to the end — and every visual decision below is <i>derived</i>, not chosen.</p>
-<div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Manchester 41,200 · Leeds 33,900 · Bristol 18,450 · Brighton and Hove 12,800</p><p class="txt">Night-time economy jobs, local authority districts, 2024</p></div>
+<h3 class="nc-heading-3">B · The same question, with the data repaired</h3>
+<p class="nc-body">Four comparable districts, one measure, one year, plausible values, a stated source. Now the ladder runs to the end — and every visual decision below is <i>derived</i>, not chosen.</p>
+<div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Manchester 41,200 · Leeds 33,900 · Bristol 18,450 · Brighton and Hove 12,800</p><p class="txt">Night time economy jobs, local authority districts, 2024</p></div>
 <div><div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>Name the comparison before the form. Several places, one measure, one period → magnitude and ranking. Not a time series.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>Provenance is part of the chart, not an afterthought: source linked to the dataset, reference period, geography and boundary vintage, method, revision status, disclosure treatment, illustrative flag.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>The measure is a count — a quantity from zero. Bars encode length from zero, which is rank 1 on the perceptual ranking. Bar chart.</div></div>
@@ -155,8 +155,8 @@
 <div><div>Holds<br><span style="letter-spacing:.02em">ch06</span></div><div>Ranked descending — alphabetical is almost never the reader&#x27;s question.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">NC-EVI-09</span></div><div>Source says illustrative, so the flag is placed on the chart itself rather than left in the surrounding text.</div></div></div>
 <div class="nc-lab">What comes out</div><div><figure class="nc-chart acc-blue">
-  <h3 class="ct">Manchester employs more than twice as many night-time workers as Bristol</h3>
-  <p class="cs">Night-time economy jobs, local authority districts, 2024.</p>
+  <h3 class="ct">Manchester employs more than twice as many night time workers as Bristol</h3>
+  <p class="cs">Night time economy jobs, local authority districts, 2024.</p>
   <div class="nc-bar"><span class="lb">Manchester</span><span class="tk"><span class="fl" style="width:100%"></span></span><span class="vl">41,200</span></div>
   <div class="nc-bar"><span class="lb">Leeds</span><span class="tk"><span class="fl" style="width:82%"></span></span><span class="vl">33,900</span></div>
   <div class="nc-bar"><span class="lb">Bristol</span><span class="tk"><span class="fl" style="width:45%"></span></span><span class="vl">18,450</span></div>
@@ -165,8 +165,8 @@
     <span class="nc-illus">Illustrative</span> <span class="nc-prov">OFF-OPEN</span> Illustrative figures — replace with BRES, ONS, released 2025, 2024 boundaries, unrevised.</figcaption>
 </figure></div>
 <p class="nc-small">Bar, not dot plot, because a job count is a quantity from zero. One colour, not four, because there is one series — the four-colour ramp would imply a distinction that is not there. Values at the mark rather than a legend, so nobody has to hold a colour key in their head. Ranked by size, because that is the question. Not one of those is a taste decision.</p>
-<h3>C · The numbered section</h3>
-<p>A heading is the highest-leverage text in any document: it is what the contents list is built from, and it is how a screen-reader user moves through a report. So it gets checked as structure first and as writing second.</p>
+<h3 class="nc-heading-3">C · The numbered section</h3>
+<p class="nc-body">A heading is the highest-leverage text in any document: it is what the contents list is built from, and it is how a screen-reader user moves through a report. So it gets checked as structure first and as writing second.</p>
 <div class="nc-panel nc-panel--top acc-violet"><p class="lab">As you supplied it</p><p class="txt">Section 18 HOW CITIES MAke great places</p><p class="txt">Cities are the source of talent and innovation for nightlife and the people there are amazing and deserve all the joy</p></div>
 <div><div><div>Holds<br><span style="letter-spacing:.02em">ch11</span></div><div>A section header is a heading — marked up as one, never text styled to look like one. SC 1.3.1.</div></div>
 <div><div>Check<br><span style="letter-spacing:.02em">NC-TYP-01</span></div><div>Title arrived with typed capitals. Normalised to sentence case in the source. It still appears in capitals, because the section header applies them as a format — but the underlying words stay ordinary, so search, copy-paste and a screen reader all get a readable sentence. Proper nouns cannot be recovered automatically: check the result if the title names a place, a person or an organisation.</div></div>
@@ -176,7 +176,7 @@
 <div><div>Holds<br><span style="letter-spacing:.02em">ch11</span></div><div>Level h4. No skipped levels — h2 to h4 breaks outline navigation, which is how screen-reader users move through a long document.</div></div>
 <div><div>Check<br><span style="letter-spacing:.02em">ch16</span></div><div>This is a values claim, not evidence. Framing is how evidence gets a hearing; it may not substitute for evidence. Keep it, and put the finding next to it.</div></div>
 <div><div>Holds<br><span style="letter-spacing:.02em">ch03</span></div><div>Body is running prose: leading 1.5–1.6, measure ≤80ch, left aligned, 12pt floor. The only place the 1.5 rule applies.</div></div></div>
-<div class="nc-lab">What comes out</div><div><h4 class="nc-section-head"><span class="num">18</span><span class="ttl">How cities make great places</span></h4>
+<div class="nc-lab">What comes out</div><div><h4 class="nc-section-head nc-heading-4"><span class="nc-number-slot"><span class="nc-number">18</span></span><span class="nc-section-title">How cities make great places</span></h4>
 <p>Cities are the source of talent and innovation for nightlife and the people there are amazing and deserve all the joy</p></div>
 <p class="nc-small">The heading came out one level down — a fourth-level heading, not a second — because on this page it sits underneath two headings already. The component does not decide its own level; where it lands does. That is the same principle as the type scaling: the context sets the base, the component sizes itself against it. Drop the same section opener at the top of a report and it comes out as a second-level heading, looking bigger, with nothing rewritten.</p><p class="nc-small">Two <b>checks</b>, not stops — both are yours to decide. On the heading: “How cities make great places” names a topic. “Cities make places worth staying out in” would state a finding, and a contents list built from findings reads as a summary, which is what most people use it as. On the body: “amazing” and “deserve” are a values claim. Keep them — but put the evidence next to them, or the sentence is doing work it cannot support.</p>
 </section>
@@ -184,7 +184,7 @@
 <hr class="nc-brk acc-coral">
 
 <section>
-  <h2 class="nc-section-head"><span class="num">05</span><span class="ttl">What a refusal is for</span></h2>
+  <h2 class="nc-section-head nc-heading-2"><span class="nc-number-slot"><span class="nc-number">05</span></span><span class="nc-section-title">What a refusal is for</span></h2>
   <p>A refusal is not the system being difficult. It is the system declining to make weak
      evidence look strong.</p>
   <p>Every visual decision after rung three is a decision about <i>emphasis</i> — this is
@@ -207,7 +207,7 @@
     </div>
   </div>
   <p class="nc-small" style="margin-top:var(--nc-sp5)">Everything on this page traces to the
-     Nightlife Culture Style Guide v1.4.1 and the Decision Book chapters. Where the two
+     Nightlife Culture Style Guide v1.5 and the Decision Book chapters. Where the two
      disagree, the disagreement is recorded rather than quietly resolved — seven of those
      are still open and waiting on you.</p>
 </section>
