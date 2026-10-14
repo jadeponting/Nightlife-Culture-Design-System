@@ -19,7 +19,8 @@ P = json.loads((ROOT / "foundations" / "patterns.json").read_text())
 decks = {}
 for f in (ROOT / "decks").glob("*.json"):
     d = json.loads(f.read_text())
-    decks[pathlib.Path(d["reference"]).name] = d
+    if "reference" in d:          # a rebuild of a live deck; working decks have no reference to sit beside
+        decks[pathlib.Path(d["reference"]).name] = d
 
 def ref_img(ref, n):
     p = ROOT / "reference" / ref / f"slide-{int(n):02d}.jpg"

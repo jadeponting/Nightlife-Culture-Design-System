@@ -32,7 +32,10 @@
 .nc-sfill{flex:1 1 auto}
 
 /* ---- type blocks ---------------------------------------------------- */
-.nc-st{font-family:var(--nc-font-display);text-transform:uppercase;font-size:4.51cqw;
+/* Archivo Black has one weight, 400. A title sits on an h2, which browsers make bold, and
+   with no bold face to use they fake one by thickening the strokes. The weight is stated so
+   the face is drawn as designed (fixed 14 Oct 2026). */
+.nc-st{font-family:var(--nc-font-display);font-weight:400;text-transform:uppercase;font-size:4.51cqw;
   line-height:0.97;letter-spacing:-.01em;color:var(--nc-title);margin:0;text-wrap:balance}
 .nc-st--fit{font-size:3.75cqw}
 .nc-st--xl{font-size:6.25cqw}

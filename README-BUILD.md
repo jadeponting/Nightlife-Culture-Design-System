@@ -14,7 +14,7 @@ adapters are not yet part of `build.py`.
 ## The chain, one way
 
 ```
-Style Guide v1.5   ─┐
+Style Guide v1.5.1 ─┐
 The Decision Book ─┤
                    ├─► foundations/tokens.json      every VALUE, once
                    └─► foundations/rules.json       every RULE, tiered and sourced
@@ -121,6 +121,6 @@ build.py                 run this
 ```
 
 ---
-*Sources: Nightlife Culture Style Guide v1.5 · The Decision Book, chapters 1–18,
+*Sources: Nightlife Culture Style Guide v1.5.1 · The Decision Book, chapters 1–18,
 digest `8701c5a003db5b0b`. Component specs from `headers.html`, containment v1.3,
 charts v1.4, slides v1.5, furniture v1.6 and `joy.html`.*

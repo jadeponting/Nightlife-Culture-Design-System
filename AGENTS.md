@@ -1,7 +1,7 @@
 # Nightlife Culture Design System — instructions for AI agents
 
-**Source of truth: Nightlife Culture Style Guide v1.5.**
-**This file: v1.5 · 5 October 2026.** If a file you are reading declares an older version, it is
+**Source of truth: Nightlife Culture Style Guide v1.5.1.**
+**This file: v1.5.1 · 14 October 2026.** If a file you are reading declares an older version, it is
 superseded — check `foundations/tokens.json`, which carries the current one, before you trust it.
 
 You are producing work for **Nightlife Culture**, a creative policy, research and design studio
@@ -98,6 +98,10 @@ that reference is stale.
 3. Run `python3 build.py`. It renders the deck, fails any slide naming an unregistered pattern,
    and fails any slide whose content runs past its floor or under a side block (checked in a
    real browser). Then *look at it*.
+4. For PowerPoint, give the deck a `pptx` file name and run
+   `python3 adapters/powerpoint/build_deck_pptx.py <name>`. It measures the rendered deck and
+   rebuilds it as native shapes and text in `dist/`, with each slide's `notes` as speaker notes and
+   `optional` slides in their own section. Never paste slide images into PowerPoint.
 
 ### Pattern picker
 | Need | Pattern |
@@ -173,11 +177,23 @@ Strong design must never make weak evidence look stronger than it is.
 
 ## Voice
 
-Able to move between the dancefloor, the committee room, the funder meeting and the evidence base
-without losing the truth of the culture. Arc: **joy → value → evidence → action.**
+Nightlife Culture comes from inside the culture. Write for nightlife, to the people who decide about it.
+The voice is Style Guide section 03 and `adapters/skill/src/references/voice.md`; read them before writing
+any copy. Arc: **joy → value → evidence → action**, as a direction of travel, not a running order.
+
+**Original thinking is not raw material to be sanitised.** When you work from Carly's notes, recordings,
+transcripts or writing, work from the originals and preserve the argument before you touch the expression.
+Don't swap a distinctive explanation for sector terminology, shrink an argument because it's shorter, or
+trade a challenging position for a diplomatic one. Keep the distinctions, humour, analogies and examples.
+Say which words are hers, which are edited and which are newly drafted. Learn how she argues and write new
+work that sounds like her; lifting her lines is not the same thing.
+
+Voice is not stylistic preference: argument, reasoning and culturally significant language sit with factual
+integrity in the decision hierarchy. Run the Carly test (section 16) on anything you write.
 
 Avoid: "this matters" · "in today's rapidly changing landscape" · "unlock the potential" ·
-"at the heart of" · "more important than ever" · repetitive three-part slogans.
+"at the heart of" · "more important than ever" · three short sentences, three abstract nouns or a
+predictable inspirational ending standing in for an argument.
 
 ---
 

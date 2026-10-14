@@ -26,7 +26,11 @@ SRC  = HERE / "src"
 OUT  = ROOT / "dist" / "skill" / "nightlife-culture-design"
 
 T = json.load(open(ROOT / "foundations" / "tokens.json"))
-SOURCE = T["meta"]["source"]                       # e.g. "Nightlife Culture Style Guide v1.4"
+SOURCE = T["meta"]["source"]                       # e.g. "Nightlife Culture Style Guide v1.5.1"
+# the guide's date comes from the token file, never typed: the skill said "August 2026" for a
+# guide dated 5 October, then for one dated 14 October
+import datetime as _dt
+GUIDE_DATE = _dt.date.fromisoformat(T["meta"]["generated"]).strftime("%-d %B %Y")
 LAW    = T["colour"]["theLaw"]["statement"]
 GROUNDS  = {k: v for k, v in T["colour"]["grounds"].items()  if isinstance(v, dict)}
 ACCENTS  = {k: v for k, v in T["colour"]["accents"].items()  if isinstance(v, dict)}
@@ -96,8 +100,9 @@ def gen_slides_md():
     from render import slide as render_slide
     P = json.load(open(ROOT / "foundations" / "patterns.json"))
     Z = T["type"]["sizes"]["slide"]["pattern"]; SP = T["space"]["slide"]
-    decks = {pathlib.Path(json.load(open(f))["reference"]).name: json.load(open(f))
-             for f in sorted((ROOT / "decks").glob("*.json"))}
+    # reference rebuilds only: a working deck (no "reference") is not a pattern's source
+    decks = {pathlib.Path(d["reference"]).name: d
+             for d in (json.load(open(f)) for f in sorted((ROOT / "decks").glob("*.json"))) if "reference" in d}
     L = ["# Slides — generated from foundations/patterns.json. Do not edit by hand.\n",
          "Slides are built from **blocks** arranged into **patterns**. Every pattern comes from a real",
          "Nightlife Culture deck, and its reference slide is in `assets/reference/`. **Look at the",
@@ -189,7 +194,7 @@ def main():
     # SKILL.md
     s = (SRC / "SKILL.md").read_text()
     s = (s.replace("{{LAW}}", LAW).replace("{{LAW_DETAIL}}", law_detail())
-          .replace("{{SOURCE}}", f"{SOURCE} (August 2026)").replace("{{TYPESCALE_LINE}}", typescale_line()))
+          .replace("{{SOURCE}}", f"{SOURCE} ({GUIDE_DATE})").replace("{{TYPESCALE_LINE}}", typescale_line()))
     (OUT / "SKILL.md").write_text(s)
 
     # nc.css IS the design system's generated stylesheet. Until v1.5 the skill carried a
@@ -232,7 +237,7 @@ def main():
         if "tools/validate.py" in txt:
             fail.append(f"stale tools/validate.py reference in {p.relative_to(OUT)}")
     skill_md = all_text[OUT / "SKILL.md"]
-    ver = re.search(r"v1\.\d", SOURCE).group()
+    ver = re.search(r"v\d+\.\d+(?:\.\d+)?", SOURCE).group()
     if ver not in skill_md: fail.append(f"SKILL.md does not declare {ver}")
     if re.search(r"Style Guide v1\.[0-4]\b(?!.*superseded)", skill_md.replace("Superseded: v1.4, v1.4.1", "")): fail.append("SKILL.md names a superseded guide version")
     # the old parallel stylesheet's class names may not come back
@@ -253,8 +258,10 @@ def main():
             if h.lower() in txt.lower() and p.suffix in (".css", ".html"):
                 fail.append(f"retired colour {h} in {p.relative_to(OUT)}")
     # parity
-    import subprocess
-    both = OUT.parent / "_parity.css"
+    import subprocess, tempfile
+    # the combined stylesheet is scratch: it lives outside the repo, because a synced or sandboxed
+    # folder may refuse the delete, and a failed delete used to fail the whole build
+    both = pathlib.Path(tempfile.gettempdir()) / "nc_skill_parity.css"
     both.write_text(all_text[OUT / "assets" / "nc.css"] + "\n" + all_text[OUT / "assets" / "slides.css"])
     r = subprocess.run([sys.executable, str(OUT / "scripts" / "parity_check.py"), str(both),
                         *[str(OUT / "references" / n) for n in ("components.md", "charts.md", "slides.md", "tokens.md")],

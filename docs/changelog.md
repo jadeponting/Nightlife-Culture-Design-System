@@ -440,3 +440,36 @@ unadopted v1.4.2 draft move to `archive/2026-10-05-v1.5/` with v1.5 the only gui
 set, ink versus charcoal, the chart marks' own sizes, and Office templates generated from the roles
 (the Word, Excel and PowerPoint adapters still carry style sets of their own).
 
+## v1.5.1 — 14 October 2026
+
+The voice and editorial sections amended; no token, rule tier, type role or layout changed, so the
+guide moves to a point release (decided by Carly, 14 October 2026). The guide file is now
+`assets/Nightlife_Culture_Style_Guide_v1.5.1.html`; v1.5 is in git history.
+
+**Changed**
+- Section 03 *Voice and tone* opens with a new passage ("Here's the thing…"), approved by Carly
+  in response to Rowan's review, with lines from Rowan's proposed opening folded in.
+- The rest of Rowan's review applied, as agreed by Carly on 14 October 2026: eight voice characteristics
+  and three voice modes (§03); the arc as a direction of travel; rhythm, emphasis and rhetoric, flattening
+  examples and cultural value / cultural contribution distinguished (§04, NC-LNG-01); original thinking
+  protected and voice placed outside stylistic preference (§00); what we're here to change (§01); how we
+  build an argument (§02); accuracy of evidence versus strength of argument (§06); the Carly test (§16).
+  Mirrored in the skill (`voice.md`, `components.md`, `SKILL.md`) and `AGENTS.md`. Added to the Style Guide v1.5 and to the skill's
+  `references/voice.md`. 
+
+**Also 14 October 2026**
+- **Fixed:** slide titles were faux-bold. Archivo Black has one weight; `.nc-st` now states it,
+  and the rendered check (`check_contrast.py`) fails any Archivo Black text asked for more.
+- **Added:** the PowerPoint route for v1.5.1, `adapters/powerpoint/build_deck_pptx.py` with
+  `deck_pptx.js`. It measures the rendered deck and places it as native, editable shapes and text,
+  with speaker notes, an optional-slides section, slide-number fields, caps as a property, British
+  English proofing and the four faces embedded. `checks/inspect_pptx.py` accepts Inter SemiBold,
+  the name Office gives Inter 600.
+- **Added:** `decks/vibe-map-partner.json`, the first working deck (not a reference rebuild).
+  The pattern sheet and the skill now read only decks that name a `reference`.
+- **Fixed:** the skill dated its guide "August 2026"; the date now comes from `tokens.json`, and
+  the skill's version check reads three-part versions.
+- **Fixed:** the skill step wrote a scratch stylesheet inside `dist/skill/` and deleted it, so the
+  build failed wherever the folder refuses deletes. The scratch file now lives in the system's
+  temporary folder.- **Fixed:** with Playwright installed but its browser missing, the rendered check crashed instead of
+  reporting itself skipped. It now skips, and the build says it was not measured.

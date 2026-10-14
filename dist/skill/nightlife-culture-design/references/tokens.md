@@ -1,6 +1,6 @@
 # Tokens — generated from foundations/tokens.json. Do not edit by hand.
 
-**Source:** Nightlife Culture Style Guide v1.5.
+**Source:** Nightlife Culture Style Guide v1.5.1.
 
 ## The colour law
 

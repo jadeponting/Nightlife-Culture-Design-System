@@ -173,7 +173,7 @@ open. Everything prints open.
     <span class="nc-number-slot"><span class="nc-number nc-page-number">p. 04</span></span>
   </span><span class="nc-small">The chapter's one-line claim</span></a>
 </nav>
-<div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · Section</span><span class="nc-running-foot">v1.5 · date · 07</span></div>
+<div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · Section</span><span class="nc-running-foot">v1.5.1 · date · 07</span></div>
 ```
 Add `nc-contents--rail` and `aria-current="true"` on the current chapter for a side rail.
 
@@ -218,7 +218,7 @@ Minimum: WCAG 2.2 AA · real headings, lists and table structures · descriptive
 text · no images of text · text or data alternatives for charts · reading order checked before PDF
 publication · document title and language set · automated checks **and** manual review.
 
-## The seven tests
+## The eight tests
 
 1. **Committee-room** — credible, decision-ready, defensible?
 2. **Dancefloor** — retains cultural truth, avoids institutionalising the culture?
@@ -227,3 +227,4 @@ publication · document title and language set · automated checks **and** manua
 5. **Hostile-reader** — are the claims, sources and assumptions defensible under scrutiny?
 6. **Partner** — does the language make room for collaboration and recognise others' contribution?
 7. **Paid-work** — can the reader understand what Nightlife Culture can do and what to ask for?
+8. **Carly** — does this contain an actual idea, argument or observation that sounds like it comes from somebody who knows the culture and understands the system? (Full test: `references/voice.md`.)

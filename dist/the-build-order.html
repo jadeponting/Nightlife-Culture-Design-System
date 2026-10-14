@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The build order — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.5">
-<meta name="nc-build-stamp" content="tokens:220d40d83cc3f82a;rules:f32e62dd29b90dc6;css:5da444564a39f50e;fonts:fb83ab0e122714d8;slides:b3593d7a047cb3d4">
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.5.1">
+<meta name="nc-build-stamp" content="tokens:4c5555e0fdeb81ae;rules:459c354c357e9d90;css:1403045c148a1a5d;fonts:fb83ab0e122714d8;slides:3ba5a245c26c633a">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -39,7 +39,7 @@
    Nightlife Culture — component layer
    GENERATED from foundations/tokens.json by checks/build.py
    DO NOT EDIT BY HAND. Edit the tokens and rebuild.
-   Source of truth: Nightlife Culture Style Guide v1.5
+   Source of truth: Nightlife Culture Style Guide v1.5.1
    ============================================================= */
 
 /* The primary rule for type (v1.5): every text style is one of five voices at
@@ -609,7 +609,10 @@
 .nc-sfill{flex:1 1 auto}
 
 /* ---- type blocks ---------------------------------------------------- */
-.nc-st{font-family:var(--nc-font-display);text-transform:uppercase;font-size:4.51cqw;
+/* Archivo Black has one weight, 400. A title sits on an h2, which browsers make bold, and
+   with no bold face to use they fake one by thickening the strokes. The weight is stated so
+   the face is drawn as designed (fixed 14 Oct 2026). */
+.nc-st{font-family:var(--nc-font-display);font-weight:400;text-transform:uppercase;font-size:4.51cqw;
   line-height:0.97;letter-spacing:-.01em;color:var(--nc-title);margin:0;text-wrap:balance}
 .nc-st--fit{font-size:3.75cqw}
 .nc-st--xl{font-size:6.25cqw}

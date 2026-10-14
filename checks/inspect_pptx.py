@@ -4,10 +4,11 @@
     python3 checks/inspect_pptx.py deck.pptx
 
 Reads the slide XML directly. Fails on: any colour outside the token set,
-any font outside the three faces, any text under 14pt (the v1.4 slide-label
-floor). Reports runs of body length (nine words or more) sitting under the
-18pt slide-body floor — reported, not failed, because one tension is still
-open: five verbatim strand descriptions cannot yet hold 18pt on one slide.
+any face outside the system's (Archivo Black, Archivo, Inter, and Inter SemiBold,
+the name Office gives Inter 600), any text under 14pt. Reports runs of body length
+(nine words or more) sitting under the 18pt slide-body floor — reported, not
+failed, because the UKDF deck still has one open tension: five verbatim strand
+descriptions cannot yet hold 18pt on one slide.
 """
 import json, pathlib, re, sys, zipfile
 
@@ -17,7 +18,7 @@ C = T["colour"]
 ALLOWED = {v["hex"][1:].upper() for v in C["grounds"].values()} \
         | {v["hex"][1:].upper() for v in C["accents"].values() if isinstance(v, dict)} \
         | {C["textColours"]["charcoal"]["hex"][1:].upper()}
-FONTS = {"Archivo Black", "Archivo", "Inter",
+FONTS = {"Archivo Black", "Archivo", "Inter", "Inter SemiBold",
          "+mn-lt", "+mj-lt", "+mn-ea", "+mj-ea", "+mn-cs", "+mj-cs"}
 FLOOR_ANY, FLOOR_BODY = 14, 18
 

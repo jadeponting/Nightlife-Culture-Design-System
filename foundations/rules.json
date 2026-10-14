@@ -1,7 +1,7 @@
 {
  "meta": {
-  "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.5, a Decision Book rule ID, or a logged decision of Carly's with its date.",
-  "source": "Nightlife Culture Style Guide v1.5 + The Decision Book (digest 8701c5a003db5b0b)",
+  "purpose": "The decision logic, captured. Not styling — the rules that decide styling, tiered and sourced. Nothing here is invented: every rule cites Style Guide v1.5.1, a Decision Book rule ID, or a logged decision of Carly's with its date.",
+  "source": "Nightlife Culture Style Guide v1.5.1 + The Decision Book (digest 8701c5a003db5b0b)",
   "generated": "2026-08-16",
   "tiers": {
    "fixed": "There is a right answer. Pass or fail, measurable. Breaking it is negligence.",
@@ -820,9 +820,10 @@
    "id": "NC-LNG-01",
    "tier": "fixed",
    "source": "Carly, 4 Oct 2026",
-   "rule": "Night time is two words, never hyphenated: night time economy, Night Time Advisor. British English throughout; cultural value, not cultural contribution.",
+   "rule": "Night time is two words, never hyphenated: night time economy, Night Time Advisor. British English throughout. Cultural value and cultural contribution are not interchangeable: cultural value is what something is worth to people and places, cultural contribution is what a particular person, venue or scene adds; use the one you mean (Rowan's review, agreed by Carly 14 Oct 2026).",
    "breaks": "The component library said night-time economy in ten places.",
    "added": "v1.5 · 5 Oct 2026",
+   "changed": "v1.5.1 · 14 Oct 2026",
    "machine": "checks/validate.py refuses 'night-time' or 'nighttime' in rendered text"
   },
   {

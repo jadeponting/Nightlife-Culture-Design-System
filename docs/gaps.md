@@ -25,9 +25,23 @@ contracts before the validator can check them.
 No page templates yet for nightlifeculture.co.uk or a published HTML report.
 
 ### 6. PowerPoint export
-Partly addressed: `adapters/powerpoint/` builds the UKDF deck as a real `.pptx`. Still missing: a
-PowerPoint master (`.potx`) built from the slide patterns, so a deck made in PowerPoint matches the
-HTML decks; and the adapter is not yet run or inspected by `build.py`.
+Partly addressed. Since 14 Oct 2026 (v1.5.1), `adapters/powerpoint/build_deck_pptx.py` turns any deck
+in `decks/*.json` that names a `pptx` file into a native PowerPoint file: it measures the deck the
+build rendered, places the measurements as editable shapes and text, embeds the four faces, and
+runs `checks/inspect_pptx.py`. First deck through it: `vibe-map-partner`. Still missing: a
+PowerPoint master (`.potx`) built from the slide patterns, so a deck *started* in PowerPoint
+matches the HTML decks; the route is not yet a step in `build.py`; and the embedded fonts have
+not yet been opened in PowerPoint itself, only in LibreOffice. `build_ukdf_pptx.js` (v1.4 sizes,
+PNG wordmark) still builds only the UKDF deck.
+
+### 6c. Two slide arrangements are provisional — logged 14 Oct 2026
+The Vibe Map partner deck needed two arrangements no reference slide shows. Built from the blocks,
+nothing new invented, and **waiting on Carly's decision** before either joins `patterns.json`:
+- **A cover that carries paragraphs** (slide 1): title, rule, a lead at xl, three leads. The
+  reference cover holds one line. Cost: the cover reads as a statement slide.
+- **Steps three across with a summary cell** (slide 11): five steps and a filled butter cell in
+  a three-column grid. The reference holds seven steps four across. Cost: two rows of three read
+  as a grid, not a sequence.
 
 ### 6b. Masthead ground — RESOLVED 16 Aug 2026, rule still to be written
 No rule said what ground a document masthead takes. Five sheets were built, each with its own
@@ -254,7 +268,15 @@ below need a decision or a larger job.
 - ~~**NC-TYP-06 sets a 13px note floor** — and captions (12.5px) and source lines (12.8px) break even that.~~
   FIXED 5 Oct 2026: small is 14px, the label voice alone is 12px, nothing else exists under 14px.
 - **The Office adapters are outside the build.** 14pt caps labels in the UKDF .pptx and 10.5pt caps
-  in the .docx; the .pptx places a raster PNG wordmark, not the outlined SVG.
+  in the .docx; the UKDF .pptx places a raster PNG wordmark. The v1.5.1 deck route places the
+  outlined SVG, with a PNG fallback for older Office.
+- ~~**Slide titles were faux-bold.**~~ FIXED 14 Oct 2026. `.nc-st` sat on an h2 without a weight,
+  so browsers thickened Archivo Black to fake a bold it does not have, on every HTML deck including
+  the AMGP rebuild. The weight is now stated, and `check_contrast.py` fails any Archivo Black text
+  asked for more than 400.
+- **The repo's font files carry the subsetter's internal names** (Archivo 700 calls itself
+  "Archivo SemiBold" Bold). Harmless on the web, where `@font-face` names the family; wrong in
+  Office. The PowerPoint route renames its copies; `assets/fonts` is untouched.
 - **`adapters/powerpoint/node_modules/` is committed** — about 360 third-party files in git.
 
 ## Closed

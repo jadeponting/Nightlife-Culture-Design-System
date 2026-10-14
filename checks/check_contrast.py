@@ -120,20 +120,43 @@ FIT = r"""
 """
 
 
+# A face with one weight, asked for a heavier one, is thickened by the browser: a
+# fake bold nobody chose. Archivo Black is drawn at 400 or not at all (fixed 14 Oct 2026,
+# after every slide title in the reference rebuild had been rendered faux-bold).
+FAUX = r"""
+() => { const o = {}; document.querySelectorAll('body *').forEach(e => {
+  if (e.closest('svg')) return;
+  if (![...e.childNodes].some(n => n.nodeType === 3 && n.data.trim())) return;
+  const cs = getComputedStyle(e);
+  if (cs.fontFamily.replace(/"/g, '').startsWith('Archivo Black') && parseInt(cs.fontWeight) > 400) {
+    const k = e.tagName.toLowerCase() + [...e.classList].map(c => '.' + c).join('');
+    o[k] = (o[k] || 0) + 1; } });
+  return Object.entries(o); }
+"""
+
+
 SKIPPED = False
 
 async def run():
+    global SKIPPED
     try:
         from playwright.async_api import async_playwright
     except ImportError:
         print("  SKIPPED — playwright is not installed on this machine.\n"
               "  pip install playwright && playwright install chromium\n"
               "  A skipped check is not a passed check: nothing here has been measured.")
-        global SKIPPED; SKIPPED = True
+        SKIPPED = True
         return 3
     fails = 0
     async with async_playwright() as pw:
-        b = await pw.chromium.launch()
+        try:
+            b = await pw.chromium.launch()
+        except Exception:                 # the package is here but its browser never downloaded
+            print("  SKIPPED — playwright is installed but its browser is not.\n"
+                  "  python3 -m playwright install chromium\n"
+                  "  A skipped check is not a passed check: nothing here has been measured.")
+            SKIPPED = True
+            return 3
         for width in WIDTHS:
           p = await b.new_page(viewport={"width": width, "height": 900})
           print(f"\n--------- {width}px ---------")
@@ -162,6 +185,9 @@ async def run():
             else:
                 print(f"=== PASS  {rel}")
             if width == WIDTHS[0]:
+                for sel, k in await p.evaluate(FAUX):
+                    fails += 1
+                    print(f"  FAUX  {rel}: {k} × {sel} — Archivo Black asked for a bold it does not have")
                 for o in await p.evaluate(FIT):
                     fails += 1
                     print(f"  FIT   {rel} slide {o['n']} ({o['pattern']}): runs {o['over']}px past "

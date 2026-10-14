@@ -1,0 +1,974 @@
+{
+  "name": "vibe-map-partner",
+  "title": "Vibe Map partner deck",
+  "kicker": "Nightlife Culture · Vibe Map · October 2026",
+  "stand": "The partner deck, built from the design system's blocks. Copy from Nightlife_Culture_Vibe_Map_Partner_Deck_Content.docx, verbatim; speaker notes travel with each slide. Slides 14–16 are optional.",
+  "pptx": "Nightlife_Culture_Vibe_Map_Partner_Deck",
+  "sections": {
+    "main": "Vibe Map partner deck",
+    "optional": "Optional slides"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "pattern": "cover",
+      "ground": "blue",
+      "blocks": [
+        {
+          "fill": true
+        },
+        {
+          "title": "Nightlife Culture",
+          "size": "cover"
+        },
+        {
+          "rule": "pink"
+        },
+        {
+          "lead": "Nightlife is civic infrastructure. Its purpose is collective joy.",
+          "size": "xl"
+        },
+        {
+          "lead": "We create the places people gather. We build scenes, connections and belonging. We give places their identity."
+        },
+        {
+          "lead": "The basement venues that anchor a scene. The places you don’t wear your good shoes, but always meet a friend you didn’t yet know. The promoters taking a punt on something weird and wonderful. The people who turn up and make it happen."
+        },
+        {
+          "lead": "The people make the place. We are the vibe creators.",
+          "hl": true
+        },
+        {
+          "fill": true
+        }
+      ],
+      "pad": "cover",
+      "notes": "Civic infrastructure here means the gathering places and relationships through which people participate in shared cultural life. This opening speaks from inside that culture; it does not claim Nightlife Culture represents every scene."
+    },
+    {
+      "n": 2,
+      "pattern": "statement",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "Culture happens between people",
+          "size": "xl"
+        },
+        {
+          "fill": true
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "lead": "A DJ responds to a room. The room responds to the DJ. An MC catches someone’s energy and takes the moment somewhere else. Something happens that none of them could have made alone."
+        },
+        {
+          "lead": "The audience isn’t simply consuming a cultural product. It’s participating in its creation."
+        },
+        {
+          "lead": "Someone takes an unexpected combination of sounds back to the studio. A promoter keeps gathering people until a night becomes a scene. Through participation, experimentation and collective imagination, culture keeps changing."
+        },
+        {
+          "lead": "Our gathering places give us room to find ourselves and each other. A healthy music ecosystem makes space for different sounds, communities and ways of belonging."
+        }
+      ],
+      "notes": "The DJ, MC and audience example explains a relationship, not a claim that every encounter produces a new genre. The argument includes both everyday belonging and creative discovery. Different communities need room to develop their own cultural lives."
+    },
+    {
+      "n": 3,
+      "pattern": "statement-two-columns",
+      "ground": "ink",
+      "blocks": [
+        {
+          "title": "We keep counting. What are we seeing?"
+        },
+        {
+          "lead": "We’re very good at counting the things that are easy to count. But are we measuring the things that matter?",
+          "size": "lg"
+        },
+        {
+          "rule": "pink"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "Buildings. Businesses. Capacity. Jobs. Ticket sales. Useful measures, but they cannot tell us the whole story of a scene."
+                ],
+                [
+                  "b",
+                  "What’s the lifetime value of a resident DJ who keeps a community coming back? An arena isn’t everybody’s destination. Something small in the totals can be an anchor for the people around it."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "You can have a city full of nightlife businesses without understanding its cultural life. When the activity sustaining a scene falls outside the categories used to recognise it, its needs are harder to make visible in policy and investment."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "If we keep measuring the same things, we’ll keep telling the same story."
+        }
+      ],
+      "notes": "Inside local government, I repeatedly assembled evidence that could describe the size of the night time economy while struggling to explain its cultural life. The problem is what our measures can recognise and how we use them. Unusual patterns deserve investigation; they are not automatically proof of cultural significance."
+    },
+    {
+      "n": 4,
+      "pattern": "statement-two-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "The change I want to see",
+          "size": "xl"
+        },
+        {
+          "lead": "I want the people who create the UK’s cultural life after dark to have greater influence over the decisions and investment shaping their places.",
+          "size": "lg"
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "That is why I’ve founded Nightlife Culture: a creative policy studio for nightlife, music, cities and culture."
+                ],
+                [
+                  "b",
+                  "We bring cultural knowledge and evidence into the room with people who can act on it. Through research, advocacy, collaborative policy design and creative production, we build shared understanding and develop practical responses with the people affected."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "My practice connects human-centred design with restorative economics: returning power to the people creating value."
+                ],
+                [
+                  "b",
+                  "Vibe Map is our first project. The larger ambition is to change how nightlife is understood, valued and invested in."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "label": "Carly Heath · Creative producer and cultural policy specialist"
+        }
+      ],
+      "notes": "Nightlife Culture draws on experience inside nightlife, cultural institutions and local government. Its work extends to convening, policy design and investment models. The optional founder slide gives that experience more space for audiences meeting Carly for the first time."
+    },
+    {
+      "n": 5,
+      "pattern": "statement-two-columns",
+      "ground": "ink",
+      "blocks": [
+        {
+          "title": "What if data could feel like a club flyer?"
+        },
+        {
+          "lead": "Vibe Map: data + design + storytelling.",
+          "size": "2xl",
+          "hl": true
+        },
+        {
+          "rule": "pink"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "A club flyer is packed with information. It tells you who’s playing, where to go, who’s behind it and whether this might be your kind of night. It’s an invitation."
+                ],
+                [
+                  "u",
+                  "What if evidence could tell the story of a place with that same sense of recognition?"
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "Vibe Map is our first practical intervention: a shared evidence foundation and an interactive account of the people, activity, relationships and support systems that sustain nightlife."
+                ],
+                [
+                  "b",
+                  "We’re prototyping a free public-interest resource. The first view should tell you something meaningful about a place. Go deeper to explore the evidence and take it into a funding case or policy conversation."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "notes": "The flyer is a design analogy, not a prescribed interface. We will test familiar forms of nightlife communication for recognition, accessibility and accurate interpretation. Geography may be one way into the evidence; the project is broader than a directory of venues."
+    },
+    {
+      "n": 6,
+      "pattern": "text-and-side-block",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "The backing to build and test",
+          "size": "fit"
+        },
+        {
+          "lead": "The UK Dynamism Fund has backed Vibe Map to explore a different way of understanding nightlife through existing national evidence."
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "We will bring that evidence together, investigate cultural, social and economic approaches to value, and develop the prototype with cultural practitioners and decision users."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "The public-facing artefact is one expression of the prototype. The research, methods we develop or reject, experiments and learning are equally important parts of the work."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "pad": "side",
+      "side": {
+        "acc": "violet",
+        "parts": [
+          [
+            "b",
+            "I think of this like Lego blocks. Test something small, see what happens, refine it and build on what works. If a piece doesn’t fit, go back and work out why."
+          ]
+        ]
+      },
+      "notes": "The funded phase tests the proposition and develops the evidence, method and public prototype together. It does not promise a finished national service or assume that the hypotheses have been demonstrated. Delivery dates and any named launch commitments should be confirmed separately before publication."
+    },
+    {
+      "n": 7,
+      "pattern": "three-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "What happens when we ask different questions of the data?",
+          "size": "fit"
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "Analysis"
+                ],
+                [
+                  "b",
+                  "Can existing national data tell us a different story about how nightlife functions? Can events and ticketing information, viewed alongside public data about place, reveal patterns and relationships that either source alone misses?"
+                ]
+              ],
+              "mark": "rule",
+              "acc": "teal"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Value"
+                ],
+                [
+                  "b",
+                  "Can methods used elsewhere to understand cultural, social and economic value be adapted to the evidence we already have? How far can that take us before new quantitative research is needed?"
+                ]
+              ],
+              "mark": "rule",
+              "acc": "butter"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Communication"
+                ],
+                [
+                  "b",
+                  "Can we express the evidence in a way people understand and can use in decisions? Do nightlife communities recognise their scene in it?"
+                ]
+              ],
+              "mark": "rule",
+              "acc": "pink"
+            }
+          ]
+        }
+      ],
+      "notes": "These are the three propositions in MASTER. The wider working hypothesis is that a shared evidence foundation, developed with its users and connected to collaborative policy work, can give nightlife greater influence. Both its usefulness and its limits need testing."
+    },
+    {
+      "n": 8,
+      "pattern": "three-boxes",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Who needs to use it?"
+        },
+        {
+          "lead": "We are developing Vibe Map around three groups of decision users."
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "Politicians and policymakers"
+                ],
+                [
+                  "b",
+                  "See the cultural life behind the businesses and premises they can count, and use that understanding in decisions about place, policy and support."
+                ]
+              ],
+              "mark": "fill",
+              "acc": "teal"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Night time ambassadors, trade bodies and nightlife advocates"
+                ],
+                [
+                  "b",
+                  "Build common evidence and shared asks, while keeping the differences between scenes visible."
+                ]
+              ],
+              "mark": "fill",
+              "acc": "butter"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Investors and funders"
+                ],
+                [
+                  "b",
+                  "Understand existing activity, cultural value and the support that could help it flourish."
+                ]
+              ],
+              "mark": "fill",
+              "acc": "violet"
+            }
+          ]
+        },
+        {
+          "text": "The people who make nightlife help shape the questions, bring their knowledge and challenge the account. Their experience is essential to deciding whether the picture makes sense."
+        },
+        {
+          "line": "A picture can be technically tidy and still miss the point."
+        }
+      ],
+      "notes": "Cultural practitioners are central to co-design and interpretation. The architecture retains three decision-user groups; it does not make creators a fourth category or reduce them to a research sample."
+    },
+    {
+      "n": 9,
+      "pattern": "text-and-side-block",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "National evidence. A closer look at place.",
+          "size": "fit"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "The national evidence foundation brings together public data about place, population, economy and infrastructure with available events and ticketing information about what happens, where, when and who is involved."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "Take a recurring club night. A premises record tells us about the space. Event listings may show a promoter returning, artists appearing together or activity moving between venues. Local knowledge helps us understand what those patterns mean, and what the records miss."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "The evidence is national from the start. The close-up view helps us interrogate it.",
+          "rule": true
+        }
+      ],
+      "pad": "side",
+      "side": {
+        "acc": "teal",
+        "parts": [
+          [
+            "b",
+            "Bristol and the West of England are our close-up testing context. We use that knowledge to challenge the analysis, then test whether the methods still hold when we look across the UK."
+          ]
+        ]
+      },
+      "notes": "The club-night example illustrates a research route, not a completed finding. Listings reflect the activity they cover; missing listings cannot establish that no activity exists. Public information and any partnership data need appropriate access and interpretation. New quantitative collection is considered only where a material gap requires it."
+    },
+    {
+      "n": 10,
+      "pattern": "list",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Five connected prototyping buckets",
+          "size": "fit"
+        },
+        {
+          "fill": true
+        },
+        {
+          "rows": [
+            [
+              "A. Decision-making",
+              "What do people need to decide, and does the emerging evidence help them?"
+            ],
+            [
+              "B. Cultural truth",
+              "Does the picture ring true to the people who know the place? What is missing or distorted?"
+            ],
+            [
+              "C. Methodology",
+              "How can we credibly understand economic contribution, cultural value and social impact using the evidence available?"
+            ],
+            [
+              "D. Analysis",
+              "What patterns and relationships can we find by combining and interrogating datasets differently?"
+            ],
+            [
+              "E. Technology",
+              "Can we turn those insights into something culturally resonant that people can explore, understand and use?"
+            ]
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "A challenge from the scene can change the analysis. A decision need can change what we show. The five buckets keep the work connected as we learn.",
+          "rule": true
+        }
+      ],
+      "notes": "These are the established project buckets, not five sequential work packages. Visual storytelling and interaction sit within Technology and draw on the other four buckets. Methodological development is itself a project output."
+    },
+    {
+      "n": 11,
+      "pattern": "steps",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Gather people. Make something. Learn from it.",
+          "size": "fit"
+        },
+        {
+          "lead": "We bring people together who see the problem differently, build something they can question and use what we learn to make the next piece."
+        },
+        {
+          "cols": 3,
+          "items": [
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Explore"
+                ],
+                [
+                  "b",
+                  "Understand users, evidence, existing methods and the questions worth testing."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Make and interrogate"
+                ],
+                [
+                  "b",
+                  "Combine data and make rough artefacts that help us ask better questions."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Co-design and test"
+                ],
+                [
+                  "b",
+                  "Put the work in front of cultural practitioners and decision users. Find out what works, what doesn’t and what we have missed."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Refine and integrate"
+                ],
+                [
+                  "b",
+                  "Feed that learning back across the five buckets and improve the work together."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "National prototype and test"
+                ],
+                [
+                  "b",
+                  "Bring the strongest learning into the national prototype and test whether it holds across different places."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "u",
+                  "Co-design runs throughout. What we discover can send us backwards, sideways or across the buckets."
+                ]
+              ],
+              "mark": "fill",
+              "acc": "butter"
+            }
+          ]
+        }
+      ],
+      "notes": "These cycles apply the existing creative policy method: Listen → Map → Ideate → Prototype → Test → Refine → Expand. They describe repeated development, not a fixed sequence with consultation at the end. The optional method slide explains the practice in more detail."
+    },
+    {
+      "n": 12,
+      "pattern": "statement-two-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "What changes when we can see it?"
+        },
+        {
+          "lead": "The data is the thing that needs to be done first. The interesting work is what becomes possible once we have it."
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "The future I’m working towards is one where a small venue can make its cultural significance understood, a funder can recognise activity that conventional measures overlook, and the people sustaining a scene can shape what happens to it."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "A shared evidence foundation gives us something to bring into the room: a picture people can challenge, priorities they can develop together, and a stronger case to take to those who control resources."
+                ],
+                [
+                  "b",
+                  "Nightlife Culture will use that foundation to bring cultural communities and decision-makers together around policy, support and investment. Vibe Map tests how the evidence can help."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "The ambition is to shift influence, investment and cultural power towards the people creating the value."
+        }
+      ],
+      "notes": "This is the wider studio ambition. Better evidence alone does not redistribute power: convening, collective priorities and action matter. Specific future commissions, interventions and outcomes remain to be developed and are not additional funded commitments."
+    },
+    {
+      "n": 13,
+      "pattern": "team-and-close",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "We make the night happen",
+          "size": "fit"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "We know what becomes possible when the right people come together. Now we’re bringing that same spirit of collective creativity to how nightlife is understood, governed and invested in."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "We’ve got questions to answer, evidence to explore and things to build. Bring the knowledge we haven’t got. Ask the difficult question. Help us make the work useful."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "cols": 4,
+          "items": [
+            {
+              "parts": [
+                [
+                  "h",
+                  "Know the culture?"
+                ],
+                [
+                  "b",
+                  "Help shape the questions and challenge what the evidence shows."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "teal"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Work with data or research?"
+                ],
+                [
+                  "b",
+                  "Help connect sources, test methods and understand their limits."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "pink"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Work in design or technology?"
+                ],
+                [
+                  "b",
+                  "Help make the evidence something people recognise and want to explore."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "violet"
+            },
+            {
+              "parts": [
+                [
+                  "h",
+                  "Shape policy or investment?"
+                ],
+                [
+                  "b",
+                  "Bring a real decision and help us test what would make a difference."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "butter"
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "Let’s build it together."
+        },
+        {
+          "label": "Carly Heath · carly@nightlifeculture.co.uk"
+        }
+      ],
+      "pad": "band",
+      "band": {
+        "text": "The Vibe Map is the start. What we do with it is the revolution.",
+        "logo": true
+      },
+      "notes": ""
+    },
+    {
+      "n": 14,
+      "pattern": "statement-two-columns",
+      "ground": "blue",
+      "blocks": [
+        {
+          "title": "Why I’m building this",
+          "size": "xl"
+        },
+        {
+          "label": "Carly Heath · Founder of Nightlife Culture"
+        },
+        {
+          "rule": "white"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "I’ve spent more than two decades making culture happen: promoting nights, producing festivals, working inside cultural institutions and developing public policy. I spent five years inside local government as Bristol’s Night Time Economy Advisor."
+                ],
+                [
+                  "b",
+                  "I know what it takes to get people into a room, build trust and turn an idea into something real. I also know what happens when the people making decisions cannot see the culture in front of them."
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "My practice brings creative production, human-centred design, evidence and restorative economics together. I’m interested in the connections between those worlds, and in returning influence and resources to the people creating value."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "line": "Nightlife Culture is where I’m bringing that experience together."
+        }
+      ],
+      "notes": "Founder introduction · Insert after slide 04 for people meeting Carly for the first time.\n\nThis is a founder introduction, not a claim that former employers or organisations endorse Vibe Map. The cultural argument is also informed by Raymond Williams’s Culture Is Ordinary, a foundation Carly identifies from her university years.",
+      "optional": true
+    },
+    {
+      "n": 15,
+      "pattern": "statement-two-columns",
+      "ground": "ink",
+      "blocks": [
+        {
+          "title": "What’s the lifetime value of a resident DJ?"
+        },
+        {
+          "lead": "Someone plays the same room for years. People return, friendships form, new artists get heard and a scene develops its own sound. A career chart might see very little movement. A community might see an anchor.",
+          "size": "lg"
+        },
+        {
+          "lead": "We’re good at measuring the tallest trees. What about the ecosystem underneath?",
+          "size": "xl",
+          "hl": true
+        },
+        {
+          "rule": "pink"
+        },
+        {
+          "cols": 2,
+          "items": [
+            {
+              "parts": [
+                [
+                  "b",
+                  "Can recurring names, nights and connections in event data help us recognise that activity? Can the people who know the scene tell us whether our interpretation makes sense? What would make that a credible indication of cultural value?"
+                ]
+              ]
+            },
+            {
+              "parts": [
+                [
+                  "b",
+                  "Those are questions to test. Recurrence alone cannot tell us whether people feel welcome, what a night means to them or who the data leaves out."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "notes": "Research example · Insert after slide 09 for data and research collaborators.\n\nThe example comes from Carly’s writing and solo recording. It challenges the assumption that success means progressing to a larger venue. It does not establish a resident-DJ metric, a score for belonging or a causal link between repeat listings and cultural significance.",
+      "optional": true
+    },
+    {
+      "n": 16,
+      "pattern": "steps",
+      "ground": "chalk",
+      "blocks": [
+        {
+          "title": "Our creative policy design method",
+          "size": "fit"
+        },
+        {
+          "lead": "Human-centred design, restorative economics and participatory creative production run through the way we work."
+        },
+        {
+          "cols": 4,
+          "items": [
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Listen"
+                ],
+                [
+                  "b",
+                  "Gather the people, hear their experience and agree what matters."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Map"
+                ],
+                [
+                  "b",
+                  "Connect cultural activity, relationships, resources and power."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Ideate"
+                ],
+                [
+                  "b",
+                  "Develop possible answers with the people affected."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Prototype"
+                ],
+                [
+                  "b",
+                  "Make something tangible that people can use and challenge."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Test"
+                ],
+                [
+                  "b",
+                  "Find out whether it is recognisable, useful and helps people act."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Refine"
+                ],
+                [
+                  "b",
+                  "Change the work and the method in response to what we learn."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            },
+            {
+              "parts": [
+                [
+                  "hc",
+                  "Expand"
+                ],
+                [
+                  "b",
+                  "Adapt what works in another context while preserving local identity."
+                ]
+              ],
+              "mark": "rule",
+              "acc": "blue"
+            }
+          ]
+        },
+        {
+          "fill": true
+        },
+        {
+          "callout": "The unexpected connection between people with different experience is often where a new possibility begins. We make room for that, and do the practical work needed to follow it through."
+        }
+      ],
+      "notes": "Method in more detail · Insert after slide 11 for delivery and policy collaborators.\n\nThis is the studio’s established method, used across Vibe Map’s five development cycles. It is not a second project architecture.",
+      "optional": true
+    }
+  ]
+}

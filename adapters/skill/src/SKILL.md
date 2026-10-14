@@ -1,6 +1,6 @@
 ---
 name: nightlife-culture-design
-description: The Nightlife Culture brand and design system (Style Guide v1.5) — colour tokens, the five type voices and 26 named roles, four line weights, layout, containment, breakers, slides, charts, tables, status chips, controls and evidence components, plus voice and editorial rules and what to do when there is no rule. Use this skill whenever producing ANYTHING for Nightlife Culture or Carly Heath: decks, slides, presentations, reports, Word documents, PDFs, HTML pages, charts, graphs, tables, statistics, infographics, proposals, funding bids, briefings, one-pagers, social graphics, or written copy. Also use when asked about brand colours, fonts, the palette, "on brand", the style guide, chart colours, slide layouts, or how something should look. Trigger even when the user does not say "brand" or "design system" — if the output carries the Nightlife Culture name, it must follow this system.
+description: The Nightlife Culture brand and design system (Style Guide v1.5.1) — colour tokens, the five type voices and 26 named roles, four line weights, layout, containment, breakers, slides, charts, tables, status chips, controls and evidence components, plus voice and editorial rules and what to do when there is no rule. Use this skill whenever producing ANYTHING for Nightlife Culture or Carly Heath: decks, slides, presentations, reports, Word documents, PDFs, HTML pages, charts, graphs, tables, statistics, infographics, proposals, funding bids, briefings, one-pagers, social graphics, or written copy. Also use when asked about brand colours, fonts, the palette, "on brand", the style guide, chart colours, slide layouts, or how something should look. Trigger even when the user does not say "brand" or "design system" — if the output carries the Nightlife Culture name, it must follow this system.
 ---
 
 # Nightlife Culture Design System
@@ -63,8 +63,8 @@ Label: Archivo SemiBold 600, capitals, spaced, 12px. Six sizes and no others: 32
 **Lines:** four weights and no others · hairline 1px · table line 2px · rule 4px (a line that goes
 with text) · callout 8px (a line on a filled box).
 
-**Language:** British English · **night time** is two words, never hyphenated · cultural value, not
-cultural contribution.
+**Language:** British English · **night time** is two words, never hyphenated · cultural value and
+cultural contribution are not interchangeable: use the one you mean.
 
 Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE` cream, Aptos.
 
@@ -112,14 +112,23 @@ or convert DOCX/PDF and read the pages. Do not ship a layout you have not seen.
   becomes: Heading 1–4, Subtitle, Normal, Quote, Intense Quote, Caption, Table style with Header Row
   and First Column, and the new styles Label, Small, Key statement and File reference.
 - **PDF** exported from a structured source, never printed to PDF.
-- **PowerPoint** only when the user asks for it. Build from the patterns in `references/slides.md`.
+- **PowerPoint** only when the user asks for it. Build the slides in HTML from the patterns in
+  `references/slides.md` first, check they fit, then rebuild each slide as **native, editable shapes
+  and text at the positions the browser measured**. Never images of slides. In Office the faces are
+  Archivo Black, Archivo (bold), Inter, and **Inter SemiBold** for Inter 600 (Office has no 600
+  weight, only that face name). Capitals are the all-caps property, never typed. Speaker notes go
+  in the notes; slide numbers are fields. Embed the faces, and send a PDF alongside for email.
+  The design-system repo does this in `adapters/powerpoint/build_deck_pptx.py`.
 
 ---
 
 ## Voice, in one line
 
-Able to move between the dancefloor, the committee room, the funder meeting and the evidence base
-without losing the truth of the culture. Emotional arc: **joy → value → evidence → action.**
+Nightlife Culture comes from inside the culture. Write for nightlife, to the people who decide about it:
+speak the system's language well enough that the spreadsheet can't ignore you, and never let it speak for
+you. Emotional arc: **joy → value → evidence → action**, as a direction of travel, not a running order.
+Before writing any copy, read `references/voice.md` in full, including *Original thinking is not raw
+material to be sanitised* and the Carly test.
 
 Avoid AI voice: "this matters", "in today's rapidly changing landscape", "unlock the potential",
 "at the heart of", "more important than ever", and repetitive three-part slogans.
@@ -179,4 +188,4 @@ Known gaps today, each with an interim position:
 text style marked Specified, Inherits or Barred) in the design-system repo. Where this skill and the
 guide disagree, the guide wins. Where the guide and `Comparative Place-Based Research Methodology
 v1.0` touch, the methodology wins. Superseded: v1.4, v1.4.1 and the unadopted v1.4.2 draft, in
-`archive/`.
+`archive/`; v1.5 (5 October 2026), amended by v1.5.1 in the voice and editorial sections only.

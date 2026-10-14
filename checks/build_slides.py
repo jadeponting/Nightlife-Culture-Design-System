@@ -67,7 +67,10 @@ CSS = f"""/* GENERATED — do not edit. Source: foundations/tokens.json
 .nc-sfill{{flex:1 1 auto}}
 
 /* ---- type blocks ---------------------------------------------------- */
-.nc-st{{font-family:var(--nc-font-display);text-transform:uppercase;font-size:{c(Z['title'])};
+/* Archivo Black has one weight, 400. A title sits on an h2, which browsers make bold, and
+   with no bold face to use they fake one by thickening the strokes. The weight is stated so
+   the face is drawn as designed (fixed 14 Oct 2026). */
+.nc-st{{font-family:var(--nc-font-display);font-weight:400;text-transform:uppercase;font-size:{c(Z['title'])};
   line-height:{LH['title']};letter-spacing:-.01em;color:var(--nc-title);margin:0;text-wrap:balance}}
 .nc-st--fit{{font-size:{c(Z['titleFit'])}}}
 .nc-st--xl{{font-size:{c(Z['statement'])}}}

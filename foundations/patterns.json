@@ -1,6 +1,6 @@
 {
   "meta": {
-    "source": "Nightlife Culture Style Guide v1.5 + live reference decks in reference/",
+    "source": "Nightlife Culture Style Guide v1.5.1 + live reference decks in reference/",
     "note": "A pattern is a slide arrangement a real deck has used, built from the blocks in foundations/nightlife-slides.css. Patterns grow from live work: a new reference slide either fits a pattern here, or is composed from blocks and added as a new pattern citing that slide. Replaces the twelve generated layouts (archived 29 Sep 2026).",
     "howToGrow": "1. Put the live deck in reference/<name>/ (PDF plus one image per slide). 2. For each slide, find the pattern it fits. 3. If none fits, compose it from blocks in a deck JSON, add a pattern entry here with its reference slide, and rebuild. 4. If a block itself is missing, that is a gap: log it in docs/gaps.md — a block changes only when a token changes."
   },

@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The component library — Nightlife Culture</title>
-<meta name="nc-source" content="Nightlife Culture Style Guide v1.5">
-<meta name="nc-build-stamp" content="tokens:220d40d83cc3f82a;rules:f32e62dd29b90dc6;css:5da444564a39f50e;fonts:fb83ab0e122714d8;slides:b3593d7a047cb3d4">
+<meta name="nc-source" content="Nightlife Culture Style Guide v1.5.1">
+<meta name="nc-build-stamp" content="tokens:4c5555e0fdeb81ae;rules:459c354c357e9d90;css:1403045c148a1a5d;fonts:fb83ab0e122714d8;slides:3ba5a245c26c633a">
 <style>
 /* =============================================================
    Nightlife Culture — embedded typefaces
@@ -39,7 +39,7 @@
    Nightlife Culture — component layer
    GENERATED from foundations/tokens.json by checks/build.py
    DO NOT EDIT BY HAND. Edit the tokens and rebuild.
-   Source of truth: Nightlife Culture Style Guide v1.5
+   Source of truth: Nightlife Culture Style Guide v1.5.1
    ============================================================= */
 
 /* The primary rule for type (v1.5): every text style is one of five voices at
@@ -609,7 +609,10 @@
 .nc-sfill{flex:1 1 auto}
 
 /* ---- type blocks ---------------------------------------------------- */
-.nc-st{font-family:var(--nc-font-display);text-transform:uppercase;font-size:4.51cqw;
+/* Archivo Black has one weight, 400. A title sits on an h2, which browsers make bold, and
+   with no bold face to use they fake one by thickening the strokes. The weight is stated so
+   the face is drawn as designed (fixed 14 Oct 2026). */
+.nc-st{font-family:var(--nc-font-display);font-weight:400;text-transform:uppercase;font-size:4.51cqw;
   line-height:0.97;letter-spacing:-.01em;color:var(--nc-title);margin:0;text-wrap:balance}
 .nc-st--fit{font-size:3.75cqw}
 .nc-st--xl{font-size:6.25cqw}
@@ -1206,7 +1209,7 @@ line of Inter beneath; the page number is the number role with a p (rounds two t
 <a href="#" aria-current="true"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">01</span></span><span>Nightlife is cultural infrastructure</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 04</span></span></span><span class="nc-small">The landing view is the claim</span></a>
 <a href="#"><span class="nc-contents-title"><span class="nc-number-slot"><span class="nc-number nc-number-box">02</span></span><span>Public systems measure the night and miss it</span><span class="nc-number-slot"><span class="nc-number nc-page-number">p. 09</span></span></span><span class="nc-small">What's missed stands beside what's measured</span></a>
 </nav>
-<div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · Evidence standard</span><span class="nc-running-foot">v1.5 · 5 Oct 2026 · 07</span></div>
+<div class="nc-foot"><span class="nc-running-foot">Nightlife Culture · Evidence standard</span><span class="nc-running-foot">v1.5.1 · 14 Oct 2026 · 07</span></div>
 <p class="nc-note">Running foot carries the <em>section</em>, not just the document title — so a
 photocopied page knows where it came from. Version and date on the face.</p>
 </div>
@@ -1224,7 +1227,7 @@ line of Inter beneath; the page number is the number role with a p (rounds two t
 &lt;a href=&quot;#&quot; aria-current=&quot;true&quot;&gt;&lt;span class=&quot;nc-contents-title&quot;&gt;&lt;span class=&quot;nc-number-slot&quot;&gt;&lt;span class=&quot;nc-number nc-number-box&quot;&gt;01&lt;/span&gt;&lt;/span&gt;&lt;span&gt;Nightlife is cultural infrastructure&lt;/span&gt;&lt;span class=&quot;nc-number-slot&quot;&gt;&lt;span class=&quot;nc-number nc-page-number&quot;&gt;p. 04&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;nc-small&quot;&gt;The landing view is the claim&lt;/span&gt;&lt;/a&gt;
 &lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;nc-contents-title&quot;&gt;&lt;span class=&quot;nc-number-slot&quot;&gt;&lt;span class=&quot;nc-number nc-number-box&quot;&gt;02&lt;/span&gt;&lt;/span&gt;&lt;span&gt;Public systems measure the night and miss it&lt;/span&gt;&lt;span class=&quot;nc-number-slot&quot;&gt;&lt;span class=&quot;nc-number nc-page-number&quot;&gt;p. 09&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;nc-small&quot;&gt;What&#x27;s missed stands beside what&#x27;s measured&lt;/span&gt;&lt;/a&gt;
 &lt;/nav&gt;
-&lt;div class=&quot;nc-foot&quot;&gt;&lt;span class=&quot;nc-running-foot&quot;&gt;Nightlife Culture · Evidence standard&lt;/span&gt;&lt;span class=&quot;nc-running-foot&quot;&gt;v1.5 · 5 Oct 2026 · 07&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;nc-foot&quot;&gt;&lt;span class=&quot;nc-running-foot&quot;&gt;Nightlife Culture · Evidence standard&lt;/span&gt;&lt;span class=&quot;nc-running-foot&quot;&gt;v1.5.1 · 14 Oct 2026 · 07&lt;/span&gt;&lt;/div&gt;
 &lt;p class=&quot;nc-note&quot;&gt;Running foot carries the &lt;em&gt;section&lt;/em&gt;, not just the document title — so a
 photocopied page knows where it came from. Version and date on the face.&lt;/p&gt;</code></pre><table class="nc-table nc-origin"><thead><tr><th>Class</th><th>Defined in</th><th>Section</th><th>That file is generated by</th></tr></thead><tbody><tr><td><code>.ground-chalk</code></td><td>nightlife-culture.css <span class="at">line 70</span></td><td>1 · GROUNDS</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-contents</code></td><td>nightlife-culture.css <span class="at">line 326</span></td><td>13 · CONTENTS</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-contents--rail</code></td><td>nightlife-culture.css <span class="at">line 331</span></td><td>13 · CONTENTS</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-contents-title</code></td><td>nightlife-culture.css <span class="at">line 98</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-foot</code></td><td>nightlife-culture.css <span class="at">line 142</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-lab</code></td><td>nightlife-culture.css <span class="at">line 132</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-note</code></td><td>nightlife-culture.css <span class="at">line 130</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-number</code></td><td>nightlife-culture.css <span class="at">line 102</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-number-box</code></td><td>nightlife-culture.css <span class="at">line 181</span></td><td>3 · SECTION HEADER</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-number-slot</code></td><td>nightlife-culture.css <span class="at">line 180</span></td><td>3 · SECTION HEADER</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-page-number</code></td><td>nightlife-culture.css <span class="at">line 156</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-running-foot</code></td><td>nightlife-culture.css <span class="at">line 142</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr><tr><td><code>.nc-small</code></td><td>nightlife-culture.css <span class="at">line 130</span></td><td>2b · THE ROLES</td><td>checks/build.py, from foundations/tokens.json</td></tr></tbody></table><p class="nc-note">The markup above was read off the rendered specimen by the build, not written by hand. Every file in the table is generated from foundations/tokens.json — edit a token, rebuild, and this specimen changes. If it does not change, it was not built from the codebase.</p><ul class="nc-flags"><li class="nc-flag nc-flag--amber"><span class="tag">Noted</span><span><code>margin-top</code> — reset to zero in the markup — zero is on every scale</span></li><li class="nc-flag nc-flag--amber"><span class="tag">Noted</span><span><code>margin-top</code> — spacing applied in the markup — on the scale, but no class</span></li><li class="nc-flag nc-flag--amber"><span class="tag">Noted</span><span><code>padding</code> — spacing applied in the markup — on the scale, but no class</span></li></ul></details>
 
@@ -1486,7 +1489,7 @@ style of its level.</p>
 <code>checks/build.py</code> — every text style one of the 26 roles, no hand-authored CSS, no colour chosen at authoring time;
 the build refuses a component that sets its own type. Gated by <code>checks/validate.py</code> against <code>foundations/rules.json</code>.
 Component specs from <code>headers.html</code>, containment v1.3, charts v1.4, slides v1.5, furniture v1.6, <code>joy.html</code>
-and the review rounds of 4–5 October 2026. Rules from Style Guide v1.5 and The Decision Book chapters 1–18, digest
+and the review rounds of 4–5 October 2026. Rules from Style Guide v1.5.1 and The Decision Book chapters 1–18, digest
 <code>8701c5a003db5b0b</code>. Every caps string applied by <code>text-transform</code>; every heading
 a real element on its own level; fonts embedded; reflows at 320px.</p>
 
