@@ -106,7 +106,7 @@ A component never sets type; it carries one of these classes. A heading role sit
 
 ## Language
 
-Night time is two words, never hyphenated: night time economy, Night Time Advisor. British English. Cultural value, not cultural contribution.
+Night time is two words, never hyphenated: night time economy, Night Time Advisor. British English. Cultural value and cultural contribution are not interchangeable; use the one you mean.
 
 ## Retired — never to return
 

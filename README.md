@@ -101,7 +101,8 @@ any new arrangement in `foundations/patterns.json` (details in AGENTS.md).
 1. **Every accent takes ink text. Every ground takes the text colour its own token declares** —
    white on blue and ink, ink on chalk and white. Read the ground off `foundations/tokens.json`.
 2. Accents never encode data — only the four-series chart ramp does.
-3. Caps for display, H1, H2 and labels: always tracked, never below 16pt, eight words maximum.
+3. Caps use named roles and tracking; the 16pt heading floor has named small-role exceptions
+   in NC-TYP-04. Eight words maximum.
 4. Contain with colour and space, not outlines.
 5. Fonts are embedded or self-hosted. Never linked. The wordmark is always the placed SVG.
 6. Half the canvas stays empty. Remove copy before reducing type.
@@ -109,6 +110,21 @@ any new arrangement in `foundations/patterns.json` (details in AGENTS.md).
 ---
 
 ## Contributing
+
+### Using the system with Rowan in local Codex
+
+The maintained local skill is `adapters/skill/local/nightlife-culture-design/`. A personal
+skill-folder link makes it available across projects; the installation on Carly's Mac is
+`/Users/carly/.codex/skills/nightlife-culture-design`. It reads the local repo on each use,
+checks its current guide and source hashes, and routes to the relevant format guidance.
+It does not fetch the remote Git repository or claim that Word and Excel have general templates.
+
+The portable package is a snapshot for environments without repo access. `build.py` generates
+`dist/nightlife-culture-design.skill` and an identical root-level compatibility copy. Its
+`snapshot.json` records all source and bundle hashes, including voice, patterns and reference
+assets. Do not install the portable snapshot alongside the local skill under the same name.
+
+See [the skill review and connection](docs/skill-connection.md) for findings, scope and use.
 
 Changing a token or a rule changes every artefact built from it. So:
 

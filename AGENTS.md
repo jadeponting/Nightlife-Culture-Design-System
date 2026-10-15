@@ -162,7 +162,8 @@ came to publish 12.41 — that is charcoal text on chalk, not white text on char
 
 Archivo Black (display) · Archivo ExtraBold 800 (H1/H2) · Archivo Bold 700 (H3) · Inter 400 (body) ·
 Archivo SemiBold 600 (labels). Caps for display, H1, H2 and labels — **always tracked, never below
-16pt, eight words maximum**. H3 and body are sentence case. Never caps in body, captions, source
+16pt for headings, eight words maximum**. The named small roles are exceptions under
+NC-TYP-04: contents/table titles at 14px, label voice and numbers at 12px. H3 and body are sentence case. Never caps in body, captions, source
 lines, alt text or table cells.
 
 ## Evidence is part of the design

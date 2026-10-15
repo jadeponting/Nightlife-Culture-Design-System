@@ -1,5 +1,17 @@
 # Changelog
 
+## 14 October 2026 — connect the current design system to local Codex
+
+- Added a local `nightlife-culture-design` skill that reads the maintained repo per task,
+  routes across asset formats, checks freshness before handoff and preserves provisional gaps.
+- Added a source-and-bundle manifest to the generated portable skill; source changes are
+  detected independently of version labels. The root download now mirrors the current `dist/`
+  package instead of retaining v1.4.1.
+- Removed duplicated palette/type values from the portable entrypoint. Corrected language
+  summaries from the existing v1.5.1 guide and caps summaries from NC-TYP-04. No visual token
+  values or new brand decisions were introduced.
+- Recorded Word/Excel adapter and inspector limitations in `docs/skill-connection.md`.
+
 ## v1.0 — August 2026
 
 First version of the system as an enforceable repo rather than a written guide.

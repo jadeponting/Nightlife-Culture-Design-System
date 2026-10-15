@@ -1,0 +1,5 @@
+interface:
+  display_name: "Nightlife Culture Design"
+  short_description: "Create branded assets from the current local design repo"
+policy:
+  allow_implicit_invocation: true

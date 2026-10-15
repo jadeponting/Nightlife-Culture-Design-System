@@ -17,6 +17,7 @@ Output: dist/skill/nightlife-culture-design/ and dist/nightlife-culture-design.s
 Stdlib only. If it does not print SKILL OK, the skill was not written.
 """
 import json, re, sys, pathlib, zipfile, shutil, hashlib
+from snapshot import digest as full_digest, source_files
 
 def _digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 
@@ -271,11 +272,24 @@ def main():
 
     if fail:
         print("\n".join("  !! " + f for f in fail)); print("SKILL FAILED"); return 1
+    # Cover the instructions, voice, patterns and assets as well as the HTML stamps.
+    # The local skill checks these hashes even when a source version was not bumped.
+    manifest = {
+        "source": SOURCE,
+        "sourceFiles": source_files(ROOT),
+        "bundleFiles": {str(p.relative_to(OUT)): full_digest(p) for p in sorted(OUT.rglob("*"))
+                        if p.is_file() and p.name != "snapshot.json" and p.suffix != ".pyc"
+                        and "__pycache__" not in p.parts},
+    }
+    (OUT / "snapshot.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # zip
     zp = ROOT / "dist" / "nightlife-culture-design.skill"
     with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
         for p in sorted(OUT.rglob("*")):
-            if p.is_file(): z.write(p, "nightlife-culture-design/" + str(p.relative_to(OUT)))
+            if p.is_file() and p.suffix != ".pyc" and "__pycache__" not in p.parts:
+                z.write(p, "nightlife-culture-design/" + str(p.relative_to(OUT)))
+    # The historical root download remains a generated mirror, never a separate version.
+    shutil.copyfile(zp, ROOT / "nightlife-culture-design.skill")
     print(f"SKILL OK — {zp.relative_to(ROOT)} · {zp.stat().st_size//1024}KB")
     return 0
 

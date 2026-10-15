@@ -225,6 +225,27 @@ name for each; the templates that read them do not exist yet. **Cost:** amber un
 is next produced. **Closes when:** `adapters/word` builds a `.dotx` from `type.roles`, and the
 other two follow.
 
+**Word test, 14 Oct 2026:** a reading copy of the supplied Vibe Map partner-deck content uses
+the current role sizes, native named styles, embedded supplied fonts and the outlined wordmark.
+Slide numbers become Heading 2 sections and their full questions become Heading 3 subsections,
+preserving long source headings in sentence case instead of rewriting them for the caps limit.
+The Title has outline level 1. The masthead/paragraph geometry is a provisional Word adaptation
+of the existing component treatments, marked in the file's footer; it is not an adopted general
+Word template. Source speaker notes and editorial notes remain secondary text, unchanged.
+
+**Excel planning test, 14 Oct 2026:** the existing Vibe Map working plan uses the
+live body, small, Heading 3 and Heading 4 roles, a blue masthead, the supplied
+outlined wordmark and the editorial table treatment. This is a provisional
+adaptation of this workbook, not a general template. Excel cannot apply tracked
+All Caps as a character format or embed these fonts in an ordinary XLSX; preserve
+the original header strings in the sentence voice and use installed Inter and
+Archivo. Those fonts are present on Carly’s Mac; another reader needs them too.
+Timeline duration bars use blue with outlines/dashes for scope and conditional
+states, and ink for recorded history, with a written key; coloured accents remain
+word-labelled status surfaces. Cost: native spreadsheet leading and line weights
+are approximate, and the inspector does not validate typography roles or drawings.
+The work stays editable and does not establish new brand decisions.
+
 ### 20. The library's sample chapter sits inside the page's own outline
 The reference sheet's h1 and h2 are taken by the page, so specimens of heading roles sit on deeper
 elements than the rule allows in a document. `validate.py` exempts headings inside a

@@ -1,7 +1,7 @@
 # Components — documents, panels, tables, stats, controls
 
 Everything here is a class in `assets/nc.css`, which is the design system's own generated stylesheet
-(`foundations/nightlife-culture.css`), not a copy. Wrap a document in `<body class="nc-doc">` and
+(`foundations/nightlife-culture.css`), copied at build time. Wrap a document in `<body class="nc-doc">` and
 `<div class="nc-wrap">`; the masthead is `<header class="nc-mast">`.
 
 ## The one rule for type (v1.5)
@@ -28,8 +28,7 @@ Bold inside a paragraph is rare. **No monospace anywhere** — a file name or li
 `<code class="nc-file-reference">`, a white hairline chip in Inter; figures are Inter with tabular
 figures (`.nc-figure-cell` in a table).
 
-**Night time** is two words, never hyphenated. British English. "Cultural value", not "cultural
-contribution".
+**Night time** is two words, never hyphenated. British English. Cultural value and cultural contribution are not interchangeable; use the one you mean.
 
 ## Section header
 

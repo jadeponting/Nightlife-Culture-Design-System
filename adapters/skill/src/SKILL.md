@@ -1,6 +1,6 @@
 ---
 name: nightlife-culture-design
-description: The Nightlife Culture brand and design system (Style Guide v1.5.1) — colour tokens, the five type voices and 26 named roles, four line weights, layout, containment, breakers, slides, charts, tables, status chips, controls and evidence components, plus voice and editorial rules and what to do when there is no rule. Use this skill whenever producing ANYTHING for Nightlife Culture or Carly Heath: decks, slides, presentations, reports, Word documents, PDFs, HTML pages, charts, graphs, tables, statistics, infographics, proposals, funding bids, briefings, one-pagers, social graphics, or written copy. Also use when asked about brand colours, fonts, the palette, "on brand", the style guide, chart colours, slide layouts, or how something should look. Trigger even when the user does not say "brand" or "design system" — if the output carries the Nightlife Culture name, it must follow this system.
+description: Apply the Nightlife Culture design system to branded documents, spreadsheets, presentations, websites, graphics and copy. Use for Nightlife Culture or Vibe Map assets and brand questions. This portable package is a versioned snapshot; use the live local skill when the design repo is available.
 ---
 
 # Nightlife Culture Design System
@@ -8,8 +8,12 @@ description: The Nightlife Culture brand and design system (Style Guide v1.5.1) 
 A creative policy, research and design studio working across nightlife, music, culture, place and
 the systems that shape them. Founder: Carly Heath.
 
-Everything below is settled. Do not re-derive, re-propose or "improve" the palette, type or layout
-rules unless explicitly asked to change them.
+This package is a generated snapshot of **{{SOURCE}}**. Its `snapshot.json` records the source
+and asset hashes at build time. It cannot check a private repo it cannot access. When the local
+design repo is available, use the local entrypoint and check the current sources before building.
+
+Preserve the settled rules. Known gaps and interim positions below remain provisional; do not
+re-propose the palette, type or layout rules unless explicitly asked to change them.
 
 ---
 
@@ -21,14 +25,15 @@ Get these right and the work is on brand. Get one wrong and it is not.
    {{LAW_DETAIL}}
 2. **Never encode data in the brand accents.** They are separated by hue alone and collapse in
    greyscale. Charts use the four-series ramp only.
-3. **One rule for all type.** Every text style is one of five voices at one of six sizes, and
+3. **One rule for all type.** Every text style uses the named voices, sizes and roles, and
    every one has a name (`references/tokens.md`). A component never sets a typeface, a size, a
    weight or capitals; you pick the role. Capitals are Display, H1, H2, titles in contents and
    tables, and the label voice; H3, H4 and everything in the text voice are sentence case. Heading
    styles sit on their own element, h1 to h4. **There is no H5 or H6.** No monospace anywhere.
 4. **Contain with colour and space, not outlines.** Hard black boxes are retired.
-5. **Embed fonts as base64 in every digital deliverable.** Never link Google Fonts — it fails
-   silently and falls back to a system sans without warning.
+5. **Use the supplied fonts.** Embed `assets/fonts.css` in HTML; Office font delivery follows
+   the format-specific route. Never link a web font service. Report any substitution or missing
+   embedding rather than claiming identical typography.
 6. **Slides come from patterns, not invention.** Build every slide from a pattern in
    `references/slides.md` and look at its reference image first. Statement slides stay mostly
    empty; working slides may carry up to eight short blocks. If it does not fit, it is two slides.
@@ -36,37 +41,12 @@ Get these right and the work is on brand. Get one wrong and it is not.
 
 ---
 
-## Tokens — quick reference
+## Tokens — generated reference
 
-| Token | Hex | Role | Text on it |
-|---|---|---|---|
-| Signal blue | `#0000FF` | Primary ground. Covers, dividers, statements, links | White only · 8.59:1 |
-| Ink | `#0D0D0D` | Night ground + primary text | White only · 19.44:1 |
-| Chalk | `#F3F3F3` | Reading ground — decks and screen | Ink/charcoal · 17.52:1 |
-| White | `#FFFFFF` | Reading ground — reports and print; panels on chalk | Ink/charcoal · 19.44:1 |
-| Charcoal | `#2D2D2D` | Secondary copy, captions, slide titles on light | On light · 12.41:1 |
-| Counter pink | `#ED77C2` | Hot counter-signal, accent bars, left rules | Black only · 7.42:1 |
-| Signal teal | `#53E6E5` | Cool highlight, section headers on dark grounds | Black only · 12.79:1 |
-| Soft violet | `#B98CFF` | Calm surface, blocks, vertical thirds | Black only · 7.64:1 |
-| Butter | `#FFDE6B` | Opportunity, funding, forward motion | Black only · 14.73:1 |
-| Coral | `#FD7B53` | Urgency, risk, lowest provenance tier | Black only · 7.53:1 |
-
-**Chart ramp** (data only): `#0000FF` → `#C7339A` → `#00C6C5` → `#FFDE6B`. Four series maximum.
-
-**Type:** five voices · Display: Archivo Black, capitals, covers only · Capitals: Archivo ExtraBold
-800 (H1 32px, H2 24px, contents and table titles 14px, numbers 12px) · Sentence: Archivo Bold 700
-(H3 18px, H4 16px, takeaway, key statement, button) · Text: Inter 400 (subtitle 18px, body 16px,
-table cells and small 14px; bold 700 for the first column of a table; italic for a short run) ·
-Label: Archivo SemiBold 600, capitals, spaced, 12px. Six sizes and no others: 32 · 24 · 18 · 16 · 14 · 12px
-(24 · 18 · 13.5 · 12 · 10.5 · 10pt).
-
-**Lines:** four weights and no others · hairline 1px · table line 2px · rule 4px (a line that goes
-with text) · callout 8px (a line on a filled box).
-
-**Language:** British English · **night time** is two words, never hyphenated · cultural value and
-cultural contribution are not interchangeable: use the one you mean.
-
-Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE` cream, Aptos.
+Read `references/tokens.md` for the palette, chart ramp, named type roles, line weights and
+language rules. It is generated from `foundations/tokens.json`; values are not repeated here.
+Read the source for the requested surface, including the named small-role exceptions to the
+heading caps floor. Superseded colours and faces are listed in that reference too.
 
 ---
 
@@ -84,7 +64,7 @@ Retired and never to be reintroduced: `#920DFF`, `#F26B43`, `#FFD100`, `#F6F6EE`
 
 **2. Start from the assets, do not rebuild from scratch.**
 - `assets/nc.css` — the design system's own generated stylesheet (`foundations/nightlife-culture.css`),
-  not a copy. Every class in the references is defined here. Use `<body class="nc-doc">`.
+  copied at build time. Every class in the references is defined here. Use `<body class="nc-doc">`.
 - `assets/fonts.css` — Archivo Black, Archivo 600/700/800, Inter 400/500/600/700 as base64
   `@font-face` rules. Inline this into any HTML deliverable.
 - `assets/template.html` — a starter document with fonts, tokens and components already wired.
@@ -111,6 +91,13 @@ or convert DOCX/PDF and read the pages. Do not ship a layout you have not seen.
 - **Word styles are the roles.** The Word column in `references/tokens.md` names the style each role
   becomes: Heading 1–4, Subtitle, Normal, Quote, Intense Quote, Caption, Table style with Header Row
   and First Column, and the new styles Label, Small, Key statement and File reference.
+- **Excel (.xlsx)** when requested. Use current table, colour and evidence rules; preserve
+  formulas, values and number formats. This package has no general Excel template. In the local
+  repo, read `docs/gaps.md` and inspect `adapters/excel/` before reuse: that adapter targets a
+  specific budget workbook and carries an older default size. Do not treat it as the type-role
+  authority.
+- **Word and Excel:** their current adapters are document-specific, not complete templates
+  generated from the roles. A new format-specific choice stays provisional until Carly decides.
 - **PDF** exported from a structured source, never printed to PDF.
 - **PowerPoint** only when the user asks for it. Build the slides in HTML from the patterns in
   `references/slides.md` first, check they fit, then rebuild each slide as **native, editable shapes
